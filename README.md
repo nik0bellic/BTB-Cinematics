@@ -1,8 +1,10 @@
 # BTB Cinematics – Behind The Blocks Cinematic Engine
 
-**Ein Film-Werkzeugkasten für Minecraft 26.3 (Fabric):** Szenen-Timelines, Kamerafahrten, Kino-Effekte, ein Regiepult mit OBS-Anbindung, Replay mit Timeline-Editor und bildgenauer 4K/60-Export. Entstanden für die Minecraft-Filmproduktion „Behind The Blocks“ und als Open Source für alle Machinima-Teams freigegeben.
+**Ein Film-Werkzeugkasten für Minecraft 26.3 (Fabric):** Szenen-Timelines, Kamerafahrten, Kino-Effekte, ein Regiepult mit OBS-Anbindung, Replay mit Timeline-Editor und mehreren Kameras, Storyboard, Dialog mit Untertiteln und bildgenauer 4K/60-Export. Komplett auf **Deutsch oder Englisch**. Entstanden für die Minecraft-Filmproduktion „Behind The Blocks“ und als Open Source für alle Machinima-Teams freigegeben.
 
-*English: A Fabric mod for Minecraft 26.3 that turns the game into a film set: scene timelines, camera paths, cinematic post effects, a recording-safe director console with OBS control, a ReplayMod-style replay editor with camera keyframes, and frame-exact 4K/60 FPS export. The in-game UI is available in German and English (`/btb language en`); the docs are in German.*
+*English: A Fabric mod for Minecraft 26.3 that turns the game into a film set: scene timelines, camera paths, cinematic post effects, a recording-safe director console with OBS control, a ReplayMod-style replay editor with multicam, storyboard, dialog with subtitles (.srt), crowds of extras, shot templates, undo and automatic versions, and frame-exact 4K/60 FPS export. The whole mod is available in German and English (`/btb language en`, or per player automatically); the docs are in German.*
+
+**Neu:** Sprache Deutsch/Englisch, neues Regiepult (kompakt oder alle Tabs), Rückgängig, Storyboard, Multicam, Dialog & Untertitel, Gruppen, Vorlagen, Projekt-Export → [Update Notes](UPDATE_NOTES.md)
 
 ![Replay-Editor](docs/screenshots/runde12_replay_editor.png)
 
@@ -18,14 +20,26 @@
 
 ## Was die Mod kann
 
+**Bedienen**
+- **Regiepult (F7)** mit zwei Ansichten: **kompakt** (8 Tabs nach Aufgabe mit Unterseiten) oder **alle Tabs** wie früher. Suche (Strg+F), Statuszeile mit „Alles stoppen“, Rückmeldung nach jedem Klick, Einsteiger-/Profi-Ansicht, Assistenten Schritt für Schritt
+- **↶ Rückgängig (Strg+Z)** und **automatische Versionen** jeder gespeicherten Datei; verständliche Fehlermeldungen mit „meintest du …?“
+- **Deutsch oder Englisch** für alles: Server-Einstellung `config/btb_cinematic/settings.json` oder `/btb sprache auto|de|en` („auto“ = Minecraft-Sprache jedes Spielers)
+- **Projekt-Export/-Import** als eine zip-Datei
+
 **Drehen**
 - **Szenen-Timelines** mit Kamera, Effekten, Texten, Sounds, Spawns und Einstürzen, sekundengenau und auf den Beat; Szenen ab Sekunde X starten
 - **Kameras:** Kamerafahrten abfliegen und aufnehmen, Orbit, Verfolger, Auto-Regie, Handkamera, Dolly-Zoom, Ego-/Bodycam, Sicht-Schnitt, Stabilisator, Schärfe pro Kamerapunkt
-- **Regiepult (F7)** mit Cue-Liste, Numpad-Tasten, Clean Feed (F8) und **OBS-Steuerung**: Das Menü pausiert die Aufnahme, damit es nie im Bild landet; Bild-im-Bild aus der Sicht eines Darstellers
+- **Baukasten** mit Zeitleiste (Schritte per Maus verschieben), **Kamerapfade** live als Linie in der Welt, Punkt-Editor und Draufsicht
+- **Storyboard**: Shots mit Bild, Notiz und Länge, Shot für Shot abhaken
+- **Vorlagen**: Establishing, Verfolgung, Schuss-Gegenschuss, Enthüllung, Helden-Shot, Überflug, Auto-Regie
+- **Dialog & Untertitel** (Deutsch + Englisch, `.srt`-Export), Statisten bewegen beim Sprechen Kopf und Arme
+- **Statisten-Gruppen**, die gemeinsam laufen, fliehen, jubeln; **Rollen** (Regie, Kamera, Darsteller) mit Souffleur „In 3 … 2 … 1“
+- Cue-Liste, Numpad-Tasten, Clean Feed (F8) und **OBS-Steuerung**: Das Menü pausiert die Aufnahme, damit es nie im Bild landet; Bild-im-Bild aus der Sicht eines Darstellers
 
 **Replay und Export**
 - **Replay:** einen Take einmal spielen und danach beliebig oft aus jedem Winkel filmen. Puppen mit den Skins der Darsteller, Kreaturen, Szenen und Einstürze werden mit aufgezeichnet
-- **Replay-Editor (F6)** im Stil von ReplayMod: Timeline zum Spulen, Play/Pause, Tempo ¼×–4×, Kamera-Keyframes (Fahrt, Schnitt, Fahrt+Blick, Frei), FOV und Neigung pro Keyframe, In/Out-Bereich
+- **Replay-Editor (F6)** im Stil von ReplayMod: Timeline zum Spulen, Play/Pause, Tempo ¼×–4×, Kamera-Keyframes (Fahrt, Schnitt, Fahrt+Blick, Frei), FOV und Neigung pro Keyframe, In/Out-Bereich, **Kameras A–D mit Schnitten (Multicam)**
+- Replays komplett im Menü: aufnehmen, abspielen, Editor, Export der ganzen Länge in 1080p/4K
 - **Bildgenauer Export:** Das Spiel friert ein und rendert Bild für Bild in 1080p, 1440p oder 4K mit 24, 30 oder 60 FPS. Am Ende baut ffmpeg die MP4, ohne Ruckler und unabhängig davon, wie schnell der PC ist
 - Doubles, Statisten mit Gesten, Probe-Modus, Countdown für Darsteller
 
@@ -37,11 +51,13 @@
 **Welt**
 - Reproduzierbare Zerstörung: Lava bricht aus Wänden, Decken stürzen mit Vorwarnung ein, ganze Türme fallen, Kettenreaktionen, glimmende Trümmer; danach alles per Befehl zurücksetzen
 - Portale in beliebiger Form, einzeln verbindbar
+- Tageszeit und Wetter als weicher Übergang (Oberwelt)
 - Eigene Kreaturen mit Animationen (Herzwächter mit drei Kampfphasen, Glutling, Aschekriecher, Seelenwisp, abstürzender Ghast), Atmosphäre-Blöcke (Glutkessel, Lichtsäulen, Nebel, Kristalle, Runen), Wetter, Blutmond, Wind
 - Komplettes Nether-Film-Set zum Storyboard, auch in einzelnen Teilen setzbar und an eigene Bauten anpassbar
 
 | | |
 |---|---|
+| ![Regiepult kompakt](docs/screenshots/runde13_regiepult_kompakt.png) | ![Director in English](docs/screenshots/runde13_director_english_kamerapfade.png) |
 | ![Wächter](docs/screenshots/runde10_01_waechter_phase1_schlag_risse.png) | ![LUT-Looks](docs/screenshots/runde10_03_lut_looks.png) |
 | ![Tiefenschärfe](docs/screenshots/runde8_01_tiefenschaerfe_mit_shader.png) | ![Herz-Enthüllung](docs/screenshots/runde5_07_herz_enthuellung_waechter_steigt_auf.png) |
 | ![Replay-Puppen](docs/screenshots/runde11_01_replay_puppen.png) | ![Keyframe-Fahrt](docs/screenshots/runde12_keyframe_fahrt.png) |
@@ -62,7 +78,9 @@
 ```
 /btb film setup                      baut das Nether-Film-Set um deine Position
 /btb scene start film_vorschau       Rundgang durch alle Abschnitte (ca. 100 s)
-/btb director                        Regiepult (oder F7)
+/btb director                        Regiepult (oder F7) – Start → Assistenten führen durch alles
+/btb vorlage establishing            fertiger Kamera-Shot auf den nächsten Darsteller
+/btb sprache en                      alles auf Englisch (de / auto)
 /btb replay record take              Take aufnehmen … /btb replay stop
 /btb replay editor take              Replay-Editor (oder F6)
 /btb resetall                        alles zurücksetzen
@@ -74,6 +92,7 @@ Replay-Editor in Kurzform: Panel mit **Esc** schließen und frei fliegen, **K** 
 
 ## Dokumentation
 
+- [UPDATE_NOTES.md](UPDATE_NOTES.md) – was neu ist
 - [docs/TUTORIAL.md](docs/TUTORIAL.md) – Schritt-für-Schritt-Anleitung (Kapitel 11h: Replay-Editor)
 - [docs/STORY.md](docs/STORY.md) – Storyboard → welches Werkzeug für welchen Moment
 - [docs/COMMANDS.md](docs/COMMANDS.md) – alle Befehle
@@ -95,9 +114,9 @@ cd btb-cinematics
 ```
 
 Projektaufbau:
-- `src/main` – Server und gemeinsamer Code: Szenen, Kamera, Effekte, HUD, Sound, Portale, Zerstörung, Replay, Film-Set
+- `src/main` – Server und gemeinsamer Code: Szenen, Kamera, Effekte, HUD, Sound, Portale, Zerstörung, Replay, Film-Set, Studio (Rückgängig, Vorlagen, Dialog, Gruppen, Projekte), Übersetzung
 - `src/client` – Rendering, Shader-Effekte, Regiepult, Replay-Editor, OBS-Anbindung, Export
-- `tools/` – Python-Skripte, die Modelle, Texturen und Sounds erzeugen
+- `tools/` – Python-Skripte, die Modelle, Texturen und Sounds erzeugen; `tools/i18n*` baut die Übersetzungen (`assets/btb_cinematic/i18n.json`)
 - `docs/` – Anleitungen und Screenshots
 
 ## Mitmachen
