@@ -125,7 +125,7 @@ Issues und Pull Requests sind willkommen: Fehlerberichte (mit Minecraft-, Fabric
 
 ## Lizenz
 
-- **Code und eigene Assets:** [MIT](LICENSE). Alle Texturen, Modelle und Sounds sind selbst erzeugt (`tools/`) und können per Resource Pack ersetzt werden.
+- **Code und eigene Assets:** [GNU Lesser General Public License v3.0 only (LGPL-3.0-only)](LICENSE) (siehe auch [NOTICE](NOTICE)). Alle Texturen, Modelle und Sounds sind selbst erzeugt (`tools/`) und können per Resource Pack ersetzt werden.
 - **Schrift Cinzel:** SIL Open Font License 1.1 ([Lizenztext](src/main/resources/licenses/cinzel_OFL.txt)).
 - **Abhängigkeiten** (nicht enthalten, separat installieren): Fabric API (Apache 2.0), GeckoLib (MIT).
 
