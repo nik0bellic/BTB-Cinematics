@@ -74,6 +74,16 @@ public final class ReplayEditor {
 	static JsonObject header;
 	static final List<Keyframe> KEYS = new ArrayList<>();
 	static int selected = -1;
+	// multicam: up to four cameras (A–D) with their own keyframes; the one being edited lives in KEYS.
+	// Cuts decide which camera the film shows from when on (no cuts: the camera being edited).
+	static final String[] CAM_NAMES = {"A", "B", "C", "D"};
+	static final List<List<Keyframe>> CAMS = new ArrayList<>();
+	static int activeCam;
+
+	public record Cut(double t, int cam) {
+	}
+
+	static final List<Cut> CUTS = new ArrayList<>();
 	/** true: the camera flies the keyframe path; false: free flight to look for angles. */
 	static boolean cameraOn;
 	static double in, out = -1;
@@ -189,6 +199,12 @@ public final class ReplayEditor {
 			note("Replay „" + take + "“ ist beschädigt oder nicht lesbar (config/btb_cinematic/replays/" + take + ".replay)", true);
 		}
 		KEYS.clear();
+		CAMS.clear();
+		CUTS.clear();
+		activeCam = 0;
+		for (int c = 0; c < CAM_NAMES.length; c++) {
+			CAMS.add(new ArrayList<>());
+		}
 		selected = -1;
 		in = 0;
 		out = -1;
@@ -197,20 +213,26 @@ public final class ReplayEditor {
 		if (Files.exists(f)) {
 			try {
 				JsonObject o = JsonParser.parseString(Files.readString(f, StandardCharsets.UTF_8)).getAsJsonObject();
-				for (var el : o.getAsJsonArray("keyframes")) {
-					JsonObject k = el.getAsJsonObject();
-					Keyframe kf = new Keyframe();
-					kf.t = k.get("t").getAsDouble();
-					kf.x = k.get("x").getAsDouble();
-					kf.y = k.get("y").getAsDouble();
-					kf.z = k.get("z").getAsDouble();
-					kf.yaw = k.get("yaw").getAsFloat();
-					kf.pitch = k.get("pitch").getAsFloat();
-					kf.roll = k.has("roll") ? k.get("roll").getAsFloat() : 0;
-					kf.fov = k.has("fov") ? k.get("fov").getAsFloat() : 0;
-					kf.mode = Mode.valueOf(k.has("mode") ? k.get("mode").getAsString() : "PATH");
-					KEYS.add(kf);
+				if (o.has("cameras")) {
+					JsonArray cams = o.getAsJsonArray("cameras");
+					for (int c = 0; c < Math.min(cams.size(), CAM_NAMES.length); c++) {
+						for (var el : cams.get(c).getAsJsonArray()) {
+							CAMS.get(c).add(fromJson(el.getAsJsonObject()));
+						}
+					}
+				} else {
+					for (var el : o.getAsJsonArray("keyframes")) {
+						CAMS.get(0).add(fromJson(el.getAsJsonObject()));
+					}
 				}
+				if (o.has("cuts")) {
+					for (var el : o.getAsJsonArray("cuts")) {
+						JsonObject c = el.getAsJsonObject();
+						CUTS.add(new Cut(c.get("t").getAsDouble(), c.get("cam").getAsInt()));
+					}
+				}
+				KEYS.addAll(CAMS.get(0));
+				CAMS.get(0).sort(Comparator.comparingDouble(k -> k.t));
 				in = o.has("in") ? o.get("in").getAsDouble() : 0;
 				out = o.has("out") ? o.get("out").getAsDouble() : -1;
 				if (o.has("export_name")) {
@@ -226,13 +248,23 @@ public final class ReplayEditor {
 		sort();
 	}
 
-	static void save() {
-		if (name == null) {
-			return;
-		}
-		JsonObject o = new JsonObject();
+	private static Keyframe fromJson(JsonObject k) {
+		Keyframe kf = new Keyframe();
+		kf.t = k.get("t").getAsDouble();
+		kf.x = k.get("x").getAsDouble();
+		kf.y = k.get("y").getAsDouble();
+		kf.z = k.get("z").getAsDouble();
+		kf.yaw = k.get("yaw").getAsFloat();
+		kf.pitch = k.get("pitch").getAsFloat();
+		kf.roll = k.has("roll") ? k.get("roll").getAsFloat() : 0;
+		kf.fov = k.has("fov") ? k.get("fov").getAsFloat() : 0;
+		kf.mode = Mode.valueOf(k.has("mode") ? k.get("mode").getAsString() : "PATH");
+		return kf;
+	}
+
+	private static JsonArray toJson(List<Keyframe> keys) {
 		JsonArray arr = new JsonArray();
-		for (Keyframe k : KEYS) {
+		for (Keyframe k : keys) {
 			JsonObject j = new JsonObject();
 			j.addProperty("t", Math.round(k.t * 100) / 100.0);
 			j.addProperty("x", k.x);
@@ -245,7 +277,72 @@ public final class ReplayEditor {
 			j.addProperty("mode", k.mode.name());
 			arr.add(j);
 		}
-		o.add("keyframes", arr);
+		return arr;
+	}
+
+	/** Keyframes of a camera (the edited one is the live list). */
+	static List<Keyframe> keysOf(int cam) {
+		return cam == activeCam ? KEYS : cam >= 0 && cam < CAMS.size() ? CAMS.get(cam) : List.of();
+	}
+
+	/** Edit another camera (A–D). */
+	static void switchCam(int cam) {
+		while (CAMS.size() < CAM_NAMES.length) {
+			CAMS.add(new ArrayList<>());
+		}
+		CAMS.set(activeCam, new ArrayList<>(KEYS));
+		KEYS.clear();
+		KEYS.addAll(CAMS.get(cam));
+		activeCam = cam;
+		selected = -1;
+		save();
+	}
+
+	/** Cut to the edited camera at this moment (replaces a cut at the same moment). */
+	static void cutHere(double t) {
+		CUTS.removeIf(c -> Math.abs(c.t - t) < 0.05);
+		CUTS.add(new Cut(Math.round(t * 100) / 100.0, activeCam));
+		CUTS.sort(Comparator.comparingDouble(Cut::t));
+		save();
+	}
+
+	/** Which camera the film shows at moment t. */
+	static int camAt(double t) {
+		if (CUTS.isEmpty()) {
+			return activeCam;
+		}
+		int cam = CUTS.get(0).cam;
+		for (Cut c : CUTS) {
+			if (c.t <= t + 1e-6) {
+				cam = c.cam;
+			}
+		}
+		return cam;
+	}
+
+	static void save() {
+		if (name == null) {
+			return;
+		}
+		JsonObject o = new JsonObject();
+		while (CAMS.size() < CAM_NAMES.length) {
+			CAMS.add(new ArrayList<>());
+		}
+		CAMS.set(activeCam, new ArrayList<>(KEYS));
+		JsonArray cams = new JsonArray();
+		for (List<Keyframe> c : CAMS) {
+			cams.add(toJson(c));
+		}
+		o.add("keyframes", toJson(CAMS.get(0))); // older versions read camera A
+		o.add("cameras", cams);
+		JsonArray cuts = new JsonArray();
+		for (Cut c : CUTS) {
+			JsonObject j = new JsonObject();
+			j.addProperty("t", c.t);
+			j.addProperty("cam", c.cam);
+			cuts.add(j);
+		}
+		o.add("cuts", cuts);
 		o.addProperty("in", in);
 		o.addProperty("out", out);
 		o.addProperty("export_name", exportName);
@@ -340,7 +437,7 @@ public final class ReplayEditor {
 		selected = KEYS.indexOf(k);
 		sort();
 		save();
-		mc.gui.hud.setOverlayMessage(Component.literal(String.format(Locale.ROOT, "◆ Keyframe %d bei %s", selected + 1, clock(t))), false);
+		mc.gui.hud.setOverlayMessage(de.behindtheblocks.cinematic.client.i18n.ClientI18n.c(String.format(Locale.ROOT, "◆ Keyframe %d bei %s", selected + 1, clock(t))), false);
 	}
 
 	static void takeView(Keyframe k) {
@@ -369,19 +466,28 @@ public final class ReplayEditor {
 
 	/** Camera for this frame from the keyframes, or null (free flight / nothing set). */
 	public static CameraPose pose(float partial) {
-		if (name == null || !cameraOn || KEYS.isEmpty() || !name.equals(ReplayManager.current())) {
+		if (name == null || !cameraOn || !name.equals(ReplayManager.current())) {
 			return null;
 		}
 		double t = time(partial);
-		int i = indexBefore(t);
-		if (i < 0) {
-			return toPose(KEYS.get(0));
+		List<Keyframe> K = keysOf(camAt(t));
+		if (K.isEmpty()) {
+			return null;
 		}
-		Keyframe a = KEYS.get(i);
-		if (i == KEYS.size() - 1) {
+		int i = -1;
+		for (int j = 0; j < K.size(); j++) {
+			if (K.get(j).t <= t) {
+				i = j;
+			}
+		}
+		if (i < 0) {
+			return toPose(K.get(0));
+		}
+		Keyframe a = K.get(i);
+		if (i == K.size() - 1) {
 			return a.mode == Mode.FREE ? null : toPose(a);
 		}
-		Keyframe b = KEYS.get(i + 1);
+		Keyframe b = K.get(i + 1);
 		switch (a.mode) {
 			case FREE:
 				return null;
@@ -390,7 +496,7 @@ public final class ReplayEditor {
 			default:
 				break;
 		}
-		Keyframe p0 = i > 0 ? KEYS.get(i - 1) : a, p3 = i + 2 < KEYS.size() ? KEYS.get(i + 2) : b;
+		Keyframe p0 = i > 0 ? K.get(i - 1) : a, p3 = i + 2 < K.size() ? K.get(i + 2) : b;
 		double u = b.t > a.t ? (t - a.t) / (b.t - a.t) : 1;
 		u = Math.max(0, Math.min(1, u));
 		double x = cr(p0.x, a.x, b.x, p3.x, u), y = cr(p0.y, a.y, b.y, p3.y, u), z = cr(p0.z, a.z, b.z, p3.z, u);
@@ -522,7 +628,7 @@ public final class ReplayEditor {
 		while (camKey.consumeClick()) {
 			if (on) {
 				cameraOn = !cameraOn;
-				mc.gui.hud.setOverlayMessage(Component.literal(cameraOn ? "◆ Kamera fährt die Keyframes" : "✈ Freie Kamera – Blickwinkel suchen, K setzt Keyframe"), false);
+				mc.gui.hud.setOverlayMessage(de.behindtheblocks.cinematic.client.i18n.ClientI18n.c(cameraOn ? "◆ Kamera fährt die Keyframes" : "✈ Freie Kamera – Blickwinkel suchen, K setzt Keyframe"), false);
 			}
 		}
 		// the take was stopped from elsewhere: end the session quietly
@@ -561,13 +667,13 @@ public final class ReplayEditor {
 		int px = x0 + (int) ((x1 - x0) * t / len);
 		g.fill(px, y - 4, px + 1, y + 8, 0xFFFFFFFF);
 		String state = !name.equals(ReplayManager.current()) ? "■" : ReplayManager.isPaused() ? "⏸" : "▶";
-		g.text(font, state + " " + name + "  " + clock(t) + " / " + clock(len) + "  " + (cameraOn ? "◆ Keyframes" : "✈ frei"), x0, y - 12, 0xFFFFE0C0, true);
+		g.text(font, de.behindtheblocks.cinematic.client.i18n.ClientI18n.t(state + " " + name + "  " + clock(t) + " / " + clock(len) + "  " + (cameraOn ? "◆ Keyframes" : "✈ frei")), x0, y - 12, 0xFFFFE0C0, true);
 		String help = "K Keyframe · ↑ Play/Pause · ←/→ 1 s · J Kamera · F6 Editor";
 		String st = currentStatus();
 		if (st != null) {
-			g.text(font, font.plainSubstrByWidth(st, x1 - x0), x0, y - 23, statusError ? 0xFFFF5050 : 0xFFAAFFAA, true);
+			g.text(font, de.behindtheblocks.cinematic.client.i18n.ClientI18n.t(font.plainSubstrByWidth(de.behindtheblocks.cinematic.client.i18n.ClientI18n.t(st), x1 - x0)), x0, y - 23, statusError ? 0xFFFF5050 : 0xFFAAFFAA, true);
 		} else {
-			g.text(font, font.plainSubstrByWidth(help, x1 - x0), x0, y - 23, 0xFFAAAAAA, false);
+			g.text(font, de.behindtheblocks.cinematic.client.i18n.ClientI18n.t(font.plainSubstrByWidth(de.behindtheblocks.cinematic.client.i18n.ClientI18n.t(help), x1 - x0)), x0, y - 23, 0xFFAAAAAA, false);
 		}
 	}
 
@@ -580,7 +686,7 @@ public final class ReplayEditor {
 		note(text, true);
 		Minecraft mc = Minecraft.getInstance();
 		if (mc.player != null) {
-			mc.player.sendSystemMessage(Component.literal("[BTB Replay] " + text));
+			mc.player.sendSystemMessage(de.behindtheblocks.cinematic.client.i18n.ClientI18n.c("[BTB Replay] " + text));
 		}
 	}
 }

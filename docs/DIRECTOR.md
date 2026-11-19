@@ -7,8 +7,17 @@ landen. Dafür gibt es drei Werkzeuge, die sich kombinieren lassen.
 
 ## 1. Regiepult (F7 / `/btb director`)
 
-Dreizehn Reiter: **Szenen, Baukasten, Kamera, Effekte, HUD, Credits, Sound, Showcase, Portale, Zerstörung,
-Action, Spieler, Aufnahme**. Jeder Knopf schickt einen normalen `/btb`-Befehl (Operator-Rechte nötig).
+**Zwei Ansichten** (unten umschaltbar, wird gemerkt):
+- **Tabs: kompakt** – acht Tabs nach Aufgabe, mit Unterseiten oben: **Start** (Übersicht, Assistenten,
+  Vorlagen) · **Szenen** (Szenen, Baukasten, Storyboard, Dialog) · **Kamera** (Kamera, Kamerapfade) ·
+  **Bild & Ton** (Effekte, Texte, Ton) · **Welt** (Action, Gruppen, Zeit & Wetter, Portale, Zerstörung,
+  Showcase) · **Replay** · **Credits** · **Einstellungen** (Crew & Rollen, OBS & Tasten, Projekt & Versionen).
+- **Tabs: alle** – jede Unterseite als eigener Tab links (wie früher); zu viele für das Fenster → ▲/▼ bzw. Mausrad.
+
+Außerdem: **Suchfeld** oben (Strg+F, sucht in allen Bereichen) · **■ Alles stoppen** · eine **Statuszeile**
+(was gerade läuft) · nach jedem Klick ein kurzer **Hinweis** (grün = ok, rot = Fehler) · **↶ Rückgängig**
+(Strg+Z) · **Einsteiger/Profi** (Einsteiger blendet Feinheiten aus) · Tooltips in Klartext, den Befehl
+zeigt Shift. Klicks führen **sofort** aus; der **🎬 Dreh-Modus** sammelt sie bis zum Schließen (farbiger Rahmen). Jeder Knopf schickt einen normalen `/btb`-Befehl (Operator-Rechte nötig).
 **Nichts davon braucht Dateien**: Eingaben macht ihr in den Textfeldern des Regiepults.
 
 - **Baukasten:** Szene wählen/anlegen, **● Live aufnehmen**, Schritt bei Sekunde X hinzufügen, Liste aller
@@ -22,13 +31,14 @@ Action, Spieler, Aufnahme**. Jeder Knopf schickt einen normalen `/btb`-Befehl (O
 - **✎ Eingabe ▴/▾:** Eingabefelder ausblenden, wenn das Fenster klein ist (z. B. GUI-Größe „Auto" bei 1080p).
 
 - **Szenen:** start/pause/resume/stop/reset jeder Szene, Live-Zustand.
-- **Kamera:** gespeicherte Pfade abspielen, Orbit, Follow (side/behind/top), Pfad aufnehmen, Shake, Zoom, Perspektive.
+- **Kamera:** Kamera stoppen (für mich / für alle), Orbit (um Darsteller oder um mich), Verfolger (Seite/Hinten/Oben/Fest), Auto-Regie, Pfad aufnehmen, neuer Pfad; pro Pfad: ▶ ich, ▶ alle, ■ Stopp, ⌖ zum Startpunkt, + Punkt, ⓘ, ✕ Löschen (zweimal klicken). Dazu Zoom, Perspektive, Handkamera, Dolly-Zoom.
 - **Effekte:** Blenden, Blitz, Vignette, Blur, Letterbox, Übergänge, Lens Flare.
 - **HUD:** Text eintippen, Sekunden, Stil anklicken (Titel, Boss, Buch, Wabernd …); als Vorlage speichern.
 - **Credits:** Liste wählen, Rolle/Name/Icon/Link eintippen, „+ Eintrag", ✕ zum Löschen; neue Vorspann-/Abspann-/Endkarten-Listen.
 - **Portale / Zerstörung:** aktivieren, schließen, Stil, auslösen, wiederherstellen.
 - **Action:** Gegnerwellen, Trigger, Jump'n'Run starten/stoppen, Ambiente.
-- **Aufnahme:** OBS-Verbindung (Host, Port, Passwort) eintragen, Clean Feed, OBS start/stop/pause,
+- **Aufnahme:** **Replays**: Namen eintippen → „● Aufnehmen“ / „■ Stopp“; jedes gespeicherte Replay mit Länge und ▶ Abspielen, ✂ Editor, Export 1080p/4K (ganze Länge automatisch), ✕ Löschen (zweimal klicken). Läuft eine Aufnahme oder ein Replay, steht oben eine Zeile mit Stopp/Pause.
+  OBS-Verbindung (Host, Port, Passwort) eintragen, Clean Feed, OBS start/stop/pause,
   Cue-Liste bearbeiten (+ Cue, ↑ ↓, ✕, „Ab hier").
 
 ## 2. Clean Feed (F8)

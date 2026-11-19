@@ -11,7 +11,7 @@ import net.minecraft.network.codec.StreamCodec;
  */
 public record ClientCue(String type, String data) {
 	public static final int MAX_TYPE_LENGTH = 64;
-	public static final int MAX_DATA_LENGTH = 16_384;
+	public static final int MAX_DATA_LENGTH = 262_144; // director state with a full film set is ~30 kB; packets may be up to 1 MB
 
 	public static final StreamCodec<ByteBuf, ClientCue> STREAM_CODEC = StreamCodec.composite(
 			ByteBufCodecs.stringUtf8(MAX_TYPE_LENGTH), ClientCue::type,

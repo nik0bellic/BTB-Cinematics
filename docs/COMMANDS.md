@@ -245,6 +245,7 @@ Nummernblock * halten = Cue-Monitor mit Tastenbelegung zeigen (sonst unsichtbar;
 | Befehl | Wirkung |
 |---|---|
 | `/btb replay record <name>` · `stop` · `play <name> [from <sek>]` · `list` · `delete` | Replay-Dreh |
+| `/btb replay export <name> [4k\|1440p\|1080p] [fps]` | ganzes Replay exportieren, Länge kommt aus der Datei (Standard 1080p, 60 FPS) |
 | `/btb hud credits <id> edit <nr> Rolle \| Name \| icon \| link` · `move <nr> up\|down` · `tempo <x>` | Credits ändern, verschieben, Tempo (Abspann: Scrolltempo, Vorspann: Sekunden pro Eintrag) |
 | `/btb effects <grain\|haze\|vignette\|blur\|letterbox\|anamorph\|flashback> <stärke> <einblenden> [dauer]` · `tint <farbe> <alpha> <sek> [dauer]` · `lut <look> <stärke> <sek> [dauer]` · `dof <blöcke\|auto> <stärke> <sek> [dauer]` · `format <verhältnis> <sek> [dauer]` | Mit **dauer** endet der Effekt nach so vielen Sekunden von selbst (blendet so lange aus, wie er eingeblendet hat). Ohne dauer bleibt er bis `… off` / Szenenende |
 | `/btb film trailer` · `film trailer export [4k\|1440p\|1080p] [fps]` | Trailer (2:05) zum Song `config/btb_cinematic/music/trailer.*` ansehen / mit Ton exportieren |
@@ -254,3 +255,32 @@ Nummernblock * halten = Cue-Monitor mit Tastenbelegung zeigen (sonst unsichtbar;
 | `/btb export <name> <sek> [4k\|1440p\|1080p] [fps] [replay]` · `export stop` | bildgenauer Film-Export (PNG + MP4 mit ffmpeg) |
 | `/btb double record <name>` · `double <name> <spieler>` · `double stop` | Doubles |
 | `/btb statist <name> [pos]` · `statist clear` · `/btb geste <ziel> <geste> [sek]` | Statisten und Gesten |
+
+## Sprache / Language
+| Befehl | Wirkung |
+|---|---|
+| `/btb sprache` · `/btb language` | zeigt die aktuelle Einstellung |
+| `/btb sprache <auto\|de\|en>` | `auto`: jeder Spieler sieht die Mod in seiner Minecraft-Sprache (Deutsch → Deutsch, sonst Englisch). `de`/`en`: für alle fest. Wird in `config/btb_cinematic/settings.json` gespeichert und sofort an alle Spieler geschickt. |
+
+## Studio (neu)
+| Befehl | Wirkung |
+|---|---|
+| `/btb stop` | alles stoppen, was läuft (Szenen, Kamera, Effekte, Zeitlupe, Ton, Dialog) – das Set bleibt |
+| `/btb undo` · `/btb rueckgaengig` | letzte Änderung an Szenen, Pfaden, Texten, Credits, Dialogen … zurücknehmen |
+| `/btb versionen [datei]` · `/btb versionen <datei> wiederherstellen "<version>"` | automatische Versionen (`config/btb_cinematic/.versionen`, je Datei die letzten 25) |
+| `/btb projekt export <name>` · `import <name>` · `liste` | ganzes Projekt als zip (`config/btb_cinematic/projekte`) – ohne OBS-Passwort |
+| `/btb vorlage <name> [darsteller] [szene]` | fertige Shots: establishing, verfolgung, dialog, enthuellung, heldenshot, ueberflug, auto. Mit `szene` nur anlegen |
+| `/btb welt zeit <morgen\|mittag\|abend\|nacht\|0–24000> [sekunden]` | Tageszeit, mit Sekunden als weicher Übergang (nur Oberwelt) |
+| `/btb welt wetter <klar\|regen\|gewitter>` | Wetter (nur Oberwelt) |
+| `/btb gruppe <name> spawn <typ> <anzahl> [radius]` | Statisten-Gruppe (kämpfen nicht, bewegen sich nur auf Kommando) |
+| `/btb gruppe <name> laufen <pos> [tempo]` · `fliehen` · `jubeln [s]` · `schauen <pos>` · `stehen` · `weg` | die ganze Gruppe auf einmal |
+| `/btb dialog <id> add <sek> <dauer> Sprecher \| Deutsch \| English` | Dialogzeile; Sprecher = Name eines Statisten → bewegt Kopf/Arme beim Sprechen |
+| `/btb dialog <id> play` · `srt` · `shift <nr> <s>` · `remove <nr>` · `clear` · `delete` · `/btb dialog stop` | abspielen (jeder in seiner Sprache), `.srt` für den Schnitt (`btb_export/`) |
+| `/btb rolle <spieler> <regie\|kamera\|darsteller\|aus>` | Rollen; „kamera“ = Tag `kamera` (Kamerafahrten laufen dort) |
+| `/btb hinweis <spieler\|darsteller> <vorlauf> <text>` | Souffleur: „In 3 … 2 … 1: Text“ bei den Darstellern |
+| `/btb camera preview <pfad> an` · `/btb camera preview off` | Pfad als Linie in der Welt, live (Änderungen sofort sichtbar) |
+| `/btb scene play <id>` | wie `restart` |
+
+Tippfehler: Die Mod sagt jetzt, was fehlt oder falsch ist, und schlägt das nächstliegende Wort vor („meintest du …?“).
+
+Replay-Editor: **Kamera A–D** (jede mit eigenen Keyframes) und **✂ → A** (Schnitt an der Abspielposition). Die Schnitte erscheinen als farbiges Band über der Zeitleiste.

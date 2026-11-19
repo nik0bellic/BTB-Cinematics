@@ -213,6 +213,7 @@ public final class AmbienceManager implements CinematicModule, CommandContributo
 		definitions.put(id, json);
 		try {
 			Files.createDirectories(directory());
+			de.behindtheblocks.cinematic.studio.Versions.before(directory().resolve(id + ".json"));
 			Files.writeString(directory().resolve(id + ".json"), new GsonBuilder().setPrettyPrinting().create().toJson(json),
 					StandardCharsets.UTF_8);
 		} catch (IOException e) {

@@ -2,7 +2,7 @@
 
 **Ein Film-Werkzeugkasten für Minecraft 26.3 (Fabric):** Szenen-Timelines, Kamerafahrten, Kino-Effekte, ein Regiepult mit OBS-Anbindung, Replay mit Timeline-Editor und bildgenauer 4K/60-Export. Entstanden für die Minecraft-Filmproduktion „Behind The Blocks“ und als Open Source für alle Machinima-Teams freigegeben.
 
-*English: A Fabric mod for Minecraft 26.3 that turns the game into a film set: scene timelines, camera paths, cinematic post effects, a recording-safe director console with OBS control, a ReplayMod-style replay editor with camera keyframes, and frame-exact 4K/60 FPS export. The in-game UI and docs are in German.*
+*English: A Fabric mod for Minecraft 26.3 that turns the game into a film set: scene timelines, camera paths, cinematic post effects, a recording-safe director console with OBS control, a ReplayMod-style replay editor with camera keyframes, and frame-exact 4K/60 FPS export. The in-game UI is available in German and English (`/btb language en`); the docs are in German.*
 
 ![Replay-Editor](docs/screenshots/runde12_replay_editor.png)
 

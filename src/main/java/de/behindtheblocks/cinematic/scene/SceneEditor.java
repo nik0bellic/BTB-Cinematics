@@ -60,7 +60,8 @@ public final class SceneEditor implements CinematicModule, CommandContributor {
 	private static SceneEditor instance;
 
 	/** Commands that manage things rather than act in the film; never recorded. */
-	private static final List<String> NOT_RECORDED = List.of("btb scene", "btb director", "btb help", "btb events", "btb reload",
+	private static final List<String> NOT_RECORDED = List.of("btb scene", "btb director", "btb undo", "btb rueckgaengig", "btb versionen",
+			"btb projekt", "btb rolle", "btb vorlage", "btb stop", "btb sprache", "btb language", "btb help", "btb events", "btb reload",
 			"btb camera record", "btb camera create", "btb camera point", "btb camera remove", "btb camera duration", "btb camera easing",
 			"btb camera mode", "btb camera speed", "btb camera fov", "btb camera roll", "btb camera info", "btb camera list",
 			"btb camera delete", "btb camera goto", "btb camera reload", "btb hud save", "btb hud delete", "btb hud credits",
@@ -146,6 +147,7 @@ public final class SceneEditor implements CinematicModule, CommandContributor {
 		}
 		try {
 			Files.createDirectories(SceneManager.sceneDirectory());
+			de.behindtheblocks.cinematic.studio.Versions.before(file(id));
 			Files.writeString(file(id), new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create().toJson(scene), StandardCharsets.UTF_8);
 		} catch (IOException e) {
 			LOG.error("Could not save scene {}", id, e);
@@ -478,6 +480,7 @@ public final class SceneEditor implements CinematicModule, CommandContributor {
 					String id = StringArgumentType.getString(c, "id");
 					engine.scenes().stop(id);
 					try {
+						de.behindtheblocks.cinematic.studio.Versions.before(file(id));
 						if (!Files.deleteIfExists(file(id))) {
 							return Feedback.fail(c.getSource(), "Scene '" + id + "' not found");
 						}

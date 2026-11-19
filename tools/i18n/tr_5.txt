@@ -1,0 +1,190 @@
+758	E	OBS cannot pause → recording is stopped and restarted when you close the menu
+759	E	OBS not reachable
+760	E	OBS is not recording right now
+761	E	OBS is already recording
+762	E	OBS error at 
+763	=
+764	E	Pausing only works while OBS is recording
+765	=
+766	=
+767	=
+768	=
+769	=
+770	=
+771	=
+772	=
+773	=
+774	=
+775	E	off – enter address/password first and click “Save & connect”
+776	E	wrong OBS password
+777	E	not connected
+778	E	NOT recording – pausing only works during a recording
+779	E	recording
+780	E	connecting…
+781	E	connected · recording paused
+782	E	connected · stopped
+783	E	connected · recording
+784	E	connected{0} · {1}
+785	E	” has no source “
+786	D	„radius“ muss zwischen 0 und 512 liegen
+787	D	Kreisfahrt muss mindestens 1 Tick dauern
+788	=
+789	D	Parcours „{0}“ angelegt. Auf jeden Checkpoint stellen: /btb parkour checkpoint {1}
+790	D	Parcours „{0}“ hat keine Checkpoints
+791	D	Parcours „{0}“ aktualisiert
+792	D	Parcours gelöscht
+793	D	Parcours läuft
+794	D	Parcours gestoppt
+795	D	ID muss [a-z0-9_] entsprechen
+796	D	Startet einen Jump'n'Run-Parcours. {id}
+797	D	Stoppt einen Jump'n'Run-Parcours. {id}
+798	D	Unbekannter Parcours „{0}“
+799	D	Checkpoint {0} gibt es nicht
+800	D	Modus: side, behind, fixed, top oder none
+801	D	mehrere Perspektivwechsel
+802	=
+803	D	{0} Parcours: {1}
+804	=
+805	D	„players“ enthält den ungültigen Spielernamen „{0}“
+806	D	„axis“ muss x, y oder z sein
+807	D	„charge_ticks“ muss 0..2400 sein
+808	D	„facing“ muss aus der Fläche heraus zeigen
+809	D	„style“ muss nether oder white sein
+810	D	Portal braucht 1..
+811	D	Portal braucht 1..{0} Flächenblöcke
+812	D	Portalfläche größer als {0} Blöcke
+813	D	Portalfläche muss einen Block dick sein
+814	D	Aktiviere Portal „{0}“
+815	D	{0} Portal(e) geschlossen
+816	D	Schließt ein Portal und stellt seine Fläche wieder her. {id? (ohne = alle)}
+817	D	Rahmen und Schlüsselstein gebaut
+818	D	{0} Portal(e) geladen
+819	D	Kein geschlossener Rahmen um diesen Punkt gefunden (höchstens {0} Blöcke). Der Punkt muss Luft innerhalb des Rahmens sein.
+820	D	In dieser Dimension ist kein Portal angelegt
+821	D	Portal „{0}“ aus dem Rahmen angelegt: {1} Blöcke, Ebene {2}. Schlüsselstein setzen: /btb portal keystone {3} <pos>
+822	D	Portal „{0}“ angelegt. Rahmen bauen: /btb portal build {1}
+823	D	Portal „{0}“ gelöscht (die Rahmenblöcke bleiben)
+824	D	Portal „{0}“ ist schon {1}
+825	D	Portal „{0}“ aktualisiert
+826	D	Portal-Aktivierung gestartet
+827	D	Portal geschlossen
+828	D	Portal geöffnet
+829	D	Startet die Aktivierungssequenz eines Portals (ohne Schlüssel). {id, instant?}
+830	D	Das Portal ist schon erwacht.
+831	D	Dieser Schlüsselstein gehört zu keinem Portal.
+832	D	Bringt Spieler durch ein Portal, ohne hineinzulaufen (geschnittener Übergang). {id, players?}
+833	D	Unbekanntes oder ungültiges Portal „{0}“
+834	D	Unbekanntes Portal
+835	D	Unbekanntes Portal „{0}“
+836	D	[BTB] Portal „{0}“ hat kein Ziel (link oder exit)
+837	=
+838	=
+839	=
+840	D	unbekanntes Portal „{0}“
+841	D	{0} Portal(e):
+842	E	The replay editor only works in single player or as the host of a LAN world.
+843	E	Path
+844	E	Path+look
+845	E	Free
+846	E	In/out range is empty
+847	E	K keyframe · ↑ play/pause · ←/→ 1 s · J camera · F6 editor
+848	E	Keyframes of “
+849	E	Keyframes of “{0}” not readable: {1}
+850	E	No replay yet – record one first: /btb replay record take … /btb replay stop
+851	=
+852	E	Replay “{0}” is damaged or not readable (config/btb_cinematic/replays/{1}.replay)
+853	E	Replay “{0}” not found
+854	E	Cut
+855	E	Saving failed: {0}
+856	=
+857	E	” is damaged or not readable (config/btb_cinematic/replays/
+858	E	” not found
+859	E	◆ Camera follows the keyframes
+860	E	◆ Keyframe %d at %s
+861	=
+862	E	✈ Free camera – find an angle, K sets a keyframe
+863	E	✈ free
+864	E	 keyframes · click to select, drag to move, right-click deletes
+865	E	%s → %s (%.1f s, %d frames)
+866	=
+867	E	5 s forward (→: 1 s)
+868	E	5 s back (←: 1 s)
+869	E	Play / pause (space, while flying: ↑)
+870	E	Playback speed of the whole world (slow motion / time lapse)
+871	E	Take the current view (and time) into this keyframe
+872	E	Resolution
+873	E	Quit
+874	E	Frames per second
+875	E	Focal length: narrower (tele)
+876	E	Focal length: wider (wide angle)
+877	E	Close the editor, stop the replay, actors back
+878	E	Export end = playback position (key P)
+879	E	Export start = playback position (key I)
+880	=
+881	=
+882	E	Path+look (looks at the nearest actor), Free (no control)
+883	E	Tilt camera (roll) left
+884	E	Tilt camera (roll) right
+885	E	No keyframes – fly (✈), find an angle, press K
+886	E	Delete keyframe (Del)
+887	E	Keyframe with the current view at the playback position (while flying: K)
+888	E	Keyframes: the camera follows the path. Free: you fly yourself (key J)
+889	E	Space play/pause · ←/→ 1 s · K keyframe · J camera · I/P in/out · mouse wheel: zoom · right-click: in/out or delete keyframe
+890	=
+891	E	File name: .minecraft/btb_export/<name>/<name>.mp4
+892	E	Next replay
+893	=
+894	E	Close the panel, fly freely and find an angle (K sets a keyframe, F6 back)
+895	E	Renders the range in→out frame-exact with the keyframe camera (the game freezes meanwhile)
+896	E	Replay editor
+897	E	View
+898	E	Previous replay
+899	E	How the camera gets from here to the next keyframe: path (smooth), cut (hard cut), 
+900	E	Jump to this keyframe and put yourself there
+901	E	To the start (or in point)
+902	E	To the end (or out point)
+903	=
+904	=
+905	E	● Export
+906	E	✈ Fly
+907	E	✈ Free
+908	E	Attacks: schlag, bruellen, saeulen, wurf
+909	E	Double removed
+910	E	Double: {0} replays their recording
+911	E	No replay is running
+912	E	No recording and no replay running
+913	E	Recording in progress – first /btb replay stop
+914	E	Export stopped
+915	E	Export “
+916	E	Export “{0}” starting: {1}×{2}, {3} FPS, {4} s
+917	E	Gesture “
+918	E	Gesture “{0}” for {1}
+919	E	Gestures work on puppets, doubles and extras (not on real players)
+920	E	No Heart Warden here
+921	E	No replays
+922	E	Something is already running – first /btb replay stop
+923	=
+924	=
+925	E	Replay deleted
+926	E	Replay stopped
+927	E	Replay not found
+928	E	Replay “%s” saved: %.1f s, %d tracks. Play: /btb replay play %s
+929	E	Replay editor: “
+930	E	Replay editor: “{0}” loaded (paused)
+931	=
+932	=
+933	E	Extra “
+934	E	Extra “{0}” – gestures: /btb geste @e[tag=btb_extra,limit=1,sort=nearest] winken
+935	=
+936	E	Speed {0}×
+937	E	Guardian: {0}
+938	=
+939	E	{0} extras removed
+940	E	” loaded (paused)
+941	E	” is recording: all actors (not tag kamera), creatures, scenes and events. End: /btb replay stop
+942	E	” – actors are spectators for a moment, the puppets play. Film with any camera; stop: /btb replay stop
+943	E	” – gestures: /btb geste @e[tag=btb_extra,limit=1,sort=nearest] winken
+944	=
+945	=
+946	E	▶ Replay “{0}” – actors are spectators for a moment, the puppets play. Film with any camera; stop: /btb replay stop
+947	E	▶ Resume

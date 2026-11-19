@@ -194,6 +194,7 @@ public final class TriggerManager implements CinematicModule, CommandContributor
 		fired.remove(id); // an edited / re-created trigger is armed again
 		try {
 			Files.createDirectories(directory());
+			de.behindtheblocks.cinematic.studio.Versions.before(directory().resolve(id + ".json"));
 			Files.writeString(directory().resolve(id + ".json"), new GsonBuilder().setPrettyPrinting().create().toJson(json), StandardCharsets.UTF_8);
 		} catch (IOException e) {
 			LOG.error("Could not save trigger {}", id, e);

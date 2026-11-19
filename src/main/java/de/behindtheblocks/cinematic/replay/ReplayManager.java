@@ -580,6 +580,39 @@ public final class ReplayManager implements CinematicModule, CommandContributor 
 		return instance == null ? List.of() : instance.names();
 	}
 
+	// length per take, read once per file version (takes are gzip files – the director asks often)
+	private static final Map<String, long[]> LENGTHS = new java.util.concurrent.ConcurrentHashMap<>();
+
+	/** For the director: what runs right now and every take with its length in seconds. */
+	public static JsonObject menuInfo() {
+		JsonObject o = new JsonObject();
+		JsonArray list = new JsonArray();
+		if (instance != null) {
+			o.addProperty("recording", instance.recName == null ? "" : instance.recName);
+			o.addProperty("recording_seconds", instance.recName == null ? 0 : instance.recTick / 20.0);
+			o.addProperty("playing", instance.playName == null ? "" : instance.playName);
+			for (String n : instance.names()) {
+				JsonObject e = new JsonObject();
+				e.addProperty("id", n);
+				try {
+					java.nio.file.Path p = instance.folder().resolve(n + ".replay");
+					long mod = Files.getLastModifiedTime(p).toMillis();
+					long[] c = LENGTHS.get(n);
+					if (c == null || c[0] != mod) {
+						c = new long[] {mod, instance.load(n).get("length").getAsInt()};
+						LENGTHS.put(n, c);
+					}
+					e.addProperty("seconds", c[1] / 20.0);
+				} catch (Exception ex) {
+					e.addProperty("seconds", 0);
+				}
+				list.add(e);
+			}
+		}
+		o.add("list", list);
+		return o;
+	}
+
 	/** Length, tracks (name, kind, start, frames) and events of a take – without the frames, for the editor timeline. */
 	public static JsonObject header(String name) {
 		try {
@@ -668,6 +701,7 @@ public final class ReplayManager implements CinematicModule, CommandContributor 
 	@Override
 	public void contributeCommands(LiteralArgumentBuilder<CommandSourceStack> root, CommandBuildContext buildContext) {
 		SuggestionProvider<CommandSourceStack> replays = (c, b) -> SharedSuggestionProvider.suggest(names(), b);
+		var res = (SuggestionProvider<CommandSourceStack>) (c, bld) -> SharedSuggestionProvider.suggest(List.of("4k", "1440p", "1080p"), bld);
 		root.then(literal("replay")
 				.then(literal("record").then(argument("name", StringArgumentType.word()).executes(c -> {
 					if (playName != null || recName != null) {
@@ -753,8 +787,16 @@ public final class ReplayManager implements CinematicModule, CommandContributor 
 					setSpeed(com.mojang.brigadier.arguments.FloatArgumentType.getFloat(c, "factor"));
 					return Feedback.ok(c.getSource(), "Tempo " + speed + "×");
 				})))
+				.then(literal("export").then(argument("name", StringArgumentType.word()).suggests(replays)
+						.executes(c -> exportTake(c.getSource(), StringArgumentType.getString(c, "name"), "1080p", 60))
+						.then(argument("resolution", StringArgumentType.word()).suggests(res)
+								.executes(c -> exportTake(c.getSource(), StringArgumentType.getString(c, "name"), StringArgumentType.getString(c, "resolution"), 60))
+								.then(argument("fps", com.mojang.brigadier.arguments.IntegerArgumentType.integer(20, 120))
+										.executes(c -> exportTake(c.getSource(), StringArgumentType.getString(c, "name"), StringArgumentType.getString(c, "resolution"),
+												com.mojang.brigadier.arguments.IntegerArgumentType.getInteger(c, "fps")))))))
 				.then(literal("list").executes(c -> Feedback.ok(c.getSource(), names().isEmpty() ? "Keine Replays" : "Replays: " + String.join(", ", names()))))
 				.then(literal("delete").then(argument("name", StringArgumentType.word()).suggests(replays).executes(c -> {
+					LENGTHS.remove(StringArgumentType.getString(c, "name"));
 					try {
 						Files.deleteIfExists(folder().resolve(StringArgumentType.getString(c, "name") + ".replay"));
 					} catch (IOException e) {
@@ -763,7 +805,6 @@ public final class ReplayManager implements CinematicModule, CommandContributor 
 					return Feedback.ok(c.getSource(), "Replay gelöscht");
 				}))));
 		// export <name> <seconds> [4k|1440p|1080p] [fps] [replay]: frame-exact film export on the executing client
-		var res = (SuggestionProvider<CommandSourceStack>) (c, bld) -> SharedSuggestionProvider.suggest(List.of("4k", "1440p", "1080p"), bld);
 		root.then(literal("export")
 				.then(literal("stop").executes(c -> {
 					engine.cues().queue(TimelineManager.MANUAL, 0, "export_stop", new JsonObject(), List.of(c.getSource().getPlayerOrException()));
@@ -957,6 +998,20 @@ public final class ReplayManager implements CinematicModule, CommandContributor 
 		}
 		engine.cues().queue(TimelineManager.MANUAL, 0, "export_start", o, List.of(src.getPlayerOrException()));
 		return Feedback.ok(src, "Export „" + name + "“ startet: " + w + "×" + h + ", " + fps + " FPS, " + seconds + " s");
+	}
+
+	/** Exports a whole take: length comes from the file. */
+	private int exportTake(CommandSourceStack src, String take, String res, int fps) throws com.mojang.brigadier.exceptions.CommandSyntaxException {
+		double seconds;
+		try {
+			seconds = load(take).get("length").getAsInt() / 20.0;
+		} catch (Exception e) {
+			return Feedback.fail(src, "Replay „" + take + "“ nicht gefunden");
+		}
+		if (seconds < 0.5) {
+			return Feedback.fail(src, "Replay „" + take + "“ ist leer");
+		}
+		return export(src, take + "_" + res, seconds, res, fps, take);
 	}
 
 	private int editor(CommandSourceStack src, String name) throws com.mojang.brigadier.exceptions.CommandSyntaxException {

@@ -112,7 +112,7 @@ public final class CrewMarkers {
 				mc.level.addParticle(new DustParticleOptions(m.color, 0.7f), m.x, m.y + 0.4 + (clock / 10 % 4) * 0.35, m.z, 0, 0, 0);
 			}
 			if (d2 < 0.8 && clock % 20 == 0) {
-				mc.gui.hud.setOverlayMessage(Component.literal("◆ " + m.name), false);
+				mc.gui.hud.setOverlayMessage(de.behindtheblocks.cinematic.client.i18n.ClientI18n.c("◆ " + m.name), false);
 			}
 		}
 	}

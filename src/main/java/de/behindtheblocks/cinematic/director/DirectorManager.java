@@ -47,11 +47,26 @@ public final class DirectorManager implements CinematicModule, CommandContributo
 
 	@Override
 	public void initialize(CinematicEngine engine) {
+		net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents.JOIN.register((handler, sender, server) ->
+				server.execute(() -> sendLanguage(handler.getPlayer())));
 		this.engine = engine;
 	}
 
 	@Override
 	public void contributeCommands(LiteralArgumentBuilder<CommandSourceStack> root, CommandBuildContext buildContext) {
+		// language of all mod texts: auto (each player's Minecraft language), de or en – saved in settings.json
+		for (String cmd : new String[] {"sprache", "language"}) {
+			root.then(literal(cmd).executes(c -> Feedback.ok(c.getSource(), "Language: " + de.behindtheblocks.cinematic.util.I18n.language()))
+					.then(argument("lang", com.mojang.brigadier.arguments.StringArgumentType.word())
+							.suggests((c, b) -> net.minecraft.commands.SharedSuggestionProvider.suggest(List.of("auto", "de", "en"), b))
+							.executes(c -> {
+								String l = com.mojang.brigadier.arguments.StringArgumentType.getString(c, "lang").toLowerCase(java.util.Locale.ROOT);
+								l = l.startsWith("de") ? "de" : l.startsWith("en") ? "en" : "auto";
+								de.behindtheblocks.cinematic.util.I18n.setLanguage(l, true);
+								sendLanguage(null);
+								return Feedback.ok(c.getSource(), "Language: " + l);
+							})));
+		}
 		root.then(literal("director")
 				.executes(c -> send(c.getSource().getPlayerOrException(), "director_open"))
 				.then(literal("refresh").executes(c -> send(c.getSource().getPlayerOrException(), "director_state"))));
@@ -144,6 +159,7 @@ public final class DirectorManager implements CinematicModule, CommandContributo
 			}
 		}));
 		st.add("credits", credits);
+		engine.module(CameraManager.class).ifPresent(cm -> st.add("camera_paths", cm.menuInfo(player)));
 		engine.cues().queue(TimelineManager.MANUAL, 0, cueType, st, List.of(player));
 		return 1;
 	}
@@ -198,6 +214,8 @@ public final class DirectorManager implements CinematicModule, CommandContributo
 		}));
 		o.add("ambience", amb);
 		o.add("destruction", array(engine.module(DestructionManager.class).map(DestructionManager::ids).orElse(List.of())));
+		o.add("replays", de.behindtheblocks.cinematic.replay.ReplayManager.menuInfo());
+		o.add("studio", de.behindtheblocks.cinematic.studio.StudioManager.menuInfo());
 		o.add("hud", array(engine.module(HudManager.class).map(HudManager::ids).orElse(List.of())));
 		o.add("sounds", array(BtbSounds.all().stream().map(s -> s.location().getPath()).filter(s -> !s.equals("portal")).toList()));
 		o.add("players", array(engine.server().map(s -> s.getPlayerList().getPlayers().stream()
@@ -266,6 +284,13 @@ public final class DirectorManager implements CinematicModule, CommandContributo
 		o.addProperty("music", "trailer");
 		engine.cues().queue(TimelineManager.MANUAL, 0, "export_start", o, List.of(player));
 		return Feedback.ok(src, "Trailer-Export " + w + "×" + h + " @ " + fps + " FPS startet – der Song wird am Ende ins Video gelegt");
+	}
+
+	/** Tells clients the language setting (all, or one player on join). */
+	private void sendLanguage(net.minecraft.server.level.ServerPlayer only) {
+		JsonObject o = new JsonObject();
+		o.addProperty("language", de.behindtheblocks.cinematic.util.I18n.language());
+		engine.cues().queue(TimelineManager.MANUAL, 0, "btb_language", o, only == null ? null : List.of(only));
 	}
 
 	private int filmBuild(net.minecraft.commands.CommandSourceStack src, String piece) {

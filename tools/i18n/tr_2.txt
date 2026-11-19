@@ -1,0 +1,190 @@
+189	E	 (0 s = stays in place)
+190	E	 scene(s) active
+191	=
+192	=
+193	E	 s (builder)
+194	E	 s set
+195	=
+196	=
+197	E	%.1f s per entry
+198	E	' to
+199	=
+200	E	+ Entry
+201	E	+ Add
+202	E	+ New scene
+203	E	+ Whistle
+204	E	+ Point
+205	E	+ Extra
+206	E	+ Heading
+207	E	 list create
+208	E	1 second earlier
+209	E	1 second later
+210	E	1st person
+211	E	10 blocks in front of you
+212	E	2.5D side view (jump'n'run)
+213	E	3rd person
+214	E	From here
+215	E	From now on every action (click, command, cue) lands in the scene with its exact time. 
+216	E	Cancel
+217	E	End credits (roll)
+218	=
+219	E	Actions start as soon as the menu is closed
+220	E	Activate
+221	E	Append the current view as a new point
+222	E	Delete all cues
+223	E	Delete all entries
+224	E	Reset all scenes, close portals, restore destruction, clear effects
+225	E	Everyone spectator
+226	E	Remove all spawned enemies
+227	E	Close all
+228	E	Stop all
+229	E	All gone
+230	E	Everyone to me
+231	E	Stop everything
+232	E	Clear everything
+233	E	Restore everything
+234	E	As template
+235	E	Ambience {0}{1}
+236	E	On
+237	E	To the start
+238	E	Append to the cue list
+239	E	Anamorphic streaks
+240	E	Choose another key
+241	E	Ash crawlers, climb walls
+242	E	Up
+243	E	Which key the next click is assigned to
+244	E	Recording
+245	E	Recording camera briefly looks through their eyes
+246	E	Off
+247	E	Restore from backup
+248	E	Run / add to scene / add to cue list
+249	E	Trigger
+250	=
+251	E	Auto director
+252	=
+253	E	Lower third
+254	E	Builder
+255	E	Editing “
+256	E	Editing “{0}”
+257	E	Quakes off
+258	E	Command as a step in the scene
+259	E	Command, e.g. btb effects fade black 2
+260	E	Command, e.g. btb scene restart opening
+261	E	At
+262	E	Assign
+263	E	Picture-in-picture: view of the nearest actor
+264	E	Aspect ratio
+265	=
+266	E	Fades
+267	E	Flash
+268	E	Lightning off
+269	E	Floor plate with glyph circle
+270	=
+271	E	Boss: Heart Warden (drops the key)
+272	=
+273	E	Book
+274	E	Book / boss / message
+275	=
+276	=
+277	=
+278	=
+279	=
+280	E	Cue added
+281	E	Cue list & OBS configuration reloaded
+282	E	Cue list (numpad Enter = GO, numpad + = show)
+283	E	Cue list: {0} cue(s)
+284	E	Actors briefly become spectators, puppets play
+285	E	The Old Book
+286	E	Dialogue
+287	=
+288	E	Open directly
+289	E	Docu
+290	E	Dolly zoom (vertigo) on the block in front of you
+291	E	Crouch
+292	E	Muffled 6 s
+293	E	Effects
+294	E	Ego camera (bodycam of the nearest actor)
+295	E	Switch on/off and save
+296	E	Show/hide input fields (more room for the list)
+297	E	Delete entry
+298	E	Entry {0} loaded – change it and click “Apply”
+299	E	Ending scene (end card + credits roll)
+300	E	End card
+301	E	Epic white style
+302	E	Appears 8 blocks in front of you
+303	E	Appears 8 blocks in front of you and attacks
+304	E	Enter text first
+305	=
+306	E	Explosion
+307	E	Fly the move, then 'Recording stop'
+308	E	Camera move for all players
+309	E	Play the move for me
+310	E	Color grading (LUT)
+311	E	Far 20
+312	E	Figure with a player skin
+313	=
+314	E	Film export (frame-exact, no stutter)
+315	E	Film grain
+316	E	Focus pull
+317	E	Asks OBS for version and recording status (the answer appears in the OBS row)
+318	=
+319	E	For recordings: does not move
+320	E	GO starts at this cue
+321	E	Whole zone (sound, particles, quakes, lightning)
+322	E	Enemies gone
+323	E	Save the changed entry
+324	E	Ghast on the horizon
+325	E	Ghast crash
+326	E	Ember
+327	E	Ember flares
+328	E	Ember spirits, buzz through walls
+329	E	Brazier
+330	E	Ember imps
+331	E	Ember crack
+332	E	Glyphs
+333	=
+334	E	Hide HUD
+335	E	Reverb
+336	E	Hall
+337	E	Handheld
+338	E	Here
+339	E	Set here
+340	E	Go
+341	E	Heat haze
+342	E	High up, slowly circling
+343	E	Cave
+344	D	INAKTIV
+345	=
+346	E	Edit in the builder (steps, times, assign to a key)
+347	E	Create a new scene in the builder
+348	E	Load into the fields above, change, “Apply”
+349	E	Iris close
+350	E	Trigger now (test)
+351	E	Now click the action you want – it goes to numpad {0}
+352	E	Cold
+353	E	Camera
+354	E	Camera moves in, background widens
+355	E	Camera moves away, background closes in
+356	E	Camera stop
+357	E	Chapter
+358	E	Brazier
+359	E	Chain chandelier (on the ceiling)
+360	E	Film sound quieter before the big moment
+361	E	Cinema bars
+362	E	Click = clap + take, sneak+click = reset set
+363	E	Click → cue list
+364	E	Click → scene
+365	E	Click → key
+366	E	Click: on close
+367	E	Click: instantly
+368	E	Click to change
+369	E	Clicks add to scene '
+370	E	Clicks run actions instantly (for testing)
+371	E	Clicks append cues to the cue list (recording)
+372	E	Complete activation sequence
+373	E	Head bobs while walking, lags a little, breathes
+374	E	Crane
+375	E	Creative
+376	E	Creatures
+377	E	Crawlers
+378	E	Crystal

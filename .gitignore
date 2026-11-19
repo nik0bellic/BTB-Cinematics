@@ -22,3 +22,4 @@ docs/screenshots/*
 *.ogg
 *.mp3
 *.wav
+tools/__pycache__/

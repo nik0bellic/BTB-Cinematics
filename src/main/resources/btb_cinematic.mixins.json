@@ -2,6 +2,6 @@
   "required": true,
   "package": "de.behindtheblocks.cinematic.mixin",
   "compatibilityLevel": "JAVA_25",
-  "mixins": ["CommandsMixin", "MobDespawnMixin"],
+  "mixins": ["CommandsMixin", "MobDespawnMixin", "ServerPlayerMessageMixin"],
   "injectors": { "defaultRequire": 1 }
 }

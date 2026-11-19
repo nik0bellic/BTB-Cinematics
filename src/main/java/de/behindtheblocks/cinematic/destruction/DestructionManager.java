@@ -338,6 +338,7 @@ public final class DestructionManager implements CinematicModule, CommandContrib
 	private void save(String id) {
 		try {
 			Files.createDirectories(configDirectory());
+			de.behindtheblocks.cinematic.studio.Versions.before(configDirectory().resolve(id + ".json"));
 			Files.writeString(configDirectory().resolve(id + ".json"),
 					new GsonBuilder().setPrettyPrinting().create().toJson(definitions.get(id)), StandardCharsets.UTF_8);
 		} catch (IOException e) {
@@ -864,6 +865,9 @@ public final class DestructionManager implements CinematicModule, CommandContrib
 		if (debris.isEmpty()) {
 			return;
 		}
+		// many pieces at once (a tower): fewer, longer interpolated updates – much less network traffic,
+		// the client still moves them smoothly in between
+		int updateEvery = debris.size() > 900 ? 4 : debris.size() > 400 ? 3 : UPDATE_INTERVAL;
 		Iterator<Debris> it = debris.iterator();
 		while (it.hasNext()) {
 			Debris d = it.next();
@@ -899,7 +903,7 @@ public final class DestructionManager implements CinematicModule, CommandContrib
 			if (d.age > 1 && landed(d)) {
 				continue;
 			}
-			if (d.age % UPDATE_INTERVAL == 0) {
+			if (d.age % updateEvery == 0) {
 				Vec3 tr = translation(d);
 				float s = (1f - Math.max(0, d.age - d.life + 6) / 6f * 0.4f) * d.size;
 				Quaternionf q = new Quaternionf().rotationXYZ((float) Math.toRadians(d.spin.x * d.age),
@@ -908,7 +912,7 @@ public final class DestructionManager implements CinematicModule, CommandContrib
 				Vector3f half = new Vector3f(0.5f * s);
 				Vector3f rotatedHalf = q.transform(new Vector3f(half));
 				Vector3f t = new Vector3f((float) tr.x, (float) tr.y, (float) tr.z).add(0.5f, 0.5f, 0.5f).sub(rotatedHalf);
-				d.entity.setTransformationInterpolationDuration(UPDATE_INTERVAL);
+				d.entity.setTransformationInterpolationDuration(updateEvery);
 				d.entity.setTransformation(new Transformation(t, q, new Vector3f(s), null));
 				d.entity.setTransformationInterpolationDelay(0);
 			}

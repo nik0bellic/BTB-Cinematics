@@ -248,11 +248,13 @@ public final class SpawnManager implements CinematicModule, CommandContributor {
 	public int clear(String sceneId) {
 		int n = 0;
 		for (ServerLevel level : server == null ? List.<ServerLevel>of() : server.getAllLevels()) {
-			for (Entity e : List.copyOf(collect(level))) {
-				String owner = spawned.get(e.getUUID());
-				if (owner != null && (sceneId == null || owner.equals(sceneId))) {
+			// look up only our own mobs by id instead of scanning every entity of the world
+			for (java.util.UUID id : List.copyOf(spawned.keySet())) {
+				String owner = spawned.get(id);
+				Entity e = level.getEntity(id);
+				if (e != null && owner != null && (sceneId == null || owner.equals(sceneId))) {
 					e.discard();
-					spawned.remove(e.getUUID());
+					spawned.remove(id);
 					n++;
 				}
 			}

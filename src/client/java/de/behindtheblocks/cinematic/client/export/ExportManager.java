@@ -66,7 +66,7 @@ public final class ExportManager {
 		boolean bad = text.contains("Gestoppt") || text.contains("Fehler") || text.contains("nicht") || text.contains("fehlgeschlagen");
 		de.behindtheblocks.cinematic.client.replay.ReplayEditor.note("Export: " + text, bad);
 		if (mc.player != null) {
-			mc.player.sendSystemMessage(Component.literal("[BTB Export] " + text));
+			mc.player.sendSystemMessage(de.behindtheblocks.cinematic.client.i18n.ClientI18n.c("[BTB Export] " + text));
 		}
 	}
 

@@ -23,6 +23,7 @@ public final class CinematicOverlay {
 		CinematicHudRenderer.render(g, partial, true);
 		ScreenEffectRenderer.renderFlashes(g, partial);
 		de.behindtheblocks.cinematic.client.director.DirectorHotkeys.renderMonitor(g);
+		de.behindtheblocks.cinematic.client.director.StudioClient.render(g);
 		de.behindtheblocks.cinematic.client.replay.ReplayEditor.renderHud(g, partial);
 	}
 }

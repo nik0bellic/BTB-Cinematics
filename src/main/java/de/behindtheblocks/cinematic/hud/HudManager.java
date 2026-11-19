@@ -272,6 +272,7 @@ public final class HudManager implements CinematicModule, CommandContributor {
 						return Feedback.fail(c.getSource(), "Unknown HUD text '" + id + "'");
 					}
 					try {
+						de.behindtheblocks.cinematic.studio.Versions.before(directory().resolve(id + ".json"));
 						Files.deleteIfExists(directory().resolve(id + ".json"));
 					} catch (IOException e) {
 						LOG.error("delete failed", e);
@@ -320,6 +321,7 @@ public final class HudManager implements CinematicModule, CommandContributor {
 		definitions.put(id, def);
 		try {
 			Files.createDirectories(directory());
+			de.behindtheblocks.cinematic.studio.Versions.before(directory().resolve(id + ".json"));
 			Files.writeString(directory().resolve(id + ".json"),
 					new com.google.gson.GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create().toJson(def), StandardCharsets.UTF_8);
 		} catch (IOException e) {

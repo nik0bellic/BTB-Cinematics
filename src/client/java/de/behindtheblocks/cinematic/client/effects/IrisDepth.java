@@ -30,6 +30,11 @@ public final class IrisDepth extends AbstractTexture {
 	private static final String[] ORDER = System.getProperty("btb.irisdepth", "noHand,noTranslucents,currentDepthTexture").split(",");
 	private static String logged = "";
 
+	// reflection handles are looked up once, not every frame
+	private static java.lang.reflect.Method getManager, getPipeline;
+	private static Field renderTargetsField;
+	private static final java.util.Map<String, Field> DEPTH_FIELDS = new java.util.HashMap<>();
+
 	private GpuTexture source;
 	private GpuTextureView view;
 
@@ -49,20 +54,27 @@ public final class IrisDepth extends AbstractTexture {
 			return false;
 		}
 		try {
-			Class<?> iris = Class.forName("net.irisshaders.iris.Iris");
-			Object manager = iris.getMethod("getPipelineManager").invoke(null);
-			Object pipeline = manager.getClass().getMethod("getPipelineNullable").invoke(manager);
+			if (getManager == null) {
+				Class<?> iris = Class.forName("net.irisshaders.iris.Iris");
+				getManager = iris.getMethod("getPipelineManager");
+			}
+			Object manager = getManager.invoke(null);
+			if (getPipeline == null) {
+				getPipeline = manager.getClass().getMethod("getPipelineNullable");
+			}
+			Object pipeline = getPipeline.invoke(manager);
 			if (pipeline == null) {
 				return false;
 			}
-			Field rt = find(pipeline.getClass(), "renderTargets");
+			Field rt = renderTargetsField != null && renderTargetsField.getDeclaringClass().isInstance(pipeline)
+					? renderTargetsField : (renderTargetsField = find(pipeline.getClass(), "renderTargets"));
 			if (rt == null) {
 				return false;
 			}
 			Object targets = rt.get(pipeline);
 			GpuTexture depth = null;
 			for (String name : ORDER) {
-				Field f = find(targets.getClass(), name);
+				Field f = DEPTH_FIELDS.computeIfAbsent(targets.getClass().getName() + "#" + name, k -> find(targets.getClass(), name));
 				Object v = f == null ? null : f.get(targets);
 				if (v instanceof GpuTexture t && !t.isClosed() && (t.usage() & GpuTexture.USAGE_TEXTURE_BINDING) != 0) {
 					depth = t;

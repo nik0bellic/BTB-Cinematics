@@ -75,8 +75,17 @@ public final class DirectorHotkeys {
 		peek = KeyMappingHelper.registerKeyMapping(new KeyMapping("key.btb_cinematic.cue_peek", InputConstants.KEY_MULTIPLY, CATEGORY)); // numpad * (numpad + is often taken)
 		// Cue commands run silently: their success feedback ("[BTB] Scene started" …) never reaches the
 		// chat and therefore never the footage. Errors (red) still come through.
-		net.fabricmc.fabric.api.client.message.v1.ClientReceiveMessageEvents.ALLOW_GAME.register((message, overlay) ->
-				overlay || System.currentTimeMillis() - Math.max(lastFiredAt, mutedAt) > CUE_FEEDBACK_MS || isError(message));
+		net.fabricmc.fabric.api.client.message.v1.ClientReceiveMessageEvents.ALLOW_GAME.register((message, overlay) -> {
+			if (overlay) {
+				return true;
+			}
+			boolean muted = System.currentTimeMillis() - Math.max(lastFiredAt, mutedAt) <= CUE_FEEDBACK_MS;
+			if (muted) {
+				// the director menu shows the answer as a short note instead of the chat
+				DirectorScreen.onServerFeedback(message.getString(), isError(message));
+			}
+			return !muted || isError(message);
+		});
 		int[] keys = {InputConstants.KEY_NUMPAD1, InputConstants.KEY_NUMPAD2, InputConstants.KEY_NUMPAD3, InputConstants.KEY_NUMPAD4,
 				InputConstants.KEY_NUMPAD5, InputConstants.KEY_NUMPAD6, InputConstants.KEY_NUMPAD7, InputConstants.KEY_NUMPAD8,
 				InputConstants.KEY_NUMPAD9};
@@ -388,13 +397,13 @@ public final class DirectorHotkeys {
 		float a = 1f;
 		int bg = ((int) (0x90 * a) << 24), fg = ((int) (0xFF * a) << 24);
 		String next = pointer < CUES.size() ? "GO ▶ " + (pointer + 1) + "/" + CUES.size() + "  " + CUES.get(pointer).label() : "Cue-Liste beendet";
-		int w = mc.font.width(next) + 8;
+		int w = mc.font.width(de.behindtheblocks.cinematic.client.i18n.ClientI18n.t(next)) + 8;
 		g.fill(2, 2, 2 + w, 14, bg);
 		g.text(mc.font, next, 6, 4, fg | 0xFFC080, false);
 		int y = 15;
 		if (now - lastFiredAt < MONITOR_MS && !lastFired.isEmpty()) {
 			String s = "✔ " + lastFired;
-			g.fill(2, y, 6 + mc.font.width(s) + 4, y + 12, bg);
+			g.fill(2, y, 6 + mc.font.width(de.behindtheblocks.cinematic.client.i18n.ClientI18n.t(s)) + 4, y + 12, bg);
 			g.text(mc.font, s, 6, y + 2, fg | 0x7CFF7C, false);
 			y += 13;
 		}
@@ -403,7 +412,7 @@ public final class DirectorHotkeys {
 			Cue c = SLOT_COMMANDS.get(i);
 			if (c != null) {
 				String s = "Num " + i + "  " + c.label();
-				g.fill(2, y, 6 + mc.font.width(s) + 4, y + 11, bg);
+				g.fill(2, y, 6 + mc.font.width(de.behindtheblocks.cinematic.client.i18n.ClientI18n.t(s)) + 4, y + 11, bg);
 				g.text(mc.font, s, 6, y + 2, fg | 0xD0D0D0, false);
 				y += 11;
 			}

@@ -1,0 +1,7827 @@
+[
+[
+"Ambience off",
+"Ambiente aus",
+"Ambience off"
+],
+[
+"Ambience on",
+"Ambiente an",
+"Ambience on"
+],
+[
+"Loaded {0} zone(s)",
+"{0} Zone(n) geladen",
+"Loaded {0} zone(s)"
+],
+[
+"Switches an ambience zone on or off. {id, enabled}",
+"Schaltet eine Ambiente-Zone an oder aus. {id, enabled}",
+"Switches an ambience zone on or off. {id, enabled}"
+],
+[
+"Unknown zone",
+"Unbekannte Zone",
+"Unknown zone"
+],
+[
+"Unknown zone '{0}'. Create: /btb ambience create {1} <radius>",
+"Unbekannte Zone „{0}“. Anlegen: /btb ambience create {1} <Radius>",
+"Unknown zone '{0}'. Create: /btb ambience create {1} <radius>"
+],
+[
+"Zone '{0}' created here. Add: sound / particles / shake / flash / orbit",
+"Zone „{0}“ hier angelegt. Hinzufügen: sound / particles / shake / flash / orbit",
+"Zone '{0}' created here. Add: sound / particles / shake / flash / orbit"
+],
+[
+"Zone '{0}' deleted",
+"Zone „{0}“ gelöscht",
+"Zone '{0}' deleted"
+],
+[
+"Zone '{0}' updated",
+"Zone „{0}“ aktualisiert",
+"Zone '{0}' updated"
+],
+[
+"particle must be a simple particle id or dust:#RRGGBB",
+"particle muss eine einfache Partikel-ID oder dust:#RRGGBB sein",
+"particle must be a simple particle id or dust:#RRGGBB"
+],
+[
+"unknown block in orbit_blocks",
+"unbekannter Block in orbit_blocks",
+"unknown block in orbit_blocks"
+],
+[
+"unknown sound",
+"unbekannter Sound",
+"unknown sound"
+],
+[
+"{0} ambience zone(s):",
+"{0} Ambiente-Zone(n):",
+"{0} ambience zone(s):"
+],
+[
+" problem(s) — /btb scene problems",
+" Problem(e) – /btb scene problems",
+" problem(s) — /btb scene problems"
+],
+[
+" • {0} ({1}t, {2} events){3}",
+" • {0} ({1}t, {2} Ereignisse){3}",
+" • {0} ({1}t, {2} events){3}"
+],
+[
+" • {0}: {1} tick {2}/{3}{4}{5}",
+" • {0}: {1} Tick {2}/{3}{4}{5}",
+" • {0}: {1} tick {2}/{3}{4}{5}"
+],
+[
+"/btb events — list timeline event types",
+"/btb events – Liste der Timeline-Ereignisse",
+"/btb events — list timeline event types"
+],
+[
+"/btb reload — reload scene files from config/btb_cinematic/scenes",
+"/btb reload – Szenendateien aus config/btb_cinematic/scenes neu laden",
+"/btb reload — reload scene files from config/btb_cinematic/scenes"
+],
+[
+"/btb scene list|status|info|start|restart|stop|pause|resume|reset|reload|problems",
+"/btb scene list|status|info|start|restart|stop|pause|resume|reset|reload|problems",
+"/btb scene list|status|info|start|restart|stop|pause|resume|reset|reload|problems"
+],
+[
+"All scene files loaded without problems",
+"Alle Szenendateien ohne Probleme geladen",
+"All scene files loaded without problems"
+],
+[
+"Available timeline event types:",
+"Verfügbare Timeline-Ereignisse:",
+"Available timeline event types:"
+],
+[
+"Behind The Blocks – Cinematic Engine",
+"Behind The Blocks – Cinematic Engine",
+"Behind The Blocks – Cinematic Engine"
+],
+[
+"Loaded {0} scene(s){1}",
+"{0} Szene(n) geladen{1}",
+"Loaded {0} scene(s){1}"
+],
+[
+"No scene can be {0}",
+"Keine Szene kann {0} werden",
+"No scene can be {0}"
+],
+[
+"No scene is running",
+"Keine Szene läuft",
+"No scene is running"
+],
+[
+"No scenes loaded. Put JSON files into {0}",
+"Keine Szenen geladen. JSON-Dateien hierhin legen: {0}",
+"No scenes loaded. Put JSON files into {0}"
+],
+[
+"Scene(s) {0}: {1}",
+"Szene(n) {0}: {1}",
+"Scene(s) {0}: {1}"
+],
+[
+"Stopped {0} scene(s)",
+"{0} Szene(n) gestoppt",
+"Stopped {0} scene(s)"
+],
+[
+"file {0}, {1} ticks ({2} s), loop {3}, on_error {4}",
+"Datei {0}, {1} Ticks ({2} s), Schleife {3}, bei Fehler {4}",
+"file {0}, {1} ticks ({2} s), loop {3}, on_error {4}"
+],
+[
+"{0} scene(s):",
+"{0} Szene(n):",
+"{0} scene(s):"
+],
+[
+"'command' must not be empty",
+"„command“ darf nicht leer sein",
+"'command' must not be empty"
+],
+[
+"'dimension' is not a valid id: {0}",
+"„dimension“ ist keine gültige ID: {0}",
+"'dimension' is not a valid id: {0}"
+],
+[
+"'pitch' must be between -90 and 90",
+"„pitch“ muss zwischen -90 und 90 liegen",
+"'pitch' must be between -90 and 90"
+],
+[
+"'{0}' is not a valid scene id",
+"„{0}“ ist keine gültige Szenen-ID",
+"'{0}' is not a valid scene id"
+],
+[
+"Dimension {0} does not exist",
+"Dimension {0} gibt es nicht",
+"Dimension {0} does not exist"
+],
+[
+"Runs a server command with game-master permission. {command, silent?, as? player, pos? [x,y,z], rot? [yaw,pitch]}",
+"Führt einen Serverbefehl mit Spielleiter-Rechten aus. {command, silent?, as? Spieler, pos? [x,y,z], rot? [yaw,pitch]}",
+"Runs a server command with game-master permission. {command, silent?, as? player, pos? [x,y,z], rot? [yaw,pitch]}"
+],
+[
+"Sends a chat or action-bar message. {text, actionbar?, players?}",
+"Sendet eine Chat- oder Actionbar-Nachricht. {text, actionbar?, players?}",
+"Sends a chat or action-bar message. {text, actionbar?, players?}"
+],
+[
+"Starts (or restarts) another scene. {scene}",
+"Startet (oder startet neu) eine andere Szene. {scene}",
+"Starts (or restarts) another scene. {scene}"
+],
+[
+"Stops a scene; without 'scene' stops the current one. {scene?}",
+"Stoppt eine Szene; ohne „scene“ die aktuelle. {scene?}",
+"Stops a scene; without 'scene' stops the current one. {scene?}"
+],
+[
+"Teleports players. {pos:[x,y,z], yaw?, pitch?, dimension?, players?}",
+"Teleportiert Spieler. {pos:[x,y,z], yaw?, pitch?, dimension?, players?}",
+"Teleports players. {pos:[x,y,z], yaw?, pitch?, dimension?, players?}"
+],
+[
+"Writes a line to the server log (timing checks). {message}",
+"Schreibt eine Zeile ins Server-Log (zum Prüfen von Zeiten). {message}",
+"Writes a line to the server log (timing checks). {message}"
+],
+[
+"incomplete command '/",
+"unvollständiger Befehl „/",
+"incomplete command '/"
+],
+[
+"incomplete command '/{0}'",
+"unvollständiger Befehl „/{0}“",
+"incomplete command '/{0}'"
+],
+[
+"  %d: %.1f %.1f %.1f  yaw %.0f pitch %.0f%s%s  → %.2f s %s",
+"  %d: %.1f %.1f %.1f  Gier %.0f Neigung %.0f%s%s  → %.2f s %s",
+"  %d: %.1f %.1f %.1f  yaw %.0f pitch %.0f%s%s  → %.2f s %s"
+],
+[
+" • {0} — {1} points, {2}, {3}",
+" • {0} – {1} Punkte, {2}, {3}",
+" • {0} — {1} points, {2}, {3}"
+],
+[
+"'fov' must be 1..170 or 0",
+"„fov“ muss 1..170 oder 0 sein",
+"'fov' must be 1..170 or 0"
+],
+[
+"'mode' must be first, third or front",
+"„mode“ muss first, third oder front sein",
+"'mode' must be first, third or front"
+],
+[
+"'mode' must be side, behind, fixed, top, front, shoulder, low, crane, orbit or auto",
+"„mode“ muss side, behind, fixed, top, front, shoulder, low, crane, orbit oder auto sein",
+"'mode' must be side, behind, fixed, top, front, shoulder, low, crane, orbit or auto"
+],
+[
+"'path' is not a valid preset id",
+"„path“ ist keine gültige Kamera-ID",
+"'path' is not a valid preset id"
+],
+[
+"'side' must be +x, -x, +z, -z, north/south/east/west or \"x,y,z\"",
+"„side“ muss +x, -x, +z, -z, north/south/east/west oder \"x,y,z\" sein",
+"'side' must be +x, -x, +z, -z, north/south/east/west or \"x,y,z\""
+],
+[
+"'speed' must be 0..100 (0 = preset speed)",
+"„speed“ muss 0..100 sein (0 = Tempo der Kamerafahrt)",
+"'speed' must be 0..100 (0 = preset speed)"
+],
+[
+"Animates the field of view. {fov (0 = normal), duration ticks, easing?, players?}",
+"Animiert das Sichtfeld. {fov (0 = normal), duration Ticks, easing?, players?}",
+"Animates the field of view. {fov (0 = normal), duration ticks, easing?, players?}"
+],
+[
+"Auto-Regie auf {0} – Perspektive wechselt alle {1} s · /btb camera stop",
+"Auto-Regie auf {0} – Perspektive wechselt alle {1} s · /btb camera stop",
+"Auto director on {0} – perspective changes every {1} s · /btb camera stop"
+],
+[
+"Auto-Regie im Takt: Schnitt alle %.2f s",
+"Auto-Regie im Takt: Schnitt alle %.2f s",
+"Auto director on the beat: cut every %.2f s"
+],
+[
+"Camera '{0}' updated",
+"Kamera „{0}“ aktualisiert",
+"Camera '{0}' updated"
+],
+[
+"Camera stopped",
+"Kamera gestoppt",
+"Camera stopped"
+],
+[
+"Created camera '{0}' with your current view as point 1. Add more: /btb camera point {1}",
+"Kamera „{0}“ mit deiner aktuellen Sicht als Punkt 1 angelegt. Weitere: /btb camera point {1}",
+"Created camera '{0}' with your current view as point 1. Add more: /btb camera point {1}"
+],
+[
+"Deleted camera '{0}'",
+"Kamera „{0}“ gelöscht",
+"Deleted camera '{0}'"
+],
+[
+"Dolly-Zoom {0} → {1} Blöcke",
+"Dolly-Zoom {0} → {1} Blöcke",
+"Dolly zoom {0} → {1} blocks"
+],
+[
+"Ego-Kamera: {0} · /btb camera stop",
+"Ego-Kamera: {0} · /btb camera stop",
+"Ego camera: {0} · /btb camera stop"
+],
+[
+"Following {0} ({1}) — /btb camera stop to end",
+"Folge {0} ({1}) – Ende mit /btb camera stop",
+"Following {0} ({1}) — /btb camera stop to end"
+],
+[
+"Follows a player. {target, mode: side|behind|fixed|top, distance?, height?, side? (+z…), pos? (fixed), smoothing?, ticks? (-1 = until stop), players?}",
+"Folgt einem Spieler. {target, mode: side|behind|fixed|top, distance?, height?, side? (+z…), pos? (fixed), smoothing?, ticks? (-1 = bis Stopp), players?}",
+"Follows a player. {target, mode: side|behind|fixed|top, distance?, height?, side? (+z…), pos? (fixed), smoothing?, ticks? (-1 = until stop), players?}"
+],
+[
+"Handkamera aus",
+"Handkamera aus",
+"Handheld camera off"
+],
+[
+"Handkamera {0}",
+"Handkamera {0}",
+"Handheld camera {0}"
+],
+[
+"Kamerapunkt {0} von {1}",
+"Kamerapunkt {0} von {1}",
+"Camera point {0} of {1}"
+],
+[
+"Loaded {0} camera preset(s)",
+"{0} Kamerafahrt(en) geladen",
+"Loaded {0} camera preset(s)"
+],
+[
+"Mode: side, behind, fixed, top, front, shoulder, low, crane, orbit, auto",
+"Modus: side, behind, fixed, top, front, shoulder, low, crane, orbit, auto",
+"Mode: side, behind, fixed, top, front, shoulder, low, crane, orbit, auto"
+],
+[
+"Moved to point {0}",
+"Zu Punkt {0} bewegt",
+"Moved to point {0}"
+],
+[
+"No camera presets. Create one: /btb camera create <id>",
+"Keine Kamerafahrten. Anlegen: /btb camera create <id>",
+"No camera presets. Create one: /btb camera create <id>"
+],
+[
+"No recording running",
+"Es läuft keine Aufnahme",
+"No recording running"
+],
+[
+"Orbit started (%.1f s)",
+"Kreisfahrt gestartet (%.1f s)",
+"Orbit started (%.1f s)"
+],
+[
+"Orbits around a point or player. {center:[x,y,z] | target:player, radius, height, seconds|ticks, degrees?, start_angle?, radius_end?, height_end?, easing?, fov?, players?}",
+"Kreist um einen Punkt oder Spieler. {center:[x,y,z] | target:Spieler, radius, height, seconds|ticks, degrees?, start_angle?, radius_end?, height_end?, easing?, fov?, players?}",
+"Orbits around a point or player. {center:[x,y,z] | target:player, radius, height, seconds|ticks, degrees?, start_angle?, radius_end?, height_end?, easing?, fov?, players?}"
+],
+[
+"Perspective: {0}",
+"Perspektive: {0}",
+"Perspective: {0}"
+],
+[
+"Playing camera '%s' (%.1f s)",
+"Spiele Kamera „%s“ (%.1f s)",
+"Playing camera '%s' (%.1f s)"
+],
+[
+"Plays a camera preset. {path, players?, look_at? (player name or [x,y,z]), speed?, carry?, hide_hud?}",
+"Spielt eine Kamerafahrt ab. {path, players?, look_at? (Spielername oder [x,y,z]), speed?, carry?, hide_hud?}",
+"Plays a camera preset. {path, players?, look_at? (player name or [x,y,z]), speed?, carry?, hide_hud?}"
+],
+[
+"Point index can be at most {0}",
+"Punktnummer höchstens {0}",
+"Point index can be at most {0}"
+],
+[
+"Point {0} does not exist (preset has {1})",
+"Punkt {0} gibt es nicht (die Fahrt hat {1})",
+"Point {0} does not exist (preset has {1})"
+],
+[
+"Point {0} of '{1}' set to your current view ({2} points, {3})",
+"Punkt {0} von „{1}“ auf deine aktuelle Sicht gesetzt ({2} Punkte, {3})",
+"Point {0} of '{1}' set to your current view ({2} points, {3})"
+],
+[
+"Preset '{0}' already exists",
+"Kamerafahrt „{0}“ gibt es schon",
+"Preset '{0}' already exists"
+],
+[
+"Preset needs at least 2 points",
+"Eine Kamerafahrt braucht mindestens 2 Punkte",
+"Preset needs at least 2 points"
+],
+[
+"Recorded camera '%s': %d points, %.1f s. Play: /btb camera play %s",
+"Kamera „%s“ aufgenommen: %d Punkte, %.1f s. Abspielen: /btb camera play %s",
+"Recorded camera '%s': %d points, %.1f s. Play: /btb camera play %s"
+],
+[
+"Recording camera '{0}' — fly the move (spectator works best), then /btb camera record stop",
+"Nehme Kamera „{0}“ auf – flieg die Fahrt (am besten als Zuschauer), dann /btb camera record stop",
+"Recording camera '{0}' — fly the move (spectator works best), then /btb camera record stop"
+],
+[
+"Returns the view to the player. {players?}",
+"Gibt dem Spieler die Sicht zurück. {players?}",
+"Returns the view to the player. {players?}"
+],
+[
+"Shakes the camera. {intensity (0..5), duration ticks (default 20), frequency? (default 1), players?}",
+"Lässt die Kamera wackeln. {intensity (0..5), duration Ticks (Standard 20), frequency? (Standard 1), players?}",
+"Shakes the camera. {intensity (0..5), duration ticks (default 20), frequency? (default 1), players?}"
+],
+[
+"Sicht von {0} für {1} s",
+"Sicht von {0} für {1} s",
+"View of {0} for {1} s"
+],
+[
+"Switches perspective. {mode: first | third | front, players?}",
+"Wechselt die Perspektive. {mode: first | third | front, players?}",
+"Switches perspective. {mode: first | third | front, players?}"
+],
+[
+"Too short — move further while recording",
+"Zu kurz – beim Aufnehmen weiter fliegen",
+"Too short — move further while recording"
+],
+[
+"Unknown camera preset",
+"Unbekannte Kamerafahrt",
+"Unknown camera preset"
+],
+[
+"Unknown camera preset '{0}' (create it first)",
+"Unbekannte Kamerafahrt „{0}“ (zuerst anlegen)",
+"Unknown camera preset '{0}' (create it first)"
+],
+[
+"Unknown preset or point",
+"Unbekannte Fahrt oder unbekannter Punkt",
+"Unknown preset or point"
+],
+[
+"Use first, third or front",
+"first, third oder front verwenden",
+"Use first, third or front"
+],
+[
+"Vertigo",
+"Vertigo",
+"Vertigo"
+],
+[
+"Vorschau {0}: Linie = Fahrt, helle Punkte = Kamerapunkte. Punkt verschieben: dorthin stellen, in die gewünschte Richtung schauen, /btb camera point {1} <nr>",
+"Vorschau {0}: Linie = Fahrt, helle Punkte = Kamerapunkte. Punkt verschieben: dorthin stellen, in die gewünschte Richtung schauen, /btb camera point {1} <nr>",
+"Preview {0}: line = camera move, bright dots = camera points. Move a point: stand there, look in the direction you want, /btb camera point {1} <nr>"
+],
+[
+"Zeitlupe aus",
+"Zeitlupe aus",
+"Slow motion off"
+],
+[
+"Zeitlupe x",
+"Zeitlupe x",
+"Slow motion x"
+],
+[
+"Zeitlupe x{0}",
+"Zeitlupe x{0}",
+"Slow motion x{0}"
+],
+[
+"Zoom reset",
+"Zoom zurückgesetzt",
+"Zoom reset"
+],
+[
+"Zooming",
+"Zoom läuft",
+"Zooming"
+],
+[
+"a path needs at least one point; use delete instead",
+"eine Fahrt braucht mindestens einen Punkt; sonst löschen",
+"a path needs at least one point; use delete instead"
+],
+[
+"camera preset '{0}' does not exist",
+"Kamerafahrt „{0}“ gibt es nicht",
+"camera preset '{0}' does not exist"
+],
+[
+"follow target '{0}' is not online",
+"Verfolgungsziel „{0}“ ist nicht online",
+"follow target '{0}' is not online"
+],
+[
+"intensity 0..5, duration >= 1, frequency 0..10",
+"intensity 0..5, duration >= 1, frequency 0..10",
+"intensity 0..5, duration >= 1, frequency 0..10"
+],
+[
+"orbit target '{0}' is not online",
+"Kreisziel „{0}“ ist nicht online",
+"orbit target '{0}' is not online"
+],
+[
+"{0} camera preset(s):",
+"{0} Kamerafahrt(en):",
+"{0} camera preset(s):"
+],
+[
+"{0}: {1}, easing {2}, speed {3}, {4}",
+"{0}: {1}, Easing {2}, Tempo {3}, {4}",
+"{0}: {1}, easing {2}, speed {3}, {4}"
+],
+[
+"● REC {0}  {1} Punkte",
+"● REC {0}  {1} Punkte",
+"● REC {0}  {1} points"
+],
+[
+"'points' must be an array",
+"„points“ muss eine Liste sein",
+"'points' must be an array"
+],
+[
+"camera path needs at least one point",
+"eine Kamerafahrt braucht mindestens einen Punkt",
+"camera path needs at least one point"
+],
+[
+"path has no points",
+"die Fahrt hat keine Punkte",
+"path has no points"
+],
+[
+"player setting",
+"Spieler-Einstellung",
+"player setting"
+],
+[
+"point #",
+"Punkt #",
+"point #"
+],
+[
+"point #{0} must be an object",
+"Punkt #{0} muss ein Objekt sein",
+"point #{0} must be an object"
+],
+[
+"point #{0}: {1}",
+"Punkt #{0}: {1}",
+"point #{0}: {1}"
+],
+[
+"speed must be > 0 and <= 100",
+"speed muss > 0 und <= 100 sein",
+"speed must be > 0 and <= 100"
+],
+[
+"unknown path mode '{0}' (linear, smooth, bezier)",
+"unbekannter Fahrt-Modus „{0}“ (linear, smooth, bezier)",
+"unknown path mode '{0}' (linear, smooth, bezier)"
+],
+[
+"'fov' must be between 1 and 170 (or 0 for default)",
+"„fov“ muss zwischen 1 und 170 liegen (oder 0 für Standard)",
+"'fov' must be between 1 and 170 (or 0 for default)"
+],
+[
+"'ticks' must be at least 1",
+"„ticks“ muss mindestens 1 sein",
+"'ticks' must be at least 1"
+],
+[
+"ALC_EXT_EFX",
+"ALC_EXT_EFX",
+"ALC_EXT_EFX"
+],
+[
+"effect params",
+"effect params",
+"effect params"
+],
+[
+"slot setup",
+"slot setup",
+"slot setup"
+],
+[
+"Nur Operatoren können das Set zurücksetzen",
+"Nur Operatoren können das Set zurücksetzen",
+"Only operators can reset the set"
+],
+[
+"Set zurückgesetzt – bereit für Take {0}",
+"Set zurückgesetzt – bereit für Take {0}",
+"Set reset – ready for take {0}"
+],
+[
+"Take N",
+"Take N",
+"Take N"
+],
+[
+"Take {0}",
+"Take {0}",
+"Take {0}"
+],
+[
+"unknown color '{0}' (name like white/black, or hex: #RRGGBB in JSON, RRGGBB without # in commands)",
+"unbekannte Farbe „{0}“ (Name wie white/black oder Hex: #RRGGBB in JSON, RRGGBB ohne # in Befehlen)",
+"unknown color '{0}' (name like white/black, or hex: #RRGGBB in JSON, RRGGBB without # in commands)"
+],
+[
+"'direction' must be north, south, east or west",
+"„direction“ muss north, south, east oder west sein",
+"'direction' must be north, south, east or west"
+],
+[
+"'duration' must be 1..6000 ticks",
+"„duration“ muss 1..6000 Ticks sein",
+"'duration' must be 1..6000 ticks"
+],
+[
+"'effect' must be one of {0}",
+"„effect“ muss eins davon sein: {0}",
+"'effect' must be one of {0}"
+],
+[
+"'proximity' must be 0..64 blocks",
+"„proximity“ muss 0..64 Blöcke sein",
+"'proximity' must be 0..64 blocks"
+],
+[
+"area too large ({0} blocks, max {1})",
+"Bereich zu groß ({0} Blöcke, höchstens {1})",
+"area too large ({0} blocks, max {1})"
+],
+[
+"Area '{0}' created. Backup is taken automatically before the first trigger.",
+"Bereich „{0}“ angelegt. Die Sicherung wird vor dem ersten Auslösen automatisch erstellt.",
+"Area '{0}' created. Backup is taken automatically before the first trigger."
+],
+[
+"Area '{0}' deleted (its backup file is kept in the world folder)",
+"Bereich „{0}“ gelöscht (seine Sicherung bleibt im Weltordner)",
+"Area '{0}' deleted (its backup file is kept in the world folder)"
+],
+[
+"Area '{0}' invalid: {1}",
+"Bereich „{0}“ ungültig: {1}",
+"Area '{0}' invalid: {1}"
+],
+[
+"Area '{0}' is already being destroyed",
+"Bereich „{0}“ wird schon zerstört",
+"Area '{0}' is already being destroyed"
+],
+[
+"Area '{0}' updated",
+"Bereich „{0}“ aktualisiert",
+"Area '{0}' updated"
+],
+[
+"Backup failed ({0}); nothing was destroyed",
+"Sicherung fehlgeschlagen ({0}); nichts wurde zerstört",
+"Backup failed ({0}); nothing was destroyed"
+],
+[
+"Backup failed: {0}",
+"Sicherung fehlgeschlagen: {0}",
+"Backup failed: {0}"
+],
+[
+"Backup refreshed ({0} blocks)",
+"Sicherung erneuert ({0} Blöcke)",
+"Backup refreshed ({0} blocks)"
+],
+[
+"Destroys a predefined area. {id, effect? (collapse|explode|crumble|lava|fire|wall_burst)}",
+"Zerstört einen festgelegten Bereich. {id, effect? (collapse|explode|crumble|lava|fire|wall_burst)}",
+"Destroys a predefined area. {id, effect? (collapse|explode|crumble|lava|fire|wall_burst)}"
+],
+[
+"Destruction triggered",
+"Zerstörung ausgelöst",
+"Destruction triggered"
+],
+[
+"Dimension not found",
+"Dimension nicht gefunden",
+"Dimension not found"
+],
+[
+"Loaded {0} area(s)",
+"{0} Bereich(e) geladen",
+"Loaded {0} area(s)"
+],
+[
+"Restored all areas ({0} blocks)",
+"Alle Bereiche wiederhergestellt ({0} Blöcke)",
+"Restored all areas ({0} blocks)"
+],
+[
+"Restored {0} block(s)",
+"{0} Block/Blöcke wiederhergestellt",
+"Restored {0} block(s)"
+],
+[
+"Restores a destroyed area from its backup. {id? (omit = all)}",
+"Stellt einen zerstörten Bereich aus seiner Sicherung wieder her. {id? (ohne = alle)}",
+"Restores a destroyed area from its backup. {id? (omit = all)}"
+],
+[
+"Unknown area",
+"Unbekannter Bereich",
+"Unknown area"
+],
+[
+"Unknown area '{0}'",
+"Unbekannter Bereich „{0}“",
+"Unknown area '{0}'"
+],
+[
+"Unknown destruction area '{0}'",
+"Unbekannter Zerstörungsbereich „{0}“",
+"Unknown destruction area '{0}'"
+],
+[
+"Unknown effect",
+"Unbekannter Effekt",
+"Unknown effect"
+],
+[
+"gate stop",
+"gate stop",
+"gate stop"
+],
+[
+"gate swing",
+"gate swing",
+"gate swing"
+],
+[
+"{0} area(s): {1}",
+"{0} Bereich(e): {1}",
+"{0} area(s): {1}"
+],
+[
+"BTB Cinematic",
+"BTB Cinematic",
+"BTB Cinematic"
+],
+[
+"Cue-Liste beendet",
+"Cue-Liste beendet",
+"Cue list finished"
+],
+[
+"Ende: Schwarzblende",
+"Ende: Schwarzblende",
+"End: fade to black"
+],
+[
+"GO ▶ ",
+"GO ▶ ",
+"GO ▶ "
+],
+[
+"Schnitt: Weißblende",
+"Schnitt: Weißblende",
+"Cut: fade to white"
+],
+[
+"Set zurücksetzen",
+"Set zurücksetzen",
+"Reset set"
+],
+[
+"Szene: heart_discovery",
+"Szene: heart_discovery",
+"Scene: heart_discovery"
+],
+[
+"Zerstörung: Ruine",
+"Zerstörung: Ruine",
+"Destruction: ruin"
+],
+[
+"[BTB] Scene started",
+"[BTB] Szene gestartet",
+"[BTB] Scene started"
+],
+[
+" entfernt, Gelände wiederhergestellt",
+" entfernt, Gelände wiederhergestellt",
+" removed, terrain restored"
+],
+[
+" · Überblick: /btb scene start film_vorschau",
+" · Überblick: /btb scene start film_vorschau",
+" · Overview: /btb scene start film_vorschau"
+],
+[
+"). Entfernen: /btb film remove",
+"). Entfernen: /btb film remove",
+"). Remove: /btb film remove"
+],
+[
+"Backup failed, nothing built: {0}",
+"Sicherung fehlgeschlagen, nichts gebaut: {0}",
+"Backup failed, nothing built: {0}"
+],
+[
+"Backup fehlgeschlagen, nichts gebaut: {0}",
+"Backup fehlgeschlagen, nichts gebaut: {0}",
+"Backup failed, nothing built: {0}"
+],
+[
+"Demo set built. Try: /btb scene start heart_discovery  ·  /btb destruction trigger ruin_tower  ·  full storyboard set: /btb film setup",
+"Demo-Set gebaut. Probier: /btb scene start heart_discovery  ·  /btb destruction trigger ruin_tower  ·  komplettes Storyboard-Set: /btb film setup",
+"Demo set built. Try: /btb scene start heart_discovery  ·  /btb destruction trigger ruin_tower  ·  full storyboard set: /btb film setup"
+],
+[
+"Demo set removed, terrain restored",
+"Demo-Set entfernt, Gelände wiederhergestellt",
+"Demo set removed, terrain restored"
+],
+[
+"Der Trailer braucht das ganze Film-Set: /btb film setup",
+"Der Trailer braucht das ganze Film-Set: /btb film setup",
+"The trailer needs the whole film set: /btb film setup"
+],
+[
+"Film-Set",
+"Film-Set",
+"Film set"
+],
+[
+"Film-Set gebaut",
+"Film-Set gebaut",
+"Film set built"
+],
+[
+"Restore failed: {0}",
+"Wiederherstellen fehlgeschlagen: {0}",
+"Restore failed: {0}"
+],
+[
+"Seelenkompass zeigt auf {0} {1} {2}",
+"Seelenkompass zeigt auf {0} {1} {2}",
+"Soul compass points to {0} {1} {2}"
+],
+[
+"Set reset ({0} scene(s) reset, portals closed, areas restored, effects cleared)",
+"Set zurückgesetzt ({0} Szene(n) zurückgesetzt, Portale geschlossen, Bereiche wiederhergestellt, Effekte gelöscht)",
+"Set reset ({0} scene(s) reset, portals closed, areas restored, effects cleared)"
+],
+[
+"Teile: {0} · gebaut: {1}",
+"Teile: {0} · gebaut: {1}",
+"Pieces: {0} · built: {1}"
+],
+[
+"Trailer-Export {0}×{1} @ {2} FPS startet – der Song wird am Ende ins Video gelegt",
+"Trailer-Export {0}×{1} @ {2} FPS startet – der Song wird am Ende ins Video gelegt",
+"Trailer export {0}×{1} @ {2} FPS starting – the song is laid under the video at the end"
+],
+[
+"Unbekannt",
+"Unbekannt",
+"Unknown"
+],
+[
+"Wiederherstellen fehlgeschlagen: {0}",
+"Wiederherstellen fehlgeschlagen: {0}",
+"Restore failed: {0}"
+],
+[
+"Zeigt immer zum Herzen",
+"Zeigt immer zum Herzen",
+"Always points to the heart"
+],
+[
+"bleiben jetzt geladen",
+"bleiben jetzt geladen",
+"stay loaded now"
+],
+[
+"steht schon",
+"steht schon",
+"already stands"
+],
+[
+"{0} Chunks {1}",
+"{0} Chunks {1}",
+"{0} Chunks {1}"
+],
+[
+"“ gebaut",
+"“ gebaut",
+"” built"
+],
+[
+"▶ Trailer (2:05). Musik: config/btb_cinematic/music/trailer.ogg (Lautstärke: Regler „Jukebox“). Sichtweite ≥ 16!",
+"▶ Trailer (2:05). Musik: config/btb_cinematic/music/trailer.ogg (Lautstärke: Regler „Jukebox“). Sichtweite ≥ 16!",
+"▶ Trailer (2:05). Music: config/btb_cinematic/music/trailer.ogg (volume: “Jukebox” slider). Render distance ≥ 16!"
+],
+[
+"\nTaste: Numpad ",
+"\nTaste: Numpad ",
+"\nKey: Numpad "
+],
+[
+"   Num {0}   {1}",
+"   Num {0}   {1}",
+"   Num {0}   {1}"
+],
+[
+"  · an",
+"  · an",
+"  · on"
+],
+[
+"  · aus",
+"  · aus",
+"  · off"
+],
+[
+"  · läuft",
+"  · läuft",
+"  · running"
+],
+[
+" (0 Sek. = bleibt stehen)",
+" (0 Sek. = bleibt stehen)",
+" (0 s = stays in place)"
+],
+[
+" Szene(n) aktiv",
+" Szene(n) aktiv",
+" scene(s) active"
+],
+[
+" crane 9 2",
+" crane 9 2",
+" crane 9 2"
+],
+[
+" front 5 1",
+" front 5 1",
+" front 5 1"
+],
+[
+" s hinzu (Baukasten)",
+" s hinzu (Baukasten)",
+" s (builder)"
+],
+[
+" s setzen",
+" s setzen",
+" s set"
+],
+[
+" shoulder 3 1",
+" shoulder 3 1",
+" shoulder 3 1"
+],
+[
+" side 9 2 +z",
+" side 9 2 +z",
+" side 9 2 +z"
+],
+[
+"%.1f s pro Eintrag",
+"%.1f s pro Eintrag",
+"%.1f s per entry"
+],
+[
+"' auf",
+"' auf",
+"' to"
+],
+[
+"+ Cue",
+"+ Cue",
+"+ Cue"
+],
+[
+"+ Eintrag",
+"+ Eintrag",
+"+ Entry"
+],
+[
+"+ Hinzufügen",
+"+ Hinzufügen",
+"+ Add"
+],
+[
+"+ Neue Szene",
+"+ Neue Szene",
+"+ New scene"
+],
+[
+"+ Pfeifen",
+"+ Pfeifen",
+"+ Whistle"
+],
+[
+"+ Punkt",
+"+ Punkt",
+"+ Point"
+],
+[
+"+ Statist",
+"+ Statist",
+"+ Extra"
+],
+[
+"+ Überschrift",
+"+ Überschrift",
+"+ Heading"
+],
+[
+"-Liste anlegen",
+"-Liste anlegen",
+" list create"
+],
+[
+"1 Sekunde früher",
+"1 Sekunde früher",
+"1 second earlier"
+],
+[
+"1 Sekunde später",
+"1 Sekunde später",
+"1 second later"
+],
+[
+"1. Person",
+"1. Person",
+"1st person"
+],
+[
+"10 Blöcke vor dir",
+"10 Blöcke vor dir",
+"10 blocks in front of you"
+],
+[
+"2.5D-Seitenansicht (Jump'n'Run)",
+"2.5D-Seitenansicht (Jump'n'Run)",
+"2.5D side view (jump'n'run)"
+],
+[
+"3. Person",
+"3. Person",
+"3rd person"
+],
+[
+"Ab hier",
+"Ab hier",
+"From here"
+],
+[
+"Ab jetzt landet jede Aktion (Klick, Befehl, Cue) mit genauer Zeit in der Szene. ",
+"Ab jetzt landet jede Aktion (Klick, Befehl, Cue) mit genauer Zeit in der Szene. ",
+"From now on every action (click, command, cue) lands in the scene with its exact time. "
+],
+[
+"Abbrechen",
+"Abbrechen",
+"Cancel"
+],
+[
+"Abspann (Roll)",
+"Abspann (Roll)",
+"End credits (roll)"
+],
+[
+"Action",
+"Action",
+"Action"
+],
+[
+"Aktionen starten, sobald das Menü zu ist",
+"Aktionen starten, sobald das Menü zu ist",
+"Actions start as soon as the menu is closed"
+],
+[
+"Aktivieren",
+"Aktivieren",
+"Activate"
+],
+[
+"Aktuelle Ansicht als neuen Punkt anhängen",
+"Aktuelle Ansicht als neuen Punkt anhängen",
+"Append the current view as a new point"
+],
+[
+"Alle Cues löschen",
+"Alle Cues löschen",
+"Delete all cues"
+],
+[
+"Alle Einträge löschen",
+"Alle Einträge löschen",
+"Delete all entries"
+],
+[
+"Alle Szenen zurücksetzen, Portale schließen, Zerstörung wiederherstellen, Effekte löschen",
+"Alle Szenen zurücksetzen, Portale schließen, Zerstörung wiederherstellen, Effekte löschen",
+"Reset all scenes, close portals, restore destruction, clear effects"
+],
+[
+"Alle Zuschauer",
+"Alle Zuschauer",
+"Everyone spectator"
+],
+[
+"Alle gespawnten Gegner entfernen",
+"Alle gespawnten Gegner entfernen",
+"Remove all spawned enemies"
+],
+[
+"Alle schließen",
+"Alle schließen",
+"Close all"
+],
+[
+"Alle stoppen",
+"Alle stoppen",
+"Stop all"
+],
+[
+"Alle weg",
+"Alle weg",
+"All gone"
+],
+[
+"Alle zu mir",
+"Alle zu mir",
+"Everyone to me"
+],
+[
+"Alles stop",
+"Alles stop",
+"Stop everything"
+],
+[
+"Alles weg",
+"Alles weg",
+"Clear everything"
+],
+[
+"Alles wiederherstellen",
+"Alles wiederherstellen",
+"Restore everything"
+],
+[
+"Als Vorlage",
+"Als Vorlage",
+"As template"
+],
+[
+"Ambiente {0}{1}",
+"Ambiente {0}{1}",
+"Ambience {0}{1}"
+],
+[
+"An",
+"An",
+"On"
+],
+[
+"An den Anfang",
+"An den Anfang",
+"To the start"
+],
+[
+"An die Cue-Liste anhängen",
+"An die Cue-Liste anhängen",
+"Append to the cue list"
+],
+[
+"Anamorph-Streifen",
+"Anamorph-Streifen",
+"Anamorphic streaks"
+],
+[
+"Andere Taste wählen",
+"Andere Taste wählen",
+"Choose another key"
+],
+[
+"Aschekriecher, klettern an Wänden",
+"Aschekriecher, klettern an Wänden",
+"Ash crawlers, climb walls"
+],
+[
+"Auf",
+"Auf",
+"Up"
+],
+[
+"Auf welche Taste der nächste Klick gelegt wird",
+"Auf welche Taste der nächste Klick gelegt wird",
+"Which key the next click is assigned to"
+],
+[
+"Aufnahme",
+"Aufnahme",
+"Recording"
+],
+[
+"Aufnahme-Kamera schaut kurz durch seine Augen",
+"Aufnahme-Kamera schaut kurz durch seine Augen",
+"Recording camera briefly looks through their eyes"
+],
+[
+"Aus",
+"Aus",
+"Off"
+],
+[
+"Aus dem Backup wiederherstellen",
+"Aus dem Backup wiederherstellen",
+"Restore from backup"
+],
+[
+"Ausführen / zur Szene hinzufügen / zur Cue-Liste hinzufügen",
+"Ausführen / zur Szene hinzufügen / zur Cue-Liste hinzufügen",
+"Run / add to scene / add to cue list"
+],
+[
+"Auslösen",
+"Auslösen",
+"Trigger"
+],
+[
+"Auto",
+"Auto",
+"Auto"
+],
+[
+"Auto-Regie",
+"Auto-Regie",
+"Auto director"
+],
+[
+"BEHIND THE BLOCKS — DIRECTOR",
+"BEHIND THE BLOCKS — DIRECTOR",
+"BEHIND THE BLOCKS — DIRECTOR"
+],
+[
+"Bauchbinde",
+"Bauchbinde",
+"Lower third"
+],
+[
+"Baukasten",
+"Baukasten",
+"Builder"
+],
+[
+"Bearbeite „",
+"Bearbeite „",
+"Editing “"
+],
+[
+"Bearbeite „{0}“",
+"Bearbeite „{0}“",
+"Editing “{0}”"
+],
+[
+"Beben aus",
+"Beben aus",
+"Quakes off"
+],
+[
+"Befehl als Schritt in die Szene",
+"Befehl als Schritt in die Szene",
+"Command as a step in the scene"
+],
+[
+"Befehl, z. B. btb effects fade black 2",
+"Befehl, z. B. btb effects fade black 2",
+"Command, e.g. btb effects fade black 2"
+],
+[
+"Befehl, z. B. btb scene restart opening",
+"Befehl, z. B. btb scene restart opening",
+"Command, e.g. btb scene restart opening"
+],
+[
+"Bei",
+"Bei",
+"At"
+],
+[
+"Belegen",
+"Belegen",
+"Assign"
+],
+[
+"Bild-im-Bild: Sicht des nächsten Darstellers",
+"Bild-im-Bild: Sicht des nächsten Darstellers",
+"Picture-in-picture: view of the nearest actor"
+],
+[
+"Bildformat",
+"Bildformat",
+"Aspect ratio"
+],
+[
+"Bleach",
+"Bleach",
+"Bleach"
+],
+[
+"Blenden",
+"Blenden",
+"Fades"
+],
+[
+"Blitz",
+"Blitz",
+"Flash"
+],
+[
+"Blitze aus",
+"Blitze aus",
+"Lightning off"
+],
+[
+"Bodenplatte mit Glyphenkreis",
+"Bodenplatte mit Glyphenkreis",
+"Floor plate with glyph circle"
+],
+[
+"Boss",
+"Boss",
+"Boss"
+],
+[
+"Boss: Herzwächter (lässt den Schlüssel fallen)",
+"Boss: Herzwächter (lässt den Schlüssel fallen)",
+"Boss: Heart Warden (drops the key)"
+],
+[
+"Boss: {0}",
+"Boss: {0}",
+"Boss: {0}"
+],
+[
+"Buch",
+"Buch",
+"Book"
+],
+[
+"Buch / Boss / Nachricht",
+"Buch / Boss / Nachricht",
+"Book / boss / message"
+],
+[
+"Camcorder",
+"Camcorder",
+"Camcorder"
+],
+[
+"Clean Feed (F8)",
+"Clean Feed (F8)",
+"Clean Feed (F8)"
+],
+[
+"Clean Feed {0}",
+"Clean Feed {0}",
+"Clean Feed {0}"
+],
+[
+"Credits",
+"Credits",
+"Credits"
+],
+[
+"Cue",
+"Cue",
+"Cue"
+],
+[
+"Cue hinzugefügt",
+"Cue hinzugefügt",
+"Cue added"
+],
+[
+"Cue-Liste & OBS-Konfiguration neu geladen",
+"Cue-Liste & OBS-Konfiguration neu geladen",
+"Cue list & OBS configuration reloaded"
+],
+[
+"Cue-Liste (Numpad Enter = GO, Numpad + = anzeigen)",
+"Cue-Liste (Numpad Enter = GO, Numpad + = anzeigen)",
+"Cue list (numpad Enter = GO, numpad + = show)"
+],
+[
+"Cue-Liste: {0} Cue(s)",
+"Cue-Liste: {0} Cue(s)",
+"Cue list: {0} cue(s)"
+],
+[
+"Darsteller werden kurz Zuschauer, Puppen spielen",
+"Darsteller werden kurz Zuschauer, Puppen spielen",
+"Actors briefly become spectators, puppets play"
+],
+[
+"Das alte Buch",
+"Das alte Buch",
+"The Old Book"
+],
+[
+"Dialog",
+"Dialog",
+"Dialog"
+],
+[
+"Director",
+"Director",
+"Director"
+],
+[
+"Direkt offen",
+"Direkt offen",
+"Open directly"
+],
+[
+"Doku",
+"Doku",
+"Docu"
+],
+[
+"Dolly-Zoom (Vertigo) auf den Block vor dir",
+"Dolly-Zoom (Vertigo) auf den Block vor dir",
+"Dolly zoom (vertigo) on the block in front of you"
+],
+[
+"Ducken",
+"Ducken",
+"Crouch"
+],
+[
+"Dumpf 6 s",
+"Dumpf 6 s",
+"Muffled 6 s"
+],
+[
+"Effekte",
+"Effekte",
+"Effects"
+],
+[
+"Ego-Kamera (Bodycam des nächsten Darstellers)",
+"Ego-Kamera (Bodycam des nächsten Darstellers)",
+"Ego camera (bodycam of the nearest actor)"
+],
+[
+"Ein-/ausschalten und speichern",
+"Ein-/ausschalten und speichern",
+"Switch on/off and save"
+],
+[
+"Eingabefelder ein-/ausblenden (mehr Platz für die Liste)",
+"Eingabefelder ein-/ausblenden (mehr Platz für die Liste)",
+"Show/hide input fields (more room for the list)"
+],
+[
+"Eintrag löschen",
+"Eintrag löschen",
+"Delete entry"
+],
+[
+"Eintrag {0} geladen – ändern und „Übernehmen“ klicken",
+"Eintrag {0} geladen – ändern und „Übernehmen“ klicken",
+"Entry {0} loaded – change it and click “Apply”"
+],
+[
+"Ending-Szene (Endkarte + Abspann)",
+"Ending-Szene (Endkarte + Abspann)",
+"Ending scene (end card + credits roll)"
+],
+[
+"Endkarte",
+"Endkarte",
+"End card"
+],
+[
+"Epischer weißer Stil",
+"Epischer weißer Stil",
+"Epic white style"
+],
+[
+"Erscheint 8 Blöcke vor dir",
+"Erscheint 8 Blöcke vor dir",
+"Appears 8 blocks in front of you"
+],
+[
+"Erscheint 8 Blöcke vor dir und greift an",
+"Erscheint 8 Blöcke vor dir und greift an",
+"Appears 8 blocks in front of you and attacks"
+],
+[
+"Erst Text eingeben",
+"Erst Text eingeben",
+"Enter text first"
+],
+[
+"Explode",
+"Explodieren",
+"Explode"
+],
+[
+"Explosion",
+"Explosion",
+"Explosion"
+],
+[
+"Fahrt fliegen, dann 'Aufnahme stop'",
+"Fahrt fliegen, dann 'Aufnahme stop'",
+"Fly the move, then 'Recording stop'"
+],
+[
+"Fahrt für alle Spieler",
+"Fahrt für alle Spieler",
+"Camera move for all players"
+],
+[
+"Fahrt für mich abspielen",
+"Fahrt für mich abspielen",
+"Play the move for me"
+],
+[
+"Farbkorrektur (LUT)",
+"Farbkorrektur (LUT)",
+"Color grading (LUT)"
+],
+[
+"Fern 20",
+"Fern 20",
+"Far 20"
+],
+[
+"Figur mit Spieler-Skin",
+"Figur mit Spieler-Skin",
+"Figure with a player skin"
+],
+[
+"Film",
+"Film",
+"Film"
+],
+[
+"Film-Export (bildgenau, ohne Ruckler)",
+"Film-Export (bildgenau, ohne Ruckler)",
+"Film export (frame-exact, no stutter)"
+],
+[
+"Filmkorn",
+"Filmkorn",
+"Film grain"
+],
+[
+"Fokus-Zug",
+"Fokus-Zug",
+"Focus pull"
+],
+[
+"Fragt OBS nach Version und Aufnahme-Status (Antwort erscheint in der OBS-Zeile)",
+"Fragt OBS nach Version und Aufnahme-Status (Antwort erscheint in der OBS-Zeile)",
+"Asks OBS for version and recording status (the answer appears in the OBS row)"
+],
+[
+"Front",
+"Front",
+"Front"
+],
+[
+"Für Aufnahmen: bewegt sich nicht",
+"Für Aufnahmen: bewegt sich nicht",
+"For recordings: does not move"
+],
+[
+"GO startet bei diesem Cue",
+"GO startet bei diesem Cue",
+"GO starts at this cue"
+],
+[
+"Ganze Zone (Klang, Partikel, Beben, Blitze)",
+"Ganze Zone (Klang, Partikel, Beben, Blitze)",
+"Whole zone (sound, particles, quakes, lightning)"
+],
+[
+"Gegner weg",
+"Gegner weg",
+"Enemies gone"
+],
+[
+"Geänderten Eintrag speichern",
+"Geänderten Eintrag speichern",
+"Save the changed entry"
+],
+[
+"Ghast am Horizont",
+"Ghast am Horizont",
+"Ghast on the horizon"
+],
+[
+"Ghast-Absturz",
+"Ghast-Absturz",
+"Ghast crash"
+],
+[
+"Glut",
+"Glut",
+"Ember"
+],
+[
+"Glutfackeln",
+"Glutfackeln",
+"Ember flares"
+],
+[
+"Glutgeister, schwirren durch Wände",
+"Glutgeister, schwirren durch Wände",
+"Ember spirits, buzz through walls"
+],
+[
+"Glutkessel",
+"Glutkessel",
+"Brazier"
+],
+[
+"Glutlinge",
+"Glutlinge",
+"Ember imps"
+],
+[
+"Glutriss",
+"Glutriss",
+"Ember crack"
+],
+[
+"Glyphen",
+"Glyphen",
+"Glyphs"
+],
+[
+"HUD",
+"HUD",
+"HUD"
+],
+[
+"HUD ausblenden",
+"HUD ausblenden",
+"Hide HUD"
+],
+[
+"Hall",
+"Hall",
+"Reverb"
+],
+[
+"Halle",
+"Halle",
+"Hall"
+],
+[
+"Handkamera",
+"Handkamera",
+"Handheld"
+],
+[
+"Hier",
+"Hier",
+"Here"
+],
+[
+"Hier setzen",
+"Hier setzen",
+"Set here"
+],
+[
+"Hin",
+"Hin",
+"Go"
+],
+[
+"Hitzeflimmern",
+"Hitzeflimmern",
+"Heat haze"
+],
+[
+"Hoch oben, langsam kreisend",
+"Hoch oben, langsam kreisend",
+"High up, slowly circling"
+],
+[
+"Höhle",
+"Höhle",
+"Cave"
+],
+[
+"INACTIVE",
+"INAKTIV",
+"INACTIVE"
+],
+[
+"Icon: {0}",
+"Icon: {0}",
+"Icon: {0}"
+],
+[
+"Im Baukasten bearbeiten (Schritte, Zeiten, auf Taste legen)",
+"Im Baukasten bearbeiten (Schritte, Zeiten, auf Taste legen)",
+"Edit in the builder (steps, times, assign to a key)"
+],
+[
+"Im Baukasten eine neue Szene anlegen",
+"Im Baukasten eine neue Szene anlegen",
+"Create a new scene in the builder"
+],
+[
+"In die Felder oben laden, ändern, „Übernehmen“",
+"In die Felder oben laden, ändern, „Übernehmen“",
+"Load into the fields above, change, “Apply”"
+],
+[
+"Iris zu",
+"Iris zu",
+"Iris close"
+],
+[
+"Jetzt auslösen (Test)",
+"Jetzt auslösen (Test)",
+"Trigger now (test)"
+],
+[
+"Jetzt die gewünschte Aktion anklicken – sie kommt auf Numpad {0}",
+"Jetzt die gewünschte Aktion anklicken – sie kommt auf Numpad {0}",
+"Now click the action you want – it goes to numpad {0}"
+],
+[
+"Kalt",
+"Kalt",
+"Cold"
+],
+[
+"Kamera",
+"Kamera",
+"Camera"
+],
+[
+"Kamera fährt ran, Hintergrund weitet sich",
+"Kamera fährt ran, Hintergrund weitet sich",
+"Camera moves in, background widens"
+],
+[
+"Kamera fährt weg, Hintergrund rückt heran",
+"Kamera fährt weg, Hintergrund rückt heran",
+"Camera moves away, background closes in"
+],
+[
+"Kamera stop",
+"Kamera stop",
+"Camera stop"
+],
+[
+"Kapitel",
+"Kapitel",
+"Chapter"
+],
+[
+"Kessel",
+"Kessel",
+"Brazier"
+],
+[
+"Kettenleuchter (an die Decke)",
+"Kettenleuchter (an die Decke)",
+"Chain chandelier (on the ceiling)"
+],
+[
+"Kino-Ton leiser vor dem großen Moment",
+"Kino-Ton leiser vor dem großen Moment",
+"Film sound quieter before the big moment"
+],
+[
+"Kinobalken",
+"Kinobalken",
+"Cinema bars"
+],
+[
+"Klick = Klappe + Take, Schleichen+Klick = Set zurücksetzen",
+"Klick = Klappe + Take, Schleichen+Klick = Set zurücksetzen",
+"Click = clap + take, sneak+click = reset set"
+],
+[
+"Klick → Cue-Liste",
+"Klick → Cue-Liste",
+"Click → cue list"
+],
+[
+"Klick → Szene",
+"Klick → Szene",
+"Click → scene"
+],
+[
+"Klick → Taste",
+"Klick → Taste",
+"Click → key"
+],
+[
+"Klick: beim Schließen",
+"Klick: beim Schließen",
+"Click: on close"
+],
+[
+"Klick: sofort",
+"Klick: sofort",
+"Click: instantly"
+],
+[
+"Klicken zum Wechseln",
+"Klicken zum Wechseln",
+"Click to change"
+],
+[
+"Klicks fügen zur Szene '",
+"Klicks fügen zur Szene '",
+"Clicks add to scene '"
+],
+[
+"Klicks führen Aktionen sofort aus (zum Testen)",
+"Klicks führen Aktionen sofort aus (zum Testen)",
+"Clicks run actions instantly (for testing)"
+],
+[
+"Klicks hängen Cues an die Cue-Liste an (Aufnahme)",
+"Klicks hängen Cues an die Cue-Liste an (Aufnahme)",
+"Clicks append cues to the cue list (recording)"
+],
+[
+"Komplette Aktivierungssequenz",
+"Komplette Aktivierungssequenz",
+"Complete activation sequence"
+],
+[
+"Kopf wippt beim Gehen, dreht etwas nach, atmet",
+"Kopf wippt beim Gehen, dreht etwas nach, atmet",
+"Head bobs while walking, lags a little, breathes"
+],
+[
+"Kran",
+"Kran",
+"Crane"
+],
+[
+"Kreativ",
+"Kreativ",
+"Creative"
+],
+[
+"Kreaturen",
+"Kreaturen",
+"Creatures"
+],
+[
+"Kriecher",
+"Kriecher",
+"Crawlers"
+],
+[
+"Kristall",
+"Kristall",
+"Crystal"
+],
+[
+"Lauf",
+"Lauf",
+"Run"
+],
+[
+"Lava",
+"Lava",
+"Lava"
+],
+[
+"Lava-Ausbruch",
+"Lava-Ausbruch",
+"Lava eruption"
+],
+[
+"Lava-Blitz",
+"Lava-Blitz",
+"Lava flash"
+],
+[
+"Leere Szene anlegen (30 s)",
+"Leere Szene anlegen (30 s)",
+"Create an empty scene (30 s)"
+],
+[
+"Leeren",
+"Leeren",
+"Clear"
+],
+[
+"Leicht",
+"Leicht",
+"Light"
+],
+[
+"Leuchter",
+"Leuchter",
+"Chandelier"
+],
+[
+"Licht & Atmosphäre (Blöcke)",
+"Licht & Atmosphäre (Blöcke)",
+"Light & atmosphere (blocks)"
+],
+[
+"Licht & Bewegung",
+"Licht & Bewegung",
+"Light & motion"
+],
+[
+"Licht + roter Rauch, wo du hinschaust",
+"Licht + roter Rauch, wo du hinschaust",
+"Light + red smoke where you look"
+],
+[
+"Lichtsäule",
+"Lichtsäule",
+"Light shaft"
+],
+[
+"Link",
+"Link",
+"Link"
+],
+[
+"Liste",
+"Liste",
+"List"
+],
+[
+"Löschen",
+"Löschen",
+"Delete"
+],
+[
+"Markierung an deiner Position",
+"Markierung an deiner Position",
+"Marker at your position"
+],
+[
+"Markierungen (nur Crew sieht sie)",
+"Markierungen (nur Crew sieht sie)",
+"Markers (only the crew sees them)"
+],
+[
+"Menü schließen und loslegen.",
+"Menü schließen und loslegen.",
+"Close the menu and get going."
+],
+[
+"Mit gespeicherter Animation",
+"Mit gespeicherter Animation",
+"With saved animation"
+],
+[
+"Mittel",
+"Mittel",
+"Medium"
+],
+[
+"Musik",
+"Musik",
+"Music"
+],
+[
+"Musik aus",
+"Musik aus",
+"Music off"
+],
+[
+"Mutant-Creeper",
+"Mutant-Creeper",
+"Mutant Creeper"
+],
+[
+"Mutant-Enderman",
+"Mutant-Enderman",
+"Mutant Enderman"
+],
+[
+"Mutant-Skelett",
+"Mutant-Skelett",
+"Mutant Skeleton"
+],
+[
+"Mutant-Zombie",
+"Mutant-Zombie",
+"Mutant Zombie"
+],
+[
+"Nachricht",
+"Nachricht",
+"Message"
+],
+[
+"Nah 3",
+"Nah 3",
+"Near 3"
+],
+[
+"Name (optional)",
+"Name (optional)",
+"Name (optional)"
+],
+[
+"Namen eintippen und „Neu“ klicken",
+"Namen eintippen und „Neu“ klicken",
+"Type a name and click “New”"
+],
+[
+"Nebel",
+"Nebel",
+"Fog"
+],
+[
+"Nebelquelle in den Boden",
+"Nebelquelle in den Boden",
+"Fog vent in the floor"
+],
+[
+"Nether",
+"Nether",
+"Nether"
+],
+[
+"Nether-Tönung",
+"Nether-Tönung",
+"Nether tint"
+],
+[
+"Neu",
+"Neu",
+"New"
+],
+[
+"Neu laden",
+"Neu laden",
+"Reload"
+],
+[
+"Neu:",
+"Neu:",
+"New:"
+],
+[
+"Neue ",
+"Neue ",
+"New "
+],
+[
+"Nichts angelegt",
+"Nichts angelegt",
+"Nothing created"
+],
+[
+"Nimmt gerade in '",
+"Nimmt gerade in '",
+"Currently recording into '"
+],
+[
+"Noch keine Schritte – oben hinzufügen oder live aufnehmen",
+"Noch keine Schritte – oben hinzufügen oder live aufnehmen",
+"No steps yet – add above or record live"
+],
+[
+"Num {0} ▸",
+"Num {0} ▸",
+"Num {0} ▸"
+],
+[
+"Numpad {0} = {1}",
+"Numpad {0} = {1}",
+"Numpad {0} = {1}"
+],
+[
+"Numpad {0} startet jetzt die Szene „{1}“",
+"Numpad {0} startet jetzt die Szene „{1}“",
+"Numpad {0} now starts the scene “{1}”"
+],
+[
+"Numpad {0}: {1}",
+"Numpad {0}: {1}",
+"Numpad {0}: {1}"
+],
+[
+"Nur das Wackeln abschalten",
+"Nur das Wackeln abschalten",
+"Only switch off the shaking"
+],
+[
+"Nur die roten Lichtblitze abschalten",
+"Nur die roten Lichtblitze abschalten",
+"Only switch off the red light flashes"
+],
+[
+"Nur diesen Schritt jetzt ausführen",
+"Nur diesen Schritt jetzt ausführen",
+"Run only this step now"
+],
+[
+"Nächste Szene",
+"Nächste Szene",
+"Next scene"
+],
+[
+"Nächsten Klick auf diese Taste legen",
+"Nächsten Klick auf diese Taste legen",
+"Assign the next click to this key"
+],
+[
+"Nächster Klick wird auf Numpad ",
+"Nächster Klick wird auf Numpad ",
+"Next click goes to numpad "
+],
+[
+"OBS",
+"OBS",
+"OBS"
+],
+[
+"OBS ausgeschaltet",
+"OBS ausgeschaltet",
+"OBS switched off"
+],
+[
+"OBS gespeichert – verbinde…",
+"OBS gespeichert – verbinde…",
+"OBS saved – connecting…"
+],
+[
+"OBS testen",
+"OBS testen",
+"Test OBS"
+],
+[
+"OBS wird gefragt …",
+"OBS wird gefragt …",
+"Asking OBS …"
+],
+[
+"OBS {0}",
+"OBS {0}",
+"OBS {0}"
+],
+[
+"OBS: an",
+"OBS: an",
+"OBS: on"
+],
+[
+"OBS: aus",
+"OBS: aus",
+"OBS: off"
+],
+[
+"OBS: {0}",
+"OBS: {0}",
+"OBS: {0}"
+],
+[
+"Oben rechts",
+"Oben rechts",
+"Top right"
+],
+[
+"Opening-Szene (Credits + Titel)",
+"Opening-Szene (Credits + Titel)",
+"Opening scene (credits + title)"
+],
+[
+"Parcours {0}{1}",
+"Parcours {0}{1}",
+"Course {0}{1}"
+],
+[
+"Partikel (z. B. roter Strahl) abschalten",
+"Partikel (z. B. roter Strahl) abschalten",
+"Switch off particles (e.g. red beam)"
+],
+[
+"Partikel aus",
+"Partikel aus",
+"Particles off"
+],
+[
+"Passwort",
+"Passwort",
+"Password"
+],
+[
+"Passwort (gespeichert)",
+"Passwort (gespeichert)",
+"Password (saved)"
+],
+[
+"Pause / Fortsetzen",
+"Pause / Fortsetzen",
+"Pause / resume"
+],
+[
+"Perspektive wechselt alle 6 s: Schulter, Seite, Front, Kran, Untersicht, Verfolger, Kreisen",
+"Perspektive wechselt alle 6 s: Schulter, Seite, Front, Kran, Untersicht, Verfolger, Kreisen",
+"Perspective changes every 6 s: shoulder, side, front, crane, low angle, follow, orbit"
+],
+[
+"Port muss eine Zahl sein",
+"Port muss eine Zahl sein",
+"Port must be a number"
+],
+[
+"Portale",
+"Portale",
+"Portals"
+],
+[
+"Portalfokus",
+"Portalfokus",
+"Portal focus"
+],
+[
+"Portalraum (Blöcke)",
+"Portalraum (Blöcke)",
+"Portal room (blocks)"
+],
+[
+"Puls",
+"Puls",
+"Pulse"
+],
+[
+"Punkte im Chat anzeigen",
+"Punkte im Chat anzeigen",
+"Show points in chat"
+],
+[
+"Ran",
+"Ran",
+"In"
+],
+[
+"Raus",
+"Raus",
+"Out"
+],
+[
+"Regie",
+"Regie",
+"Director"
+],
+[
+"Regieklappe",
+"Regieklappe",
+"Clapperboard"
+],
+[
+"Replay „take“ (einmal spielen, beliebig oft filmen)",
+"Replay „take“ (einmal spielen, beliebig oft filmen)",
+"Replay “take” (play once, film as often as you like)"
+],
+[
+"Replay „take“ als 4K-Video, 60 FPS",
+"Replay „take“ als 4K-Video, 60 FPS",
+"Replay “take” as 4K video, 60 FPS"
+],
+[
+"Requisiten",
+"Requisiten",
+"Props"
+],
+[
+"Reveal",
+"Enthüllen",
+"Reveal"
+],
+[
+"Rolle",
+"Rolle",
+"Role"
+],
+[
+"Rolle | Name | Icon | Link hinzufügen",
+"Rolle | Name | Icon | Link hinzufügen",
+"Add role | name | icon | link"
+],
+[
+"Ruhig",
+"Ruhig",
+"Calm"
+],
+[
+"Runensäule",
+"Runensäule",
+"Rune pillar"
+],
+[
+"Rückblende",
+"Rückblende",
+"Flashback"
+],
+[
+"Scharf ziehen",
+"Scharf ziehen",
+"Pull focus"
+],
+[
+"Schließen",
+"Schließen",
+"Close"
+],
+[
+"Schritt löschen",
+"Schritt löschen",
+"Delete step"
+],
+[
+"Schulter",
+"Schulter",
+"Shoulder"
+],
+[
+"Schwarz",
+"Schwarz",
+"Black"
+],
+[
+"Schärfe folgt Darsteller / Blickpunkt",
+"Schärfe folgt Darsteller / Blickpunkt",
+"Focus follows actor / point of view"
+],
+[
+"Seelenkompass",
+"Seelenkompass",
+"Soul compass"
+],
+[
+"Seelenkristall-Leuchte",
+"Seelenkristall-Leuchte",
+"Soul crystal lamp"
+],
+[
+"Seite",
+"Seite",
+"Side"
+],
+[
+"Seite ",
+"Seite ",
+"Page "
+],
+[
+"Sek.",
+"Sek.",
+"s"
+],
+[
+"Shake",
+"Wackeln",
+"Shake"
+],
+[
+"Showcase",
+"Showcase",
+"Showcase"
+],
+[
+"Sicht-Schnitt (Augen des Darstellers)",
+"Sicht-Schnitt (Augen des Darstellers)",
+"POV cut (actor's eyes)"
+],
+[
+"Sofort",
+"Sofort",
+"Instantly"
+],
+[
+"Sound",
+"Sound",
+"Sound"
+],
+[
+"Speichern",
+"Speichern",
+"Save"
+],
+[
+"Speichern & verbinden",
+"Speichern & verbinden",
+"Save & connect"
+],
+[
+"Spieler",
+"Spieler",
+"Players"
+],
+[
+"Stark",
+"Stark",
+"Strong"
+],
+[
+"Start",
+"Start",
+"Start"
+],
+[
+"Starten / neu starten",
+"Starten / neu starten",
+"Start / restart"
+],
+[
+"Statisten & Gesten (nächste Figur)",
+"Statisten & Gesten (nächste Figur)",
+"Extras & gestures (nearest figure)"
+],
+[
+"Steht still",
+"Steht still",
+"Stands still"
+],
+[
+"Stille",
+"Stille",
+"Silence"
+],
+[
+"Stop",
+"Stopp",
+"Stop"
+],
+[
+"Stoppen",
+"Stoppen",
+"Stop"
+],
+[
+"Szene",
+"Szene",
+"Scene"
+],
+[
+"Szene auf diese Numpad-Taste legen: beim Filmen ein Druck, und alles läuft ab.",
+"Szene auf diese Numpad-Taste legen: beim Filmen ein Druck, und alles läuft ab.",
+"Assign the scene to this numpad key: one press while filming, and everything plays."
+],
+[
+"Szene komplett löschen",
+"Szene komplett löschen",
+"Delete the whole scene"
+],
+[
+"Szenen",
+"Szenen",
+"Scenes"
+],
+[
+"Taste freigeben",
+"Taste freigeben",
+"Free the key"
+],
+[
+"Tasten beim Filmen (Numpad 1–9) – belegen: oben „Klick → Taste“",
+"Tasten beim Filmen (Numpad 1–9) – belegen: oben „Klick → Taste“",
+"Keys while filming (numpad 1–9) – assign: “Click → key” at the top"
+],
+[
+"Tempo {0}",
+"Tempo {0}",
+"Speed {0}"
+],
+[
+"Text",
+"Text",
+"Text"
+],
+[
+"Text aus „Rolle“ als Titel (Abspann / Endkarte: Titel | Untertitel)",
+"Text aus „Rolle“ als Titel (Abspann / Endkarte: Titel | Untertitel)",
+"Text from “Role” as title (end credits / end card: title | subtitle)"
+],
+[
+"Text aus „Rolle“ als Überschrift",
+"Text aus „Rolle“ als Überschrift",
+"Text from “Role” as heading"
+],
+[
+"Text im gewählten Stil speichern (erscheint unten in der Liste)",
+"Text im gewählten Stil speichern (erscheint unten in der Liste)",
+"Save the text in the chosen style (appears in the list below)"
+],
+[
+"Text … | neue Zeile  (Name | Untertitel)",
+"Text … | neue Zeile  (Name | Untertitel)",
+"Text … | new line  (name | subtitle)"
+],
+[
+"Tiefenschärfe",
+"Tiefenschärfe",
+"Depth of field"
+],
+[
+"Timeline wie ReplayMod: spulen, Kamera-Keyframes, Export (F6)",
+"Timeline wie ReplayMod: spulen, Kamera-Keyframes, Export (F6)",
+"Timeline like ReplayMod: scrub, camera keyframes, export (F6)"
+],
+[
+"Tipp: oben rechts „Klick → Szene“ wählen und in den anderen Reitern klicken – ",
+"Tipp: oben rechts „Klick → Szene“ wählen und in den anderen Reitern klicken – ",
+"Tip: choose “Click → scene” at the top right and click in the other tabs – "
+],
+[
+"Titel",
+"Titel",
+"Title"
+],
+[
+"Titel setzen",
+"Titel setzen",
+"Set title"
+],
+[
+"Ton dumpf (nach Explosion)",
+"Ton dumpf (nach Explosion)",
+"Muffled sound (after an explosion)"
+],
+[
+"Ton zurück",
+"Ton zurück",
+"Sound back"
+],
+[
+"Trigger scharf",
+"Trigger scharf",
+"Triggers armed"
+],
+[
+"Trigger {0}",
+"Trigger {0}",
+"Trigger {0}"
+],
+[
+"Umschalten",
+"Umschalten",
+"Toggle"
+],
+[
+"Unschärfe",
+"Unschärfe",
+"Blur"
+],
+[
+"Unten links",
+"Unten links",
+"Bottom left"
+],
+[
+"Untertitel",
+"Untertitel",
+"Subtitle"
+],
+[
+"Vanilla-HUD für die Aufnahme ausblenden",
+"Vanilla-HUD für die Aufnahme ausblenden",
+"Hide the vanilla HUD for the recording"
+],
+[
+"Vignette",
+"Vignette",
+"Vignette"
+],
+[
+"Von vorne aufs Gesicht",
+"Von vorne aufs Gesicht",
+"Face on from the front"
+],
+[
+"Vorherige Szene",
+"Vorherige Szene",
+"Previous scene"
+],
+[
+"Vorschau",
+"Vorschau",
+"Preview"
+],
+[
+"Vorspann",
+"Vorspann",
+"Opening credits"
+],
+[
+"Wabernd",
+"Wabernd",
+"Ethereal"
+],
+[
+"Weg",
+"Weg",
+"Away"
+],
+[
+"Weiß",
+"Weiß",
+"White"
+],
+[
+"Welle: Piglins (5)",
+"Welle: Piglins (5)",
+"Wave: piglins (5)"
+],
+[
+"Welle: Skelette (4)",
+"Welle: Skelette (4)",
+"Wave: skeletons (4)"
+],
+[
+"Welt-Ereignisse",
+"Welt-Ereignisse",
+"World events"
+],
+[
+"Wind",
+"Wind",
+"Wind"
+],
+[
+"Winken",
+"Winken",
+"Wave"
+],
+[
+"Wipe",
+"Wipe",
+"Wipe"
+],
+[
+"Wisps",
+"Wisps",
+"Wisps"
+],
+[
+"Zeigen",
+"Zeigen",
+"Show"
+],
+[
+"Zeigen als ",
+"Zeigen als ",
+"Show as "
+],
+[
+"Zeit: {0} s",
+"Zeit: {0} s",
+"Time: {0} s"
+],
+[
+"Zeitfeld auf ",
+"Zeitfeld auf ",
+"Time field to "
+],
+[
+"Zeitlupe",
+"Zeitlupe",
+"Slow motion"
+],
+[
+"Zerstörung",
+"Zerstörung",
+"Destruction"
+],
+[
+"Ziel",
+"Ziel",
+"Objective"
+],
+[
+"Zielen",
+"Zielen",
+"Aim"
+],
+[
+"Zoom 30°",
+"Zoom 30°",
+"Zoom 30°"
+],
+[
+"Zoom ⟲",
+"Zoom ⟲",
+"Zoom ⟲"
+],
+[
+"Zu mir",
+"Zu mir",
+"To me"
+],
+[
+"Zurücksetzen",
+"Zurücksetzen",
+"Reset"
+],
+[
+"Zuschauer",
+"Zuschauer",
+"Spectator"
+],
+[
+"alle Darsteller, Kreaturen, Szenen und Ereignisse",
+"alle Darsteller, Kreaturen, Szenen und Ereignisse",
+"all actors, creatures, scenes and events"
+],
+[
+"alles landet bei der Zeit „Bei“. Oder „Live aufnehmen“ und einfach inszenieren.",
+"alles landet bei der Zeit „Bei“. Oder „Live aufnehmen“ und einfach inszenieren.",
+"everything lands at the time “At”. Or “Record live” and just direct."
+],
+[
+"beim Schließen",
+"beim Schließen",
+"on close"
+],
+[
+"clicks add instead of run",
+"Klicks fügen hinzu statt auszuführen",
+"clicks add instead of run"
+],
+[
+"gamemode creative ",
+"gamemode creative ",
+"gamemode creative "
+],
+[
+"gamemode spectator ",
+"gamemode spectator ",
+"gamemode spectator "
+],
+[
+"gamemode spectator @a",
+"gamemode spectator @a",
+"gamemode spectator @a"
+],
+[
+"give @s btb_cinematic:brazier 16",
+"give @s btb_cinematic:brazier 16",
+"give @s btb_cinematic:brazier 16"
+],
+[
+"give @s btb_cinematic:chandelier 16",
+"give @s btb_cinematic:chandelier 16",
+"give @s btb_cinematic:chandelier 16"
+],
+[
+"give @s btb_cinematic:clapperboard",
+"give @s btb_cinematic:clapperboard",
+"give @s btb_cinematic:clapperboard"
+],
+[
+"give @s btb_cinematic:ember_crack 64",
+"give @s btb_cinematic:ember_crack 64",
+"give @s btb_cinematic:ember_crack 64"
+],
+[
+"give @s btb_cinematic:ember_flare 16",
+"give @s btb_cinematic:ember_flare 16",
+"give @s btb_cinematic:ember_flare 16"
+],
+[
+"give @s btb_cinematic:fog_vent 16",
+"give @s btb_cinematic:fog_vent 16",
+"give @s btb_cinematic:fog_vent 16"
+],
+[
+"give @s btb_cinematic:glyph_plate 32",
+"give @s btb_cinematic:glyph_plate 32",
+"give @s btb_cinematic:glyph_plate 32"
+],
+[
+"give @s btb_cinematic:heart_book",
+"give @s btb_cinematic:heart_book",
+"give @s btb_cinematic:heart_book"
+],
+[
+"give @s btb_cinematic:light_shaft 64",
+"give @s btb_cinematic:light_shaft 64",
+"give @s btb_cinematic:light_shaft 64"
+],
+[
+"give @s btb_cinematic:portal_focus 4",
+"give @s btb_cinematic:portal_focus 4",
+"give @s btb_cinematic:portal_focus 4"
+],
+[
+"give @s btb_cinematic:rune_pillar 32",
+"give @s btb_cinematic:rune_pillar 32",
+"give @s btb_cinematic:rune_pillar 32"
+],
+[
+"give @s btb_cinematic:soul_crystal_lamp 16",
+"give @s btb_cinematic:soul_crystal_lamp 16",
+"give @s btb_cinematic:soul_crystal_lamp 16"
+],
+[
+"harmlose Seelenlichter",
+"harmlose Seelenlichter",
+"harmless soul lights"
+],
+[
+"kürzer",
+"kürzer",
+"shorter"
+],
+[
+"lange Lichtstreifen an hellen Lichtern",
+"lange Lichtstreifen an hellen Lichtern",
+"long light streaks on bright lights"
+],
+[
+"leichtes Atmen der Kamera",
+"leichtes Atmen der Kamera",
+"light breathing of the camera"
+],
+[
+"länger",
+"länger",
+"longer"
+],
+[
+"nach oben",
+"nach oben",
+"up"
+],
+[
+"nach unten",
+"nach unten",
+"down"
+],
+[
+"scharf → unscharf",
+"scharf → unscharf",
+"sharp → blurred"
+],
+[
+"schwebender Kristall mit Ringen",
+"schwebender Kristall mit Ringen",
+"floating crystal with rings"
+],
+[
+"stürzt vor dir in deine Blickrichtung",
+"stürzt vor dir in deine Blickrichtung",
+"crashes in front of you in your view direction"
+],
+[
+"unscharf → scharf",
+"unscharf → scharf",
+"blurred → sharp"
+],
+[
+"zeigt immer zum Herzen",
+"zeigt immer zum Herzen",
+"always points to the heart"
+],
+[
+"zweites Fenster mit Tag pip + OBS-Quelle „BTB PiP“",
+"zweites Fenster mit Tag pip + OBS-Quelle „BTB PiP“",
+"second window with tag pip + OBS source “BTB PiP”"
+],
+[
+"{0} Aktion(en) starten beim Schließen: {1}",
+"{0} Aktion(en) starten beim Schließen: {1}",
+"{0} action(s) start on close: {1}"
+],
+[
+"Übergänge",
+"Übergänge",
+"Transitions"
+],
+[
+"übereinander stapeln = Lichtstrahl",
+"übereinander stapeln = Lichtstrahl",
+"stack on top of each other = light beam"
+],
+[
+"“ bei ",
+"“ bei ",
+"” at "
+],
+[
+"→ Cue {0}: {1}",
+"→ Cue {0}: {1}",
+"→ Cue {0}: {1}"
+],
+[
+"→ Szene '{0}' bei {1} s: {2}",
+"→ Szene '{0}' bei {1} s: {2}",
+"→ Scene '{0}' at {1} s: {2}"
+],
+[
+"↻ Aktualisieren",
+"↻ Aktualisieren",
+"↻ Refresh"
+],
+[
+"⌨ Auf Num {0}",
+"⌨ Auf Num {0}",
+"⌨ To num {0}"
+],
+[
+"■ Aufnahme stop",
+"■ Aufnahme stop",
+"■ Stop recording"
+],
+[
+"■ Aufnahme stoppen",
+"■ Aufnahme stoppen",
+"■ Stop recording"
+],
+[
+"■ Stop",
+"■ Stop",
+"■ Stop"
+],
+[
+"■ Stopp",
+"■ Stopp",
+"■ Stop"
+],
+[
+"▶ Abspielen",
+"▶ Abspielen",
+"▶ Play"
+],
+[
+"▶ alle",
+"▶ alle",
+"▶ all"
+],
+[
+"▶ ich",
+"▶ ich",
+"▶ me"
+],
+[
+"● Aufnehmen",
+"● Aufnehmen",
+"● Record"
+],
+[
+"● Klicks → Cue-Liste",
+"● Klicks → Cue-Liste",
+"● Clicks → cue list"
+],
+[
+"● Klicks → Szene „",
+"● Klicks → Szene „",
+"● Clicks → scene “"
+],
+[
+"● Live aufnehmen",
+"● Live aufnehmen",
+"● Record live"
+],
+[
+"● Nächster Klick → Taste Numpad ",
+"● Nächster Klick → Taste Numpad ",
+"● Next click → key numpad "
+],
+[
+"● Pfad aufnehmen",
+"● Pfad aufnehmen",
+"● Record path"
+],
+[
+"● Start",
+"● Start",
+"● Start"
+],
+[
+"✂ Editor",
+"✂ Editor",
+"✂ Editor"
+],
+[
+"✎ Eingabe ▴",
+"✎ Eingabe ▴",
+"✎ Input ▴"
+],
+[
+"✎ Eingabe ▾",
+"✎ Eingabe ▾",
+"✎ Input ▾"
+],
+[
+"✔ Übernehmen (Nr. {0})",
+"✔ Übernehmen (Nr. {0})",
+"✔ Apply (no. {0})"
+],
+[
+"⟲ Set zurücksetzen",
+"⟲ Set zurücksetzen",
+"⟲ Reset set"
+],
+[
+"Bildformat {0}",
+"Bildformat {0}",
+"Aspect ratio {0}"
+],
+[
+"Blurs the image. {intensity 0..10, in?, hold?, out?, players?}",
+"Zeichnet das Bild weich. {intensity 0..10, in?, hold?, out?, players?}",
+"Blurs the image. {intensity 0..10, in?, hold?, out?, players?}"
+],
+[
+"Camera shake",
+"Kamerawackeln",
+"Camera shake"
+],
+[
+"Cinema bars. {intensity 0..0.4 (bar height), in?, hold?, out?, players?}",
+"Kinobalken. {intensity 0..0.4 (Balkenhöhe), in?, hold?, out?, players?}",
+"Cinema bars. {intensity 0..0.4 (bar height), in?, hold?, out?, players?}"
+],
+[
+"Cleared {0}",
+"{0} gelöscht",
+"Cleared {0}"
+],
+[
+"Color overlay / cross-fade. {color, color2?, intensity (alpha), in?, hold?, out?, players?}",
+"Farbschicht / Überblendung. {color, color2?, intensity (Deckkraft), in?, hold?, out?, players?}",
+"Color overlay / cross-fade. {color, color2?, intensity (alpha), in?, hold?, out?, players?}"
+],
+[
+"Effect {0} sent",
+"Effekt {0} gesendet",
+"Effect {0} sent"
+],
+[
+"Fades effects out. {style? (all|fade|vignette|...), duration?, players?}",
+"Blendet Effekte aus. {style? (all|fade|vignette|...), duration?, players?}",
+"Fades effects out. {style? (all|fade|vignette|...), duration?, players?}"
+],
+[
+"Farbkorrektur „",
+"Farbkorrektur „",
+"Color grading “"
+],
+[
+"Farbkorrektur „{0}“ (eigene .cube-Dateien: config/btb_cinematic/luts/)",
+"Farbkorrektur „{0}“ (eigene .cube-Dateien: config/btb_cinematic/luts/)",
+"Color grading “{0}” (own .cube files: config/btb_cinematic/luts/)"
+],
+[
+"Focus out",
+"Schärfe weg",
+"Focus out"
+],
+[
+"Focus pull",
+"Schärfe ziehen",
+"Focus pull"
+],
+[
+"Format z. B. 2.39, 1.85, 4x3, 1x1",
+"Format z. B. 2.39, 1.85, 4x3, 1x1",
+"Format e.g. 2.39, 1.85, 4x3, 1x1"
+],
+[
+"Format zwischen 1:2 und 3.5:1",
+"Format zwischen 1:2 und 3.5:1",
+"Format between 1:2 and 3.5:1"
+],
+[
+"Full-screen fade. {color, duration (in ticks), hold? (-1 = stay), out?, intensity?, players?}",
+"Vollbild-Blende. {color, duration (in Ticks), hold? (-1 = bleibt), out?, intensity?, players?}",
+"Full-screen fade. {color, duration (in ticks), hold? (-1 = stay), out?, intensity?, players?}"
+],
+[
+"Lens flare on a world point (the glowing building on the horizon). {pos [x,y,z], color?, intensity 0..1, in?, hold?, out?, players?}",
+"Lens Flare an einem Punkt in der Welt (das leuchtende Gebäude am Horizont). {pos [x,y,z], color?, intensity 0..1, in?, hold?, out?, players?}",
+"Lens flare on a world point (the glowing building on the horizon). {pos [x,y,z], color?, intensity 0..1, in?, hold?, out?, players?}"
+],
+[
+"Lens flare on {0} {1} {2}",
+"Lens Flare bei {0} {1} {2}",
+"Lens flare on {0} {1} {2}"
+],
+[
+"Light flash. {color?, duration?, intensity?, players?}",
+"Lichtblitz. {color?, duration?, intensity?, players?}",
+"Light flash. {color?, duration?, intensity?, players?}"
+],
+[
+"Muffled hearing",
+"Dumpfes Hören",
+"Muffled hearing"
+],
+[
+"Shaped transition. {style: wipe_left|wipe_right|wipe_up|wipe_down|iris_close|iris_open|bars_close|bars_open, color?, in, hold?, out?, players?}",
+"Geformter Übergang. {style: wipe_left|wipe_right|wipe_up|wipe_down|iris_close|iris_open|bars_close|bars_open, color?, in, hold?, out?, players?}",
+"Shaped transition. {style: wipe_left|wipe_right|wipe_up|wipe_down|iris_close|iris_open|bars_close|bars_open, color?, in, hold?, out?, players?}"
+],
+[
+"Tiefenschärfe {0}",
+"Tiefenschärfe {0}",
+"Depth of field {0}"
+],
+[
+"Transition {0}",
+"Übergang {0}",
+"Transition {0}"
+],
+[
+"Unknown transition style",
+"Unbekannter Übergangsstil",
+"Unknown transition style"
+],
+[
+"Vignette. {intensity 0..1, color?, in?, hold?, out?, players?}",
+"Vignette. {intensity 0..1, color?, in?, hold?, out?, players?}",
+"Vignette. {intensity 0..1, color?, in?, hold?, out?, players?}"
+],
+[
+"folgt dem Blick",
+"folgt dem Blick",
+"follows your view"
+],
+[
+"“ (eigene .cube-Dateien: config/btb_cinematic/luts/)",
+"“ (eigene .cube-Dateien: config/btb_cinematic/luts/)",
+"” (own .cube files: config/btb_cinematic/luts/)"
+],
+[
+"'intensity' for {0} must be 0..{1}",
+"„intensity“ für {0} muss 0..{1} sein",
+"'intensity' for {0} must be 0..{1}"
+],
+[
+"'style' must be one of {0}",
+"„style“ muss eins davon sein: {0}",
+"'style' must be one of {0}"
+],
+[
+"Farbüberblendung",
+"Farbüberblendung",
+"Color fade"
+],
+[
+"Schwarzblende",
+"Schwarzblende",
+"Fade to black"
+],
+[
+"Weißblende",
+"Weißblende",
+"Fade to white"
+],
+[
+"clear 'style' must be all, fade, vignette, tint, blur, letterbox or transition",
+"clear: „style“ muss all, fade, vignette, tint, blur, letterbox oder transition sein",
+"clear 'style' must be all, fade, vignette, tint, blur, letterbox or transition"
+],
+[
+"flare needs 'pos': [x,y,z]",
+"flare braucht „pos“: [x,y,z]",
+"flare needs 'pos': [x,y,z]"
+],
+[
+"in/out must be 0..72000 ticks, hold -1..720000",
+"in/out müssen 0..72000 Ticks sein, hold -1..720000",
+"in/out must be 0..72000 ticks, hold -1..720000"
+],
+[
+"unknown effect",
+"unbekannter Effekt",
+"unknown effect"
+],
+[
+" Bilder in ",
+" Bilder in ",
+" frames in "
+],
+[
+"BTB Export %s: %d%% (%d/%d Bilder, noch ca. %d:%02d)",
+"BTB Export %s: %d%% (%d/%d Bilder, noch ca. %d:%02d)",
+"BTB Export %s: %d%% (%d/%d frames, about %d:%02d left)"
+],
+[
+"C:\\\\ffmpeg\\\\bin\\\\ffmpeg.exe",
+"C:\\\\ffmpeg\\\\bin\\\\ffmpeg.exe",
+"C:\\\\ffmpeg\\\\bin\\\\ffmpeg.exe"
+],
+[
+"Es läuft schon ein Export.",
+"Es läuft schon ein Export.",
+"An export is already running."
+],
+[
+"Export geht nur im Einzelspieler bzw. als Host einer LAN-Welt.",
+"Export geht nur im Einzelspieler bzw. als Host einer LAN-Welt.",
+"Export only works in single player or as the host of a LAN world."
+],
+[
+"Export: {0}",
+"Export: {0}",
+"Export: {0}"
+],
+[
+"Exportiere %d Bilder (%.1f s, %d FPS) in %d×%d → %s. Fortschritt im Fenstertitel, Esc bricht ab.",
+"Exportiere %d Bilder (%.1f s, %d FPS) in %d×%d → %s. Fortschritt im Fenstertitel, Esc bricht ab.",
+"Exporting %d frames (%.1f s, %d FPS) at %d×%d → %s. Progress in the window title, Esc cancels."
+],
+[
+"Fertig: ",
+"Fertig: ",
+"Done: "
+],
+[
+"Gestoppt",
+"Gestoppt",
+"Stopped"
+],
+[
+"Gestoppt (",
+"Gestoppt (",
+"Stopped ("
+],
+[
+"MP4 wird erstellt ({0} Bilder) …",
+"MP4 wird erstellt ({0} Bilder) …",
+"Creating MP4 ({0} frames) …"
+],
+[
+"Menü geöffnet – Esc bricht den Export ab",
+"Menü geöffnet – Esc bricht den Export ab",
+"Menu opened – Esc cancels the export"
+],
+[
+"Musik „",
+"Musik „",
+"Music “"
+],
+[
+"Musik „{0}“ nicht in config/btb_cinematic/music gefunden – Video ohne Ton",
+"Musik „{0}“ nicht in config/btb_cinematic/music gefunden – Video ohne Ton",
+"Music “{0}” not found in config/btb_cinematic/music – video without sound"
+],
+[
+"Ordner nicht anlegbar: {0}",
+"Ordner nicht anlegbar: {0}",
+"Cannot create folder: {0}"
+],
+[
+"Server weg",
+"Server weg",
+"Server gone"
+],
+[
+"Video fertig: {0}",
+"Video fertig: {0}",
+"Video done: {0}"
+],
+[
+"[BTB Export] {0}",
+"[BTB Export] {0}",
+"[BTB Export] {0}"
+],
+[
+"ffmpeg konnte nicht starten: {0}",
+"ffmpeg konnte nicht starten: {0}",
+"ffmpeg could not start: {0}"
+],
+[
+"ffmpeg nicht gefunden – die Einzelbilder liegen in {0}. Mit ffmpeg: ffmpeg -framerate {1} -i frame_%06d.png -vf scale={2}:{3}:force_original_aspect_ratio=increase,crop={4}:{5} -c:v libx264 -crf 14 -pix_fmt yuv420p film.mp4",
+"ffmpeg nicht gefunden – die Einzelbilder liegen in {0}. Mit ffmpeg: ffmpeg -framerate {1} -i frame_%06d.png -vf scale={2}:{3}:force_original_aspect_ratio=increase,crop={4}:{5} -c:v libx264 -crf 14 -pix_fmt yuv420p film.mp4",
+"ffmpeg not found – the frames are in {0}. With ffmpeg: ffmpeg -framerate {1} -i frame_%06d.png -vf scale={2}:{3}:force_original_aspect_ratio=increase,crop={4}:{5} -c:v libx264 -crf 14 -pix_fmt yuv420p film.mp4"
+],
+[
+"ffmpeg-Fehler (siehe ffmpeg.log in {0})",
+"ffmpeg-Fehler (siehe ffmpeg.log in {0})",
+"ffmpeg error (see ffmpeg.log in {0})"
+],
+[
+"“ nicht in config/btb_cinematic/music gefunden – Video ohne Ton",
+"“ nicht in config/btb_cinematic/music gefunden – Video ohne Ton",
+"” not found in config/btb_cinematic/music – video without sound"
+],
+[
+"If you want to leave this place,\n * find the Heart of the Nether",
+"If you want to leave this place,\n * find the Heart of the Nether",
+"If you want to leave this place,\n * find the Heart of the Nether"
+],
+[
+"## Überschrift",
+"## Überschrift",
+"## Heading"
+],
+[
+"'{0}' updated ({1} entries) – preview: /btb hud show {2}",
+"„{0}“ aktualisiert ({1} Einträge) – Vorschau: /btb hud show {2}",
+"'{0}' updated ({1} entries) – preview: /btb hud show {2}"
+],
+[
+"Created '{0}'. Add entries: /btb hud credits {1} add Rolle | Name | youtube | link",
+"„{0}“ angelegt. Einträge hinzufügen: /btb hud credits {1} add Rolle | Name | youtube | link",
+"Created '{0}'. Add entries: /btb hud credits {1} add Rolle | Name | youtube | link"
+],
+[
+"Fades out HUD text. {id? (omit = all), out? ticks, players?}",
+"Blendet HUD-Text aus. {id? (ohne = alle), out? Ticks, players?}",
+"Fades out HUD text. {id? (omit = all), out? ticks, players?}"
+],
+[
+"HUD text '{0}' deleted",
+"HUD-Text „{0}“ gelöscht",
+"HUD text '{0}' deleted"
+],
+[
+"HUD text '{0}' does not exist",
+"HUD-Text „{0}“ gibt es nicht",
+"HUD text '{0}' does not exist"
+],
+[
+"HUD text hidden",
+"HUD-Text ausgeblendet",
+"HUD text hidden"
+],
+[
+"HUD texts hidden",
+"HUD-Texte ausgeblendet",
+"HUD texts hidden"
+],
+[
+"Id: only a-z, 0-9 and _",
+"ID: nur a-z, 0-9 und _",
+"Id: only a-z, 0-9 and _"
+],
+[
+"Kind: vorspann, abspann or endkarte",
+"Art: vorspann, abspann oder endkarte",
+"Kind: vorspann, abspann or endkarte"
+],
+[
+"Loaded {0} HUD text(s)",
+"{0} HUD-Text(e) geladen",
+"Loaded {0} HUD text(s)"
+],
+[
+"Only {0} entries",
+"Nur {0} Einträge",
+"Only {0} entries"
+],
+[
+"Quick subtitle at the bottom. {text, duration? ticks (default 60), players?}",
+"Schneller Untertitel unten. {text, duration? Ticks (Standard 60), players?}",
+"Quick subtitle at the bottom. {text, duration? ticks (default 60), players?}"
+],
+[
+"Rolle | Name | icon | link",
+"Rolle | Name | icon | link",
+"Role | Name | icon | link"
+],
+[
+"Saved as '{0}' – show again: /btb hud show {1}",
+"Gespeichert als „{0}“ – wieder zeigen: /btb hud show {1}",
+"Saved as '{0}' – show again: /btb hud show {1}"
+],
+[
+"Showing '{0}'",
+"Zeige „{0}“",
+"Showing '{0}'"
+],
+[
+"Shows a HUD text. {id (from config/btb_cinematic/hud) | text/lines + style fields, players?}",
+"Zeigt einen HUD-Text. {id (aus config/btb_cinematic/hud) | text/lines + Stilfelder, players?}",
+"Shows a HUD text. {id (from config/btb_cinematic/hud) | text/lines + style fields, players?}"
+],
+[
+"Subtitle shown",
+"Untertitel gezeigt",
+"Subtitle shown"
+],
+[
+"TO BE CONTINUED",
+"TO BE CONTINUED",
+"TO BE CONTINUED"
+],
+[
+"Text shown (hide: /btb hud hide {0})",
+"Text gezeigt (ausblenden: /btb hud hide {0})",
+"Text shown (hide: /btb hud hide {0})"
+],
+[
+"Title shown",
+"Titel gezeigt",
+"Title shown"
+],
+[
+"Unknown HUD text",
+"Unbekannter HUD-Text",
+"Unknown HUD text"
+],
+[
+"Unknown HUD text '{0}'",
+"Unbekannter HUD-Text „{0}“",
+"Unknown HUD text '{0}'"
+],
+[
+"Unknown HUD text '{0}'. Create it: /btb hud credits {1} new vorspann",
+"Unbekannter HUD-Text „{0}“. Anlegen: /btb hud credits {1} new vorspann",
+"Unknown HUD text '{0}'. Create it: /btb hud credits {1} new vorspann"
+],
+[
+"Unknown icon '{0}'",
+"Unbekanntes Icon „{0}“",
+"Unknown icon '{0}'"
+],
+[
+"Unknown icon '{0}'. Icons: {1}",
+"Unbekanntes Icon „{0}“. Icons: {1}",
+"Unknown icon '{0}'. Icons: {1}"
+],
+[
+"{0} HUD text(s): {1}",
+"{0} HUD-Text(e): {1}",
+"{0} HUD text(s): {1}"
+],
+[
+"Geisterhafte, wabernde Botschaft",
+"Geisterhafte, wabernde Botschaft",
+"Ghostly, ethereal message"
+],
+[
+"Glühender Titel unten (wie HEART OF THE NETHER)",
+"Glühender Titel unten (wie HEART OF THE NETHER)",
+"Glowing title at the bottom (like HEART OF THE NETHER)"
+],
+[
+"Großer Kinotitel (Cinzel, fährt auseinander)",
+"Großer Kinotitel (Cinzel, fährt auseinander)",
+"Big cinema title (Cinzel, spreads apart)"
+],
+[
+"Kamera-Sucher mit REC und Text",
+"Kamera-Sucher mit REC und Text",
+"Camera viewfinder with REC and text"
+],
+[
+"Kapitelkarte, Schreibmaschine – Zeile 1 | Zeile 2",
+"Kapitelkarte, Schreibmaschine – Zeile 1 | Zeile 2",
+"Chapter card, typewriter – line 1 | line 2"
+],
+[
+"Name | Rolle (Lower Third)",
+"Name | Rolle (Lower Third)",
+"Name | role (lower third)"
+],
+[
+"Name | Untertitel (Boss-Intro)",
+"Name | Untertitel (Boss-Intro)",
+"Name | subtitle (boss intro)"
+],
+[
+"Neues Ziel (oben rechts)",
+"Neues Ziel (oben rechts)",
+"New objective (top right)"
+],
+[
+"Sprecher | Text | Text …",
+"Sprecher | Text | Text …",
+"Speaker | text | text …"
+],
+[
+"Text fehlt",
+"Text fehlt",
+"Text missing"
+],
+[
+"Titel | Untertitel (bleibt stehen)",
+"Titel | Untertitel (bleibt stehen)",
+"Title | subtitle (stays on screen)"
+],
+[
+"Unbekannter Stil '{0}'. Stile: {1}",
+"Unbekannter Stil '{0}'. Stile: {1}",
+"Unknown style '{0}'. Styles: {1}"
+],
+[
+"Untertitel unten mit Hintergrund",
+"Untertitel unten mit Hintergrund",
+"Subtitle at the bottom with background"
+],
+[
+"Überschrift | Text … (Buchseite, Text wie Tinte)",
+"Überschrift | Text … (Buchseite, Text wie Tinte)",
+"Heading | text … (book page, text like ink)"
+],
+[
+"'char_ticks' must be 0.05..40",
+"„char_ticks“ muss 0.05..40 sein",
+"'char_ticks' must be 0.05..40"
+],
+[
+"'font' is not a valid font id",
+"„font“ ist keine gültige Schrift-ID",
+"'font' is not a valid font id"
+],
+[
+"'lines' must be an array of strings",
+"„lines“ muss eine Liste von Texten sein",
+"'lines' must be an array of strings"
+],
+[
+"'scale' must be 0.25..12",
+"„scale“ muss 0.25..12 sein",
+"'scale' must be 0.25..12"
+],
+[
+"1..{0} lines allowed",
+"1..{0} Zeilen erlaubt",
+"1..{0} lines allowed"
+],
+[
+"FIND THE HEART OF THE NETHER.",
+"FIND THE HEART OF THE NETHER.",
+"FIND THE HEART OF THE NETHER."
+],
+[
+"IF YOU WANT TO LEAVE THIS PLACE,",
+"IF YOU WANT TO LEAVE THIS PLACE,",
+"IF YOU WANT TO LEAVE THIS PLACE,"
+],
+[
+"at most 200 credits entries",
+"höchstens 200 Credits-Einträge",
+"at most 200 credits entries"
+],
+[
+"line longer than {0} characters",
+"Zeile länger als {0} Zeichen",
+"line longer than {0} characters"
+],
+[
+"needs 'text', 'lines' or 'entries'",
+"braucht „text“, „lines“ oder „entries“",
+"needs 'text', 'lines' or 'entries'"
+],
+[
+"timing values must be >= 0 (hold may be -1 = until hidden)",
+"Zeitwerte müssen >= 0 sein (hold darf -1 = bis zum Ausblenden sein)",
+"timing values must be >= 0 (hold may be -1 = until hidden)"
+],
+[
+"unknown icon '{0}' ({1})",
+"unbekanntes Icon „{0}“ ({1})",
+"unknown icon '{0}' ({1})"
+],
+[
+"'{0}' contains a non-finite number",
+"„{0}“ enthält eine ungültige Zahl",
+"'{0}' contains a non-finite number"
+],
+[
+"'{0}' has unknown value '{1}'",
+"„{0}“ hat den unbekannten Wert „{1}“",
+"'{0}' has unknown value '{1}'"
+],
+[
+"'{0}' must be a number",
+"„{0}“ muss eine Zahl sein",
+"'{0}' must be a number"
+],
+[
+"'{0}' must be a string",
+"„{0}“ muss ein Text sein",
+"'{0}' must be a string"
+],
+[
+"'{0}' must be a string or an array of strings",
+"„{0}“ muss ein Text oder eine Liste von Texten sein",
+"'{0}' must be a string or an array of strings"
+],
+[
+"'{0}' must be a whole number",
+"„{0}“ muss eine ganze Zahl sein",
+"'{0}' must be a whole number"
+],
+[
+"'{0}' must be an array of {1} numbers",
+"„{0}“ muss eine Liste aus {1} Zahlen sein",
+"'{0}' must be an array of {1} numbers"
+],
+[
+"'{0}' must be an object",
+"„{0}“ muss ein Objekt sein",
+"'{0}' must be an object"
+],
+[
+"'{0}' must be finite",
+"„{0}“ muss endlich sein",
+"'{0}' must be finite"
+],
+[
+"'{0}' must be true or false",
+"„{0}“ muss true oder false sein",
+"'{0}' must be true or false"
+],
+[
+"missing required field '{0}'",
+"Pflichtfeld „{0}“ fehlt",
+"missing required field '{0}'"
+],
+[
+"1D LUTs are not supported, please export a 3D LUT",
+"1D-LUTs werden nicht unterstützt, bitte eine 3D-LUT exportieren",
+"1D LUTs are not supported, please export a 3D LUT"
+],
+[
+"DOMAIN_MAX",
+"DOMAIN_MAX",
+"DOMAIN_MAX"
+],
+[
+"DOMAIN_MIN",
+"DOMAIN_MIN",
+"DOMAIN_MIN"
+],
+[
+"LUT_1D_SIZE",
+"LUT_1D_SIZE",
+"LUT_1D_SIZE"
+],
+[
+"LUT_3D_SIZE",
+"LUT_3D_SIZE",
+"LUT_3D_SIZE"
+],
+[
+"TITLE",
+"TITLE",
+"TITLE"
+],
+[
+"not a 3D LUT (size {0}, {1} entries)",
+"keine 3D-LUT (Größe {0}, {1} Einträge)",
+"not a 3D LUT (size {0}, {1} entries)"
+],
+[
+"HEAD",
+"HEAD",
+"HEAD"
+],
+[
+" \"pack_format\": 97, \"min_format\": 69, \"max_format\": 999}}",
+" \"pack_format\": 97, \"min_format\": 69, \"max_format\": 999}}",
+" \"pack_format\": 97, \"min_format\": 69, \"max_format\": 999}}"
+],
+[
+"\", \"stream\": true}]}",
+"\", \"stream\": true}]}",
+"\", \"stream\": true}]}"
+],
+[
+"\": {\"sounds\": [{\"name\": \"btb_music:",
+"\": {\"sounds\": [{\"name\": \"btb_music:",
+"\": {\"sounds\": [{\"name\": \"btb_music:"
+],
+[
+"{\"pack\": {\"description\": \"BTB Cinematic: eigene Musik aus config/btb_cinematic/music\",",
+"{\"pack\": {\"description\": \"BTB Cinematic: eigene Musik aus config/btb_cinematic/music\",",
+"{\"pack\": {\"description\": \"BTB Cinematic: eigene Musik aus config/btb_cinematic/music\","
+],
+[
+"Aufnahme ist schon pausiert",
+"Aufnahme ist schon pausiert",
+"Recording is already paused"
+],
+[
+"Aufnahme pausiert",
+"Aufnahme pausiert",
+"Recording paused"
+],
+[
+"BTB PiP",
+"BTB PiP",
+"BTB PiP"
+],
+[
+"Bild-im-Bild an",
+"Bild-im-Bild an",
+"Picture-in-picture on"
+],
+[
+"Bild-im-Bild aus",
+"Bild-im-Bild aus",
+"Picture-in-picture off"
+],
+[
+"Bild-im-Bild: In der OBS-Szene „",
+"Bild-im-Bild: In der OBS-Szene „",
+"Picture-in-picture: in the OBS scene “"
+],
+[
+"Bild-im-Bild: In der OBS-Szene „{0}“ fehlt die Quelle „{1}“",
+"Bild-im-Bild: In der OBS-Szene „{0}“ fehlt die Quelle „{1}“",
+"Picture-in-picture: the OBS scene “{0}” has no source “{1}”"
+],
+[
+"Bild-im-Bild: OBS antwortet nicht",
+"Bild-im-Bild: OBS antwortet nicht",
+"Picture-in-picture: OBS does not answer"
+],
+[
+"Bild-im-Bild: OBS-Fehler",
+"Bild-im-Bild: OBS-Fehler",
+"Picture-in-picture: OBS error"
+],
+[
+"Fehler",
+"Fehler",
+"Error"
+],
+[
+"Get",
+"Get",
+"Get"
+],
+[
+"GetCurrentProgramScene",
+"GetCurrentProgramScene",
+"GetCurrentProgramScene"
+],
+[
+"GetRecordStatus",
+"GetRecordStatus",
+"GetRecordStatus"
+],
+[
+"GetSceneItemId",
+"GetSceneItemId",
+"GetSceneItemId"
+],
+[
+"GetVersion",
+"GetVersion",
+"GetVersion"
+],
+[
+"GetVideoSettings",
+"GetVideoSettings",
+"GetVideoSettings"
+],
+[
+"OBS kann diese Aufnahme nicht pausieren (Einstellungen → Ausgabe)",
+"OBS kann diese Aufnahme nicht pausieren (Einstellungen → Ausgabe)",
+"OBS cannot pause this recording (Settings → Output)"
+],
+[
+"OBS kann nicht pausieren → Aufnahme wird gestoppt und beim Schließen neu gestartet",
+"OBS kann nicht pausieren → Aufnahme wird gestoppt und beim Schließen neu gestartet",
+"OBS cannot pause → recording is stopped and restarted when you close the menu"
+],
+[
+"OBS nicht erreichbar",
+"OBS nicht erreichbar",
+"OBS not reachable"
+],
+[
+"OBS nimmt gerade nicht auf",
+"OBS nimmt gerade nicht auf",
+"OBS is not recording right now"
+],
+[
+"OBS nimmt schon auf",
+"OBS nimmt schon auf",
+"OBS is already recording"
+],
+[
+"OBS-Fehler bei ",
+"OBS-Fehler bei ",
+"OBS error at "
+],
+[
+"Pause",
+"Pause",
+"Pause"
+],
+[
+"Pause geht nur, während OBS aufnimmt",
+"Pause geht nur, während OBS aufnimmt",
+"Pausing only works while OBS is recording"
+],
+[
+"PauseRecord",
+"PauseRecord",
+"PauseRecord"
+],
+[
+"Resume",
+"Resume",
+"Resume"
+],
+[
+"ResumeRecord",
+"ResumeRecord",
+"ResumeRecord"
+],
+[
+"SHA-256",
+"SHA-256",
+"SHA-256"
+],
+[
+"SetCurrentProgramScene",
+"SetCurrentProgramScene",
+"SetCurrentProgramScene"
+],
+[
+"SetSceneItemEnabled",
+"SetSceneItemEnabled",
+"SetSceneItemEnabled"
+],
+[
+"SetSceneItemTransform",
+"SetSceneItemTransform",
+"SetSceneItemTransform"
+],
+[
+"StartRecord",
+"StartRecord",
+"StartRecord"
+],
+[
+"StopRecord",
+"StopRecord",
+"StopRecord"
+],
+[
+"ToggleRecord",
+"ToggleRecord",
+"ToggleRecord"
+],
+[
+"aus – erst Adresse/Passwort eintragen und „Speichern & verbinden“",
+"aus – erst Adresse/Passwort eintragen und „Speichern & verbinden“",
+"off – enter address/password first and click “Save & connect”"
+],
+[
+"falsches OBS-Passwort",
+"falsches OBS-Passwort",
+"wrong OBS password"
+],
+[
+"nicht verbunden",
+"nicht verbunden",
+"not connected"
+],
+[
+"nimmt NICHT auf – Pause geht erst während einer Aufnahme",
+"nimmt NICHT auf – Pause geht erst während einer Aufnahme",
+"NOT recording – pausing only works during a recording"
+],
+[
+"nimmt auf",
+"nimmt auf",
+"recording"
+],
+[
+"verbinde…",
+"verbinde…",
+"connecting…"
+],
+[
+"verbunden · Aufnahme pausiert",
+"verbunden · Aufnahme pausiert",
+"connected · recording paused"
+],
+[
+"verbunden · gestoppt",
+"verbunden · gestoppt",
+"connected · stopped"
+],
+[
+"verbunden · nimmt auf",
+"verbunden · nimmt auf",
+"connected · recording"
+],
+[
+"verbunden{0} · {1}",
+"verbunden{0} · {1}",
+"connected{0} · {1}"
+],
+[
+"“ fehlt die Quelle „",
+"“ fehlt die Quelle „",
+"” has no source “"
+],
+[
+"'radius' must be between 0 and 512",
+"„radius“ muss zwischen 0 und 512 liegen",
+"'radius' must be between 0 and 512"
+],
+[
+"orbit duration must be at least 1 tick",
+"Kreisfahrt muss mindestens 1 Tick dauern",
+"orbit duration must be at least 1 tick"
+],
+[
+"ActorName",
+"ActorName",
+"ActorName"
+],
+[
+"Course '{0}' created. Stand on each checkpoint: /btb parkour checkpoint {1}",
+"Parcours „{0}“ angelegt. Auf jeden Checkpoint stellen: /btb parkour checkpoint {1}",
+"Course '{0}' created. Stand on each checkpoint: /btb parkour checkpoint {1}"
+],
+[
+"Course '{0}' has no checkpoints",
+"Parcours „{0}“ hat keine Checkpoints",
+"Course '{0}' has no checkpoints"
+],
+[
+"Course '{0}' updated",
+"Parcours „{0}“ aktualisiert",
+"Course '{0}' updated"
+],
+[
+"Course deleted",
+"Parcours gelöscht",
+"Course deleted"
+],
+[
+"Course running",
+"Parcours läuft",
+"Course running"
+],
+[
+"Course stopped",
+"Parcours gestoppt",
+"Course stopped"
+],
+[
+"Id must match [a-z0-9_]",
+"ID muss [a-z0-9_] entsprechen",
+"Id must match [a-z0-9_]"
+],
+[
+"Starts a jump'n'run course. {id}",
+"Startet einen Jump'n'Run-Parcours. {id}",
+"Starts a jump'n'run course. {id}"
+],
+[
+"Stops a jump'n'run course. {id}",
+"Stoppt einen Jump'n'Run-Parcours. {id}",
+"Stops a jump'n'run course. {id}"
+],
+[
+"Unknown course '{0}'",
+"Unbekannter Parcours „{0}“",
+"Unknown course '{0}'"
+],
+[
+"checkpoint {0} does not exist",
+"Checkpoint {0} gibt es nicht",
+"checkpoint {0} does not exist"
+],
+[
+"mode: side, behind, fixed, top or none",
+"Modus: side, behind, fixed, top oder none",
+"mode: side, behind, fixed, top or none"
+],
+[
+"multiple perspective changes",
+"mehrere Perspektivwechsel",
+"multiple perspective changes"
+],
+[
+"parkour respawn",
+"parkour respawn",
+"parkour respawn"
+],
+[
+"{0} course(s): {1}",
+"{0} Parcours: {1}",
+"{0} course(s): {1}"
+],
+[
+"TAIL",
+"TAIL",
+"TAIL"
+],
+[
+"'players' contains invalid player name '{0}'",
+"„players“ enthält den ungültigen Spielernamen „{0}“",
+"'players' contains invalid player name '{0}'"
+],
+[
+"'axis' must be x, y or z",
+"„axis“ muss x, y oder z sein",
+"'axis' must be x, y or z"
+],
+[
+"'charge_ticks' must be 0..2400",
+"„charge_ticks“ muss 0..2400 sein",
+"'charge_ticks' must be 0..2400"
+],
+[
+"'facing' must point out of the surface",
+"„facing“ muss aus der Fläche heraus zeigen",
+"'facing' must point out of the surface"
+],
+[
+"'style' must be nether or white",
+"„style“ muss nether oder white sein",
+"'style' must be nether or white"
+],
+[
+"portal needs 1..",
+"Portal braucht 1..",
+"portal needs 1.."
+],
+[
+"portal needs 1..{0} surface blocks",
+"Portal braucht 1..{0} Flächenblöcke",
+"portal needs 1..{0} surface blocks"
+],
+[
+"portal surface larger than {0} blocks",
+"Portalfläche größer als {0} Blöcke",
+"portal surface larger than {0} blocks"
+],
+[
+"portal surface must be one block thick",
+"Portalfläche muss einen Block dick sein",
+"portal surface must be one block thick"
+],
+[
+"Activating portal '{0}'",
+"Aktiviere Portal „{0}“",
+"Activating portal '{0}'"
+],
+[
+"Closed {0} portal(s)",
+"{0} Portal(e) geschlossen",
+"Closed {0} portal(s)"
+],
+[
+"Closes a portal and restores its surface. {id? (omit = all)}",
+"Schließt ein Portal und stellt seine Fläche wieder her. {id? (ohne = alle)}",
+"Closes a portal and restores its surface. {id? (omit = all)}"
+],
+[
+"Frame and keystone built",
+"Rahmen und Schlüsselstein gebaut",
+"Frame and keystone built"
+],
+[
+"Loaded {0} portal(s)",
+"{0} Portal(e) geladen",
+"Loaded {0} portal(s)"
+],
+[
+"No closed frame found around that point (max {0} blocks). The point must be air inside the frame.",
+"Kein geschlossener Rahmen um diesen Punkt gefunden (höchstens {0} Blöcke). Der Punkt muss Luft innerhalb des Rahmens sein.",
+"No closed frame found around that point (max {0} blocks). The point must be air inside the frame."
+],
+[
+"No portal defined in this dimension",
+"In dieser Dimension ist kein Portal angelegt",
+"No portal defined in this dimension"
+],
+[
+"Portal '{0}' created from the frame: {1} blocks, plane {2}. Set its keystone: /btb portal keystone {3} <pos>",
+"Portal „{0}“ aus dem Rahmen angelegt: {1} Blöcke, Ebene {2}. Schlüsselstein setzen: /btb portal keystone {3} <pos>",
+"Portal '{0}' created from the frame: {1} blocks, plane {2}. Set its keystone: /btb portal keystone {3} <pos>"
+],
+[
+"Portal '{0}' created. Build a frame: /btb portal build {1}",
+"Portal „{0}“ angelegt. Rahmen bauen: /btb portal build {1}",
+"Portal '{0}' created. Build a frame: /btb portal build {1}"
+],
+[
+"Portal '{0}' deleted (frame blocks stay)",
+"Portal „{0}“ gelöscht (die Rahmenblöcke bleiben)",
+"Portal '{0}' deleted (frame blocks stay)"
+],
+[
+"Portal '{0}' is already {1}",
+"Portal „{0}“ ist schon {1}",
+"Portal '{0}' is already {1}"
+],
+[
+"Portal '{0}' updated",
+"Portal „{0}“ aktualisiert",
+"Portal '{0}' updated"
+],
+[
+"Portal activation started",
+"Portal-Aktivierung gestartet",
+"Portal activation started"
+],
+[
+"Portal closed",
+"Portal geschlossen",
+"Portal closed"
+],
+[
+"Portal opened",
+"Portal geöffnet",
+"Portal opened"
+],
+[
+"Runs a portal's activation sequence (skips the key). {id, instant?}",
+"Startet die Aktivierungssequenz eines Portals (ohne Schlüssel). {id, instant?}",
+"Runs a portal's activation sequence (skips the key). {id, instant?}"
+],
+[
+"The portal is already awake.",
+"Das Portal ist schon erwacht.",
+"The portal is already awake."
+],
+[
+"This keystone belongs to no portal.",
+"Dieser Schlüsselstein gehört zu keinem Portal.",
+"This keystone belongs to no portal."
+],
+[
+"Transfers players through a portal without walking in (scripted cut). {id, players?}",
+"Bringt Spieler durch ein Portal, ohne hineinzulaufen (geschnittener Übergang). {id, players?}",
+"Transfers players through a portal without walking in (scripted cut). {id, players?}"
+],
+[
+"Unknown or invalid portal '{0}'",
+"Unbekanntes oder ungültiges Portal „{0}“",
+"Unknown or invalid portal '{0}'"
+],
+[
+"Unknown portal",
+"Unbekanntes Portal",
+"Unknown portal"
+],
+[
+"Unknown portal '{0}'",
+"Unbekanntes Portal „{0}“",
+"Unknown portal '{0}'"
+],
+[
+"[BTB] Portal '{0}' has no destination (link or exit)",
+"[BTB] Portal „{0}“ hat kein Ziel (link oder exit)",
+"[BTB] Portal '{0}' has no destination (link or exit)"
+],
+[
+"god rays",
+"god rays",
+"god rays"
+],
+[
+"portal reveal",
+"portal reveal",
+"portal reveal"
+],
+[
+"portal transfer",
+"portal transfer",
+"portal transfer"
+],
+[
+"unknown portal '{0}'",
+"unbekanntes Portal „{0}“",
+"unknown portal '{0}'"
+],
+[
+"{0} portal(s):",
+"{0} Portal(e):",
+"{0} portal(s):"
+],
+[
+"Der Replay-Editor geht nur im Einzelspieler bzw. als Host einer LAN-Welt.",
+"Der Replay-Editor geht nur im Einzelspieler bzw. als Host einer LAN-Welt.",
+"The replay editor only works in single player or as the host of a LAN world."
+],
+[
+"Fahrt",
+"Fahrt",
+"Move"
+],
+[
+"Fahrt+Blick",
+"Fahrt+Blick",
+"Path+look"
+],
+[
+"Frei",
+"Frei",
+"Free"
+],
+[
+"In/Out-Bereich ist leer",
+"In/Out-Bereich ist leer",
+"In/out range is empty"
+],
+[
+"K Keyframe · ↑ Play/Pause · ←/→ 1 s · J Kamera · F6 Editor",
+"K Keyframe · ↑ Play/Pause · ←/→ 1 s · J Kamera · F6 Editor",
+"K keyframe · ↑ play/pause · ←/→ 1 s · J camera · F6 editor"
+],
+[
+"Keyframes von „",
+"Keyframes von „",
+"Keyframes of “"
+],
+[
+"Keyframes von „{0}“ nicht lesbar: {1}",
+"Keyframes von „{0}“ nicht lesbar: {1}",
+"Keyframes of “{0}” not readable: {1}"
+],
+[
+"Noch kein Replay – erst aufnehmen: /btb replay record take … /btb replay stop",
+"Noch kein Replay – erst aufnehmen: /btb replay record take … /btb replay stop",
+"No replay yet – record one first: /btb replay record take … /btb replay stop"
+],
+[
+"Replay „",
+"Replay „",
+"Replay „"
+],
+[
+"Replay „{0}“ ist beschädigt oder nicht lesbar (config/btb_cinematic/replays/{1}.replay)",
+"Replay „{0}“ ist beschädigt oder nicht lesbar (config/btb_cinematic/replays/{1}.replay)",
+"Replay “{0}” is damaged or not readable (config/btb_cinematic/replays/{1}.replay)"
+],
+[
+"Replay „{0}“ nicht gefunden",
+"Replay „{0}“ nicht gefunden",
+"Replay \"{0}\" not found"
+],
+[
+"Schnitt",
+"Schnitt",
+"Cut"
+],
+[
+"Speichern fehlgeschlagen: {0}",
+"Speichern fehlgeschlagen: {0}",
+"Saving failed: {0}"
+],
+[
+"[BTB Replay] {0}",
+"[BTB Replay] {0}",
+"[BTB Replay] {0}"
+],
+[
+"“ ist beschädigt oder nicht lesbar (config/btb_cinematic/replays/",
+"“ ist beschädigt oder nicht lesbar (config/btb_cinematic/replays/",
+"” is damaged or not readable (config/btb_cinematic/replays/"
+],
+[
+"“ nicht gefunden",
+"“ nicht gefunden",
+"” not found"
+],
+[
+"◆ Kamera fährt die Keyframes",
+"◆ Kamera fährt die Keyframes",
+"◆ Camera follows the keyframes"
+],
+[
+"◆ Keyframe %d bei %s",
+"◆ Keyframe %d bei %s",
+"◆ Keyframe %d at %s"
+],
+[
+"◆ Keyframes",
+"◆ Keyframes",
+"◆ Keyframes"
+],
+[
+"✈ Freie Kamera – Blickwinkel suchen, K setzt Keyframe",
+"✈ Freie Kamera – Blickwinkel suchen, K setzt Keyframe",
+"✈ Free camera – find an angle, K sets a keyframe"
+],
+[
+"✈ frei",
+"✈ frei",
+"✈ free"
+],
+[
+" Keyframes · klicken zum Auswählen, ziehen zum Verschieben, Rechtsklick löscht",
+" Keyframes · klicken zum Auswählen, ziehen zum Verschieben, Rechtsklick löscht",
+" keyframes · click to select, drag to move, right-click deletes"
+],
+[
+"%s → %s (%.1f s, %d Bilder)",
+"%s → %s (%.1f s, %d Bilder)",
+"%s → %s (%.1f s, %d frames)"
+],
+[
+"+ Keyframe",
+"+ Keyframe",
+"+ Keyframe"
+],
+[
+"5 s vor (→: 1 s)",
+"5 s vor (→: 1 s)",
+"5 s forward (→: 1 s)"
+],
+[
+"5 s zurück (←: 1 s)",
+"5 s zurück (←: 1 s)",
+"5 s back (←: 1 s)"
+],
+[
+"Abspielen / Pause (Leertaste, im Flug: ↑)",
+"Abspielen / Pause (Leertaste, im Flug: ↑)",
+"Play / pause (space, while flying: ↑)"
+],
+[
+"Abspieltempo der ganzen Welt (Zeitlupe/Zeitraffer)",
+"Abspieltempo der ganzen Welt (Zeitlupe/Zeitraffer)",
+"Playback speed of the whole world (slow motion / time lapse)"
+],
+[
+"Aktuelle Sicht (und Zeit) in diesen Keyframe übernehmen",
+"Aktuelle Sicht (und Zeit) in diesen Keyframe übernehmen",
+"Take the current view (and time) into this keyframe"
+],
+[
+"Auflösung",
+"Auflösung",
+"Resolution"
+],
+[
+"Beenden",
+"Beenden",
+"Quit"
+],
+[
+"Bilder pro Sekunde",
+"Bilder pro Sekunde",
+"Frames per second"
+],
+[
+"Brennweite: enger (Tele)",
+"Brennweite: enger (Tele)",
+"Focal length: narrower (tele)"
+],
+[
+"Brennweite: weiter (Weitwinkel)",
+"Brennweite: weiter (Weitwinkel)",
+"Focal length: wider (wide angle)"
+],
+[
+"Editor schließen, Replay stoppen, Darsteller zurück",
+"Editor schließen, Replay stoppen, Darsteller zurück",
+"Close the editor, stop the replay, actors back"
+],
+[
+"Export-Ende = Abspielposition (Taste P)",
+"Export-Ende = Abspielposition (Taste P)",
+"Export end = playback position (key P)"
+],
+[
+"Export-Start = Abspielposition (Taste I)",
+"Export-Start = Abspielposition (Taste I)",
+"Export start = playback position (key I)"
+],
+[
+"FOV+",
+"FOV+",
+"FOV+"
+],
+[
+"FOV−",
+"FOV−",
+"FOV−"
+],
+[
+"Fahrt+Blick (schaut auf den nächsten Darsteller), Frei (keine Steuerung)",
+"Fahrt+Blick (schaut auf den nächsten Darsteller), Frei (keine Steuerung)",
+"Path+look (looks at the nearest actor), Free (no control)"
+],
+[
+"Kamera neigen (Roll) links",
+"Kamera neigen (Roll) links",
+"Tilt camera (roll) left"
+],
+[
+"Kamera neigen (Roll) rechts",
+"Kamera neigen (Roll) rechts",
+"Tilt camera (roll) right"
+],
+[
+"Keine Keyframes – fliegen (✈), Blickwinkel suchen, K drücken",
+"Keine Keyframes – fliegen (✈), Blickwinkel suchen, K drücken",
+"No keyframes – fly (✈), find an angle, press K"
+],
+[
+"Keyframe löschen (Entf)",
+"Keyframe löschen (Entf)",
+"Delete keyframe (Del)"
+],
+[
+"Keyframe mit der aktuellen Sicht an der Abspielposition (im Flug: K)",
+"Keyframe mit der aktuellen Sicht an der Abspielposition (im Flug: K)",
+"Keyframe with the current view at the playback position (while flying: K)"
+],
+[
+"Keyframes: die Kamera fährt den Pfad ab. Frei: du fliegst selbst (Taste J)",
+"Keyframes: die Kamera fährt den Pfad ab. Frei: du fliegst selbst (Taste J)",
+"Keyframes: the camera follows the path. Free: you fly yourself (key J)"
+],
+[
+"Leertaste Play/Pause · ←/→ 1 s · K Keyframe · J Kamera · I/P In/Out · Mausrad: Zoom · Rechtsklick: In/Out bzw. Keyframe löschen",
+"Leertaste Play/Pause · ←/→ 1 s · K Keyframe · J Kamera · I/P In/Out · Mausrad: Zoom · Rechtsklick: In/Out bzw. Keyframe löschen",
+"Space play/pause · ←/→ 1 s · K keyframe · J camera · I/P in/out · mouse wheel: zoom · right-click: in/out or delete keyframe"
+],
+[
+"Name",
+"Name",
+"Name"
+],
+[
+"Name der Datei: .minecraft/btb_export/<Name>/<Name>.mp4",
+"Name der Datei: .minecraft/btb_export/<Name>/<Name>.mp4",
+"File name: .minecraft/btb_export/<name>/<name>.mp4"
+],
+[
+"Nächstes Replay",
+"Nächstes Replay",
+"Next replay"
+],
+[
+"Out ]",
+"Out ]",
+"Out ]"
+],
+[
+"Panel zu, frei fliegen und Blickwinkel suchen (K setzt Keyframe, F6 zurück)",
+"Panel zu, frei fliegen und Blickwinkel suchen (K setzt Keyframe, F6 zurück)",
+"Close the panel, fly freely and find an angle (K sets a keyframe, F6 back)"
+],
+[
+"Rendert den Bereich In→Out bildgenau mit der Keyframe-Kamera (Spiel friert dabei ein)",
+"Rendert den Bereich In→Out bildgenau mit der Keyframe-Kamera (Spiel friert dabei ein)",
+"Renders the range in→out frame-exact with the keyframe camera (the game freezes meanwhile)"
+],
+[
+"Replay-Editor",
+"Replay-Editor",
+"Replay editor"
+],
+[
+"Sicht",
+"Sicht",
+"View"
+],
+[
+"Vorheriges Replay",
+"Vorheriges Replay",
+"Previous replay"
+],
+[
+"Wie die Kamera von hier zum nächsten Keyframe kommt: Fahrt (weich), Schnitt (harter Cut), ",
+"Wie die Kamera von hier zum nächsten Keyframe kommt: Fahrt (weich), Schnitt (harter Cut), ",
+"How the camera gets from here to the next keyframe: path (smooth), cut (hard cut), "
+],
+[
+"Zu diesem Keyframe springen und dich dorthin stellen",
+"Zu diesem Keyframe springen und dich dorthin stellen",
+"Jump to this keyframe and put yourself there"
+],
+[
+"Zum Anfang (bzw. In-Punkt)",
+"Zum Anfang (bzw. In-Punkt)",
+"To the start (or in point)"
+],
+[
+"Zum Ende (bzw. Out-Punkt)",
+"Zum Ende (bzw. Out-Punkt)",
+"To the end (or out point)"
+],
+[
+"[ In",
+"[ In",
+"[ In"
+],
+[
+"◆ %d/%d · %s · FOV %.0f · Roll %.0f°",
+"◆ %d/%d · %s · FOV %.0f · Roll %.0f°",
+"◆ %d/%d · %s · FOV %.0f · Roll %.0f°"
+],
+[
+"● Exportieren",
+"● Exportieren",
+"● Export"
+],
+[
+"✈ Fliegen",
+"✈ Fliegen",
+"✈ Fly"
+],
+[
+"✈ Frei",
+"✈ Frei",
+"✈ Free"
+],
+[
+"Angriffe: schlag, bruellen, saeulen, wurf",
+"Angriffe: schlag, bruellen, saeulen, wurf",
+"Attacks: schlag, bruellen, saeulen, wurf"
+],
+[
+"Double entfernt",
+"Double entfernt",
+"Double removed"
+],
+[
+"Double: {0} spielt seine Aufnahme nach",
+"Double: {0} spielt seine Aufnahme nach",
+"Double: {0} replays their recording"
+],
+[
+"Es läuft kein Replay",
+"Es läuft kein Replay",
+"No replay is running"
+],
+[
+"Es läuft keine Aufnahme und kein Replay",
+"Es läuft keine Aufnahme und kein Replay",
+"No recording and no replay running"
+],
+[
+"Es wird gerade aufgenommen – erst /btb replay stop",
+"Es wird gerade aufgenommen – erst /btb replay stop",
+"Recording in progress – first /btb replay stop"
+],
+[
+"Export gestoppt",
+"Export gestoppt",
+"Export stopped"
+],
+[
+"Export „",
+"Export „",
+"Export “"
+],
+[
+"Export „{0}“ startet: {1}×{2}, {3} FPS, {4} s",
+"Export „{0}“ startet: {1}×{2}, {3} FPS, {4} s",
+"Export “{0}” starting: {1}×{2}, {3} FPS, {4} s"
+],
+[
+"Geste „",
+"Geste „",
+"Gesture “"
+],
+[
+"Geste „{0}“ für {1}",
+"Geste „{0}“ für {1}",
+"Gesture “{0}” for {1}"
+],
+[
+"Gesten gehen bei Puppen, Doubles und Statisten (keine echten Spieler)",
+"Gesten gehen bei Puppen, Doubles und Statisten (keine echten Spieler)",
+"Gestures work on puppets, doubles and extras (not on real players)"
+],
+[
+"Kein Herzwächter da",
+"Kein Herzwächter da",
+"No Heart Warden here"
+],
+[
+"Keine Replays",
+"Keine Replays",
+"No replays"
+],
+[
+"Läuft schon etwas – erst /btb replay stop",
+"Läuft schon etwas – erst /btb replay stop",
+"Something is already running – first /btb replay stop"
+],
+[
+"PILLARS",
+"PILLARS",
+"PILLARS"
+],
+[
+"ROAR",
+"ROAR",
+"ROAR"
+],
+[
+"Replay gelöscht",
+"Replay gelöscht",
+"Replay deleted"
+],
+[
+"Replay gestoppt",
+"Replay gestoppt",
+"Replay stopped"
+],
+[
+"Replay nicht gefunden",
+"Replay nicht gefunden",
+"Replay not found"
+],
+[
+"Replay „%s“ gespeichert: %.1f s, %d Spuren. Abspielen: /btb replay play %s",
+"Replay „%s“ gespeichert: %.1f s, %d Spuren. Abspielen: /btb replay play %s",
+"Replay “%s” saved: %.1f s, %d tracks. Play: /btb replay play %s"
+],
+[
+"Replay-Editor: „",
+"Replay-Editor: „",
+"Replay editor: “"
+],
+[
+"Replay-Editor: „{0}“ geladen (pausiert)",
+"Replay-Editor: „{0}“ geladen (pausiert)",
+"Replay editor: “{0}” loaded (paused)"
+],
+[
+"Replays: {0}",
+"Replays: {0}",
+"Replays: {0}"
+],
+[
+"SLAM",
+"SLAM",
+"SLAM"
+],
+[
+"Statist „",
+"Statist „",
+"Extra “"
+],
+[
+"Statist „{0}“ – Gesten: /btb geste @e[tag=btb_extra,limit=1,sort=nearest] winken",
+"Statist „{0}“ – Gesten: /btb geste @e[tag=btb_extra,limit=1,sort=nearest] winken",
+"Extra “{0}” – gestures: /btb geste @e[tag=btb_extra,limit=1,sort=nearest] winken"
+],
+[
+"THROW",
+"THROW",
+"THROW"
+],
+[
+"Tempo {0}×",
+"Tempo {0}×",
+"Speed {0}×"
+],
+[
+"Wächter: {0}",
+"Wächter: {0}",
+"Guardian: {0}"
+],
+[
+"gesture end",
+"gesture end",
+"gesture end"
+],
+[
+"{0} Statisten entfernt",
+"{0} Statisten entfernt",
+"{0} extras removed"
+],
+[
+"“ geladen (pausiert)",
+"“ geladen (pausiert)",
+"” loaded (paused)"
+],
+[
+"“ nimmt auf: alle Darsteller (nicht Tag kamera), Kreaturen, Szenen und Ereignisse. Ende: /btb replay stop",
+"“ nimmt auf: alle Darsteller (nicht Tag kamera), Kreaturen, Szenen und Ereignisse. Ende: /btb replay stop",
+"” is recording: all actors (not tag kamera), creatures, scenes and events. End: /btb replay stop"
+],
+[
+"“ – Darsteller sind kurz Zuschauer, die Puppen spielen. Filmen mit jeder Kamera; Stopp: /btb replay stop",
+"“ – Darsteller sind kurz Zuschauer, die Puppen spielen. Filmen mit jeder Kamera; Stopp: /btb replay stop",
+"” – actors are spectators for a moment, the puppets play. Film with any camera; stop: /btb replay stop"
+],
+[
+"“ – Gesten: /btb geste @e[tag=btb_extra,limit=1,sort=nearest] winken",
+"“ – Gesten: /btb geste @e[tag=btb_extra,limit=1,sort=nearest] winken",
+"” – gestures: /btb geste @e[tag=btb_extra,limit=1,sort=nearest] winken"
+],
+[
+"⏸ Pause",
+"⏸ Pause",
+"⏸ Pause"
+],
+[
+"▶ Replay „",
+"▶ Replay „",
+"▶ Replay „"
+],
+[
+"▶ Replay „{0}“ – Darsteller sind kurz Zuschauer, die Puppen spielen. Filmen mit jeder Kamera; Stopp: /btb replay stop",
+"▶ Replay „{0}“ – Darsteller sind kurz Zuschauer, die Puppen spielen. Filmen mit jeder Kamera; Stopp: /btb replay stop",
+"▶ Replay “{0}” – actors are spectators for a moment, the puppets play. Film with any camera; stop: /btb replay stop"
+],
+[
+"▶ Weiter",
+"▶ Weiter",
+"▶ Resume"
+],
+[
+"● Replay „",
+"● Replay „",
+"● Replay „"
+],
+[
+"● Replay „{0}“ nimmt auf: alle Darsteller (nicht Tag kamera), Kreaturen, Szenen und Ereignisse. Ende: /btb replay stop",
+"● Replay „{0}“ nimmt auf: alle Darsteller (nicht Tag kamera), Kreaturen, Szenen und Ereignisse. Ende: /btb replay stop",
+"● Replay “{0}” is recording: all actors (not tag kamera), creatures, scenes and events. End: /btb replay stop"
+],
+[
+"standard reverb",
+"standard reverb",
+"standard reverb"
+],
+[
+"unknown reverb preset '{0}' (off, room, hall, cave, arena, cathedral, nether)",
+"unbekannter Hall „{0}“ (off, room, hall, cave, arena, cathedral, nether)",
+"unknown reverb preset '{0}' (off, room, hall, cave, arena, cathedral, nether)"
+],
+[
+"/btb scene move ",
+"/btb scene move ",
+"/btb scene move "
+],
+[
+"/btb scene remove ",
+"/btb scene remove ",
+"/btb scene remove "
+],
+[
+"/btb scene test ",
+"/btb scene test ",
+"/btb scene test "
+],
+[
+"Added at {0} s: {1}  (/btb scene events {2})",
+"Hinzugefügt bei {0} s: {1}  (/btb scene events {2})",
+"Added at {0} s: {1}  (/btb scene events {2})"
+],
+[
+"Command not understood: /",
+"Befehl nicht verstanden: /",
+"Command not understood: /"
+],
+[
+"Command not understood: /{0}{1}",
+"Befehl nicht verstanden: /{0}{1}",
+"Command not understood: /{0}{1}"
+],
+[
+"Copied to '{0}'",
+"Kopiert nach „{0}“",
+"Copied to '{0}'"
+],
+[
+"Diesen Schritt jetzt ausführen",
+"Diesen Schritt jetzt ausführen",
+"Run this step now"
+],
+[
+"Name: only a-z, 0-9 and _",
+"Name: nur a-z, 0-9 und _",
+"Name: only a-z, 0-9 and _"
+],
+[
+"No scene recording running",
+"Es läuft keine Szenen-Aufnahme",
+"No scene recording running"
+],
+[
+"Only command steps can be tested alone – play the scene",
+"Nur Befehls-Schritte lassen sich einzeln testen – spiel die Szene ab",
+"Only command steps can be tested alone – play the scene"
+],
+[
+"Recording stopped. Play: /btb scene restart {0}",
+"Aufnahme gestoppt. Abspielen: /btb scene restart {0}",
+"Recording stopped. Play: /btb scene restart {0}"
+],
+[
+"Removed: {0}",
+"Entfernt: {0}",
+"Removed: {0}"
+],
+[
+"Scene '{0}' already exists",
+"Szene „{0}“ gibt es schon",
+"Scene '{0}' already exists"
+],
+[
+"Scene '{0}' created. Add steps: /btb scene add {1} <second> <command>, or record live: /btb scene rec {2}",
+"Szene „{0}“ angelegt. Schritte hinzufügen: /btb scene add {1} <Sekunde> <Befehl>, oder live aufnehmen: /btb scene rec {2}",
+"Scene '{0}' created. Add steps: /btb scene add {1} <second> <command>, or record live: /btb scene rec {2}"
+],
+[
+"Scene '{0}' deleted",
+"Szene „{0}“ gelöscht",
+"Scene '{0}' deleted"
+],
+[
+"Scene '{0}' is now {1} s long",
+"Szene „{0}“ ist jetzt {1} s lang",
+"Scene '{0}' is now {1} s long"
+],
+[
+"Scene '{0}' not found",
+"Szene „{0}“ nicht gefunden",
+"Scene '{0}' not found"
+],
+[
+"Scene '{0}' not found. New one: /btb scene create {1}",
+"Szene „{0}“ nicht gefunden. Neu: /btb scene create {1}",
+"Scene '{0}' not found. New one: /btb scene create {1}"
+],
+[
+"Scene '{0}' – {1} step(s), {2} s",
+"Szene „{0}“ – {1} Schritt(e), {2} s",
+"Scene '{0}' – {1} step(s), {2} s"
+],
+[
+"Step {0} doesn't exist (scene has {1})",
+"Schritt {0} gibt es nicht (die Szene hat {1})",
+"Step {0} doesn't exist (scene has {1})"
+],
+[
+"Step {0} now at {1} s",
+"Schritt {0} jetzt bei {1} s",
+"Step {0} now at {1} s"
+],
+[
+"Target name invalid or already taken",
+"Zielname ungültig oder schon vergeben",
+"Target name invalid or already taken"
+],
+[
+"Zeit ändern",
+"Zeit ändern",
+"Change time"
+],
+[
+"for me",
+"für mich",
+"for me"
+],
+[
+"lands in the scene at its exact time. Stop: /btb scene rec stop",
+"landet mit genauer Zeit in der Szene. Stopp: /btb scene rec stop",
+"lands in the scene at its exact time. Stop: /btb scene rec stop"
+],
+[
+"● REC  {0}  {1} s",
+"● REC  {0}  {1} s",
+"● REC  {0}  {1} s"
+],
+[
+"● Recording into '{0}' from now on: every click in the Director and every /btb command lands in the scene at its exact time. Stop: /btb scene rec stop",
+"● Nehme ab jetzt in „{0}“ auf: jeder Klick im Regiepult und jeder /btb-Befehl landet mit genauer Zeit in der Szene. Stopp: /btb scene rec stop",
+"● Recording into '{0}' from now on: every click in the Director and every /btb command lands in the scene at its exact time. Stop: /btb scene rec stop"
+],
+[
+" outside 0..",
+" außerhalb 0..",
+" outside 0.."
+],
+[
+"' differs from file name '",
+"“ weicht vom Dateinamen ab „",
+"' differs from file name '"
+],
+[
+"' must match [a-z0-9_]{1,64}",
+"“ muss [a-z0-9_]{1,64} entsprechen",
+"' must match [a-z0-9_]{1,64}"
+],
+[
+"'events' must be an array",
+"„events“ muss eine Liste sein",
+"'events' must be an array"
+],
+[
+", skipped",
+", übersprungen",
+", skipped"
+],
+[
+": must be an object, skipped",
+": muss ein Objekt sein, übersprungen",
+": must be an object, skipped"
+],
+[
+": time ",
+": Zeit ",
+": time "
+],
+[
+": unknown event type, skipped",
+": unbekannter Ereignistyp, übersprungen",
+": unknown event type, skipped"
+],
+[
+"bpm 0..400, beats_per_bar 1..32",
+"bpm 0..400, beats_per_bar 1..32",
+"bpm 0..400, beats_per_bar 1..32"
+],
+[
+"duration must be between 1 and ",
+"Dauer muss zwischen 1 und ",
+"duration must be between 1 and "
+],
+[
+"event #",
+"Ereignis #",
+"event #"
+],
+[
+"id '",
+"ID „",
+"id '"
+],
+[
+"invalid JSON: ",
+"ungültiges JSON: ",
+"invalid JSON: "
+],
+[
+"root must be a JSON object",
+"die Wurzel muss ein JSON-Objekt sein",
+"root must be a JSON object"
+],
+[
+"scene is strict and has invalid events",
+"die Szene ist streng und hat ungültige Ereignisse",
+"scene is strict and has invalid events"
+],
+[
+"uses 'beat'/'bar' but the scene has no 'bpm'",
+"nutzt „beat“/„bar“, aber die Szene hat kein „bpm“",
+"uses 'beat'/'bar' but the scene has no 'bpm'"
+],
+[
+"', file ignored",
+"“, Datei ignoriert",
+"', file ignored"
+],
+[
+": event #",
+": Ereignis #",
+": event #"
+],
+[
+"Scene '{0}' is already running (use stop, reset or restart)",
+"Szene „{0}“ läuft schon (stop, reset oder restart verwenden)",
+"Scene '{0}' is already running (use stop, reset or restart)"
+],
+[
+"Scene '{0}' is not paused",
+"Szene „{0}“ ist nicht pausiert",
+"Scene '{0}' is not paused"
+],
+[
+"Scene '{0}' is not running",
+"Szene „{0}“ läuft nicht",
+"Scene '{0}' is not running"
+],
+[
+"Scene '{0}' paused at tick {1}",
+"Szene „{0}“ pausiert bei Tick {1}",
+"Scene '{0}' paused at tick {1}"
+],
+[
+"Scene '{0}' reset",
+"Szene „{0}“ zurückgesetzt",
+"Scene '{0}' reset"
+],
+[
+"Scene '{0}' resumed at tick {1}",
+"Szene „{0}“ fortgesetzt bei Tick {1}",
+"Scene '{0}' resumed at tick {1}"
+],
+[
+"Scene '{0}' started ({1} ticks, {2} events)",
+"Szene „{0}“ gestartet ({1} Ticks, {2} Ereignisse)",
+"Scene '{0}' started ({1} ticks, {2} events)"
+],
+[
+"Scene '{0}' started at {1} s",
+"Szene „{0}“ gestartet bei {1} s",
+"Scene '{0}' started at {1} s"
+],
+[
+"Scene '{0}' stopped at tick {1}",
+"Szene „{0}“ gestoppt bei Tick {1}",
+"Scene '{0}' stopped at tick {1}"
+],
+[
+"Unknown scene '{0}'",
+"Unbekannte Szene „{0}“",
+"Unknown scene '{0}'"
+],
+[
+"[BTB] Scene '{0}' tick {1}: event #{2} ({3}) failed — see server log",
+"[BTB] Szene „{0}“ Tick {1}: Ereignis #{2} ({3}) fehlgeschlagen – siehe Server-Log",
+"[BTB] Scene '{0}' tick {1}: event #{2} ({3}) failed — see server log"
+],
+[
+"cannot read file: ",
+"Datei nicht lesbar: ",
+"cannot read file: "
+],
+[
+"duplicate scene id '",
+"doppelte Szenen-ID „",
+"duplicate scene id '"
+],
+[
+"above effects",
+"über den Effekten",
+"above effects"
+],
+[
+"stays forever",
+"bleibt für immer",
+"stays forever"
+],
+[
+"'background' must be one of {0}",
+"„background“ muss eins davon sein: {0}",
+"'background' must be one of {0}"
+],
+[
+"'particles' must be none, dust or a simple particle id (e.g. minecraft:flame)",
+"„particles“ muss none, dust oder eine einfache Partikel-ID sein (z. B. minecraft:flame)",
+"'particles' must be none, dust or a simple particle id (e.g. minecraft:flame)"
+],
+[
+"'satellites' must be an array",
+"„satellites“ muss eine Liste sein",
+"'satellites' must be an array"
+],
+[
+"'scale' must be 0..32",
+"„scale“ muss 0..32 sein",
+"'scale' must be 0..32"
+],
+[
+"invalid 'dimension'",
+"ungültige „dimension“",
+"invalid 'dimension'"
+],
+[
+"satellite count must be 1..16",
+"Anzahl der Satelliten muss 1..16 sein",
+"satellite count must be 1..16"
+],
+[
+"unknown 'sound'",
+"unbekannter „sound“",
+"unknown 'sound'"
+],
+[
+"unknown animation preset",
+"unbekannte Animation",
+"unknown animation preset"
+],
+[
+"unknown item '{0}'",
+"unbekanntes Item „{0}“",
+"unknown item '{0}'"
+],
+[
+" — running: ",
+" – läuft: ",
+" — running: "
+],
+[
+"Deleted showcase '{0}'",
+"Showcase „{0}“ gelöscht",
+"Deleted showcase '{0}'"
+],
+[
+"Dimension {0} not found",
+"Dimension {0} nicht gefunden",
+"Dimension {0} not found"
+],
+[
+"Loaded {0} showcase(s)",
+"{0} Showcase(s) geladen",
+"Loaded {0} showcase(s)"
+],
+[
+"Not running",
+"Läuft nicht",
+"Not running"
+],
+[
+"Showcase '%s' created at %.1f %.1f %.1f",
+"Showcase „%s“ angelegt bei %.1f %.1f %.1f",
+"Showcase '%s' created at %.1f %.1f %.1f"
+],
+[
+"Showcase '{0}' already exists",
+"Showcase „{0}“ gibt es schon",
+"Showcase '{0}' already exists"
+],
+[
+"Showcase '{0}' is invalid: {1}",
+"Showcase „{0}“ ist ungültig: {1}",
+"Showcase '{0}' is invalid: {1}"
+],
+[
+"Showcase '{0}' updated",
+"Showcase „{0}“ aktualisiert",
+"Showcase '{0}' updated"
+],
+[
+"Showcase playing",
+"Showcase läuft",
+"Showcase playing"
+],
+[
+"Showcase stopped",
+"Showcase gestoppt",
+"Showcase stopped"
+],
+[
+"Starts a showcase. {id, animation? (float|rotate|reveal|pulse|ascend|explode|showcase)}",
+"Startet ein Showcase. {id, animation? (float|rotate|reveal|pulse|ascend|explode|showcase)}",
+"Starts a showcase. {id, animation? (float|rotate|reveal|pulse|ascend|explode|showcase)}"
+],
+[
+"Stopped {0} showcase(s)",
+"{0} Showcase(s) gestoppt",
+"Stopped {0} showcase(s)"
+],
+[
+"Stops a showcase (omit id = all).  {id?}",
+"Stoppt ein Showcase (ohne id = alle).  {id?}",
+"Stops a showcase (omit id = all).  {id?}"
+],
+[
+"Switches the animation of a running showcase. {id, animation}",
+"Wechselt die Animation eines laufenden Showcase. {id, animation}",
+"Switches the animation of a running showcase. {id, animation}"
+],
+[
+"Unknown animation '{0}'",
+"Unbekannte Animation „{0}“",
+"Unknown animation '{0}'"
+],
+[
+"Unknown showcase",
+"Unbekanntes Showcase",
+"Unknown showcase"
+],
+[
+"Unknown showcase '{0}'",
+"Unbekanntes Showcase „{0}“",
+"Unknown showcase '{0}'"
+],
+[
+"Unknown showcase '{0}' (create it first)",
+"Unbekanntes Showcase „{0}“ (zuerst anlegen)",
+"Unknown showcase '{0}' (create it first)"
+],
+[
+"showcase '{0}' is not running",
+"Showcase „{0}“ läuft nicht",
+"showcase '{0}' is not running"
+],
+[
+"showcase name card",
+"showcase name card",
+"showcase name card"
+],
+[
+"unknown animation '{0}'",
+"unbekannte Animation „{0}“",
+"unknown animation '{0}'"
+],
+[
+"{0} showcase(s): {1}{2}",
+"{0} Showcase(s): {1}{2}",
+"{0} showcase(s): {1}{2}"
+],
+[
+"'mix' must be 0..1",
+"„mix“ muss 0..1 sein",
+"'mix' must be 0..1"
+],
+[
+"'volume' must be 0..1",
+"„volume“ muss 0..1 sein",
+"'volume' must be 0..1"
+],
+[
+"<sound> [volume] [pitch]",
+"<Sound> [Lautstärke] [Tonhöhe]",
+"<sound> [volume] [pitch]"
+],
+[
+"Cinematic volume set",
+"Kino-Lautstärke gesetzt",
+"Cinematic volume set"
+],
+[
+"Environmental reverb for all new sounds. {preset: off|room|hall|cave|arena|cathedral|nether, mix? 0..1, players?}",
+"Raumhall für alle neuen Sounds. {preset: off|room|hall|cave|arena|cathedral|nether, mix? 0..1, players?}",
+"Environmental reverb for all new sounds. {preset: off|room|hall|cave|arena|cathedral|nether, mix? 0..1, players?}"
+],
+[
+"Fades out the background music. {fade_out? ticks, players?}",
+"Blendet die Hintergrundmusik aus. {fade_out? Ticks, players?}",
+"Fades out the background music. {fade_out? ticks, players?}"
+],
+[
+"Invalid sound id",
+"Ungültige Sound-ID",
+"Invalid sound id"
+],
+[
+"Master volume of cinematic sounds/music. {volume 0..1, fade? ticks, players?}",
+"Gesamtlautstärke von Kino-Sounds/Musik. {volume 0..1, fade? Ticks, players?}",
+"Master volume of cinematic sounds/music. {volume 0..1, fade? ticks, players?}"
+],
+[
+"Music fading out",
+"Musik blendet aus",
+"Music fading out"
+],
+[
+"Music: {0}",
+"Musik: {0}",
+"Music: {0}"
+],
+[
+"Playing {0}{1}",
+"Spiele {0}{1}",
+"Playing {0}{1}"
+],
+[
+"Plays a sound. {sound, pos? [x,y,z] | at? player, volume?, pitch?, fade_in?, echo? {count, delay, decay}, players?}",
+"Spielt einen Sound. {sound, pos? [x,y,z] | at? Spieler, volume?, pitch?, fade_in?, echo? {count, delay, decay}, players?}",
+"Plays a sound. {sound, pos? [x,y,z] | at? player, volume?, pitch?, fade_in?, echo? {count, delay, decay}, players?}"
+],
+[
+"Reverb: {0}",
+"Hall: {0}",
+"Reverb: {0}"
+],
+[
+"Sounds stopped",
+"Sounds gestoppt",
+"Sounds stopped"
+],
+[
+"Starts background music, cross-fading from the current track. {sound, volume?, fade_in? ticks, loop?, players?}",
+"Startet Hintergrundmusik und blendet vom aktuellen Stück über. {sound, volume?, fade_in? Ticks, loop?, players?}",
+"Starts background music, cross-fading from the current track. {sound, volume?, fade_in? ticks, loop?, players?}"
+],
+[
+"Stops cinematic sounds. {sound? (omit = all), fade? ticks, players?}",
+"Stoppt Kino-Sounds. {sound? (ohne = alle), fade? Ticks, players?}",
+"Stops cinematic sounds. {sound? (omit = all), fade? ticks, players?}"
+],
+[
+"Unknown sound '{0}'",
+"Unbekannter Sound „{0}“",
+"Unknown sound '{0}'"
+],
+[
+"Usage: <sound> [volume] [pitch]",
+"Aufruf: <Sound> [Lautstärke] [Tonhöhe]",
+"Usage: <sound> [volume] [pitch]"
+],
+[
+"echo: count 1..8, delay 1..200 ticks, decay 0..1 (exclusive)",
+"echo: count 1..8, delay 1..200 Ticks, decay 0..1 (ausschließlich)",
+"echo: count 1..8, delay 1..200 ticks, decay 0..1 (exclusive)"
+],
+[
+"player '{0}' is not online",
+"Spieler „{0}“ ist nicht online",
+"player '{0}' is not online"
+],
+[
+"unknown sound '{0}'",
+"unbekannter Sound „{0}“",
+"unknown sound '{0}'"
+],
+[
+"volume 0..16, pitch 0.5..2",
+"volume 0..16, pitch 0.5..2",
+"volume 0..16, pitch 0.5..2"
+],
+[
+"'count' must be 1..100",
+"„count“ muss 1..100 sein",
+"'count' must be 1..100"
+],
+[
+"Difficulty is Peaceful: {0} would vanish at once. Use /difficulty easy (or higher).",
+"Schwierigkeit ist Friedlich: {0} würde sofort verschwinden. /difficulty easy (oder höher) nutzen.",
+"Difficulty is Peaceful: {0} would vanish at once. Use /difficulty easy (or higher)."
+],
+[
+"Ghast fireball that never damages the world. {from [x,y,z], to [x,y,z] | target player, speed?}",
+"Ghast-Feuerball, der der Welt nie schadet. {from [x,y,z], to [x,y,z] | target Spieler, speed?}",
+"Ghast fireball that never damages the world. {from [x,y,z], to [x,y,z] | target player, speed?}"
+],
+[
+"Ghasts at the horizon firing harmless fireballs at the players. {count?, pos [x,y,z], shots? per ghast, interval? ticks}",
+"Ghasts am Horizont feuern harmlose Feuerbälle auf die Spieler. {count?, pos [x,y,z], shots? pro Ghast, interval? Ticks}",
+"Ghasts at the horizon firing harmless fireballs at the players. {count?, pos [x,y,z], shots? per ghast, interval? ticks}"
+],
+[
+"Ghasts at the horizon – they fire for 30 s (remove: /btb spawn clear)",
+"Ghasts am Horizont – sie feuern 30 s lang (entfernen: /btb spawn clear)",
+"Ghasts at the horizon – they fire for 30 s (remove: /btb spawn clear)"
+],
+[
+"Removed {0} spawned mob(s)",
+"{0} gespawnte(n) Mob(s) entfernt",
+"Removed {0} spawned mob(s)"
+],
+[
+"Spawning {0} × {1} (remove with /btb spawn clear)",
+"Spawne {0} × {1} (entfernen mit /btb spawn clear)",
+"Spawning {0} × {1} (remove with /btb spawn clear)"
+],
+[
+"Spawns a wave of mobs. {entity, count, pos [x,y,z], radius?, interval? ticks, effect? soul|smoke|portal|none, seed?, glowing?, still? (stand still), key? (drops the Nether key), boss?}",
+"Spawnt eine Gegnerwelle. {entity, count, pos [x,y,z], radius?, interval? Ticks, effect? soul|smoke|portal|none, seed?, glowing?, still? (steht still), key? (lässt den Netherschlüssel fallen), boss?}",
+"Spawns a wave of mobs. {entity, count, pos [x,y,z], radius?, interval? ticks, effect? soul|smoke|portal|none, seed?, glowing?, still? (stand still), key? (drops the Nether key), boss?}"
+],
+[
+"[BTB] Schwierigkeit „Friedlich“: Monster verschwinden sofort. /difficulty easy",
+"[BTB] Schwierigkeit „Friedlich“: Monster verschwinden sofort. /difficulty easy",
+"[BTB] Difficulty “Peaceful”: monsters vanish immediately. /difficulty easy"
+],
+[
+"ghast shot",
+"ghast shot",
+"ghast shot"
+],
+[
+"needs 'to' or 'target'",
+"braucht „to“ oder „target“",
+"needs 'to' or 'target'"
+],
+[
+"nothing spawns",
+"nichts spawnt",
+"nothing spawns"
+],
+[
+"still glow",
+"still glow",
+"still glow"
+],
+[
+"summon minecraft:fireball %.2f %.2f %.2f {ExplosionPower:0b,Motion:[%.3f,%.3f,%.3f],acceleration_power:0.0d}",
+"summon minecraft:fireball %.2f %.2f %.2f {ExplosionPower:0b,Motion:[%.3f,%.3f,%.3f],acceleration_power:0.0d}",
+"summon minecraft:fireball %.2f %.2f %.2f {ExplosionPower:0b,Motion:[%.3f,%.3f,%.3f],acceleration_power:0.0d}"
+],
+[
+"target '{0}' is not online",
+"Ziel „{0}“ ist nicht online",
+"target '{0}' is not online"
+],
+[
+"unknown entity '{0}'",
+"unbekanntes Wesen „{0}“",
+"unknown entity '{0}'"
+],
+[
+" • {0} ({1}, {2} action(s){3})",
+" • {0} ({1}, {2} Aktion(en){3})",
+" • {0} ({1}, {2} action(s){3})"
+],
+[
+"'type' must be zone or interact",
+"„type“ muss zone oder interact sein",
+"'type' must be zone or interact"
+],
+[
+", fired",
+", ausgelöst",
+", fired"
+],
+[
+"All triggers armed again",
+"Alle Trigger wieder scharf",
+"All triggers armed again"
+],
+[
+"Loaded {0} trigger(s)",
+"{0} Trigger geladen",
+"Loaded {0} trigger(s)"
+],
+[
+"Trigger '{0}' created. Add actions: /btb trigger action {1} <command>",
+"Trigger „{0}“ angelegt. Aktionen hinzufügen: /btb trigger action {1} <Befehl>",
+"Trigger '{0}' created. Add actions: /btb trigger action {1} <command>"
+],
+[
+"Trigger '{0}' updated",
+"Trigger „{0}“ aktualisiert",
+"Trigger '{0}' updated"
+],
+[
+"Trigger deleted",
+"Trigger gelöscht",
+"Trigger deleted"
+],
+[
+"Trigger fired",
+"Trigger ausgelöst",
+"Trigger fired"
+],
+[
+"Unknown trigger",
+"Unbekannter Trigger",
+"Unknown trigger"
+],
+[
+"Unknown trigger '{0}'",
+"Unbekannter Trigger „{0}“",
+"Unknown trigger '{0}'"
+],
+[
+"Verschlossen – dafür brauchst du: {0}",
+"Verschlossen – dafür brauchst du: {0}",
+"Locked – you need: {0}"
+],
+[
+"Zone trigger '{0}' created (ring of particles). It fires when someone WALKS IN: step out and back in to test, or /btb trigger fire {1}. Add actions: /btb trigger action {2} <command>",
+"Zonen-Trigger „{0}“ angelegt (Partikelring). Er löst aus, wenn jemand HINEINGEHT: zum Testen raus- und wieder reingehen, oder /btb trigger fire {1}. Aktionen hinzufügen: /btb trigger action {2} <Befehl>",
+"Zone trigger '{0}' created (ring of particles). It fires when someone WALKS IN: step out and back in to test, or /btb trigger fire {1}. Add actions: /btb trigger action {2} <command>"
+],
+[
+"zone ring",
+"zone ring",
+"zone ring"
+],
+[
+"{0} trigger(s):",
+"{0} Trigger:",
+"{0} trigger(s):"
+],
+[
+"ACTION",
+"ACTION",
+"ACTION"
+],
+[
+"Alle Markierungen entfernt",
+"Alle Markierungen entfernt",
+"All markers removed"
+],
+[
+"Bereich zu groß (max. 400 000 Blöcke)",
+"Bereich zu groß (max. 400 000 Blöcke)",
+"Area too large (max. 400,000 blocks)"
+],
+[
+"Bild-im-Bild: Sicht von {0} ({1} Zuschauer-Fenster)",
+"Bild-im-Bild: Sicht von {0} ({1} Zuschauer-Fenster)",
+"Picture-in-picture: view of {0} ({1} spectator window(s))"
+],
+[
+"Blutmond",
+"Blutmond",
+"Blood moon"
+],
+[
+"Blutmond aus",
+"Blutmond aus",
+"Blood moon off"
+],
+[
+"Countdown {0} s{1}",
+"Countdown {0} s{1}",
+"Countdown {0} s{1}"
+],
+[
+"Ghast stürzt ab (in deine Blickrichtung)",
+"Ghast stürzt ab (in deine Blickrichtung)",
+"Ghast crashes (in your view direction)"
+],
+[
+"Kein Spieler mit Tag pip. Zweites Minecraft starten, einloggen, dann: /tag <Name> add pip",
+"Kein Spieler mit Tag pip. Zweites Minecraft starten, einloggen, dann: /tag <Name> add pip",
+"No player with tag pip. Start a second Minecraft, log in, then: /tag <name> add pip"
+],
+[
+"Keine Markierungen",
+"Keine Markierungen",
+"No markers"
+],
+[
+"Keine solche Markierung",
+"Keine solche Markierung",
+"No such marker"
+],
+[
+"Markierung entfernt",
+"Markierung entfernt",
+"Marker removed"
+],
+[
+"Markierung „",
+"Markierung „",
+"Marker “"
+],
+[
+"Markierung „{0}“ gesetzt – sichtbar für die Crew, nie für Spieler mit Tag kamera",
+"Markierung „{0}“ gesetzt – sichtbar für die Crew, nie für Spieler mit Tag kamera",
+"Marker “{0}” set – visible to the crew, never to players with tag kamera"
+],
+[
+"Markierungen ausgeblendet",
+"Markierungen ausgeblendet",
+"Markers hidden"
+],
+[
+"Markierungen sichtbar (nicht für Kamera-Spieler)",
+"Markierungen sichtbar (nicht für Kamera-Spieler)",
+"Markers visible (not for camera players)"
+],
+[
+"Markierungen: {0}",
+"Markierungen: {0}",
+"Markers: {0}"
+],
+[
+"PROBE – nichts wird zerstört, keine Gegner",
+"PROBE – nichts wird zerstört, keine Gegner",
+"REHEARSAL – nothing is destroyed, no enemies"
+],
+[
+"Probe-Modus aus – Dreh",
+"Probe-Modus aus – Dreh",
+"Rehearsal mode off – shooting"
+],
+[
+"Probe-Modus: keine Zerstörung, keine Gegner, kein Ausbruch – Kameras und Effekte laufen",
+"Probe-Modus: keine Zerstörung, keine Gegner, kein Ausbruch – Kameras und Effekte laufen",
+"Rehearsal mode: no destruction, no enemies, no eruption – cameras and effects run"
+],
+[
+"Unbekannte Farbe",
+"Unbekannte Farbe",
+"Unknown color"
+],
+[
+"Wetter: {0}",
+"Wetter: {0}",
+"Weather: {0}"
+],
+[
+"Wind aus",
+"Wind aus",
+"Wind off"
+],
+[
+"Wind {0}°, Stärke {1}",
+"Wind {0}°, Stärke {1}",
+"Wind {0}°, strength {1}"
+],
+[
+"{0} Lampen dimmen auf {1} in {2} s",
+"{0} Lampen dimmen auf {1} in {2} s",
+"{0} lamps dim to {1} in {2} s"
+],
+[
+"“ gesetzt – sichtbar für die Crew, nie für Spieler mit Tag kamera",
+"“ gesetzt – sichtbar für die Crew, nie für Spieler mit Tag kamera",
+"” set – visible to the crew, never to players with tag kamera"
+],
+[
+"Seite {0}/{1}",
+"Seite {0}/{1}",
+"Page {0}/{1}"
+],
+[
+"{0} Szene(n) aktiv",
+"{0} Szene(n) aktiv",
+"{0} scene(s) active"
+],
+[
+"Zeigen als {0} (0 Sek. = bleibt stehen)",
+"Zeigen als {0} (0 Sek. = bleibt stehen)",
+"Show as {0} (0 s = stays on screen)"
+],
+[
+"Neue {0}-Liste anlegen",
+"Neue {0}-Liste anlegen",
+"Create a new {0} list"
+],
+[
+"Ab jetzt landet jede Aktion (Klick, Befehl, Cue) mit genauer Zeit in der Szene. Menü schließen und loslegen.",
+"Ab jetzt landet jede Aktion (Klick, Befehl, Cue) mit genauer Zeit in der Szene. Menü schließen und loslegen.",
+"From now on every action (click, command, cue) lands in the scene with its exact time. Close the menu and get going."
+],
+[
+"Szene auf diese Numpad-Taste legen: beim Filmen ein Druck, und alles läuft ab.\nErsetzt: {0}",
+"Szene auf diese Numpad-Taste legen: beim Filmen ein Druck, und alles läuft ab.\nErsetzt: {0}",
+"Assign the scene to this numpad key: one press while filming, and everything plays.\nReplaces: {0}"
+],
+[
+"Tipp: oben rechts „Klick → Szene“ wählen und in den anderen Reitern klicken – alles landet bei der Zeit „Bei“. Oder „Live aufnehmen“ und einfach inszenieren.",
+"Tipp: oben rechts „Klick → Szene“ wählen und in den anderen Reitern klicken – alles landet bei der Zeit „Bei“. Oder „Live aufnehmen“ und einfach inszenieren.",
+"Tip: choose “Click → scene” at the top right and click in the other tabs – everything lands at the time “At”. Or “Record live” and just direct."
+],
+[
+"Testblitz",
+"Testblitz",
+"Test flash"
+],
+[
+"Ambience {0}{1}",
+"Ambiente {0}{1}",
+"Ambience {0}{1}"
+],
+[
+"KEY_DETECTED",
+"SCHLÜSSEL ERKANNT",
+"KEY DETECTED"
+],
+[
+"CHARGING",
+"LÄDT",
+"CHARGING"
+],
+[
+"ACTIVE",
+"AKTIV",
+"ACTIVE"
+],
+[
+"{0} Keyframes · klicken zum Auswählen, ziehen zum Verschieben, Rechtsklick löscht",
+"{0} Keyframes · klicken zum Auswählen, ziehen zum Verschieben, Rechtsklick löscht",
+"{0} keyframes · click to select, drag to move, right-click deletes"
+],
+[
+"Language: {0}",
+"Sprache: {0}",
+"Language: {0}"
+],
+[
+"● Replay „{0}“ nimmt auf",
+"● Replay „{0}“ nimmt auf",
+"● Recording replay \"{0}\""
+],
+[
+"■ Stopp & speichern",
+"■ Stopp & speichern",
+"■ Stop & save"
+],
+[
+"▶ Replay „{0}“ läuft",
+"▶ Replay „{0}“ läuft",
+"▶ Replay \"{0}\" playing"
+],
+[
+"Pause / weiter",
+"Pause / weiter",
+"Pause / resume"
+],
+[
+"Replays: noch keine – oben Namen eintippen und „● Aufnehmen“",
+"Replays: noch keine – oben Namen eintippen und „● Aufnehmen“",
+"Replays: none yet – type a name above and click \"● Record\""
+],
+[
+"Replay %s · %.1f s",
+"Replay %s · %.1f s",
+"Replay %s · %.1f s"
+],
+[
+"Abspielen: Darsteller werden kurz Zuschauer, Puppen spielen",
+"Abspielen: Darsteller werden kurz Zuschauer, Puppen spielen",
+"Play: actors briefly become spectators, puppets act"
+],
+[
+"Ganzes Replay als Video exportieren (1080p, 60 FPS)",
+"Ganzes Replay als Video exportieren (1080p, 60 FPS)",
+"Export the whole replay as video (1080p, 60 FPS)"
+],
+[
+"Ganzes Replay als Video exportieren (4K, 60 FPS)",
+"Ganzes Replay als Video exportieren (4K, 60 FPS)",
+"Export the whole replay as video (4K, 60 FPS)"
+],
+[
+"Sicher?",
+"Sicher?",
+"Sure?"
+],
+[
+"Nochmal klicken = endgültig löschen",
+"Nochmal klicken = endgültig löschen",
+"Click again = delete for good"
+],
+[
+"Replay löschen",
+"Replay löschen",
+"Delete replay"
+],
+[
+"Replay „{0}“ gelöscht",
+"Replay „{0}“ gelöscht",
+"Replay \"{0}\" deleted"
+],
+[
+"Nochmal ✕ bei „{0}“ = löschen",
+"Nochmal ✕ bei „{0}“ = löschen",
+"Click ✕ at \"{0}\" again = delete"
+],
+[
+"Replay",
+"Replay",
+"Replay"
+],
+[
+"Name, z. B. take2",
+"Name, z. B. take2",
+"Name, e.g. take2"
+],
+[
+"Alle Darsteller, Kreaturen, Szenen und Ereignisse aufnehmen",
+"Alle Darsteller, Kreaturen, Szenen und Ereignisse aufnehmen",
+"Record all actors, creatures, scenes and events"
+],
+[
+"Erst einen Namen eintippen",
+"Erst einen Namen eintippen",
+"Type a name first"
+],
+[
+"Aufnahme beenden und speichern / Replay stoppen",
+"Aufnahme beenden und speichern / Replay stoppen",
+"Stop and save the recording / stop the replay"
+],
+[
+"Replay-Editor öffnen (F6)",
+"Replay-Editor öffnen (F6)",
+"Open replay editor (F6)"
+],
+[
+"Zurück zum eigenen Blick (Fahrt, Orbit, Verfolger, Ego …)",
+"Zurück zum eigenen Blick (Fahrt, Orbit, Verfolger, Ego …)",
+"Back to your own view (path, orbit, follow, ego …)"
+],
+[
+"Stop alle",
+"Stop alle",
+"Stop all"
+],
+[
+"Kamera bei allen Spielern beenden",
+"Kamera bei allen Spielern beenden",
+"Stop the camera for all players"
+],
+[
+"Orbit (nächster Darsteller)",
+"Orbit (nächster Darsteller)",
+"Orbit (nearest actor)"
+],
+[
+"Nah 10 s",
+"Nah 10 s",
+"Close 10 s"
+],
+[
+"Weit 16 s",
+"Weit 16 s",
+"Wide 16 s"
+],
+[
+"Um mich 12 s",
+"Um mich 12 s",
+"Around me 12 s"
+],
+[
+"Kreist in 4 Blöcken Abstand um ihn",
+"Kreist in 4 Blöcken Abstand um ihn",
+"Circles around them at 4 blocks"
+],
+[
+"Kreist um die Stelle, an der du stehst",
+"Kreist um die Stelle, an der du stehst",
+"Circles around the spot where you stand"
+],
+[
+"Verfolger (nächster Darsteller)",
+"Verfolger (nächster Darsteller)",
+"Follow cam (nearest actor)"
+],
+[
+"Seitenansicht, weich nachgeführt",
+"Seitenansicht, weich nachgeführt",
+"Side view, smoothly following"
+],
+[
+"Hinten",
+"Hinten",
+"Behind"
+],
+[
+"Oben",
+"Oben",
+"Top"
+],
+[
+"Fest",
+"Fest",
+"Fixed"
+],
+[
+"Kamera bleibt stehen und schaut ihm nach",
+"Kamera bleibt stehen und schaut ihm nach",
+"Camera stays put and watches them"
+],
+[
+"Wechselt alle 5 s die Perspektive (harte Schnitte)",
+"Wechselt alle 5 s die Perspektive (harte Schnitte)",
+"Switches perspective every 5 s (hard cuts)"
+],
+[
+"+ Neuer Pfad",
+"+ Neuer Pfad",
+"+ New path"
+],
+[
+"Neuer Kamerapfad, aktuelle Ansicht = Punkt 1",
+"Neuer Kamerapfad, aktuelle Ansicht = Punkt 1",
+"New camera path, current view = point 1"
+],
+[
+"Fahrt stoppen",
+"Fahrt stoppen",
+"Stop path"
+],
+[
+"Zum Startpunkt teleportieren",
+"Zum Startpunkt teleportieren",
+"Teleport to the start point"
+],
+[
+"Pfad löschen",
+"Pfad löschen",
+"Delete path"
+],
+[
+"Pfad „{0}“ gelöscht",
+"Pfad „{0}“ gelöscht",
+"Path \"{0}\" deleted"
+],
+[
+"Replay „{0}“ ist leer",
+"Replay „{0}“ ist leer",
+"Replay \"{0}\" is empty"
+],
+[
+"§8Shift: Befehl zeigen",
+"§8Shift: Befehl zeigen",
+"§8Shift: show command"
+],
+[
+"    + Punkt anhängen (deine Ansicht)",
+"    + Punkt anhängen (deine Ansicht)",
+"    + Add point (your view)"
+],
+[
+"    Punkt {0} · {1}",
+"    Punkt {0} · {1}",
+"    Point {0} · {1}"
+],
+[
+"Punkt {0} · {1} s bis zum nächsten",
+"Punkt {0} · {1} s bis zum nächsten",
+"Point {0} · {1} s to the next"
+],
+[
+"Punkt {0} · Ende",
+"Punkt {0} · Ende",
+"Point {0} · end"
+],
+[
+"+ Hier spawnen",
+"+ Hier spawnen",
+"+ Spawn here"
+],
+[
+"+ Shot",
+"+ Shot",
+"+ Shot"
+],
+[
+"+ Zeile",
+"+ Zeile",
+"+ Line"
+],
+[
+"/{0} {1} – passt hier nicht. Erwartet: {2}",
+"/{0} {1} – passt hier nicht. Erwartet: {2}",
+"/{0} {1} – doesn't fit here. Expected: {2}"
+],
+[
+"/{0} {1} – {2}. Erwartet: {3}",
+"/{0} {1} – {2}. Erwartet: {3}",
+"/{0} {1} – {2}. Expected: {3}"
+],
+[
+"/{0} – da fehlt noch etwas. Möglich: {1}",
+"/{0} – da fehlt noch etwas. Möglich: {1}",
+"/{0} – something is missing. Possible: {1}"
+],
+[
+"„{0}“ gibt es bei /{1} nicht{2} Möglich: {3}",
+"„{0}“ gibt es bei /{1} nicht{2} Möglich: {3}",
+"\"{0}\" doesn't exist for /{1}{2} Possible: {3}"
+],
+[
+" – meintest du „{0}“?",
+" – meintest du „{0}“?",
+" – did you mean \"{0}\"?"
+],
+[
+"Unknown camera preset{0}",
+"Unknown camera preset{0}",
+"Unknown camera preset{0}"
+],
+[
+"Unknown scene '{0}'{1}",
+"Unknown scene '{0}'{1}",
+"Unknown scene '{0}'{1}"
+],
+[
+"1. Aufnahme starten",
+"1. Aufnahme starten",
+"1. Start recording"
+],
+[
+"1. Eine Szene anlegen",
+"1. Eine Szene anlegen",
+"1. Create a scene"
+],
+[
+"1. Pfad anlegen",
+"1. Pfad anlegen",
+"1. Create a path"
+],
+[
+"2. Kamera festlegen",
+"2. Kamera festlegen",
+"2. Choose the camera"
+],
+[
+"2. Punkte setzen",
+"2. Punkte setzen",
+"2. Set points"
+],
+[
+"2. Spielen",
+"2. Spielen",
+"2. Play"
+],
+[
+"3. Ansehen",
+"3. Ansehen",
+"3. Watch"
+],
+[
+"3. Aufnahme beenden",
+"3. Aufnahme beenden",
+"3. Stop recording"
+],
+[
+"3. Bild gestalten",
+"3. Bild gestalten",
+"3. Style the picture"
+],
+[
+"4. Aufnehmen",
+"4. Aufnehmen",
+"4. Record"
+],
+[
+"4. Feinschliff",
+"4. Feinschliff",
+"4. Fine-tune"
+],
+[
+"4. Kamera setzen",
+"4. Kamera setzen",
+"4. Set the camera"
+],
+[
+"5. Exportieren",
+"5. Exportieren",
+"5. Export"
+],
+[
+"5. Fertig",
+"5. Fertig",
+"5. Done"
+],
+[
+"Abblende bei 9 s",
+"Abblende bei 9 s",
+"Fade out at 9 s"
+],
+[
+"Abend",
+"Abend",
+"Evening"
+],
+[
+"Abspielen als Schritt in die Baukasten-Szene bei der Zeit „Bei“",
+"Abspielen als Schritt in die Baukasten-Szene bei der Zeit „Bei“",
+"Add \"play\" as a step to the builder scene at the time \"At\""
+],
+[
+"Aktion",
+"Aktion",
+"Action"
+],
+[
+"Aktion des Shots erneut starten",
+"Aktion des Shots erneut starten",
+"Run the shot's action again"
+],
+[
+"Aktualisieren",
+"Aktualisieren",
+"Refresh"
+],
+[
+"Aktuelle Ansicht als Bild für diesen Shot (Menü schließt kurz)",
+"Aktuelle Ansicht als Bild für diesen Shot (Menü schließt kurz)",
+"Current view as picture for this shot (menu closes briefly)"
+],
+[
+"Aktueller Shot ist im Kasten → nächster offener Shot",
+"Aktueller Shot ist im Kasten → nächster offener Shot",
+"Current shot is in the can → next open shot"
+],
+[
+"Alle Darsteller sehen: „In 3 … 2 … 1: Text“",
+"Alle Darsteller sehen: „In 3 … 2 … 1: Text“",
+"All actors see: \"In 3 … 2 … 1: text\""
+],
+[
+"Alle Haken entfernen",
+"Alle Haken entfernen",
+"Remove all ticks"
+],
+[
+"Alle Linien in der Welt ausblenden",
+"Alle Linien in der Welt ausblenden",
+"Hide all lines in the world"
+],
+[
+"Alle Schnitte löschen (dann zeigt der Film die Kamera, die du gerade bearbeitest)",
+"Alle Schnitte löschen (dann zeigt der Film die Kamera, die du gerade bearbeitest)",
+"Delete all cuts (the film then shows the camera you are editing)"
+],
+[
+"Alle Shots im Kasten 🎬",
+"Alle Shots im Kasten 🎬",
+"All shots in the can 🎬"
+],
+[
+"Alle laufen zu dir (Formation bleibt)",
+"Alle laufen zu dir (Formation bleibt)",
+"Everyone walks to you (formation kept)"
+],
+[
+"Alle offen",
+"Alle offen",
+"All open"
+],
+[
+"Alle schauen zu dir",
+"Alle schauen zu dir",
+"Everyone looks at you"
+],
+[
+"Alles aufnehmen, später beliebig oft filmen",
+"Alles aufnehmen, später beliebig oft filmen",
+"Record everything, film it as often as you like later"
+],
+[
+"Alles gestoppt (Szenen, Kamera, Effekte, Zeitlupe, Ton, Dialog) – das Set bleibt, wie es ist",
+"Alles gestoppt (Szenen, Kamera, Effekte, Zeitlupe, Ton, Dialog) – das Set bleibt, wie es ist",
+"Everything stopped (scenes, camera, effects, slow motion, sound, dialog) – the set stays as it is"
+],
+[
+"Alles, was ab jetzt passiert (Darsteller, Kreaturen, Szenen, Effekte), wird gespeichert.",
+"Alles, was ab jetzt passiert (Darsteller, Kreaturen, Szenen, Effekte), wird gespeichert.",
+"Everything that happens from now on (actors, creatures, scenes, effects) is saved."
+],
+[
+"Alles, was jetzt passiert, als Replay speichern (danach beliebig oft filmen)",
+"Alles, was jetzt passiert, als Replay speichern (danach beliebig oft filmen)",
+"Save everything that happens now as a replay (then film it as often as you like)"
+],
+[
+"Als Schritt in die Baukasten-Szene bei der Zeit „Bei“",
+"Als Schritt in die Baukasten-Szene bei der Zeit „Bei“",
+"As a step in the builder scene at the time \"At\""
+],
+[
+"Als bearbeitbare Szene „vorlage_{0}“ anlegen und im Baukasten öffnen",
+"Als bearbeitbare Szene „vorlage_{0}“ anlegen und im Baukasten öffnen",
+"Create as editable scene \"vorlage_{0}\" and open it in the builder"
+],
+[
+"Als gedreht abhaken",
+"Als gedreht abhaken",
+"Tick as filmed"
+],
+[
+"Ansicht: Einsteiger",
+"Ansicht: Einsteiger",
+"View: beginner"
+],
+[
+"Ansicht: Profi",
+"Ansicht: Profi",
+"View: pro"
+],
+[
+"Assistent",
+"Assistent",
+"Wizard"
+],
+[
+"Assistent beenden",
+"Assistent beenden",
+"Close wizard"
+],
+[
+"Assistent fertig",
+"Assistent fertig",
+"Wizard done"
+],
+[
+"Assistenten",
+"Assistenten",
+"Wizards"
+],
+[
+"Assistenten (Schritt für Schritt)",
+"Assistenten (Schritt für Schritt)",
+"Wizards (step by step)"
+],
+[
+"Aufnahme beenden: Pfad wird geglättet und gespeichert",
+"Aufnahme beenden: Pfad wird geglättet und gespeichert",
+"Stop recording: the path is smoothed and saved"
+],
+[
+"Aus Schwarz, Kamera steigt hinter dem Darsteller auf, dumpfer Ton, Blitz (10 s)",
+"Aus Schwarz, Kamera steigt hinter dem Darsteller auf, dumpfer Ton, Blitz (10 s)",
+"From black, camera rises behind the actor, muffled sound, flash (10 s)"
+],
+[
+"Auto-Regie auf den nächsten Darsteller",
+"Auto-Regie auf den nächsten Darsteller",
+"Auto director on the nearest actor"
+],
+[
+"Beim ersten offenen Shot beginnen",
+"Beim ersten offenen Shot beginnen",
+"Start with the first open shot"
+],
+[
+"Bekommt Hinweise („In 3 s: nach links“) eingeblendet",
+"Bekommt Hinweise („In 3 s: nach links“) eingeblendet",
+"Gets cues on screen (\"In 3 s: to the left\")"
+],
+[
+"Bereit · nichts läuft",
+"Bereit · nichts läuft",
+"Ready · nothing running"
+],
+[
+"Bild & Ton",
+"Bild & Ton",
+"Picture & sound"
+],
+[
+"Bildgenauer Export als Video (ffmpeg nötig).",
+"Bildgenauer Export als Video (ffmpeg nötig).",
+"Frame-exact export as video (needs ffmpeg)."
+],
+[
+"Crew & Rollen",
+"Crew & Rollen",
+"Crew & roles"
+],
+[
+"Darsteller",
+"Darsteller",
+"Actor"
+],
+[
+"Darsteller (Hinweise erscheinen hier oben)",
+"Darsteller (Hinweise erscheinen hier oben)",
+"Actor (cues appear up here)"
+],
+[
+"Das Replay „take“ wird gespeichert.",
+"Das Replay „take“ wird gespeichert.",
+"The replay \"take\" is saved."
+],
+[
+"Dauer",
+"Dauer",
+"Length"
+],
+[
+"Deine Rolle: {0}",
+"Deine Rolle: {0}",
+"Your role: {0}"
+],
+[
+"Deine Rolle: Regie",
+"Deine Rolle: Regie",
+"Your role: director"
+],
+[
+"Deine Rolle: Kamera (Kamerafahrten laufen bei dir)",
+"Deine Rolle: Kamera (Kamerafahrten laufen bei dir)",
+"Your role: camera (camera moves run on your screen)"
+],
+[
+"Deine Rolle: Darsteller (Hinweise erscheinen hier oben)",
+"Deine Rolle: Darsteller (Hinweise erscheinen hier oben)",
+"Your role: actor (cues appear up here)"
+],
+[
+"Deutscher Text",
+"Deutscher Text",
+"German text"
+],
+[
+"Dialog gelöscht",
+"Dialog gelöscht",
+"Dialog deleted"
+],
+[
+"Dialog gestoppt",
+"Dialog gestoppt",
+"Dialog stopped"
+],
+[
+"Dialog stoppen",
+"Dialog stoppen",
+"Stop dialog"
+],
+[
+"Dialog „{0}“ geändert ({1} Zeilen)",
+"Dialog „{0}“ geändert ({1} Zeilen)",
+"Dialog \"{0}\" changed ({1} lines)"
+],
+[
+"Dialog „{0}“ ist leer",
+"Dialog „{0}“ ist leer",
+"Dialog \"{0}\" is empty"
+],
+[
+"Dialog „{0}“ ist leer – Zeile hinzufügen: /btb dialog {1} add <sek> <dauer> Sprecher | Text | English",
+"Dialog „{0}“ ist leer – Zeile hinzufügen: /btb dialog {1} add <sek> <dauer> Sprecher | Text | English",
+"Dialog \"{0}\" is empty – add a line: /btb dialog {1} add <sec> <length> Speaker | German | English"
+],
+[
+"Dialog „{0}“: Zeile {1} hinzugefügt",
+"Dialog „{0}“: Zeile {1} hinzugefügt",
+"Dialog \"{0}\": line {1} added"
+],
+[
+"Dialoge: {0}",
+"Dialoge: {0}",
+"Dialogs: {0}"
+],
+[
+"Die Fahrt als Linie in der Welt sehen und abspielen.",
+"Die Fahrt als Linie in der Welt sehen und abspielen.",
+"See the move as a line in the world and play it."
+],
+[
+"Die Sonne geht in 20 Sekunden unter",
+"Die Sonne geht in 20 Sekunden unter",
+"The sun sets in 20 seconds"
+],
+[
+"Diesen Shot jetzt drehen",
+"Diesen Shot jetzt drehen",
+"Film this shot now"
+],
+[
+"Dorfbewohner",
+"Dorfbewohner",
+"Villagers"
+],
+[
+"Dorthin",
+"Dorthin",
+"There"
+],
+[
+"Dorthin teleportieren und so schauen wie die Kamera",
+"Dorthin teleportieren und so schauen wie die Kamera",
+"Teleport there and look like the camera"
+],
+[
+"Draufsicht (Norden oben)",
+"Draufsicht (Norden oben)",
+"Top view (north up)"
+],
+[
+"Dreh läuft: Shot {0}",
+"Dreh läuft: Shot {0}",
+"Shooting: shot {0}"
+],
+[
+"Dreh-Modus: Klicks werden gesammelt und starten, sobald das Menü zu ist (nichts vom Menü im Bild)",
+"Dreh-Modus: Klicks werden gesammelt und starten, sobald das Menü zu ist (nichts vom Menü im Bild)",
+"Shooting mode: clicks are collected and run as soon as the menu is closed (no menu in the picture)"
+],
+[
+"🎬 Dreh-Modus",
+"🎬 Dreh-Modus",
+"🎬 Shooting mode"
+],
+[
+"🎬 Dreh-Modus: {0} Aktion(en) beim Schließen",
+"🎬 Dreh-Modus: {0} Aktion(en) beim Schließen",
+"🎬 Shooting mode: {0} action(s) on close"
+],
+[
+"Eine Szene ist eine Zeitleiste: was zu welcher Sekunde passiert. Wir legen „mein_film“ an.",
+"Eine Szene ist eine Zeitleiste: was zu welcher Sekunde passiert. Wir legen „mein_film“ an.",
+"A scene is a timeline: what happens at which second. We create \"mein_film\"."
+],
+[
+"Eingabefelder wurden für mehr Platz eingeklappt – klicken zum Ausklappen",
+"Eingabefelder wurden für mehr Platz eingeklappt – klicken zum Ausklappen",
+"Input fields were folded away for more room – click to unfold"
+],
+[
+"Einsteiger-Ansicht: nur das Wichtigste",
+"Einsteiger-Ansicht: nur das Wichtigste",
+"Beginner view: only the essentials"
+],
+[
+"Einsteiger: nur die wichtigsten Knöpfe · Profi: alle Feinheiten",
+"Einsteiger: nur die wichtigsten Knöpfe · Profi: alle Feinheiten",
+"Beginner: only the main buttons · Pro: every detail"
+],
+[
+"Einstellungen",
+"Einstellungen",
+"Settings"
+],
+[
+"Ende",
+"Ende",
+"End"
+],
+[
+"English text (optional)",
+"English text (optional)",
+"English text (optional)"
+],
+[
+"Enthüllen",
+"Enthüllen",
+"Reveal"
+],
+[
+"Enthüllung",
+"Enthüllung",
+"Reveal"
+],
+[
+"Erst einen Titel eintippen",
+"Erst einen Titel eintippen",
+"Type a title first"
+],
+[
+"Ersten Film drehen",
+"Ersten Film drehen",
+"Shoot your first film"
+],
+[
+"Ersten Film drehen – Szene, Kamera, Bild, Aufnahme",
+"Ersten Film drehen – Szene, Kamera, Bild, Aufnahme",
+"Shoot your first film – scene, camera, picture, recording"
+],
+[
+"Establishing",
+"Establishing",
+"Establishing"
+],
+[
+"Establishing Shot",
+"Establishing Shot",
+"Establishing shot"
+],
+[
+"Explodieren",
+"Explodieren",
+"Explode"
+],
+[
+"Export abbrechen",
+"Export abbrechen",
+"Cancel export"
+],
+[
+"Export fehlgeschlagen: {0}",
+"Export fehlgeschlagen: {0}",
+"Export failed: {0}"
+],
+[
+"Fliehen",
+"Fliehen",
+"Flee"
+],
+[
+"Gespeicherte Kamerafahrten abspielen, ansehen und bearbeiten",
+"Gespeicherte Kamerafahrten abspielen, ansehen und bearbeiten",
+"Play, view and edit saved camera moves"
+],
+[
+"Gewitter",
+"Gewitter",
+"Thunderstorm"
+],
+[
+"Geänderten Shot speichern",
+"Geänderten Shot speichern",
+"Save changed shot"
+],
+[
+"Gruppe",
+"Gruppe",
+"Group"
+],
+[
+"Gruppe entfernen",
+"Gruppe entfernen",
+"Remove group"
+],
+[
+"Gruppe {0} · {1}",
+"Gruppe {0} · {1}",
+"Group {0} · {1}"
+],
+[
+"Gruppe „{0}“ bleibt stehen",
+"Gruppe „{0}“ bleibt stehen",
+"Group \"{0}\" stops"
+],
+[
+"Gruppe „{0}“ entfernt ({1})",
+"Gruppe „{0}“ entfernt ({1})",
+"Group \"{0}\" removed ({1})"
+],
+[
+"Gruppe „{0}“ flieht vor dir",
+"Gruppe „{0}“ flieht vor dir",
+"Group \"{0}\" flees from you"
+],
+[
+"Gruppe „{0}“ ist leer{1}",
+"Gruppe „{0}“ ist leer{1}",
+"Group \"{0}\" is empty{1}"
+],
+[
+"Gruppe „{0}“ jubelt",
+"Gruppe „{0}“ jubelt",
+"Group \"{0}\" cheers"
+],
+[
+"Gruppe „{0}“ läuft los ({1})",
+"Gruppe „{0}“ läuft los ({1})",
+"Group \"{0}\" starts walking ({1})"
+],
+[
+"Gruppe „{0}“ schaut hin",
+"Gruppe „{0}“ schaut hin",
+"Group \"{0}\" looks over"
+],
+[
+"Gruppe „{0}“: {1} Statisten ({2})",
+"Gruppe „{0}“: {1} Statisten ({2})",
+"Group \"{0}\": {1} extras ({2})"
+],
+[
+"Gruppen",
+"Gruppen",
+"Groups"
+],
+[
+"Gruppen: {0}",
+"Gruppen: {0}",
+"Groups: {0}"
+],
+[
+"Helden-Shot",
+"Helden-Shot",
+"Hero shot"
+],
+[
+"Herschauen",
+"Herschauen",
+"Look here"
+],
+[
+"Hierher",
+"Hierher",
+"Here"
+],
+[
+"Hinweis",
+"Hinweis",
+"Cue"
+],
+[
+"Hinweis an {0} Darsteller",
+"Hinweis an {0} Darsteller",
+"Cue sent to {0} actor(s)"
+],
+[
+"Hinweis: Tageszeit und Wetter gibt es nur in der Oberwelt (nicht im Nether).",
+"Hinweis: Tageszeit und Wetter gibt es nur in der Oberwelt (nicht im Nether).",
+"Note: time of day and weather only exist in the Overworld (not in the Nether)."
+],
+[
+"Hoch über dem Darsteller, Blick nach unten, Kamera zieht weg (8 s)",
+"Hoch über dem Darsteller, Blick nach unten, Kamera zieht weg (8 s)",
+"High above the actor, looking down, camera pulls away (8 s)"
+],
+[
+"Händler",
+"Händler",
+"Traders"
+],
+[
+"Im Editor spulen, Kamera-Keyframes setzen (K), mehrere Kameras anlegen und schneiden.",
+"Im Editor spulen, Kamera-Keyframes setzen (K), mehrere Kameras anlegen und schneiden.",
+"In the editor: scrub, set camera keyframes (K), create several cameras and cut between them."
+],
+[
+"Im Zuschauermodus die Fahrt fliegen, dann „■ Stopp“",
+"Im Zuschauermodus die Fahrt fliegen, dann „■ Stopp“",
+"Fly the move in spectator mode, then \"■ Stop\""
+],
+[
+"Import fehlgeschlagen: {0}",
+"Import fehlgeschlagen: {0}",
+"Import failed: {0}"
+],
+[
+"In die Felder oben laden",
+"In die Felder oben laden",
+"Load into the fields above"
+],
+[
+"In „Kamerapfade“ Punkte verschieben, Zeiten ändern, löschen.",
+"In „Kamerapfade“ Punkte verschieben, Zeiten ändern, löschen.",
+"In \"Camera paths\" move points, change times, delete."
+],
+[
+"In {0} …  {1}",
+"In {0} …  {1}",
+"In {0} …  {1}"
+],
+[
+"Jetzt:",
+"Jetzt:",
+"Now:"
+],
+[
+"Jubeln",
+"Jubeln",
+"Cheer"
+],
+[
+"Kamera (Kamerafahrten laufen bei dir)",
+"Kamera (Kamerafahrten laufen bei dir)",
+"Camera (camera moves run on your screen)"
+],
+[
+"Kamera hinter dem Darsteller, wackelige Handkamera, Zoom-Ruck (10 s)",
+"Kamera hinter dem Darsteller, wackelige Handkamera, Zoom-Ruck (10 s)",
+"Camera behind the actor, shaky handheld, zoom jolt (10 s)"
+],
+[
+"Kamera {0} ▸",
+"Kamera {0} ▸",
+"Camera {0} ▸"
+],
+[
+"Kamerafahrt bauen",
+"Kamerafahrt bauen",
+"Build a camera move"
+],
+[
+"Kamerafahrten der Szenen laufen bei diesem Spieler",
+"Kamerafahrten der Szenen laufen bei diesem Spieler",
+"Scene camera moves run on this player's screen"
+],
+[
+"Kamerapfade",
+"Kamerapfade",
+"Camera paths"
+],
+[
+"Kamerapfade →",
+"Kamerapfade →",
+"Camera paths →"
+],
+[
+"Kein Darsteller gefunden – stell dich neben jemanden oder gib einen Namen an",
+"Kein Darsteller gefunden – stell dich neben jemanden oder gib einen Namen an",
+"No actor found – stand next to someone or give a name"
+],
+[
+"Keine Gruppen",
+"Keine Gruppen",
+"No groups"
+],
+[
+"Keine Rolle",
+"Keine Rolle",
+"No role"
+],
+[
+"Keine Rolle mehr",
+"Keine Rolle mehr",
+"No role any more"
+],
+[
+"Keine Shots",
+"Keine Shots",
+"No shots"
+],
+[
+"Keine Versionen von „{0}“",
+"Keine Versionen von „{0}“",
+"No versions of \"{0}\""
+],
+[
+"Kinobalken und eine Abblende am Ende machen sofort Kino daraus.",
+"Kinobalken und eine Abblende am Ende machen sofort Kino daraus.",
+"Letterbox bars and a fade-out at the end make it cinema straight away."
+],
+[
+"Klar",
+"Klar",
+"Clear"
+],
+[
+"Klicks führen Aktionen sofort aus",
+"Klicks führen Aktionen sofort aus",
+"Clicks run actions right away"
+],
+[
+"Klicks hängen Cues an die Cue-Liste an (Einstellungen → OBS & Tasten)",
+"Klicks hängen Cues an die Cue-Liste an (Einstellungen → OBS & Tasten)",
+"Clicks add cues to the cue list (Settings → OBS & keys)"
+],
+[
+"Laden",
+"Laden",
+"Load"
+],
+[
+"Langsamer zum nächsten Punkt",
+"Langsamer zum nächsten Punkt",
+"Slower to the next point"
+],
+[
+"Letzte Änderung zurücknehmen (Strg+Z)",
+"Letzte Änderung zurücknehmen (Strg+Z)",
+"Undo the last change (Ctrl+Z)"
+],
+[
+"Letzte Änderung zurücknehmen (Strg+Z): {0}",
+"Letzte Änderung zurücknehmen (Strg+Z): {0}",
+"Undo the last change (Ctrl+Z): {0}"
+],
+[
+"Letzte Änderung: {0}",
+"Letzte Änderung: {0}",
+"Last change: {0}"
+],
+[
+"Linie + Punkte in der Welt zeigen (aktualisiert sich bei Änderungen)",
+"Linie + Punkte in der Welt zeigen (aktualisiert sich bei Änderungen)",
+"Show line + points in the world (updates when you change it)"
+],
+[
+"Mehrere Kameras: jede hat eigene Keyframes. Klicken = nächste Kamera bearbeiten (A–D)",
+"Mehrere Kameras: jede hat eigene Keyframes. Klicken = nächste Kamera bearbeiten (A–D)",
+"Several cameras: each has its own keyframes. Click = edit the next camera (A–D)"
+],
+[
+"Menü schließen",
+"Menü schließen",
+"Close menu"
+],
+[
+"Menü schließen und die Szene spielen. Danach wieder öffnen (F7).",
+"Menü schließen und die Szene spielen. Danach wieder öffnen (F7).",
+"Close the menu and play the scene. Then open it again (F7)."
+],
+[
+"Menü schließen, zum nächsten Punkt fliegen, F7, „+ Punkt“. Beliebig oft.",
+"Menü schließen, zum nächsten Punkt fliegen, F7, „+ Punkt“. Beliebig oft.",
+"Close the menu, fly to the next point, F7, \"+ Point\". As often as you like."
+],
+[
+"Mit dem nächsten Darsteller (oder dir) sofort abspielen",
+"Mit dem nächsten Darsteller (oder dir) sofort abspielen",
+"Play right away with the nearest actor (or you)"
+],
+[
+"Mittag",
+"Mittag",
+"Noon"
+],
+[
+"Morgen",
+"Morgen",
+"Morning"
+],
+[
+"Nacht",
+"Nacht",
+"Night"
+],
+[
+"Nichts gefunden für „{0}“",
+"Nichts gefunden für „{0}“",
+"Nothing found for \"{0}\""
+],
+[
+"Nichts zum Rückgängigmachen",
+"Nichts zum Rückgängigmachen",
+"Nothing to undo"
+],
+[
+"Nimm eine fertige Kamera-Vorlage auf den nächsten Darsteller – sie landet als Schritt in deiner Szene.",
+"Nimm eine fertige Kamera-Vorlage auf den nächsten Darsteller – sie landet als Schritt in deiner Szene.",
+"Take a ready-made camera template on the nearest actor – it becomes a step in your scene."
+],
+[
+"Noch keine Darsteller – im Regiepult unter Einstellungen → Rollen festlegen",
+"Noch keine Darsteller – im Regiepult unter Einstellungen → Rollen festlegen",
+"No actors yet – set roles in the director under Settings → Crew & roles"
+],
+[
+"Noch keine Dialoge",
+"Noch keine Dialoge",
+"No dialogs yet"
+],
+[
+"Noch keine Gruppen. Oben Typ und Anzahl wählen, „+ Hier spawnen“.",
+"Noch keine Gruppen. Oben Typ und Anzahl wählen, „+ Hier spawnen“.",
+"No groups yet. Choose type and number above, \"+ Spawn here\"."
+],
+[
+"Noch keine Kamerapfade. 1. „● Pfad aufnehmen“ und fliegen  2. „■ Stopp“",
+"Noch keine Kamerapfade. 1. „● Pfad aufnehmen“ und fliegen  2. „■ Stopp“",
+"No camera paths yet. 1. \"● Record path\" and fly  2. \"■ Stop\""
+],
+[
+"Noch keine Portale – anlegen per /btb portal create (siehe Doku).",
+"Noch keine Portale – anlegen per /btb portal create (siehe Doku).",
+"No portals yet – create one with /btb portal create (see docs)."
+],
+[
+"Noch keine Projekte",
+"Noch keine Projekte",
+"No projects yet"
+],
+[
+"Noch keine Replays. Oben Namen eintippen, „● Aufnehmen“, spielen, „■ Stopp“.",
+"Noch keine Replays. Oben Namen eintippen, „● Aufnehmen“, spielen, „■ Stopp“.",
+"No replays yet. Type a name above, \"● Record\", play, \"■ Stop\"."
+],
+[
+"Noch keine Schritte: oben Befehl + Zeit eintragen, oder „● Live aufnehmen“ und inszenieren.",
+"Noch keine Schritte: oben Befehl + Zeit eintragen, oder „● Live aufnehmen“ und inszenieren.",
+"No steps yet: enter command + time above, or \"● Record live\" and direct."
+],
+[
+"Noch keine Shots. Oben Titel, Notiz und Länge eintragen, „+ Shot“.",
+"Noch keine Shots. Oben Titel, Notiz und Länge eintragen, „+ Shot“.",
+"No shots yet. Enter title, note and length above, \"+ Shot\"."
+],
+[
+"Noch keine Showcases – anlegen per /btb showcase create (siehe Doku).",
+"Noch keine Showcases – anlegen per /btb showcase create (siehe Doku).",
+"No showcases yet – create one with /btb showcase create (see docs)."
+],
+[
+"Noch keine Szenen. Eine Szene ist eine Zeitleiste mit Schritten.",
+"Noch keine Szenen. Eine Szene ist eine Zeitleiste mit Schritten.",
+"No scenes yet. A scene is a timeline with steps."
+],
+[
+"Noch keine Versionen – sie entstehen bei jeder Änderung von selbst",
+"Noch keine Versionen – sie entstehen bei jeder Änderung von selbst",
+"No versions yet – they are made automatically with every change"
+],
+[
+"Noch keine Versionen: sie entstehen bei jeder Änderung von selbst.",
+"Noch keine Versionen: sie entstehen bei jeder Änderung von selbst.",
+"No versions yet: they are made automatically with every change."
+],
+[
+"Noch keine Zeilen. Oben Zeit, Sprecher und Text eintragen, „+ Zeile“.",
+"Noch keine Zeilen. Oben Zeit, Sprecher und Text eintragen, „+ Zeile“.",
+"No lines yet. Enter time, speaker and text above, \"+ Line\"."
+],
+[
+"Noch keine Zerstörungsbereiche – anlegen per /btb destruction create (siehe Doku).",
+"Noch keine Zerstörungsbereiche – anlegen per /btb destruction create (siehe Doku).",
+"No destruction areas yet – create one with /btb destruction create (see docs)."
+],
+[
+"Noch keine gespeicherten Texte. Oben Text eintippen und einen Stil anklicken.",
+"Noch keine gespeicherten Texte. Oben Text eintippen und einen Stil anklicken.",
+"No saved texts yet. Type a text above and click a style."
+],
+[
+"Nochmal klicken = Projekt „{0}“ laden",
+"Nochmal klicken = Projekt „{0}“ laden",
+"Click again = load project \"{0}\""
+],
+[
+"Nochmal klicken: Szenen, Pfade, Texte … dieses Projekts übernehmen (alte Stände bleiben als Versionen)",
+"Nochmal klicken: Szenen, Pfade, Texte … dieses Projekts übernehmen (alte Stände bleiben als Versionen)",
+"Click again: take over scenes, paths, texts … of this project (old states stay as versions)"
+],
+[
+"Notiz (Kamera, Darsteller …)",
+"Notiz (Kamera, Darsteller …)",
+"Note (camera, actors …)"
+],
+[
+"Nächster Shot: {0}",
+"Nächster Shot: {0}",
+"Next shot: {0}"
+],
+[
+"OBS & Tasten",
+"OBS & Tasten",
+"OBS & keys"
+],
+[
+"OBS Start",
+"OBS Start",
+"OBS start"
+],
+[
+"Pfad „{0}“ anlegen",
+"Pfad „{0}“ anlegen",
+"Create path \"{0}\""
+],
+[
+"Pfad-Vorschau aus",
+"Pfad-Vorschau aus",
+"Path preview off"
+],
+[
+"Piglins",
+"Piglins",
+"Piglins"
+],
+[
+"Plünderer",
+"Plünderer",
+"Pillagers"
+],
+[
+"Profi-Ansicht: alle Knöpfe",
+"Profi-Ansicht: alle Knöpfe",
+"Pro view: all buttons"
+],
+[
+"Projekt",
+"Projekt",
+"Project"
+],
+[
+"Projekt & Versionen",
+"Projekt & Versionen",
+"Project & versions"
+],
+[
+"Projekt laden (zweimal klicken)",
+"Projekt laden (zweimal klicken)",
+"Load project (click twice)"
+],
+[
+"Projekt {0}",
+"Projekt {0}",
+"Project {0}"
+],
+[
+"Projekt „{0}“ geladen: {1} Dateien (alte Stände liegen in den Versionen)",
+"Projekt „{0}“ geladen: {1} Dateien (alte Stände liegen in den Versionen)",
+"Project \"{0}\" loaded: {1} files (old states are in the versions)"
+],
+[
+"Projekt „{0}“ gespeichert: {1} Dateien → config/btb_cinematic/projekte/",
+"Projekt „{0}“ gespeichert: {1} Dateien → config/btb_cinematic/projekte/",
+"Project \"{0}\" saved: {1} files → config/btb_cinematic/projekte/"
+],
+[
+"Projekte: {0}",
+"Projekte: {0}",
+"Projects: {0}"
+],
+[
+"Punkt auf deine Position + Blickrichtung setzen",
+"Punkt auf deine Position + Blickrichtung setzen",
+"Set the point to your position + view direction"
+],
+[
+"Punkt löschen",
+"Punkt löschen",
+"Delete point"
+],
+[
+"Punkte bearbeiten + Draufsicht",
+"Punkte bearbeiten + Draufsicht",
+"Edit points + top view"
+],
+[
+"Punkte ▴",
+"Punkte ▴",
+"Points ▴"
+],
+[
+"Punkte ▾",
+"Punkte ▾",
+"Points ▾"
+],
+[
+"Regen",
+"Regen",
+"Rain"
+],
+[
+"Rennen von dir weg",
+"Rennen von dir weg",
+"Run away from you"
+],
+[
+"Replay & Export",
+"Replay & Export",
+"Replay & export"
+],
+[
+"Replay aufnehmen und exportieren",
+"Replay aufnehmen und exportieren",
+"Record and export a replay"
+],
+[
+"Replay aufnehmen und exportieren, Schritt für Schritt",
+"Replay aufnehmen und exportieren, Schritt für Schritt",
+"Record and export a replay, step by step"
+],
+[
+"Replays",
+"Replays",
+"Replays"
+],
+[
+"Rollen: {0}",
+"Rollen: {0}",
+"Roles: {0}"
+],
+[
+"Rückgängig fehlgeschlagen: {0}",
+"Rückgängig fehlgeschlagen: {0}",
+"Undo failed: {0}"
+],
+[
+"Schneller zum nächsten Punkt",
+"Schneller zum nächsten Punkt",
+"Faster to the next point"
+],
+[
+"Schnellstart",
+"Schnellstart",
+"Quick start"
+],
+[
+"Schnitt: ab der Abspielposition zeigt der Film Kamera {0}",
+"Schnitt: ab der Abspielposition zeigt der Film Kamera {0}",
+"Cut: from the play head on the film shows camera {0}"
+],
+[
+"Schnitte ✕",
+"Schnitte ✕",
+"Cuts ✕"
+],
+[
+"Schritt für Schritt eine Kamerafahrt bauen",
+"Schritt für Schritt eine Kamerafahrt bauen",
+"Build a camera move step by step"
+],
+[
+"Schuss-Gegenschuss",
+"Schuss-Gegenschuss",
+"Shot / reverse shot"
+],
+[
+"Senden",
+"Senden",
+"Send"
+],
+[
+"Set",
+"Set",
+"Set"
+],
+[
+"Shot",
+"Shot",
+"Shot"
+],
+[
+"Shot ans Ende des Storyboards",
+"Shot ans Ende des Storyboards",
+"Shot at the end of the storyboard"
+],
+[
+"Shot drehen + Aktion: /{0}",
+"Shot drehen + Aktion: /{0}",
+"Film shot + action: /{0}"
+],
+[
+"Shot hinzugefügt",
+"Shot hinzugefügt",
+"Shot added"
+],
+[
+"Shot ist im Kasten → nächster",
+"Shot ist im Kasten → nächster",
+"Shot is in the can → next"
+],
+[
+"Shot löschen",
+"Shot löschen",
+"Delete shot"
+],
+[
+"Shot {0} geladen – ändern und „Übernehmen“",
+"Shot {0} geladen – ändern und „Übernehmen“",
+"Shot {0} loaded – change and \"Apply\""
+],
+[
+"Shot {0} geändert",
+"Shot {0} geändert",
+"Shot {0} changed"
+],
+[
+"Sicher? Laden",
+"Sicher? Laden",
+"Sure? Load"
+],
+[
+"Sonnenaufgang",
+"Sonnenaufgang",
+"Sunrise"
+],
+[
+"Speichern (.zip)",
+"Speichern (.zip)",
+"Save (.zip)"
+],
+[
+"Sprecher",
+"Sprecher",
+"Speaker"
+],
+[
+"Springen und winken",
+"Springen und winken",
+"Jump and wave"
+],
+[
+"Stand vom {0} {1} zurückholen (der jetzige bleibt als Version)",
+"Stand vom {0} {1} zurückholen (der jetzige bleibt als Version)",
+"Bring back the state of {0} {1} (the current one stays as a version)"
+],
+[
+"Starte OBS (Einstellungen → OBS & Tasten) oder nimm ein Replay auf, dann die Szene abspielen.",
+"Starte OBS (Einstellungen → OBS & Tasten) oder nimm ein Replay auf, dann die Szene abspielen.",
+"Start OBS (Settings → OBS & keys) or record a replay, then play the scene."
+],
+[
+"Statisten um dich herum; sie kämpfen nicht und bewegen sich nur auf Kommando",
+"Statisten um dich herum; sie kämpfen nicht und bewegen sich nur auf Kommando",
+"Extras around you; they don't fight and only move on command"
+],
+[
+"Stehen",
+"Stehen",
+"Stand"
+],
+[
+"Stell dich an den Startpunkt, schau in die gewünschte Richtung.",
+"Stell dich an den Startpunkt, schau in die gewünschte Richtung.",
+"Stand at the start point, look in the direction you want."
+],
+[
+"Stoppen, ansehen, im Baukasten Zeiten anpassen. Alles lässt sich mit ↶ Rückgängig zurücknehmen.",
+"Stoppen, ansehen, im Baukasten Zeiten anpassen. Alles lässt sich mit ↶ Rückgängig zurücknehmen.",
+"Stop, watch, adjust times in the builder. Everything can be taken back with ↶ Undo."
+],
+[
+"Stoppt Szenen, Kamera, Effekte, Zeitlupe, Ton und Dialog sofort – das Set bleibt, wie es ist",
+"Stoppt Szenen, Kamera, Effekte, Zeitlupe, Ton und Dialog sofort – das Set bleibt, wie es ist",
+"Stops scenes, camera, effects, slow motion, sound and dialog right away – the set stays as it is"
+],
+[
+"Stoppt alles, was läuft – das Set bleibt",
+"Stoppt alles, was läuft – das Set bleibt",
+"Stops everything that runs – the set stays"
+],
+[
+"Storyboard",
+"Storyboard",
+"Storyboard"
+],
+[
+"Storyboard: {0}/{1} Shots gedreht",
+"Storyboard: {0}/{1} Shots gedreht",
+"Storyboard: {0}/{1} shots filmed"
+],
+[
+"Strg+Z",
+"Strg+Z",
+"Ctrl+Z"
+],
+[
+"Stück",
+"Stück",
+"pcs."
+],
+[
+"Suche",
+"Suche",
+"Search"
+],
+[
+"Suche leeren",
+"Suche leeren",
+"Clear search"
+],
+[
+"Suche: „{0}“ – alle Bereiche",
+"Suche: „{0}“ – alle Bereiche",
+"Search: \"{0}\" – all areas"
+],
+[
+"Szene ab der Zeit im Feld „Bei“ abspielen (Klick in die Zeitleiste setzt sie)",
+"Szene ab der Zeit im Feld „Bei“ abspielen (Klick in die Zeitleiste setzt sie)",
+"Play the scene from the time in the field \"At\" (click into the timeline to set it)"
+],
+[
+"Szene anlegen",
+"Szene anlegen",
+"Create scene"
+],
+[
+"Szene im Baukasten anlegen",
+"Szene im Baukasten anlegen",
+"Create a scene in the builder"
+],
+[
+"Szene zurücksetzen (Startzustand)",
+"Szene zurücksetzen (Startzustand)",
+"Reset scene (start state)"
+],
+[
+"Szene „{0}“ angelegt ({1} Schritte) – im Baukasten anpassen",
+"Szene „{0}“ angelegt ({1} Schritte) – im Baukasten anpassen",
+"Scene \"{0}\" created ({1} steps) – adjust it in the builder"
+],
+[
+"Szenen, Kamerapfade, Texte, Credits, Dialoge, Replays … als eine Datei in config/btb_cinematic/projekte",
+"Szenen, Kamerapfade, Texte, Credits, Dialoge, Replays … als eine Datei in config/btb_cinematic/projekte",
+"Scenes, camera paths, texts, credits, dialogs, replays … as one file in config/btb_cinematic/projekte"
+],
+[
+"Szenen, Portale, Zerstörung, Effekte: alles auf Anfang",
+"Szenen, Portale, Zerstörung, Effekte: alles auf Anfang",
+"Scenes, portals, destruction, effects: everything back to the start"
+],
+[
+"Tageszeit als Übergang",
+"Tageszeit als Übergang",
+"Time of day as a transition"
+],
+[
+"Tageszeit sofort",
+"Tageszeit sofort",
+"Time of day now"
+],
+[
+"Texte",
+"Texte",
+"Texts"
+],
+[
+"Timeline wie ReplayMod: spulen, Kamera-Keyframes, mehrere Kameras, Export (F6)",
+"Timeline wie ReplayMod: spulen, Kamera-Keyframes, mehrere Kameras, Export (F6)",
+"Timeline like ReplayMod: scrub, camera keyframes, several cameras, export (F6)"
+],
+[
+"Titel, z. B. Verfolgung",
+"Titel, z. B. Verfolgung",
+"Title, e.g. chase"
+],
+[
+"Ton",
+"Ton",
+"Sound"
+],
+[
+"Typ: {0}",
+"Typ: {0}",
+"Type: {0}"
+],
+[
+"Unbekannte Vorlage „{0}“{1}",
+"Unbekannte Vorlage „{0}“{1}",
+"Unknown template \"{0}\"{1}"
+],
+[
+"Unbekannter Typ „{0}“",
+"Unbekannter Typ „{0}“",
+"Unknown type \"{0}\""
+],
+[
+"Untersicht, langsamer Kreis, Zeitlupe (8 s)",
+"Untersicht, langsamer Kreis, Zeitlupe (8 s)",
+"Low angle, slow circle, slow motion (8 s)"
+],
+[
+"Untertitel gespeichert: btb_export/{0}_de.srt und {1}_en.srt",
+"Untertitel gespeichert: btb_export/{0}_de.srt und {1}_en.srt",
+"Subtitles saved: btb_export/{0}_de.srt and {1}_en.srt"
+],
+[
+"Untertitel nach Zeit zeigen (jeder Spieler in seiner Sprache), Sprecher bewegen sich",
+"Untertitel nach Zeit zeigen (jeder Spieler in seiner Sprache), Sprecher bewegen sich",
+"Show subtitles by time (every player in their language), speakers move"
+],
+[
+"Untertitel-Dateien (Deutsch + Englisch) für den Videoschnitt speichern",
+"Untertitel-Dateien (Deutsch + Englisch) für den Videoschnitt speichern",
+"Save subtitle files (German + English) for video editing"
+],
+[
+"Verfolger",
+"Verfolger",
+"Follow cam"
+],
+[
+"Verfolgungsjagd",
+"Verfolgungsjagd",
+"Chase"
+],
+[
+"Version wiederhergestellt: {0}",
+"Version wiederhergestellt: {0}",
+"Version restored: {0}"
+],
+[
+"Version {0} not found",
+"Version {0} not found",
+"Version {0} not found"
+],
+[
+"Versionen: {0}",
+"Versionen: {0}",
+"Versions: {0}"
+],
+[
+"Vorlage nehmen",
+"Vorlage nehmen",
+"Use a template"
+],
+[
+"Vorlagen",
+"Vorlagen",
+"Templates"
+],
+[
+"Vorlagen: {0}",
+"Vorlagen: {0}",
+"Templates: {0}"
+],
+[
+"Vorschau aus",
+"Vorschau aus",
+"Preview off"
+],
+[
+"Was ein Klick tut: sofort ausführen · Dreh-Modus (erst beim Schließen) · zur Szene / Cue-Liste / auf eine Taste",
+"Was ein Klick tut: sofort ausführen · Dreh-Modus (erst beim Schließen) · zur Szene / Cue-Liste / auf eine Taste",
+"What a click does: run right away · shooting mode (on close) · into the scene / cue list / onto a key"
+],
+[
+"Wechselt alle 5 s die Perspektive auf den Darsteller (30 s)",
+"Wechselt alle 5 s die Perspektive auf den Darsteller (30 s)",
+"Switches perspective on the actor every 5 s (30 s)"
+],
+[
+"Weiter Kreis hoch über dem Ort, Kinobalken, Auf- und Abblende (12 s)",
+"Weiter Kreis hoch über dem Ort, Kinobalken, Auf- und Abblende (12 s)",
+"Wide circle high above the place, letterbox, fade in and out (12 s)"
+],
+[
+"Weiter Kreis um die Stelle, an der du stehst",
+"Weiter Kreis um die Stelle, an der du stehst",
+"Wide circle around the spot where you stand"
+],
+[
+"Weiter ▶",
+"Weiter ▶",
+"Next ▶"
+],
+[
+"Welt",
+"Welt",
+"World"
+],
+[
+"Wetter",
+"Wetter",
+"Weather"
+],
+[
+"Wetter: klar, regen oder gewitter",
+"Wetter: klar, regen oder gewitter",
+"Weather: klar (clear), regen (rain) or gewitter (thunder)"
+],
+[
+"Wetter: {0}{1}",
+"Wetter: {0}{1}",
+"Weather: {0}{1}"
+],
+[
+"Wieder offen",
+"Wieder offen",
+"Open again"
+],
+[
+"Wither-Skelette",
+"Wither-Skelette",
+"Wither skeletons"
+],
+[
+"Zeile in den Dialog. Sprecher = Name eines Statisten/Spielers: er bewegt beim Sprechen Kopf und Arme",
+"Zeile in den Dialog. Sprecher = Name eines Statisten/Spielers: er bewegt beim Sprechen Kopf und Arme",
+"Line into the dialog. Speaker = name of an extra/player: they move head and arms while talking"
+],
+[
+"Zeile löschen",
+"Zeile löschen",
+"Delete line"
+],
+[
+"Zeile {0} gibt es nicht",
+"Zeile {0} gibt es nicht",
+"Line {0} doesn't exist"
+],
+[
+"Zeit & Wetter",
+"Zeit & Wetter",
+"Time & weather"
+],
+[
+"Zeit wandert in {0} s zu „{1}“{2}",
+"Zeit wandert in {0} s zu „{1}“{2}",
+"Time moves to \"{1}\" in {0} s{2}"
+],
+[
+" (im Nether/End gibt es keine Tageszeit – wirkt nur in der Oberwelt)",
+" (im Nether/End gibt es keine Tageszeit – wirkt nur in der Oberwelt)",
+" (the Nether/End have no time of day – only works in the Overworld)"
+],
+[
+" (Wetter gibt es nur in der Oberwelt)",
+" (Wetter gibt es nur in der Oberwelt)",
+" (weather only exists in the Overworld)"
+],
+[
+"Zeit „Bei“: {0} s",
+"Zeit „Bei“: {0} s",
+"Time \"At\": {0} s"
+],
+[
+"Zeit: morgen, mittag, abend, nacht, mitternacht oder 0–24000",
+"Zeit: morgen, mittag, abend, nacht, mitternacht oder 0–24000",
+"Time: morgen, mittag, abend, nacht, mitternacht or 0–24000"
+],
+[
+"Zeit: {0}",
+"Zeit: {0}",
+"Time: {0}"
+],
+[
+"Zombie-Piglins",
+"Zombie-Piglins",
+"Zombified piglins"
+],
+[
+"Zombies",
+"Zombies",
+"Zombies"
+],
+[
+"Zu dem Punkt, auf den du schaust (14 Blöcke)",
+"Zu dem Punkt, auf den du schaust (14 Blöcke)",
+"To the point you look at (14 blocks)"
+],
+[
+"Zurück",
+"Zurück",
+"Back"
+],
+[
+"Zurück zum eigenen Blick (alle Spieler)",
+"Zurück zum eigenen Blick (alle Spieler)",
+"Back to your own view (all players)"
+],
+[
+"z. B. Nach links laufen",
+"z. B. Nach links laufen",
+"e.g. walk to the left"
+],
+[
+"{0} Spieler: Rolle {1}",
+"{0} Spieler: Rolle {1}",
+"{0} player(s): role {1}"
+],
+[
+"{0} Version(en) von „{1}“: {2}",
+"{0} Version(en) von „{1}“: {2}",
+"{0} version(s) of \"{1}\": {2}"
+],
+[
+"{0} · Rolle: {1}",
+"{0} · Rolle: {1}",
+"{0} · role: {1}"
+],
+[
+"{0} · Rolle: –",
+"{0} · Rolle: –",
+"{0} · role: –"
+],
+[
+"½ Sekunde früher",
+"½ Sekunde früher",
+"½ second earlier"
+],
+[
+"½ Sekunde später",
+"½ Sekunde später",
+"½ second later"
+],
+[
+"Über-die-Schulter abwechselnd auf zwei Darsteller (16 s)",
+"Über-die-Schulter abwechselnd auf zwei Darsteller (16 s)",
+"Over the shoulder, alternating between two actors (16 s)"
+],
+[
+"Überflug",
+"Überflug",
+"Fly-over"
+],
+[
+"Übersicht",
+"Übersicht",
+"Overview"
+],
+[
+"„{0}“ nicht gefunden",
+"„{0}“ nicht gefunden",
+"\"{0}\" not found"
+],
+[
+"→ Morgen 20 s",
+"→ Morgen 20 s",
+"→ Morning 20 s"
+],
+[
+"→ Nacht 15 s",
+"→ Nacht 15 s",
+"→ Night 15 s"
+],
+[
+"→ Sonnenuntergang 20 s",
+"→ Sonnenuntergang 20 s",
+"→ Sunset 20 s"
+],
+[
+"→ Szene",
+"→ Szene",
+"→ Scene"
+],
+[
+"→ Szene „mein_film“ bei {0} s: {1}",
+"→ Szene „mein_film“ bei {0} s: {1}",
+"→ Scene \"mein_film\" at {0} s: {1}"
+],
+[
+"→ Szene „{0}“ bei {1} s",
+"→ Szene „{0}“ bei {1} s",
+"→ Scene \"{0}\" at {1} s"
+],
+[
+"→ Szene „{0}“ bei {1} s: Dialog „{2}“",
+"→ Szene „{0}“ bei {1} s: Dialog „{2}“",
+"→ Scene \"{0}\" at {1} s: dialog \"{2}\""
+],
+[
+"↶ Rückgängig",
+"↶ Rückgängig",
+"↶ Undo"
+],
+[
+"↶ Rückgängig: {0}",
+"↶ Rückgängig: {0}",
+"↶ Undone: {0}"
+],
+[
+"↺ Reset",
+"↺ Reset",
+"↺ Reset"
+],
+[
+"↺ Zurück",
+"↺ Zurück",
+"↺ Restore"
+],
+[
+"⏱ Zeit",
+"⏱ Zeit",
+"⏱ Time"
+],
+[
+"⏺ Export läuft",
+"⏺ Export läuft",
+"⏺ Export running"
+],
+[
+"■ Alles stoppen",
+"■ Alles stoppen",
+"■ Stop everything"
+],
+[
+"■ Dreh beenden",
+"■ Dreh beenden",
+"■ End shooting"
+],
+[
+"■ Replay stoppen",
+"■ Replay stoppen",
+"■ Stop replay"
+],
+[
+"▶ Dialog „{0}“ ({1} Zeilen)",
+"▶ Dialog „{0}“ ({1} Zeilen)",
+"▶ Dialog \"{0}\" ({1} lines)"
+],
+[
+"▶ Jetzt",
+"▶ Jetzt",
+"▶ Now"
+],
+[
+"▶ Nochmal",
+"▶ Nochmal",
+"▶ Again"
+],
+[
+"▶ Szene",
+"▶ Szene",
+"▶ Scene"
+],
+[
+"▶ Szene {0} · {1} / {2} s",
+"▶ Szene {0} · {1} / {2} s",
+"▶ Scene {0} · {1} / {2} s"
+],
+[
+"▶ Szene {0}",
+"▶ Szene {0}",
+"▶ Scene {0}"
+],
+[
+"▶ {0} Szenen",
+"▶ {0} Szenen",
+"▶ {0} scenes"
+],
+[
+"▶ ab „Bei“",
+"▶ ab „Bei“",
+"▶ from \"At\""
+],
+[
+"▶ {0} mit {1} (bearbeiten: Szene „{2}“)",
+"▶ {0} mit {1} (bearbeiten: Szene „{2}“)",
+"▶ {0} with {1} (edit: scene \"{2}\")"
+],
+[
+"▶ Replay {0}",
+"▶ Replay {0}",
+"▶ Replay {0}"
+],
+[
+"● REC Replay {0}",
+"● REC Replay {0}",
+"● REC replay {0}"
+],
+[
+"▸Darsteller",
+"▸Darsteller",
+"▸Actor"
+],
+[
+"▸Kamera",
+"▸Kamera",
+"▸Camera"
+],
+[
+"▸Regie",
+"▸Regie",
+"▸Director"
+],
+[
+"● Nächster Klick → Numpad {0}",
+"● Nächster Klick → Numpad {0}",
+"● Next click → numpad {0}"
+],
+[
+"● Replay aufnehmen",
+"● Replay aufnehmen",
+"● Record replay"
+],
+[
+"✂ Editor öffnen",
+"✂ Editor öffnen",
+"✂ Open editor"
+],
+[
+"✂ → {0}",
+"✂ → {0}",
+"✂ → {0}"
+],
+[
+"✎ Bearbeiten",
+"✎ Bearbeiten",
+"✎ Edit"
+],
+[
+"✓ Weiter",
+"✓ Weiter",
+"✓ Next"
+],
+[
+"✔ Fertig",
+"✔ Fertig",
+"✔ Done"
+],
+[
+"✔ Übernehmen",
+"✔ Übernehmen",
+"✔ Apply"
+],
+[
+"⟲ Set zurück",
+"⟲ Set zurück",
+"⟲ Reset set"
+],
+[
+"🎬 Dreh starten",
+"🎬 Dreh starten",
+"🎬 Start shooting"
+],
+[
+"🎬 Shot {0}/{1}: {2} · {3} s",
+"🎬 Shot {0}/{1}: {2} · {3} s",
+"🎬 Shot {0}/{1}: {2} · {3} s"
+],
+[
+"👁 Vorschau",
+"👁 Vorschau",
+"👁 Preview"
+],
+[
+"📷 Bild",
+"📷 Bild",
+"📷 Picture"
+],
+[
+"🔍 Suchen …",
+"🔍 Suchen …",
+"🔍 Search …"
+],
+[
+"Alles gestoppt",
+"Alles gestoppt",
+"Everything stopped"
+],
+[
+"Replays & Export",
+"Replays & Export",
+"Replays & export"
+],
+[
+"Tabs: alle",
+"Tabs: alle",
+"Tabs: all"
+],
+[
+"Tabs: kompakt",
+"Tabs: kompakt",
+"Tabs: compact"
+],
+[
+"Kompakt: 8 Tabs mit Unterseiten · Alle: jeder Bereich als eigener Tab links (wie früher)",
+"Kompakt: 8 Tabs mit Unterseiten · Alle: jeder Bereich als eigener Tab links (wie früher)",
+"Compact: 8 tabs with pages · All: every area as its own tab on the left (like before)"
+],
+[
+"Alle Bereiche als eigene Tabs",
+"Alle Bereiche als eigene Tabs",
+"Every area as its own tab"
+],
+[
+"Kompakt: 8 Tabs mit Unterseiten",
+"Kompakt: 8 Tabs mit Unterseiten",
+"Compact: 8 tabs with pages"
+],
+[
+"⟲ Set",
+"⟲ Set",
+"⟲ Set"
+],
+[
+"Profi",
+"Profi",
+"Pro"
+],
+[
+"Einsteiger",
+"Einsteiger",
+"Beginner"
+],
+[
+"{0} · {1} Punkte · {2} s",
+"{0} · {1} Punkte · {2} s",
+"{0} · {1} points · {2} s"
+]
+]

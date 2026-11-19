@@ -55,7 +55,7 @@ public final class PipOverlay {
 		if (!label.isEmpty()) {
 			var font = Minecraft.getInstance().font;
 			int ty = corner.startsWith("t") ? y + ph + 4 : y - 11;
-			g.text(font, Component.literal("◉ " + label), x, ty, ((int) (a * 0xE0) << 24) | 0xF0E6D8, true);
+			g.text(font, de.behindtheblocks.cinematic.client.i18n.ClientI18n.c("◉ " + label), x, ty, ((int) (a * 0xE0) << 24) | 0xF0E6D8, true);
 		}
 	}
 }

@@ -1,0 +1,189 @@
+569	E	long light streaks on bright lights
+570	E	light breathing of the camera
+571	E	longer
+572	E	up
+573	E	down
+574	E	sharp → blurred
+575	E	floating crystal with rings
+576	E	crashes in front of you in your view direction
+577	E	blurred → sharp
+578	E	always points to the heart
+579	E	second window with tag pip + OBS source “BTB PiP”
+580	E	{0} action(s) start on close: {1}
+581	E	Transitions
+582	E	stack on top of each other = light beam
+583	E	” at 
+584	=
+585	E	→ Scene '{0}' at {1} s: {2}
+586	E	↻ Refresh
+587	E	⌨ To num {0}
+588	E	■ Stop recording
+589	E	■ Stop recording
+590	=
+591	E	■ Stop
+592	E	▶ Play
+593	E	▶ all
+594	E	▶ me
+595	E	● Record
+596	E	● Clicks → cue list
+597	E	● Clicks → scene “
+598	E	● Record live
+599	E	● Next click → key numpad 
+600	E	● Record path
+601	=
+602	=
+603	E	✎ Input ▴
+604	E	✎ Input ▾
+605	E	✔ Apply (no. {0})
+606	E	⟲ Reset set
+607	E	Aspect ratio {0}
+608	D	Zeichnet das Bild weich. {intensity 0..10, in?, hold?, out?, players?}
+609	D	Kamerawackeln
+610	D	Kinobalken. {intensity 0..0.4 (Balkenhöhe), in?, hold?, out?, players?}
+611	D	{0} gelöscht
+612	D	Farbschicht / Überblendung. {color, color2?, intensity (Deckkraft), in?, hold?, out?, players?}
+613	D	Effekt {0} gesendet
+614	D	Blendet Effekte aus. {style? (all|fade|vignette|...), duration?, players?}
+615	E	Color grading “
+616	E	Color grading “{0}” (own .cube files: config/btb_cinematic/luts/)
+617	D	Schärfe weg
+618	D	Schärfe ziehen
+619	E	Format e.g. 2.39, 1.85, 4x3, 1x1
+620	E	Format between 1:2 and 3.5:1
+621	D	Vollbild-Blende. {color, duration (in Ticks), hold? (-1 = bleibt), out?, intensity?, players?}
+622	D	Lens Flare an einem Punkt in der Welt (das leuchtende Gebäude am Horizont). {pos [x,y,z], color?, intensity 0..1, in?, hold?, out?, players?}
+623	D	Lens Flare bei {0} {1} {2}
+624	D	Lichtblitz. {color?, duration?, intensity?, players?}
+625	D	Dumpfes Hören
+626	D	Geformter Übergang. {style: wipe_left|wipe_right|wipe_up|wipe_down|iris_close|iris_open|bars_close|bars_open, color?, in, hold?, out?, players?}
+627	E	Depth of field {0}
+628	D	Übergang {0}
+629	D	Unbekannter Übergangsstil
+630	D	Vignette. {intensity 0..1, color?, in?, hold?, out?, players?}
+631	E	follows your view
+632	E	” (own .cube files: config/btb_cinematic/luts/)
+633	D	„intensity“ für {0} muss 0..{1} sein
+634	D	„style“ muss eins davon sein: {0}
+635	E	Color fade
+636	E	Fade to black
+637	E	Fade to white
+638	D	clear: „style“ muss all, fade, vignette, tint, blur, letterbox oder transition sein
+639	D	flare braucht „pos“: [x,y,z]
+640	D	in/out müssen 0..72000 Ticks sein, hold -1..720000
+641	D	unbekannter Effekt
+642	E	 frames in 
+643	E	BTB Export %s: %d%% (%d/%d frames, about %d:%02d left)
+644	=
+645	E	An export is already running.
+646	E	Export only works in single player or as the host of a LAN world.
+647	=
+648	E	Exporting %d frames (%.1f s, %d FPS) at %d×%d → %s. Progress in the window title, Esc cancels.
+649	E	Done: 
+650	E	Stopped
+651	E	Stopped (
+652	E	Creating MP4 ({0} frames) …
+653	E	Menu opened – Esc cancels the export
+654	E	Music “
+655	E	Music “{0}” not found in config/btb_cinematic/music – video without sound
+656	E	Cannot create folder: {0}
+657	E	Server gone
+658	E	Video done: {0}
+659	=
+660	E	ffmpeg could not start: {0}
+661	E	ffmpeg not found – the frames are in {0}. With ffmpeg: ffmpeg -framerate {1} -i frame_%06d.png -vf scale={2}:{3}:force_original_aspect_ratio=increase,crop={4}:{5} -c:v libx264 -crf 14 -pix_fmt yuv420p film.mp4
+662	E	ffmpeg error (see ffmpeg.log in {0})
+663	E	” not found in config/btb_cinematic/music – video without sound
+664	=
+665	E	## Heading
+666	D	„{0}“ aktualisiert ({1} Einträge) – Vorschau: /btb hud show {2}
+667	D	„{0}“ angelegt. Einträge hinzufügen: /btb hud credits {1} add Rolle | Name | youtube | link
+668	D	Blendet HUD-Text aus. {id? (ohne = alle), out? Ticks, players?}
+669	D	HUD-Text „{0}“ gelöscht
+670	D	HUD-Text „{0}“ gibt es nicht
+671	D	HUD-Text ausgeblendet
+672	D	HUD-Texte ausgeblendet
+673	D	ID: nur a-z, 0-9 und _
+674	D	Art: vorspann, abspann oder endkarte
+675	D	{0} HUD-Text(e) geladen
+676	D	Nur {0} Einträge
+677	D	Schneller Untertitel unten. {text, duration? Ticks (Standard 60), players?}
+678	E	Role | Name | icon | link
+679	D	Gespeichert als „{0}“ – wieder zeigen: /btb hud show {1}
+680	D	Zeige „{0}“
+681	D	Zeigt einen HUD-Text. {id (aus config/btb_cinematic/hud) | text/lines + Stilfelder, players?}
+682	D	Untertitel gezeigt
+683	=
+684	D	Text gezeigt (ausblenden: /btb hud hide {0})
+685	D	Titel gezeigt
+686	D	Unbekannter HUD-Text
+687	D	Unbekannter HUD-Text „{0}“
+688	D	Unbekannter HUD-Text „{0}“. Anlegen: /btb hud credits {1} new vorspann
+689	D	Unbekanntes Icon „{0}“
+690	D	Unbekanntes Icon „{0}“. Icons: {1}
+691	D	{0} HUD-Text(e): {1}
+692	E	Ghostly, ethereal message
+693	E	Glowing title at the bottom (like HEART OF THE NETHER)
+694	E	Big cinema title (Cinzel, spreads apart)
+695	E	Camera viewfinder with REC and text
+696	E	Chapter card, typewriter – line 1 | line 2
+697	E	Name | role (lower third)
+698	E	Name | subtitle (boss intro)
+699	E	New objective (top right)
+700	E	Speaker | text | text …
+701	E	Text missing
+702	E	Title | subtitle (stays on screen)
+703	E	Unknown style '{0}'. Styles: {1}
+704	E	Subtitle at the bottom with background
+705	E	Heading | text … (book page, text like ink)
+706	D	„char_ticks“ muss 0.05..40 sein
+707	D	„font“ ist keine gültige Schrift-ID
+708	D	„lines“ muss eine Liste von Texten sein
+709	D	„scale“ muss 0.25..12 sein
+710	D	1..{0} Zeilen erlaubt
+711	=
+712	=
+713	D	höchstens 200 Credits-Einträge
+714	D	Zeile länger als {0} Zeichen
+715	D	braucht „text“, „lines“ oder „entries“
+716	D	Zeitwerte müssen >= 0 sein (hold darf -1 = bis zum Ausblenden sein)
+717	D	unbekanntes Icon „{0}“ ({1})
+718	D	„{0}“ enthält eine ungültige Zahl
+719	D	„{0}“ hat den unbekannten Wert „{1}“
+720	D	„{0}“ muss eine Zahl sein
+721	D	„{0}“ muss ein Text sein
+722	D	„{0}“ muss ein Text oder eine Liste von Texten sein
+723	D	„{0}“ muss eine ganze Zahl sein
+724	D	„{0}“ muss eine Liste aus {1} Zahlen sein
+725	D	„{0}“ muss ein Objekt sein
+726	D	„{0}“ muss endlich sein
+727	D	„{0}“ muss true oder false sein
+728	D	Pflichtfeld „{0}“ fehlt
+729	D	1D-LUTs werden nicht unterstützt, bitte eine 3D-LUT exportieren
+730	=
+731	=
+732	=
+733	=
+734	=
+735	D	keine 3D-LUT (Größe {0}, {1} Einträge)
+736	=
+737	=
+738	=
+739	=
+740	=
+741	E	Recording is already paused
+742	E	Recording paused
+743	=
+744	E	Picture-in-picture on
+745	E	Picture-in-picture off
+746	E	Picture-in-picture: in the OBS scene “
+747	E	Picture-in-picture: the OBS scene “{0}” has no source “{1}”
+748	E	Picture-in-picture: OBS does not answer
+749	E	Picture-in-picture: OBS error
+750	E	Error
+751	=
+752	=
+753	=
+754	=
+755	=
+756	=
+757	E	OBS cannot pause this recording (Settings → Output)

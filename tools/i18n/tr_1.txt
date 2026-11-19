@@ -1,0 +1,189 @@
+0	D	Ambiente aus
+1	D	Ambiente an
+2	D	{0} Zone(n) geladen
+3	D	Schaltet eine Ambiente-Zone an oder aus. {id, enabled}
+4	D	Unbekannte Zone
+5	D	Unbekannte Zone „{0}“. Anlegen: /btb ambience create {1} <Radius>
+6	D	Zone „{0}“ hier angelegt. Hinzufügen: sound / particles / shake / flash / orbit
+7	D	Zone „{0}“ gelöscht
+8	D	Zone „{0}“ aktualisiert
+9	D	particle muss eine einfache Partikel-ID oder dust:#RRGGBB sein
+10	D	unbekannter Block in orbit_blocks
+11	D	unbekannter Sound
+12	D	{0} Ambiente-Zone(n):
+13	D	 Problem(e) – /btb scene problems
+14	D	 • {0} ({1}t, {2} Ereignisse){3}
+15	D	 • {0}: {1} Tick {2}/{3}{4}{5}
+16	D	/btb events – Liste der Timeline-Ereignisse
+17	D	/btb reload – Szenendateien aus config/btb_cinematic/scenes neu laden
+18	=
+19	D	Alle Szenendateien ohne Probleme geladen
+20	D	Verfügbare Timeline-Ereignisse:
+21	=
+22	D	{0} Szene(n) geladen{1}
+23	D	Keine Szene kann {0} werden
+24	D	Keine Szene läuft
+25	D	Keine Szenen geladen. JSON-Dateien hierhin legen: {0}
+26	D	Szene(n) {0}: {1}
+27	D	{0} Szene(n) gestoppt
+28	D	Datei {0}, {1} Ticks ({2} s), Schleife {3}, bei Fehler {4}
+29	D	{0} Szene(n):
+30	D	„command“ darf nicht leer sein
+31	D	„dimension“ ist keine gültige ID: {0}
+32	D	„pitch“ muss zwischen -90 und 90 liegen
+33	D	„{0}“ ist keine gültige Szenen-ID
+34	D	Dimension {0} gibt es nicht
+35	D	Führt einen Serverbefehl mit Spielleiter-Rechten aus. {command, silent?, as? Spieler, pos? [x,y,z], rot? [yaw,pitch]}
+36	D	Sendet eine Chat- oder Actionbar-Nachricht. {text, actionbar?, players?}
+37	D	Startet (oder startet neu) eine andere Szene. {scene}
+38	D	Stoppt eine Szene; ohne „scene“ die aktuelle. {scene?}
+39	D	Teleportiert Spieler. {pos:[x,y,z], yaw?, pitch?, dimension?, players?}
+40	D	Schreibt eine Zeile ins Server-Log (zum Prüfen von Zeiten). {message}
+41	D	unvollständiger Befehl „/
+42	D	unvollständiger Befehl „/{0}“
+43	D	  %d: %.1f %.1f %.1f  Gier %.0f Neigung %.0f%s%s  → %.2f s %s
+44	D	 • {0} – {1} Punkte, {2}, {3}
+45	D	„fov“ muss 1..170 oder 0 sein
+46	D	„mode“ muss first, third oder front sein
+47	D	„mode“ muss side, behind, fixed, top, front, shoulder, low, crane, orbit oder auto sein
+48	D	„path“ ist keine gültige Kamera-ID
+49	D	„side“ muss +x, -x, +z, -z, north/south/east/west oder "x,y,z" sein
+50	D	„speed“ muss 0..100 sein (0 = Tempo der Kamerafahrt)
+51	D	Animiert das Sichtfeld. {fov (0 = normal), duration Ticks, easing?, players?}
+52	E	Auto director on {0} – perspective changes every {1} s · /btb camera stop
+53	E	Auto director on the beat: cut every %.2f s
+54	D	Kamera „{0}“ aktualisiert
+55	D	Kamera gestoppt
+56	D	Kamera „{0}“ mit deiner aktuellen Sicht als Punkt 1 angelegt. Weitere: /btb camera point {1}
+57	D	Kamera „{0}“ gelöscht
+58	E	Dolly zoom {0} → {1} blocks
+59	E	Ego camera: {0} · /btb camera stop
+60	D	Folge {0} ({1}) – Ende mit /btb camera stop
+61	D	Folgt einem Spieler. {target, mode: side|behind|fixed|top, distance?, height?, side? (+z…), pos? (fixed), smoothing?, ticks? (-1 = bis Stopp), players?}
+62	E	Handheld camera off
+63	E	Handheld camera {0}
+64	E	Camera point {0} of {1}
+65	D	{0} Kamerafahrt(en) geladen
+66	D	Modus: side, behind, fixed, top, front, shoulder, low, crane, orbit, auto
+67	D	Zu Punkt {0} bewegt
+68	D	Keine Kamerafahrten. Anlegen: /btb camera create <id>
+69	D	Es läuft keine Aufnahme
+70	D	Kreisfahrt gestartet (%.1f s)
+71	D	Kreist um einen Punkt oder Spieler. {center:[x,y,z] | target:Spieler, radius, height, seconds|ticks, degrees?, start_angle?, radius_end?, height_end?, easing?, fov?, players?}
+72	D	Perspektive: {0}
+73	D	Spiele Kamera „%s“ (%.1f s)
+74	D	Spielt eine Kamerafahrt ab. {path, players?, look_at? (Spielername oder [x,y,z]), speed?, carry?, hide_hud?}
+75	D	Punktnummer höchstens {0}
+76	D	Punkt {0} gibt es nicht (die Fahrt hat {1})
+77	D	Punkt {0} von „{1}“ auf deine aktuelle Sicht gesetzt ({2} Punkte, {3})
+78	D	Kamerafahrt „{0}“ gibt es schon
+79	D	Eine Kamerafahrt braucht mindestens 2 Punkte
+80	D	Kamera „%s“ aufgenommen: %d Punkte, %.1f s. Abspielen: /btb camera play %s
+81	D	Nehme Kamera „{0}“ auf – flieg die Fahrt (am besten als Zuschauer), dann /btb camera record stop
+82	D	Gibt dem Spieler die Sicht zurück. {players?}
+83	D	Lässt die Kamera wackeln. {intensity (0..5), duration Ticks (Standard 20), frequency? (Standard 1), players?}
+84	E	View of {0} for {1} s
+85	D	Wechselt die Perspektive. {mode: first | third | front, players?}
+86	D	Zu kurz – beim Aufnehmen weiter fliegen
+87	D	Unbekannte Kamerafahrt
+88	D	Unbekannte Kamerafahrt „{0}“ (zuerst anlegen)
+89	D	Unbekannte Fahrt oder unbekannter Punkt
+90	D	first, third oder front verwenden
+91	=
+92	E	Preview {0}: line = camera move, bright dots = camera points. Move a point: stand there, look in the direction you want, /btb camera point {1} <nr>
+93	E	Slow motion off
+94	E	Slow motion x
+95	E	Slow motion x{0}
+96	D	Zoom zurückgesetzt
+97	D	Zoom läuft
+98	D	eine Fahrt braucht mindestens einen Punkt; sonst löschen
+99	D	Kamerafahrt „{0}“ gibt es nicht
+100	D	Verfolgungsziel „{0}“ ist nicht online
+101	D	intensity 0..5, duration >= 1, frequency 0..10
+102	D	Kreisziel „{0}“ ist nicht online
+103	D	{0} Kamerafahrt(en):
+104	D	{0}: {1}, Easing {2}, Tempo {3}, {4}
+105	E	● REC {0}  {1} points
+106	D	„points“ muss eine Liste sein
+107	D	eine Kamerafahrt braucht mindestens einen Punkt
+108	D	die Fahrt hat keine Punkte
+109	D	Spieler-Einstellung
+110	D	Punkt #
+111	D	Punkt #{0} muss ein Objekt sein
+112	D	Punkt #{0}: {1}
+113	D	speed muss > 0 und <= 100 sein
+114	D	unbekannter Fahrt-Modus „{0}“ (linear, smooth, bezier)
+115	D	„fov“ muss zwischen 1 und 170 liegen (oder 0 für Standard)
+116	D	„ticks“ muss mindestens 1 sein
+117	=
+118	=
+119	=
+120	E	Only operators can reset the set
+121	E	Set reset – ready for take {0}
+122	=
+123	=
+124	D	unbekannte Farbe „{0}“ (Name wie white/black oder Hex: #RRGGBB in JSON, RRGGBB ohne # in Befehlen)
+125	D	„direction“ muss north, south, east oder west sein
+126	D	„duration“ muss 1..6000 Ticks sein
+127	D	„effect“ muss eins davon sein: {0}
+128	D	„proximity“ muss 0..64 Blöcke sein
+129	D	Bereich zu groß ({0} Blöcke, höchstens {1})
+130	D	Bereich „{0}“ angelegt. Die Sicherung wird vor dem ersten Auslösen automatisch erstellt.
+131	D	Bereich „{0}“ gelöscht (seine Sicherung bleibt im Weltordner)
+132	D	Bereich „{0}“ ungültig: {1}
+133	D	Bereich „{0}“ wird schon zerstört
+134	D	Bereich „{0}“ aktualisiert
+135	D	Sicherung fehlgeschlagen ({0}); nichts wurde zerstört
+136	D	Sicherung fehlgeschlagen: {0}
+137	D	Sicherung erneuert ({0} Blöcke)
+138	D	Zerstört einen festgelegten Bereich. {id, effect? (collapse|explode|crumble|lava|fire|wall_burst)}
+139	D	Zerstörung ausgelöst
+140	D	Dimension nicht gefunden
+141	D	{0} Bereich(e) geladen
+142	D	Alle Bereiche wiederhergestellt ({0} Blöcke)
+143	D	{0} Block/Blöcke wiederhergestellt
+144	D	Stellt einen zerstörten Bereich aus seiner Sicherung wieder her. {id? (ohne = alle)}
+145	D	Unbekannter Bereich
+146	D	Unbekannter Bereich „{0}“
+147	D	Unbekannter Zerstörungsbereich „{0}“
+148	D	Unbekannter Effekt
+149	=
+150	=
+151	D	{0} Bereich(e): {1}
+152	=
+153	E	Cue list finished
+154	E	End: fade to black
+155	=
+156	E	Cut: fade to white
+157	E	Reset set
+158	E	Scene: heart_discovery
+159	E	Destruction: ruin
+160	D	[BTB] Szene gestartet
+161	E	 removed, terrain restored
+162	E	 · Overview: /btb scene start film_vorschau
+163	E	). Remove: /btb film remove
+164	D	Sicherung fehlgeschlagen, nichts gebaut: {0}
+165	E	Backup failed, nothing built: {0}
+166	D	Demo-Set gebaut. Probier: /btb scene start heart_discovery  ·  /btb destruction trigger ruin_tower  ·  komplettes Storyboard-Set: /btb film setup
+167	D	Demo-Set entfernt, Gelände wiederhergestellt
+168	E	The trailer needs the whole film set: /btb film setup
+169	E	Film set
+170	E	Film set built
+171	D	Wiederherstellen fehlgeschlagen: {0}
+172	E	Soul compass points to {0} {1} {2}
+173	D	Set zurückgesetzt ({0} Szene(n) zurückgesetzt, Portale geschlossen, Bereiche wiederhergestellt, Effekte gelöscht)
+174	E	Pieces: {0} · built: {1}
+175	E	Trailer export {0}×{1} @ {2} FPS starting – the song is laid under the video at the end
+176	E	Unknown
+177	E	Restore failed: {0}
+178	E	Always points to the heart
+179	E	stay loaded now
+180	E	already stands
+181	=
+182	E	” built
+183	E	▶ Trailer (2:05). Music: config/btb_cinematic/music/trailer.ogg (volume: “Jukebox” slider). Render distance ≥ 16!
+184	E	\nKey: Numpad 
+185	=
+186	E	  · on
+187	E	  · off
+188	E	  · running

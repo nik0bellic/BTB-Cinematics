@@ -56,6 +56,7 @@ public final class BtbCinematic implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
+		de.behindtheblocks.cinematic.util.I18n.loadSettings();
 		BtbNetworking.registerPayloadTypes();
 		BtbSounds.init();
 		BtbItems.init();
@@ -77,6 +78,7 @@ public final class BtbCinematic implements ModInitializer {
 		ENGINE.addModule(new de.behindtheblocks.cinematic.scene.SceneEditor());
 		ENGINE.addModule(new de.behindtheblocks.cinematic.director.WorldFxManager());
 		ENGINE.addModule(new de.behindtheblocks.cinematic.replay.ReplayManager());
+		ENGINE.addModule(new de.behindtheblocks.cinematic.studio.StudioManager());
 		ENGINE.addModule(new DirectorManager());
 		ENGINE.initialize();
 		registerClientCueEvent();

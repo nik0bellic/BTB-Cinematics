@@ -20,6 +20,7 @@ Fast alle Dateien entstehen auch per Befehl oder Director-Menü, ihr müsst sie 
 | `triggers/<id>.json` | Story-Auslöser | `/btb trigger reload` |
 | `director_cues.json` | Cue-Liste + Schnell-Slots (Client) → [DIRECTOR.md](DIRECTOR.md) | automatisch |
 | `obs.json` | OBS-Verbindung (Client) → [DIRECTOR.md](DIRECTOR.md) | Neustart |
+| `settings.json` | `{"language": "auto"}` – Sprache der Mod: `auto` (folgt der Minecraft-Sprache jedes Spielers), `de` oder `en`. Gilt serverweit. | `/btb sprache <auto\|de\|en>` |
 
 ## Kamera
 ```json

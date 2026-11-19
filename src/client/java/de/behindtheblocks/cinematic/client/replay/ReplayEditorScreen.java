@@ -33,7 +33,7 @@ public final class ReplayEditorScreen extends Screen {
 	private String lastState = "-";
 
 	public ReplayEditorScreen() {
-		super(Component.literal("Replay-Editor"));
+		super(de.behindtheblocks.cinematic.client.i18n.ClientI18n.c("Replay-Editor"));
 	}
 
 	@Override
@@ -71,7 +71,7 @@ public final class ReplayEditorScreen extends Screen {
 			rebuildWidgets();
 		});
 		takeLabelRight = rx - 2;
-		addLeft("◀", 14, rx - 4 - Math.min(90, font.width(ReplayEditor.name) + 4), y, "Vorheriges Replay", () -> {
+		addLeft("◀", 14, rx - 4 - Math.min(90, font.width(de.behindtheblocks.cinematic.client.i18n.ClientI18n.t(ReplayEditor.name)) + 4), y, "Vorheriges Replay", () -> {
 			ReplayEditor.switchTake(-1);
 			viewStart = 0;
 			viewEnd = ReplayEditor.length();
@@ -110,17 +110,34 @@ public final class ReplayEditorScreen extends Screen {
 				ReplayEditor.seek(sel.t);
 				ReplayEditor.cmd(String.format(Locale.ROOT, "tp @s %.3f %.3f %.3f %.2f %.2f", sel.x, sel.y - 1.62, sel.z, sel.yaw, sel.pitch));
 			});
-			add("✕", 16, x, y, "Keyframe löschen (Entf)", this::deleteSelected);
+			x = add("✕", 16, x, y, "Keyframe löschen (Entf)", this::deleteSelected);
 		}
+		// multicam: edit camera A–D, cut to it at the play head
+		int mx = width - 8;
+		mx = addLeft("Schnitte ✕", 58, mx, y, "Alle Schnitte löschen (dann zeigt der Film die Kamera, die du gerade bearbeitest)", () -> {
+			ReplayEditor.CUTS.clear();
+			ReplayEditor.save();
+			rebuildWidgets();
+		});
+		mx = addLeft("✂ → " + ReplayEditor.CAM_NAMES[ReplayEditor.activeCam], 44, mx - 2, y,
+				"Schnitt: ab der Abspielposition zeigt der Film Kamera " + ReplayEditor.CAM_NAMES[ReplayEditor.activeCam], () -> {
+					ReplayEditor.cutHere(ReplayEditor.time(0));
+					rebuildWidgets();
+				});
+		addLeft("Kamera " + ReplayEditor.CAM_NAMES[ReplayEditor.activeCam] + " ▸", 56, mx - 2, y,
+				"Mehrere Kameras: jede hat eigene Keyframes. Klicken = nächste Kamera bearbeiten (A–D)", () -> {
+					ReplayEditor.switchCam((ReplayEditor.activeCam + 1) % ReplayEditor.CAM_NAMES.length);
+					rebuildWidgets();
+				});
 
 		// row 4: export
 		x = 8;
 		y = y0 + 90;
-		nameBox = new EditBox(font, x, y, 70, 16, Component.literal("Name"));
+		nameBox = new EditBox(font, x, y, 70, 16, de.behindtheblocks.cinematic.client.i18n.ClientI18n.c("Name"));
 		nameBox.setMaxLength(40);
 		nameBox.setValue(ReplayEditor.exportName);
 		nameBox.setResponder(v -> ReplayEditor.exportName = v);
-		nameBox.setTooltip(Tooltip.create(Component.literal("Name der Datei: .minecraft/btb_export/<Name>/<Name>.mp4")));
+		nameBox.setTooltip(Tooltip.create(de.behindtheblocks.cinematic.client.i18n.ClientI18n.c("Name der Datei: .minecraft/btb_export/<Name>/<Name>.mp4")));
 		addRenderableWidget(nameBox);
 		x += 74;
 		x = add(ReplayEditor.RESOLUTIONS[ReplayEditor.res].toUpperCase(Locale.ROOT).replace("P", "p"), 40, x, y, "Auflösung", () -> {
@@ -183,8 +200,8 @@ public final class ReplayEditorScreen extends Screen {
 	}
 
 	private int add(String label, int w, int x, int y, String tip, Runnable r) {
-		Button b = Button.builder(Component.literal(label), btn -> r.run()).bounds(x, y, w, 16).build();
-		b.setTooltip(Tooltip.create(Component.literal(tip)));
+		Button b = Button.builder(de.behindtheblocks.cinematic.client.i18n.ClientI18n.c(label), btn -> r.run()).bounds(x, y, w, 16).build();
+		b.setTooltip(Tooltip.create(de.behindtheblocks.cinematic.client.i18n.ClientI18n.c(tip)));
 		addRenderableWidget(b);
 		return x + w + 2;
 	}
@@ -377,10 +394,10 @@ public final class ReplayEditorScreen extends Screen {
 		g.fill(0, y0, width, y0 + 1, 0xFFFF7A30);
 		// take name + time
 		String take = ReplayEditor.name;
-		int nameW = Math.min(90, font.width(take));
-		g.text(font, font.plainSubstrByWidth(take, nameW), takeLabelRight - nameW, y0 + 10, 0xFFFFE0C0, false);
+		int nameW = Math.min(90, font.width(de.behindtheblocks.cinematic.client.i18n.ClientI18n.t(take)));
+		g.text(font, de.behindtheblocks.cinematic.client.i18n.ClientI18n.t(font.plainSubstrByWidth(de.behindtheblocks.cinematic.client.i18n.ClientI18n.t(take), nameW)), takeLabelRight - nameW, y0 + 10, 0xFFFFE0C0, false);
 		String clock = ReplayEditor.clock(now) + " / " + ReplayEditor.clock(len);
-		g.text(font, clock, 8 + 18 + 20 + 22 + 20 + 18 + 10 + 4 + 52 + 8, y0 + 10, 0xFFFFFFFF, false);
+		g.text(font, de.behindtheblocks.cinematic.client.i18n.ClientI18n.t(clock), 8 + 18 + 20 + 22 + 20 + 18 + 10 + 4 + 52 + 8, y0 + 10, 0xFFFFFFFF, false);
 
 		// timeline
 		g.fill(tlX, tlY, tlX + tlW, tlY + tlH, 0xFF1C1C22);
@@ -393,8 +410,8 @@ public final class ReplayEditorScreen extends Screen {
 		for (double t = Math.ceil(viewStart / step) * step; t <= viewEnd + 1e-6; t += step) {
 			int x = toX(t);
 			g.fill(x, tlY, x + 1, tlY + 3, 0xFF707070);
-			if (x + 2 + font.width("0:00") < tlX + tlW) {
-				g.text(font, ReplayEditor.clock(t).replace(".0", ""), x + 2, tlY + 2, 0xFF808080, false);
+			if (x + 2 + font.width(de.behindtheblocks.cinematic.client.i18n.ClientI18n.t("0:00")) < tlX + tlW) {
+				g.text(font, de.behindtheblocks.cinematic.client.i18n.ClientI18n.t(ReplayEditor.clock(t).replace(".0", "")), x + 2, tlY + 2, 0xFF808080, false);
 			}
 		}
 		// actor / creature tracks
@@ -427,6 +444,24 @@ public final class ReplayEditorScreen extends Screen {
 					default -> 0xFF909090;
 				};
 				g.fill(x, tlY + 28, x + 1, tlY + tlH, col);
+			}
+		}
+		// multicam cuts: a coloured band per camera along the top of the timeline
+		if (!ReplayEditor.CUTS.isEmpty()) {
+			int[] camCol = {0xFFFFB040, 0xFF40C0FF, 0xFFC070FF, 0xFF70E070};
+			for (int ci = 0; ci < ReplayEditor.CUTS.size(); ci++) {
+				ReplayEditor.Cut cut = ReplayEditor.CUTS.get(ci);
+				double end = ci + 1 < ReplayEditor.CUTS.size() ? ReplayEditor.CUTS.get(ci + 1).t() : ReplayEditor.length();
+				double start = ci == 0 ? 0 : cut.t();
+				int ax = Math.max(tlX, toX(start)), bx = Math.min(tlX + tlW, toX(end));
+				if (bx > ax) {
+					g.fill(ax, tlY + 1, bx, tlY + 4, camCol[cut.cam() % camCol.length]);
+					g.text(font, ReplayEditor.CAM_NAMES[cut.cam()], ax + 2, tlY + 4, camCol[cut.cam() % camCol.length], false);
+				}
+				int cx = toX(cut.t());
+				if (cx >= tlX && cx <= tlX + tlW) {
+					g.fill(cx, tlY, cx + 1, tlY + tlH, 0xC0FFFFFF);
+				}
 			}
 		}
 		// camera keyframes + their path segments
@@ -463,26 +498,26 @@ public final class ReplayEditorScreen extends Screen {
 		Keyframe sel = selected();
 		String info = sel == null ? (ReplayEditor.KEYS.isEmpty() ? "Keine Keyframes – fliegen (✈), Blickwinkel suchen, K drücken" : ReplayEditor.KEYS.size() + " Keyframes · klicken zum Auswählen, ziehen zum Verschieben, Rechtsklick löscht")
 				: String.format(Locale.ROOT, "◆ %d/%d · %s · FOV %.0f · Roll %.0f°", ReplayEditor.selected + 1, ReplayEditor.KEYS.size(), ReplayEditor.clock(sel.t), sel.fov, sel.roll);
-		int infoX = sel == null ? 8 + 62 + 2 + 66 + 8 : width - 8 - font.width(info);
+		int infoX = sel == null ? 8 + 62 + 2 + 66 + 8 : width - 8 - font.width(de.behindtheblocks.cinematic.client.i18n.ClientI18n.t(info));
 		if (sel == null || infoX > 8 + 64 + 68 + 6 + 58 + 30 + 30 + 18 + 18 + 36 + 28 + 18) {
-			g.text(font, font.plainSubstrByWidth(info, width - infoX - 8), infoX, y0 + 72, 0xFFBBBBBB, false);
+			g.text(font, de.behindtheblocks.cinematic.client.i18n.ClientI18n.t(font.plainSubstrByWidth(de.behindtheblocks.cinematic.client.i18n.ClientI18n.t(info), width - infoX - 8)), infoX, y0 + 72, 0xFFBBBBBB, false);
 		}
 		// export info
 		double dur = ReplayEditor.outPoint() - ReplayEditor.in;
 		String ex = String.format(Locale.ROOT, "%s → %s (%.1f s, %d Bilder)", ReplayEditor.clock(ReplayEditor.in), ReplayEditor.clock(ReplayEditor.outPoint()),
 				dur, (int) Math.round(dur * ReplayEditor.FPS[ReplayEditor.fps]));
 		if (exportInfoX + 20 < width) {
-			g.text(font, font.plainSubstrByWidth(ex, width - exportInfoX - 8), exportInfoX, y0 + 94, 0xFF8AA8FF, false);
+			g.text(font, de.behindtheblocks.cinematic.client.i18n.ClientI18n.t(font.plainSubstrByWidth(de.behindtheblocks.cinematic.client.i18n.ClientI18n.t(ex), width - exportInfoX - 8)), exportInfoX, y0 + 94, 0xFF8AA8FF, false);
 		}
 		// help line above the panel
 		String help = "Leertaste Play/Pause · ←/→ 1 s · K Keyframe · J Kamera · I/P In/Out · Mausrad: Zoom · Rechtsklick: In/Out bzw. Keyframe löschen";
 		String st = ReplayEditor.currentStatus();
 		if (st != null) {
 			g.fill(0, y0 - 14, width, y0, ReplayEditor.statusError ? 0xC0400000 : 0xA0003000);
-			g.text(font, font.plainSubstrByWidth((ReplayEditor.statusError ? "⚠ " : "✔ ") + st, width - 16), 8, y0 - 11,
+			g.text(font, de.behindtheblocks.cinematic.client.i18n.ClientI18n.t(font.plainSubstrByWidth(de.behindtheblocks.cinematic.client.i18n.ClientI18n.t((ReplayEditor.statusError ? "⚠ " : "✔ ") + st), width - 16)), 8, y0 - 11,
 					ReplayEditor.statusError ? 0xFFFFB0B0 : 0xFFB0FFB0, true);
 		} else {
-			g.text(font, font.plainSubstrByWidth(help, width - 16), 8, y0 - 11, 0xFFCCCCCC, true);
+			g.text(font, de.behindtheblocks.cinematic.client.i18n.ClientI18n.t(font.plainSubstrByWidth(de.behindtheblocks.cinematic.client.i18n.ClientI18n.t(help), width - 16)), 8, y0 - 11, 0xFFCCCCCC, true);
 		}
 		super.extractRenderState(g, mouseX, mouseY, a);
 	}

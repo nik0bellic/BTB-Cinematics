@@ -201,6 +201,7 @@ public final class CameraManager implements CinematicModule, CommandContributor 
 	private void save(CameraPath path) {
 		try {
 			Files.createDirectories(presetDirectory());
+			de.behindtheblocks.cinematic.studio.Versions.before(presetDirectory().resolve(path.id() + ".json"));
 			Files.writeString(presetDirectory().resolve(path.id() + ".json"),
 					new GsonBuilder().setPrettyPrinting().create().toJson(path.toJson()), StandardCharsets.UTF_8);
 		} catch (IOException e) {
@@ -216,6 +217,29 @@ public final class CameraManager implements CinematicModule, CommandContributor 
 
 	public Collection<String> presetIds() {
 		return presets.keySet();
+	}
+
+	/** For the director: every path with its points (seconds to the next point) and whether this player sees its preview. */
+	public com.google.gson.JsonObject menuInfo(ServerPlayer viewer) {
+		com.google.gson.JsonObject o = new com.google.gson.JsonObject();
+		for (CameraPath path : presets.values()) {
+			com.google.gson.JsonObject e = new com.google.gson.JsonObject();
+			com.google.gson.JsonArray pts = new com.google.gson.JsonArray();
+			for (CameraPoint pt : path.points()) {
+				com.google.gson.JsonArray a = new com.google.gson.JsonArray();
+				a.add(Math.round(pt.x() * 10) / 10.0);
+				a.add(Math.round(pt.y() * 10) / 10.0);
+				a.add(Math.round(pt.z() * 10) / 10.0);
+				a.add(Math.round(pt.yaw()));
+				a.add(pt.ticks() / 20.0);
+				pts.add(a);
+			}
+			e.add("points", pts);
+			e.addProperty("seconds", path.durationTicks() / 20.0);
+			e.addProperty("preview", previews.stream().anyMatch(pv -> pv[0] == viewer && path.id().equals(pv[1])));
+			o.add(path.id(), e);
+		}
+		return o;
 	}
 
 	public java.util.Optional<CameraPath> preset(String id) {
@@ -696,8 +720,14 @@ public final class CameraManager implements CinematicModule, CommandContributor 
 						.then(argument("blocks", FloatArgumentType.floatArg(0, 80)).executes(c -> edit(c, (path, i) ->
 								replace(path, i, path.points().get(i).withFocus(FloatArgumentType.getFloat(c, "blocks")))))))));
 		// preview <path> [seconds]: the move as a glowing line in the world, points as bright markers
-		cam.then(literal("preview").then(argument("id", StringArgumentType.word()).suggests(ids)
+		cam.then(literal("preview").then(literal("off").executes(c -> {
+					ServerPlayer me = c.getSource().getPlayerOrException();
+					previews.removeIf(pv -> pv[0] == me);
+					return Feedback.ok(c.getSource(), "Pfad-Vorschau aus");
+				}))
+				.then(argument("id", StringArgumentType.word()).suggests(ids)
 				.executes(c -> preview(c, 20))
+				.then(literal("an").executes(c -> preview(c, 3600)))
 				.then(argument("seconds", DoubleArgumentType.doubleArg(1, 300)).executes(c -> preview(c, DoubleArgumentType.getDouble(c, "seconds"))))));
 		// smooth <path> [strength 1..5]: stabiliser for hand-flown moves (removes mouse jitter)
 		cam.then(literal("smooth").then(argument("id", StringArgumentType.word()).suggests(ids)
@@ -722,7 +752,7 @@ public final class CameraManager implements CinematicModule, CommandContributor 
 		cam.then(literal("info").then(argument("id", StringArgumentType.word()).suggests(ids).executes(c -> {
 			CameraPath path = presets.get(StringArgumentType.getString(c, "id"));
 			if (path == null) {
-				return Feedback.fail(c.getSource(), "Unknown camera preset");
+				return Feedback.fail(c.getSource(), "Unknown camera preset" + de.behindtheblocks.cinematic.studio.Suggest.hint(StringArgumentType.getString(c, "id"), presets.keySet()));
 			}
 			Feedback.ok(c.getSource(), path.id() + ": " + path.mode().id() + ", easing " + path.easing().id() + ", speed "
 					+ path.speed() + ", " + String.format(Locale.ROOT, "%.1f s", path.durationTicks() / 20.0));
@@ -749,9 +779,10 @@ public final class CameraManager implements CinematicModule, CommandContributor 
 		cam.then(literal("delete").then(argument("id", StringArgumentType.word()).suggests(ids).executes(c -> {
 			String id = StringArgumentType.getString(c, "id");
 			if (presets.remove(id) == null) {
-				return Feedback.fail(c.getSource(), "Unknown camera preset");
+				return Feedback.fail(c.getSource(), "Unknown camera preset" + de.behindtheblocks.cinematic.studio.Suggest.hint(StringArgumentType.getString(c, "id"), presets.keySet()));
 			}
 			try {
+				de.behindtheblocks.cinematic.studio.Versions.before(presetDirectory().resolve(id + ".json"));
 				Files.deleteIfExists(presetDirectory().resolve(id + ".json"));
 			} catch (IOException e) {
 				LOG.error("Could not delete preset file", e);
@@ -956,9 +987,11 @@ public final class CameraManager implements CinematicModule, CommandContributor 
 	private int preview(CommandContext<CommandSourceStack> c, double seconds) throws CommandSyntaxException {
 		CameraPath path = presets.get(StringArgumentType.getString(c, "id"));
 		if (path == null) {
-			return Feedback.fail(c.getSource(), "Unknown camera preset");
+			return Feedback.fail(c.getSource(), "Unknown camera preset" + de.behindtheblocks.cinematic.studio.Suggest.hint(StringArgumentType.getString(c, "id"), presets.keySet()));
 		}
-		previews.add(new Object[] {c.getSource().getPlayerOrException(), path, (int) Math.round(seconds * 20)});
+		ServerPlayer viewer = c.getSource().getPlayerOrException();
+		previews.removeIf(pv -> pv[0] == viewer && path.id().equals(pv[1]));
+		previews.add(new Object[] {viewer, path.id(), (int) Math.round(seconds * 20)}); // by id: edits show at once
 		return Feedback.ok(c.getSource(), "Vorschau " + path.id() + ": Linie = Fahrt, helle Punkte = Kamerapunkte. Punkt verschieben: "
 				+ "dorthin stellen, in die gewünschte Richtung schauen, /btb camera point " + path.id() + " <nr>");
 	}
@@ -968,10 +1001,10 @@ public final class CameraManager implements CinematicModule, CommandContributor 
 		while (it.hasNext()) {
 			Object[] pv = it.next();
 			ServerPlayer p = (ServerPlayer) pv[0];
-			CameraPath path = (CameraPath) pv[1];
+			CameraPath path = presets.get((String) pv[1]);
 			int left = (int) pv[2] - 1;
 			pv[2] = left;
-			if (left <= 0 || p.isRemoved()) {
+			if (left <= 0 || p.isRemoved() || path == null) {
 				it.remove();
 				continue;
 			}
@@ -1079,7 +1112,7 @@ public final class CameraManager implements CinematicModule, CommandContributor 
 	private int play(CommandContext<CommandSourceStack> c, boolean hasTargets, Entity lookAt) throws CommandSyntaxException {
 		CameraPath path = presets.get(StringArgumentType.getString(c, "id"));
 		if (path == null) {
-			return Feedback.fail(c.getSource(), "Unknown camera preset");
+			return Feedback.fail(c.getSource(), "Unknown camera preset" + de.behindtheblocks.cinematic.studio.Suggest.hint(StringArgumentType.getString(c, "id"), presets.keySet()));
 		}
 		if (path.points().size() < 2) {
 			return Feedback.fail(c.getSource(), "Preset needs at least 2 points");
@@ -1108,7 +1141,7 @@ public final class CameraManager implements CinematicModule, CommandContributor 
 	private int edit(CommandContext<CommandSourceStack> c, PointEdit edit) {
 		CameraPath path = presets.get(StringArgumentType.getString(c, "id"));
 		if (path == null) {
-			return Feedback.fail(c.getSource(), "Unknown camera preset");
+			return Feedback.fail(c.getSource(), "Unknown camera preset" + de.behindtheblocks.cinematic.studio.Suggest.hint(StringArgumentType.getString(c, "id"), presets.keySet()));
 		}
 		int index = IntegerArgumentType.getInteger(c, "index") - 1;
 		if (index >= path.points().size()) {
@@ -1127,7 +1160,7 @@ public final class CameraManager implements CinematicModule, CommandContributor 
 	private int editPath(CommandContext<CommandSourceStack> c, java.util.function.UnaryOperator<CameraPath> op) {
 		CameraPath path = presets.get(StringArgumentType.getString(c, "id"));
 		if (path == null) {
-			return Feedback.fail(c.getSource(), "Unknown camera preset");
+			return Feedback.fail(c.getSource(), "Unknown camera preset" + de.behindtheblocks.cinematic.studio.Suggest.hint(StringArgumentType.getString(c, "id"), presets.keySet()));
 		}
 		try {
 			CameraPath updated = op.apply(path);

@@ -1,0 +1,460 @@
+# Texts the scanner cannot see (built across several statements): source	german	english
+Seite {0}/{1}	Seite {0}/{1}	Page {0}/{1}
+{0} Szene(n) aktiv	{0} Szene(n) aktiv	{0} scene(s) active
+Zeigen als {0} (0 Sek. = bleibt stehen)	Zeigen als {0} (0 Sek. = bleibt stehen)	Show as {0} (0 s = stays on screen)
+Neue {0}-Liste anlegen	Neue {0}-Liste anlegen	Create a new {0} list
+Ab jetzt landet jede Aktion (Klick, Befehl, Cue) mit genauer Zeit in der Szene. Menü schließen und loslegen.	Ab jetzt landet jede Aktion (Klick, Befehl, Cue) mit genauer Zeit in der Szene. Menü schließen und loslegen.	From now on every action (click, command, cue) lands in the scene with its exact time. Close the menu and get going.
+Szene auf diese Numpad-Taste legen: beim Filmen ein Druck, und alles läuft ab.\nErsetzt: {0}	Szene auf diese Numpad-Taste legen: beim Filmen ein Druck, und alles läuft ab.\nErsetzt: {0}	Assign the scene to this numpad key: one press while filming, and everything plays.\nReplaces: {0}
+Tipp: oben rechts „Klick → Szene“ wählen und in den anderen Reitern klicken – alles landet bei der Zeit „Bei“. Oder „Live aufnehmen“ und einfach inszenieren.	Tipp: oben rechts „Klick → Szene“ wählen und in den anderen Reitern klicken – alles landet bei der Zeit „Bei“. Oder „Live aufnehmen“ und einfach inszenieren.	Tip: choose “Click → scene” at the top right and click in the other tabs – everything lands at the time “At”. Or “Record live” and just direct.
+Testblitz	Testblitz	Test flash
+Ambience {0}{1}	Ambiente {0}{1}	Ambience {0}{1}
+INACTIVE	INAKTIV	INACTIVE
+KEY_DETECTED	SCHLÜSSEL ERKANNT	KEY DETECTED
+CHARGING	LÄDT	CHARGING
+ACTIVE	AKTIV	ACTIVE
+Shake	Wackeln	Shake
+Reveal	Enthüllen	Reveal
+Explode	Explodieren	Explode
+Stop	Stopp	Stop
+{0} Keyframes · klicken zum Auswählen, ziehen zum Verschieben, Rechtsklick löscht	{0} Keyframes · klicken zum Auswählen, ziehen zum Verschieben, Rechtsklick löscht	{0} keyframes · click to select, drag to move, right-click deletes
+Language: {0}	Sprache: {0}	Language: {0}
+● Replay „{0}“ nimmt auf	● Replay „{0}“ nimmt auf	● Recording replay "{0}"
+■ Stopp & speichern	■ Stopp & speichern	■ Stop & save
+▶ Replay „{0}“ läuft	▶ Replay „{0}“ läuft	▶ Replay "{0}" playing
+Pause / weiter	Pause / weiter	Pause / resume
+Replays: noch keine – oben Namen eintippen und „● Aufnehmen“	Replays: noch keine – oben Namen eintippen und „● Aufnehmen“	Replays: none yet – type a name above and click "● Record"
+Replay %s · %.1f s	Replay %s · %.1f s	Replay %s · %.1f s
+Abspielen: Darsteller werden kurz Zuschauer, Puppen spielen	Abspielen: Darsteller werden kurz Zuschauer, Puppen spielen	Play: actors briefly become spectators, puppets act
+Ganzes Replay als Video exportieren (1080p, 60 FPS)	Ganzes Replay als Video exportieren (1080p, 60 FPS)	Export the whole replay as video (1080p, 60 FPS)
+Ganzes Replay als Video exportieren (4K, 60 FPS)	Ganzes Replay als Video exportieren (4K, 60 FPS)	Export the whole replay as video (4K, 60 FPS)
+Sicher?	Sicher?	Sure?
+Nochmal klicken = endgültig löschen	Nochmal klicken = endgültig löschen	Click again = delete for good
+Replay löschen	Replay löschen	Delete replay
+Replay „{0}“ gelöscht	Replay „{0}“ gelöscht	Replay "{0}" deleted
+Nochmal ✕ bei „{0}“ = löschen	Nochmal ✕ bei „{0}“ = löschen	Click ✕ at "{0}" again = delete
+Replay	Replay	Replay
+Name, z. B. take2	Name, z. B. take2	Name, e.g. take2
+● Aufnehmen	● Aufnehmen	● Record
+Alle Darsteller, Kreaturen, Szenen und Ereignisse aufnehmen	Alle Darsteller, Kreaturen, Szenen und Ereignisse aufnehmen	Record all actors, creatures, scenes and events
+Erst einen Namen eintippen	Erst einen Namen eintippen	Type a name first
+Aufnahme beenden und speichern / Replay stoppen	Aufnahme beenden und speichern / Replay stoppen	Stop and save the recording / stop the replay
+Replay-Editor öffnen (F6)	Replay-Editor öffnen (F6)	Open replay editor (F6)
+✂ Editor	✂ Editor	✂ Editor
+Zurück zum eigenen Blick (Fahrt, Orbit, Verfolger, Ego …)	Zurück zum eigenen Blick (Fahrt, Orbit, Verfolger, Ego …)	Back to your own view (path, orbit, follow, ego …)
+Stop alle	Stop alle	Stop all
+Kamera bei allen Spielern beenden	Kamera bei allen Spielern beenden	Stop the camera for all players
+Orbit (nächster Darsteller)	Orbit (nächster Darsteller)	Orbit (nearest actor)
+Nah 10 s	Nah 10 s	Close 10 s
+Weit 16 s	Weit 16 s	Wide 16 s
+Um mich 12 s	Um mich 12 s	Around me 12 s
+Kreist in 4 Blöcken Abstand um ihn	Kreist in 4 Blöcken Abstand um ihn	Circles around them at 4 blocks
+Kreist um die Stelle, an der du stehst	Kreist um die Stelle, an der du stehst	Circles around the spot where you stand
+Verfolger (nächster Darsteller)	Verfolger (nächster Darsteller)	Follow cam (nearest actor)
+Seite	Seite	Side
+Seitenansicht, weich nachgeführt	Seitenansicht, weich nachgeführt	Side view, smoothly following
+Hinten	Hinten	Behind
+Oben	Oben	Top
+Fest	Fest	Fixed
+Kamera bleibt stehen und schaut ihm nach	Kamera bleibt stehen und schaut ihm nach	Camera stays put and watches them
+Auto-Regie	Auto-Regie	Auto director
+Wechselt alle 5 s die Perspektive (harte Schnitte)	Wechselt alle 5 s die Perspektive (harte Schnitte)	Switches perspective every 5 s (hard cuts)
++ Neuer Pfad	+ Neuer Pfad	+ New path
+Neuer Kamerapfad, aktuelle Ansicht = Punkt 1	Neuer Kamerapfad, aktuelle Ansicht = Punkt 1	New camera path, current view = point 1
+Fahrt stoppen	Fahrt stoppen	Stop path
+Zum Startpunkt teleportieren	Zum Startpunkt teleportieren	Teleport to the start point
+Pfad löschen	Pfad löschen	Delete path
+Pfad „{0}“ gelöscht	Pfad „{0}“ gelöscht	Path "{0}" deleted
+Replay „{0}“ nicht gefunden	Replay „{0}“ nicht gefunden	Replay "{0}" not found
+Replay „{0}“ ist leer	Replay „{0}“ ist leer	Replay "{0}" is empty
+§8Shift: Befehl zeigen	§8Shift: Befehl zeigen	§8Shift: show command
+    + Punkt anhängen (deine Ansicht)	    + Punkt anhängen (deine Ansicht)	    + Add point (your view)
+    Punkt {0} · {1}	    Punkt {0} · {1}	    Point {0} · {1}
+Punkt {0} · {1} s bis zum nächsten	Punkt {0} · {1} s bis zum nächsten	Point {0} · {1} s to the next
+Punkt {0} · Ende	Punkt {0} · Ende	Point {0} · end
++ Hier spawnen	+ Hier spawnen	+ Spawn here
++ Shot	+ Shot	+ Shot
++ Zeile	+ Zeile	+ Line
+/{0} {1} – passt hier nicht. Erwartet: {2}	/{0} {1} – passt hier nicht. Erwartet: {2}	/{0} {1} – doesn't fit here. Expected: {2}
+/{0} {1} – {2}. Erwartet: {3}	/{0} {1} – {2}. Erwartet: {3}	/{0} {1} – {2}. Expected: {3}
+/{0} – da fehlt noch etwas. Möglich: {1}	/{0} – da fehlt noch etwas. Möglich: {1}	/{0} – something is missing. Possible: {1}
+„{0}“ gibt es bei /{1} nicht{2} Möglich: {3}	„{0}“ gibt es bei /{1} nicht{2} Möglich: {3}	"{0}" doesn't exist for /{1}{2} Possible: {3}
+ – meintest du „{0}“?	 – meintest du „{0}“?	 – did you mean "{0}"?
+Unknown camera preset{0}	Unknown camera preset{0}	Unknown camera preset{0}
+Unknown scene '{0}'{1}	Unknown scene '{0}'{1}	Unknown scene '{0}'{1}
+1. Aufnahme starten	1. Aufnahme starten	1. Start recording
+1. Eine Szene anlegen	1. Eine Szene anlegen	1. Create a scene
+1. Pfad anlegen	1. Pfad anlegen	1. Create a path
+2. Kamera festlegen	2. Kamera festlegen	2. Choose the camera
+2. Punkte setzen	2. Punkte setzen	2. Set points
+2. Spielen	2. Spielen	2. Play
+3. Ansehen	3. Ansehen	3. Watch
+3. Aufnahme beenden	3. Aufnahme beenden	3. Stop recording
+3. Bild gestalten	3. Bild gestalten	3. Style the picture
+4. Aufnehmen	4. Aufnehmen	4. Record
+4. Feinschliff	4. Feinschliff	4. Fine-tune
+4. Kamera setzen	4. Kamera setzen	4. Set the camera
+5. Exportieren	5. Exportieren	5. Export
+5. Fertig	5. Fertig	5. Done
+Abblende bei 9 s	Abblende bei 9 s	Fade out at 9 s
+Abend	Abend	Evening
+Abspielen als Schritt in die Baukasten-Szene bei der Zeit „Bei“	Abspielen als Schritt in die Baukasten-Szene bei der Zeit „Bei“	Add "play" as a step to the builder scene at the time "At"
+Aktion	Aktion	Action
+Aktion des Shots erneut starten	Aktion des Shots erneut starten	Run the shot's action again
+Aktualisieren	Aktualisieren	Refresh
+Aktuelle Ansicht als Bild für diesen Shot (Menü schließt kurz)	Aktuelle Ansicht als Bild für diesen Shot (Menü schließt kurz)	Current view as picture for this shot (menu closes briefly)
+Aktueller Shot ist im Kasten → nächster offener Shot	Aktueller Shot ist im Kasten → nächster offener Shot	Current shot is in the can → next open shot
+Alle Darsteller sehen: „In 3 … 2 … 1: Text“	Alle Darsteller sehen: „In 3 … 2 … 1: Text“	All actors see: "In 3 … 2 … 1: text"
+Alle Haken entfernen	Alle Haken entfernen	Remove all ticks
+Alle Linien in der Welt ausblenden	Alle Linien in der Welt ausblenden	Hide all lines in the world
+Alle Schnitte löschen (dann zeigt der Film die Kamera, die du gerade bearbeitest)	Alle Schnitte löschen (dann zeigt der Film die Kamera, die du gerade bearbeitest)	Delete all cuts (the film then shows the camera you are editing)
+Alle Shots im Kasten 🎬	Alle Shots im Kasten 🎬	All shots in the can 🎬
+Alle laufen zu dir (Formation bleibt)	Alle laufen zu dir (Formation bleibt)	Everyone walks to you (formation kept)
+Alle offen	Alle offen	All open
+Alle schauen zu dir	Alle schauen zu dir	Everyone looks at you
+Alles aufnehmen, später beliebig oft filmen	Alles aufnehmen, später beliebig oft filmen	Record everything, film it as often as you like later
+Alles gestoppt (Szenen, Kamera, Effekte, Zeitlupe, Ton, Dialog) – das Set bleibt, wie es ist	Alles gestoppt (Szenen, Kamera, Effekte, Zeitlupe, Ton, Dialog) – das Set bleibt, wie es ist	Everything stopped (scenes, camera, effects, slow motion, sound, dialog) – the set stays as it is
+Alles, was ab jetzt passiert (Darsteller, Kreaturen, Szenen, Effekte), wird gespeichert.	Alles, was ab jetzt passiert (Darsteller, Kreaturen, Szenen, Effekte), wird gespeichert.	Everything that happens from now on (actors, creatures, scenes, effects) is saved.
+Alles, was jetzt passiert, als Replay speichern (danach beliebig oft filmen)	Alles, was jetzt passiert, als Replay speichern (danach beliebig oft filmen)	Save everything that happens now as a replay (then film it as often as you like)
+Als Schritt in die Baukasten-Szene bei der Zeit „Bei“	Als Schritt in die Baukasten-Szene bei der Zeit „Bei“	As a step in the builder scene at the time "At"
+Als bearbeitbare Szene „vorlage_{0}“ anlegen und im Baukasten öffnen	Als bearbeitbare Szene „vorlage_{0}“ anlegen und im Baukasten öffnen	Create as editable scene "vorlage_{0}" and open it in the builder
+Als gedreht abhaken	Als gedreht abhaken	Tick as filmed
+Ansicht: Einsteiger	Ansicht: Einsteiger	View: beginner
+Ansicht: Profi	Ansicht: Profi	View: pro
+Assistent	Assistent	Wizard
+Assistent beenden	Assistent beenden	Close wizard
+Assistent fertig	Assistent fertig	Wizard done
+Assistenten	Assistenten	Wizards
+Assistenten (Schritt für Schritt)	Assistenten (Schritt für Schritt)	Wizards (step by step)
+Aufnahme beenden: Pfad wird geglättet und gespeichert	Aufnahme beenden: Pfad wird geglättet und gespeichert	Stop recording: the path is smoothed and saved
+Aus Schwarz, Kamera steigt hinter dem Darsteller auf, dumpfer Ton, Blitz (10 s)	Aus Schwarz, Kamera steigt hinter dem Darsteller auf, dumpfer Ton, Blitz (10 s)	From black, camera rises behind the actor, muffled sound, flash (10 s)
+Auto-Regie auf den nächsten Darsteller	Auto-Regie auf den nächsten Darsteller	Auto director on the nearest actor
+Beim ersten offenen Shot beginnen	Beim ersten offenen Shot beginnen	Start with the first open shot
+Bekommt Hinweise („In 3 s: nach links“) eingeblendet	Bekommt Hinweise („In 3 s: nach links“) eingeblendet	Gets cues on screen ("In 3 s: to the left")
+Bereit · nichts läuft	Bereit · nichts läuft	Ready · nothing running
+Bild & Ton	Bild & Ton	Picture & sound
+Bildgenauer Export als Video (ffmpeg nötig).	Bildgenauer Export als Video (ffmpeg nötig).	Frame-exact export as video (needs ffmpeg).
+Crew & Rollen	Crew & Rollen	Crew & roles
+Darsteller	Darsteller	Actor
+Darsteller (Hinweise erscheinen hier oben)	Darsteller (Hinweise erscheinen hier oben)	Actor (cues appear up here)
+Das Replay „take“ wird gespeichert.	Das Replay „take“ wird gespeichert.	The replay "take" is saved.
+Dauer	Dauer	Length
+Deine Rolle: {0}	Deine Rolle: {0}	Your role: {0}
+Deine Rolle: Regie	Deine Rolle: Regie	Your role: director
+Deine Rolle: Kamera (Kamerafahrten laufen bei dir)	Deine Rolle: Kamera (Kamerafahrten laufen bei dir)	Your role: camera (camera moves run on your screen)
+Deine Rolle: Darsteller (Hinweise erscheinen hier oben)	Deine Rolle: Darsteller (Hinweise erscheinen hier oben)	Your role: actor (cues appear up here)
+Deutscher Text	Deutscher Text	German text
+Dialog gelöscht	Dialog gelöscht	Dialog deleted
+Dialog gestoppt	Dialog gestoppt	Dialog stopped
+Dialog stoppen	Dialog stoppen	Stop dialog
+Dialog	Dialog	Dialog
+Dialog „{0}“ geändert ({1} Zeilen)	Dialog „{0}“ geändert ({1} Zeilen)	Dialog "{0}" changed ({1} lines)
+Dialog „{0}“ ist leer	Dialog „{0}“ ist leer	Dialog "{0}" is empty
+Dialog „{0}“ ist leer – Zeile hinzufügen: /btb dialog {1} add <sek> <dauer> Sprecher | Text | English	Dialog „{0}“ ist leer – Zeile hinzufügen: /btb dialog {1} add <sek> <dauer> Sprecher | Text | English	Dialog "{0}" is empty – add a line: /btb dialog {1} add <sec> <length> Speaker | German | English
+Dialog „{0}“: Zeile {1} hinzugefügt	Dialog „{0}“: Zeile {1} hinzugefügt	Dialog "{0}": line {1} added
+Dialoge: {0}	Dialoge: {0}	Dialogs: {0}
+Die Fahrt als Linie in der Welt sehen und abspielen.	Die Fahrt als Linie in der Welt sehen und abspielen.	See the move as a line in the world and play it.
+Die Sonne geht in 20 Sekunden unter	Die Sonne geht in 20 Sekunden unter	The sun sets in 20 seconds
+Diesen Shot jetzt drehen	Diesen Shot jetzt drehen	Film this shot now
+Dorfbewohner	Dorfbewohner	Villagers
+Dorthin	Dorthin	There
+Dorthin teleportieren und so schauen wie die Kamera	Dorthin teleportieren und so schauen wie die Kamera	Teleport there and look like the camera
+Draufsicht (Norden oben)	Draufsicht (Norden oben)	Top view (north up)
+Dreh läuft: Shot {0}	Dreh läuft: Shot {0}	Shooting: shot {0}
+Dreh-Modus: Klicks werden gesammelt und starten, sobald das Menü zu ist (nichts vom Menü im Bild)	Dreh-Modus: Klicks werden gesammelt und starten, sobald das Menü zu ist (nichts vom Menü im Bild)	Shooting mode: clicks are collected and run as soon as the menu is closed (no menu in the picture)
+🎬 Dreh-Modus	🎬 Dreh-Modus	🎬 Shooting mode
+🎬 Dreh-Modus: {0} Aktion(en) beim Schließen	🎬 Dreh-Modus: {0} Aktion(en) beim Schließen	🎬 Shooting mode: {0} action(s) on close
+Eine Szene ist eine Zeitleiste: was zu welcher Sekunde passiert. Wir legen „mein_film“ an.	Eine Szene ist eine Zeitleiste: was zu welcher Sekunde passiert. Wir legen „mein_film“ an.	A scene is a timeline: what happens at which second. We create "mein_film".
+Eingabefelder wurden für mehr Platz eingeklappt – klicken zum Ausklappen	Eingabefelder wurden für mehr Platz eingeklappt – klicken zum Ausklappen	Input fields were folded away for more room – click to unfold
+Einsteiger-Ansicht: nur das Wichtigste	Einsteiger-Ansicht: nur das Wichtigste	Beginner view: only the essentials
+Einsteiger: nur die wichtigsten Knöpfe · Profi: alle Feinheiten	Einsteiger: nur die wichtigsten Knöpfe · Profi: alle Feinheiten	Beginner: only the main buttons · Pro: every detail
+Einstellungen	Einstellungen	Settings
+Ende	Ende	End
+English text (optional)	English text (optional)	English text (optional)
+Enthüllen	Enthüllen	Reveal
+Enthüllung	Enthüllung	Reveal
+Erst einen Titel eintippen	Erst einen Titel eintippen	Type a title first
+Erst Text eingeben	Erst Text eingeben	Enter text first
+Ersten Film drehen	Ersten Film drehen	Shoot your first film
+Ersten Film drehen – Szene, Kamera, Bild, Aufnahme	Ersten Film drehen – Szene, Kamera, Bild, Aufnahme	Shoot your first film – scene, camera, picture, recording
+Establishing	Establishing	Establishing
+Establishing Shot	Establishing Shot	Establishing shot
+Explodieren	Explodieren	Explode
+Export abbrechen	Export abbrechen	Cancel export
+Export fehlgeschlagen: {0}	Export fehlgeschlagen: {0}	Export failed: {0}
+Fliehen	Fliehen	Flee
+Gespeicherte Kamerafahrten abspielen, ansehen und bearbeiten	Gespeicherte Kamerafahrten abspielen, ansehen und bearbeiten	Play, view and edit saved camera moves
+Gewitter	Gewitter	Thunderstorm
+Geänderten Shot speichern	Geänderten Shot speichern	Save changed shot
+Gruppe	Gruppe	Group
+Gruppe entfernen	Gruppe entfernen	Remove group
+Gruppe {0} · {1}	Gruppe {0} · {1}	Group {0} · {1}
+Gruppe „{0}“ bleibt stehen	Gruppe „{0}“ bleibt stehen	Group "{0}" stops
+Gruppe „{0}“ entfernt ({1})	Gruppe „{0}“ entfernt ({1})	Group "{0}" removed ({1})
+Gruppe „{0}“ flieht vor dir	Gruppe „{0}“ flieht vor dir	Group "{0}" flees from you
+Gruppe „{0}“ ist leer{1}	Gruppe „{0}“ ist leer{1}	Group "{0}" is empty{1}
+Gruppe „{0}“ jubelt	Gruppe „{0}“ jubelt	Group "{0}" cheers
+Gruppe „{0}“ läuft los ({1})	Gruppe „{0}“ läuft los ({1})	Group "{0}" starts walking ({1})
+Gruppe „{0}“ schaut hin	Gruppe „{0}“ schaut hin	Group "{0}" looks over
+Gruppe „{0}“: {1} Statisten ({2})	Gruppe „{0}“: {1} Statisten ({2})	Group "{0}": {1} extras ({2})
+Gruppen	Gruppen	Groups
+Gruppen: {0}	Gruppen: {0}	Groups: {0}
+Helden-Shot	Helden-Shot	Hero shot
+Herschauen	Herschauen	Look here
+Hierher	Hierher	Here
+Hinweis	Hinweis	Cue
+Hinweis an {0} Darsteller	Hinweis an {0} Darsteller	Cue sent to {0} actor(s)
+Hinweis: Tageszeit und Wetter gibt es nur in der Oberwelt (nicht im Nether).	Hinweis: Tageszeit und Wetter gibt es nur in der Oberwelt (nicht im Nether).	Note: time of day and weather only exist in the Overworld (not in the Nether).
+Hoch über dem Darsteller, Blick nach unten, Kamera zieht weg (8 s)	Hoch über dem Darsteller, Blick nach unten, Kamera zieht weg (8 s)	High above the actor, looking down, camera pulls away (8 s)
+Händler	Händler	Traders
+Im Editor spulen, Kamera-Keyframes setzen (K), mehrere Kameras anlegen und schneiden.	Im Editor spulen, Kamera-Keyframes setzen (K), mehrere Kameras anlegen und schneiden.	In the editor: scrub, set camera keyframes (K), create several cameras and cut between them.
+Im Zuschauermodus die Fahrt fliegen, dann „■ Stopp“	Im Zuschauermodus die Fahrt fliegen, dann „■ Stopp“	Fly the move in spectator mode, then "■ Stop"
+Import fehlgeschlagen: {0}	Import fehlgeschlagen: {0}	Import failed: {0}
+In die Felder oben laden	In die Felder oben laden	Load into the fields above
+In „Kamerapfade“ Punkte verschieben, Zeiten ändern, löschen.	In „Kamerapfade“ Punkte verschieben, Zeiten ändern, löschen.	In "Camera paths" move points, change times, delete.
+In {0} …  {1}	In {0} …  {1}	In {0} …  {1}
+Jetzt:	Jetzt:	Now:
+Jubeln	Jubeln	Cheer
+Kamera (Kamerafahrten laufen bei dir)	Kamera (Kamerafahrten laufen bei dir)	Camera (camera moves run on your screen)
+Kamera hinter dem Darsteller, wackelige Handkamera, Zoom-Ruck (10 s)	Kamera hinter dem Darsteller, wackelige Handkamera, Zoom-Ruck (10 s)	Camera behind the actor, shaky handheld, zoom jolt (10 s)
+Kamera {0} ▸	Kamera {0} ▸	Camera {0} ▸
+Kamerafahrt bauen	Kamerafahrt bauen	Build a camera move
+Kamerafahrten der Szenen laufen bei diesem Spieler	Kamerafahrten der Szenen laufen bei diesem Spieler	Scene camera moves run on this player's screen
+Kamerapfade	Kamerapfade	Camera paths
+Kamerapfade →	Kamerapfade →	Camera paths →
+Kein Darsteller gefunden – stell dich neben jemanden oder gib einen Namen an	Kein Darsteller gefunden – stell dich neben jemanden oder gib einen Namen an	No actor found – stand next to someone or give a name
+Keine Gruppen	Keine Gruppen	No groups
+Keine Rolle	Keine Rolle	No role
+Keine Rolle mehr	Keine Rolle mehr	No role any more
+Keine Shots	Keine Shots	No shots
+Keine Versionen von „{0}“	Keine Versionen von „{0}“	No versions of "{0}"
+Kinobalken und eine Abblende am Ende machen sofort Kino daraus.	Kinobalken und eine Abblende am Ende machen sofort Kino daraus.	Letterbox bars and a fade-out at the end make it cinema straight away.
+Klar	Klar	Clear
+Klicks führen Aktionen sofort aus	Klicks führen Aktionen sofort aus	Clicks run actions right away
+Klicks hängen Cues an die Cue-Liste an (Einstellungen → OBS & Tasten)	Klicks hängen Cues an die Cue-Liste an (Einstellungen → OBS & Tasten)	Clicks add cues to the cue list (Settings → OBS & keys)
+Laden	Laden	Load
+Langsamer zum nächsten Punkt	Langsamer zum nächsten Punkt	Slower to the next point
+Letzte Änderung zurücknehmen (Strg+Z)	Letzte Änderung zurücknehmen (Strg+Z)	Undo the last change (Ctrl+Z)
+Letzte Änderung zurücknehmen (Strg+Z): {0}	Letzte Änderung zurücknehmen (Strg+Z): {0}	Undo the last change (Ctrl+Z): {0}
+Letzte Änderung: {0}	Letzte Änderung: {0}	Last change: {0}
+Linie + Punkte in der Welt zeigen (aktualisiert sich bei Änderungen)	Linie + Punkte in der Welt zeigen (aktualisiert sich bei Änderungen)	Show line + points in the world (updates when you change it)
+Mehrere Kameras: jede hat eigene Keyframes. Klicken = nächste Kamera bearbeiten (A–D)	Mehrere Kameras: jede hat eigene Keyframes. Klicken = nächste Kamera bearbeiten (A–D)	Several cameras: each has its own keyframes. Click = edit the next camera (A–D)
+Menü schließen	Menü schließen	Close menu
+Menü schließen und die Szene spielen. Danach wieder öffnen (F7).	Menü schließen und die Szene spielen. Danach wieder öffnen (F7).	Close the menu and play the scene. Then open it again (F7).
+Menü schließen, zum nächsten Punkt fliegen, F7, „+ Punkt“. Beliebig oft.	Menü schließen, zum nächsten Punkt fliegen, F7, „+ Punkt“. Beliebig oft.	Close the menu, fly to the next point, F7, "+ Point". As often as you like.
+Mit dem nächsten Darsteller (oder dir) sofort abspielen	Mit dem nächsten Darsteller (oder dir) sofort abspielen	Play right away with the nearest actor (or you)
+Mittag	Mittag	Noon
+Morgen	Morgen	Morning
+Nacht	Nacht	Night
+Nichts gefunden für „{0}“	Nichts gefunden für „{0}“	Nothing found for "{0}"
+Nichts zum Rückgängigmachen	Nichts zum Rückgängigmachen	Nothing to undo
+Nimm eine fertige Kamera-Vorlage auf den nächsten Darsteller – sie landet als Schritt in deiner Szene.	Nimm eine fertige Kamera-Vorlage auf den nächsten Darsteller – sie landet als Schritt in deiner Szene.	Take a ready-made camera template on the nearest actor – it becomes a step in your scene.
+Noch keine Darsteller – im Regiepult unter Einstellungen → Rollen festlegen	Noch keine Darsteller – im Regiepult unter Einstellungen → Rollen festlegen	No actors yet – set roles in the director under Settings → Crew & roles
+Noch keine Dialoge	Noch keine Dialoge	No dialogs yet
+Noch keine Gruppen. Oben Typ und Anzahl wählen, „+ Hier spawnen“.	Noch keine Gruppen. Oben Typ und Anzahl wählen, „+ Hier spawnen“.	No groups yet. Choose type and number above, "+ Spawn here".
+Noch keine Kamerapfade. 1. „● Pfad aufnehmen“ und fliegen  2. „■ Stopp“	Noch keine Kamerapfade. 1. „● Pfad aufnehmen“ und fliegen  2. „■ Stopp“	No camera paths yet. 1. "● Record path" and fly  2. "■ Stop"
+Noch keine Portale – anlegen per /btb portal create (siehe Doku).	Noch keine Portale – anlegen per /btb portal create (siehe Doku).	No portals yet – create one with /btb portal create (see docs).
+Noch keine Projekte	Noch keine Projekte	No projects yet
+Noch keine Replays. Oben Namen eintippen, „● Aufnehmen“, spielen, „■ Stopp“.	Noch keine Replays. Oben Namen eintippen, „● Aufnehmen“, spielen, „■ Stopp“.	No replays yet. Type a name above, "● Record", play, "■ Stop".
+Noch keine Schritte: oben Befehl + Zeit eintragen, oder „● Live aufnehmen“ und inszenieren.	Noch keine Schritte: oben Befehl + Zeit eintragen, oder „● Live aufnehmen“ und inszenieren.	No steps yet: enter command + time above, or "● Record live" and direct.
+Noch keine Shots. Oben Titel, Notiz und Länge eintragen, „+ Shot“.	Noch keine Shots. Oben Titel, Notiz und Länge eintragen, „+ Shot“.	No shots yet. Enter title, note and length above, "+ Shot".
+Noch keine Showcases – anlegen per /btb showcase create (siehe Doku).	Noch keine Showcases – anlegen per /btb showcase create (siehe Doku).	No showcases yet – create one with /btb showcase create (see docs).
+Noch keine Szenen. Eine Szene ist eine Zeitleiste mit Schritten.	Noch keine Szenen. Eine Szene ist eine Zeitleiste mit Schritten.	No scenes yet. A scene is a timeline with steps.
+Noch keine Versionen – sie entstehen bei jeder Änderung von selbst	Noch keine Versionen – sie entstehen bei jeder Änderung von selbst	No versions yet – they are made automatically with every change
+Noch keine Versionen: sie entstehen bei jeder Änderung von selbst.	Noch keine Versionen: sie entstehen bei jeder Änderung von selbst.	No versions yet: they are made automatically with every change.
+Noch keine Zeilen. Oben Zeit, Sprecher und Text eintragen, „+ Zeile“.	Noch keine Zeilen. Oben Zeit, Sprecher und Text eintragen, „+ Zeile“.	No lines yet. Enter time, speaker and text above, "+ Line".
+Noch keine Zerstörungsbereiche – anlegen per /btb destruction create (siehe Doku).	Noch keine Zerstörungsbereiche – anlegen per /btb destruction create (siehe Doku).	No destruction areas yet – create one with /btb destruction create (see docs).
+Noch keine gespeicherten Texte. Oben Text eintippen und einen Stil anklicken.	Noch keine gespeicherten Texte. Oben Text eintippen und einen Stil anklicken.	No saved texts yet. Type a text above and click a style.
+Nochmal klicken = Projekt „{0}“ laden	Nochmal klicken = Projekt „{0}“ laden	Click again = load project "{0}"
+Nochmal klicken: Szenen, Pfade, Texte … dieses Projekts übernehmen (alte Stände bleiben als Versionen)	Nochmal klicken: Szenen, Pfade, Texte … dieses Projekts übernehmen (alte Stände bleiben als Versionen)	Click again: take over scenes, paths, texts … of this project (old states stay as versions)
+Notiz (Kamera, Darsteller …)	Notiz (Kamera, Darsteller …)	Note (camera, actors …)
+Nächster Shot: {0}	Nächster Shot: {0}	Next shot: {0}
+OBS & Tasten	OBS & Tasten	OBS & keys
+OBS Start	OBS Start	OBS start
+Pfad „{0}“ anlegen	Pfad „{0}“ anlegen	Create path "{0}"
+Pfad-Vorschau aus	Pfad-Vorschau aus	Path preview off
+Piglins	Piglins	Piglins
+Plünderer	Plünderer	Pillagers
+Profi-Ansicht: alle Knöpfe	Profi-Ansicht: alle Knöpfe	Pro view: all buttons
+Projekt	Projekt	Project
+Projekt & Versionen	Projekt & Versionen	Project & versions
+Projekt laden (zweimal klicken)	Projekt laden (zweimal klicken)	Load project (click twice)
+Projekt {0}	Projekt {0}	Project {0}
+Projekt „{0}“ geladen: {1} Dateien (alte Stände liegen in den Versionen)	Projekt „{0}“ geladen: {1} Dateien (alte Stände liegen in den Versionen)	Project "{0}" loaded: {1} files (old states are in the versions)
+Projekt „{0}“ gespeichert: {1} Dateien → config/btb_cinematic/projekte/	Projekt „{0}“ gespeichert: {1} Dateien → config/btb_cinematic/projekte/	Project "{0}" saved: {1} files → config/btb_cinematic/projekte/
+Projekte: {0}	Projekte: {0}	Projects: {0}
+Punkt auf deine Position + Blickrichtung setzen	Punkt auf deine Position + Blickrichtung setzen	Set the point to your position + view direction
+Punkt löschen	Punkt löschen	Delete point
+Punkte bearbeiten + Draufsicht	Punkte bearbeiten + Draufsicht	Edit points + top view
+Punkte ▴	Punkte ▴	Points ▴
+Punkte ▾	Punkte ▾	Points ▾
+Regen	Regen	Rain
+Rennen von dir weg	Rennen von dir weg	Run away from you
+Replay & Export	Replay & Export	Replay & export
+Replay aufnehmen und exportieren	Replay aufnehmen und exportieren	Record and export a replay
+Replay aufnehmen und exportieren, Schritt für Schritt	Replay aufnehmen und exportieren, Schritt für Schritt	Record and export a replay, step by step
+Replays	Replays	Replays
+Rollen: {0}	Rollen: {0}	Roles: {0}
+Rückgängig fehlgeschlagen: {0}	Rückgängig fehlgeschlagen: {0}	Undo failed: {0}
+Schneller zum nächsten Punkt	Schneller zum nächsten Punkt	Faster to the next point
+Schnellstart	Schnellstart	Quick start
+Schnitt: ab der Abspielposition zeigt der Film Kamera {0}	Schnitt: ab der Abspielposition zeigt der Film Kamera {0}	Cut: from the play head on the film shows camera {0}
+Schnitte ✕	Schnitte ✕	Cuts ✕
+Schritt für Schritt eine Kamerafahrt bauen	Schritt für Schritt eine Kamerafahrt bauen	Build a camera move step by step
+Schuss-Gegenschuss	Schuss-Gegenschuss	Shot / reverse shot
+Senden	Senden	Send
+Set	Set	Set
+Shot	Shot	Shot
+Shot ans Ende des Storyboards	Shot ans Ende des Storyboards	Shot at the end of the storyboard
+Shot drehen + Aktion: /{0}	Shot drehen + Aktion: /{0}	Film shot + action: /{0}
+Shot hinzugefügt	Shot hinzugefügt	Shot added
+Shot ist im Kasten → nächster	Shot ist im Kasten → nächster	Shot is in the can → next
+Shot löschen	Shot löschen	Delete shot
+Shot {0} geladen – ändern und „Übernehmen“	Shot {0} geladen – ändern und „Übernehmen“	Shot {0} loaded – change and "Apply"
+Shot {0} geändert	Shot {0} geändert	Shot {0} changed
+Sicher? Laden	Sicher? Laden	Sure? Load
+Sonnenaufgang	Sonnenaufgang	Sunrise
+Speichern (.zip)	Speichern (.zip)	Save (.zip)
+Sprecher	Sprecher	Speaker
+Springen und winken	Springen und winken	Jump and wave
+Stand vom {0} {1} zurückholen (der jetzige bleibt als Version)	Stand vom {0} {1} zurückholen (der jetzige bleibt als Version)	Bring back the state of {0} {1} (the current one stays as a version)
+Starte OBS (Einstellungen → OBS & Tasten) oder nimm ein Replay auf, dann die Szene abspielen.	Starte OBS (Einstellungen → OBS & Tasten) oder nimm ein Replay auf, dann die Szene abspielen.	Start OBS (Settings → OBS & keys) or record a replay, then play the scene.
+Statisten um dich herum; sie kämpfen nicht und bewegen sich nur auf Kommando	Statisten um dich herum; sie kämpfen nicht und bewegen sich nur auf Kommando	Extras around you; they don't fight and only move on command
+Stehen	Stehen	Stand
+Stell dich an den Startpunkt, schau in die gewünschte Richtung.	Stell dich an den Startpunkt, schau in die gewünschte Richtung.	Stand at the start point, look in the direction you want.
+Stoppen, ansehen, im Baukasten Zeiten anpassen. Alles lässt sich mit ↶ Rückgängig zurücknehmen.	Stoppen, ansehen, im Baukasten Zeiten anpassen. Alles lässt sich mit ↶ Rückgängig zurücknehmen.	Stop, watch, adjust times in the builder. Everything can be taken back with ↶ Undo.
+Stoppt Szenen, Kamera, Effekte, Zeitlupe, Ton und Dialog sofort – das Set bleibt, wie es ist	Stoppt Szenen, Kamera, Effekte, Zeitlupe, Ton und Dialog sofort – das Set bleibt, wie es ist	Stops scenes, camera, effects, slow motion, sound and dialog right away – the set stays as it is
+Stoppt alles, was läuft – das Set bleibt	Stoppt alles, was läuft – das Set bleibt	Stops everything that runs – the set stays
+Storyboard	Storyboard	Storyboard
+Storyboard: {0}/{1} Shots gedreht	Storyboard: {0}/{1} Shots gedreht	Storyboard: {0}/{1} shots filmed
+Strg+Z	Strg+Z	Ctrl+Z
+Stück	Stück	pcs.
+Suche	Suche	Search
+Suche leeren	Suche leeren	Clear search
+Suche: „{0}“ – alle Bereiche	Suche: „{0}“ – alle Bereiche	Search: "{0}" – all areas
+Szene ab der Zeit im Feld „Bei“ abspielen (Klick in die Zeitleiste setzt sie)	Szene ab der Zeit im Feld „Bei“ abspielen (Klick in die Zeitleiste setzt sie)	Play the scene from the time in the field "At" (click into the timeline to set it)
+Szene anlegen	Szene anlegen	Create scene
+Szene im Baukasten anlegen	Szene im Baukasten anlegen	Create a scene in the builder
+Szene zurücksetzen (Startzustand)	Szene zurücksetzen (Startzustand)	Reset scene (start state)
+Szene „{0}“ angelegt ({1} Schritte) – im Baukasten anpassen	Szene „{0}“ angelegt ({1} Schritte) – im Baukasten anpassen	Scene "{0}" created ({1} steps) – adjust it in the builder
+Szenen, Kamerapfade, Texte, Credits, Dialoge, Replays … als eine Datei in config/btb_cinematic/projekte	Szenen, Kamerapfade, Texte, Credits, Dialoge, Replays … als eine Datei in config/btb_cinematic/projekte	Scenes, camera paths, texts, credits, dialogs, replays … as one file in config/btb_cinematic/projekte
+Szenen, Portale, Zerstörung, Effekte: alles auf Anfang	Szenen, Portale, Zerstörung, Effekte: alles auf Anfang	Scenes, portals, destruction, effects: everything back to the start
+Tageszeit als Übergang	Tageszeit als Übergang	Time of day as a transition
+Tageszeit sofort	Tageszeit sofort	Time of day now
+Texte	Texte	Texts
+Timeline wie ReplayMod: spulen, Kamera-Keyframes, mehrere Kameras, Export (F6)	Timeline wie ReplayMod: spulen, Kamera-Keyframes, mehrere Kameras, Export (F6)	Timeline like ReplayMod: scrub, camera keyframes, several cameras, export (F6)
+Titel, z. B. Verfolgung	Titel, z. B. Verfolgung	Title, e.g. chase
+Ton	Ton	Sound
+Typ: {0}	Typ: {0}	Type: {0}
+Unbekannte Vorlage „{0}“{1}	Unbekannte Vorlage „{0}“{1}	Unknown template "{0}"{1}
+Unbekannter Typ „{0}“	Unbekannter Typ „{0}“	Unknown type "{0}"
+Untersicht, langsamer Kreis, Zeitlupe (8 s)	Untersicht, langsamer Kreis, Zeitlupe (8 s)	Low angle, slow circle, slow motion (8 s)
+Untertitel gespeichert: btb_export/{0}_de.srt und {1}_en.srt	Untertitel gespeichert: btb_export/{0}_de.srt und {1}_en.srt	Subtitles saved: btb_export/{0}_de.srt and {1}_en.srt
+Untertitel nach Zeit zeigen (jeder Spieler in seiner Sprache), Sprecher bewegen sich	Untertitel nach Zeit zeigen (jeder Spieler in seiner Sprache), Sprecher bewegen sich	Show subtitles by time (every player in their language), speakers move
+Untertitel-Dateien (Deutsch + Englisch) für den Videoschnitt speichern	Untertitel-Dateien (Deutsch + Englisch) für den Videoschnitt speichern	Save subtitle files (German + English) for video editing
+Verfolger	Verfolger	Follow cam
+Verfolgungsjagd	Verfolgungsjagd	Chase
+Version wiederhergestellt: {0}	Version wiederhergestellt: {0}	Version restored: {0}
+Version {0} not found	Version {0} not found	Version {0} not found
+Versionen: {0}	Versionen: {0}	Versions: {0}
+Vorlage nehmen	Vorlage nehmen	Use a template
+Vorlagen	Vorlagen	Templates
+Vorlagen: {0}	Vorlagen: {0}	Templates: {0}
+Vorschau aus	Vorschau aus	Preview off
+Was ein Klick tut: sofort ausführen · Dreh-Modus (erst beim Schließen) · zur Szene / Cue-Liste / auf eine Taste	Was ein Klick tut: sofort ausführen · Dreh-Modus (erst beim Schließen) · zur Szene / Cue-Liste / auf eine Taste	What a click does: run right away · shooting mode (on close) · into the scene / cue list / onto a key
+Wechselt alle 5 s die Perspektive auf den Darsteller (30 s)	Wechselt alle 5 s die Perspektive auf den Darsteller (30 s)	Switches perspective on the actor every 5 s (30 s)
+Weiter Kreis hoch über dem Ort, Kinobalken, Auf- und Abblende (12 s)	Weiter Kreis hoch über dem Ort, Kinobalken, Auf- und Abblende (12 s)	Wide circle high above the place, letterbox, fade in and out (12 s)
+Weiter Kreis um die Stelle, an der du stehst	Weiter Kreis um die Stelle, an der du stehst	Wide circle around the spot where you stand
+Weiter ▶	Weiter ▶	Next ▶
+Welt	Welt	World
+Wetter	Wetter	Weather
+Wetter: klar, regen oder gewitter	Wetter: klar, regen oder gewitter	Weather: klar (clear), regen (rain) or gewitter (thunder)
+Wetter: {0}{1}	Wetter: {0}{1}	Weather: {0}{1}
+Wieder offen	Wieder offen	Open again
+Wither-Skelette	Wither-Skelette	Wither skeletons
+Zeile in den Dialog. Sprecher = Name eines Statisten/Spielers: er bewegt beim Sprechen Kopf und Arme	Zeile in den Dialog. Sprecher = Name eines Statisten/Spielers: er bewegt beim Sprechen Kopf und Arme	Line into the dialog. Speaker = name of an extra/player: they move head and arms while talking
+Zeile löschen	Zeile löschen	Delete line
+Zeile {0} gibt es nicht	Zeile {0} gibt es nicht	Line {0} doesn't exist
+Zeit & Wetter	Zeit & Wetter	Time & weather
+Zeit wandert in {0} s zu „{1}“{2}	Zeit wandert in {0} s zu „{1}“{2}	Time moves to "{1}" in {0} s{2}
+ (im Nether/End gibt es keine Tageszeit – wirkt nur in der Oberwelt)	 (im Nether/End gibt es keine Tageszeit – wirkt nur in der Oberwelt)	 (the Nether/End have no time of day – only works in the Overworld)
+ (Wetter gibt es nur in der Oberwelt)	 (Wetter gibt es nur in der Oberwelt)	 (weather only exists in the Overworld)
+Zeit „Bei“: {0} s	Zeit „Bei“: {0} s	Time "At": {0} s
+Zeit: morgen, mittag, abend, nacht, mitternacht oder 0–24000	Zeit: morgen, mittag, abend, nacht, mitternacht oder 0–24000	Time: morgen, mittag, abend, nacht, mitternacht or 0–24000
+Zeit: {0}	Zeit: {0}	Time: {0}
+Zombie-Piglins	Zombie-Piglins	Zombified piglins
+Zombies	Zombies	Zombies
+Zu dem Punkt, auf den du schaust (14 Blöcke)	Zu dem Punkt, auf den du schaust (14 Blöcke)	To the point you look at (14 blocks)
+Zu mir	Zu mir	To me
+Zurück	Zurück	Back
+Zurück zum eigenen Blick (alle Spieler)	Zurück zum eigenen Blick (alle Spieler)	Back to your own view (all players)
+z. B. Nach links laufen	z. B. Nach links laufen	e.g. walk to the left
+{0} Spieler: Rolle {1}	{0} Spieler: Rolle {1}	{0} player(s): role {1}
+{0} Version(en) von „{1}“: {2}	{0} Version(en) von „{1}“: {2}	{0} version(s) of "{1}": {2}
+{0} · Rolle: {1}	{0} · Rolle: {1}	{0} · role: {1}
+{0} · Rolle: –	{0} · Rolle: –	{0} · role: –
+½ Sekunde früher	½ Sekunde früher	½ second earlier
+½ Sekunde später	½ Sekunde später	½ second later
+Über-die-Schulter abwechselnd auf zwei Darsteller (16 s)	Über-die-Schulter abwechselnd auf zwei Darsteller (16 s)	Over the shoulder, alternating between two actors (16 s)
+Überflug	Überflug	Fly-over
+Übersicht	Übersicht	Overview
+„{0}“ nicht gefunden	„{0}“ nicht gefunden	"{0}" not found
+→ Morgen 20 s	→ Morgen 20 s	→ Morning 20 s
+→ Nacht 15 s	→ Nacht 15 s	→ Night 15 s
+→ Sonnenuntergang 20 s	→ Sonnenuntergang 20 s	→ Sunset 20 s
+→ Szene	→ Szene	→ Scene
+→ Szene „mein_film“ bei {0} s: {1}	→ Szene „mein_film“ bei {0} s: {1}	→ Scene "mein_film" at {0} s: {1}
+→ Szene „{0}“ bei {1} s	→ Szene „{0}“ bei {1} s	→ Scene "{0}" at {1} s
+→ Szene „{0}“ bei {1} s: Dialog „{2}“	→ Szene „{0}“ bei {1} s: Dialog „{2}“	→ Scene "{0}" at {1} s: dialog "{2}"
+↶ Rückgängig	↶ Rückgängig	↶ Undo
+↶ Rückgängig: {0}	↶ Rückgängig: {0}	↶ Undone: {0}
+↺ Reset	↺ Reset	↺ Reset
+↺ Zurück	↺ Zurück	↺ Restore
+⏱ Zeit	⏱ Zeit	⏱ Time
+⏺ Export läuft	⏺ Export läuft	⏺ Export running
+■ Alles stoppen	■ Alles stoppen	■ Stop everything
+■ Dreh beenden	■ Dreh beenden	■ End shooting
+■ Replay stoppen	■ Replay stoppen	■ Stop replay
+▶ Dialog „{0}“ ({1} Zeilen)	▶ Dialog „{0}“ ({1} Zeilen)	▶ Dialog "{0}" ({1} lines)
+▶ Jetzt	▶ Jetzt	▶ Now
+▶ Nochmal	▶ Nochmal	▶ Again
+▶ Szene	▶ Szene	▶ Scene
+▶ Szene {0} · {1} / {2} s	▶ Szene {0} · {1} / {2} s	▶ Scene {0} · {1} / {2} s
+▶ Szene {0}	▶ Szene {0}	▶ Scene {0}
+▶ {0} Szenen	▶ {0} Szenen	▶ {0} scenes
+▶ ab „Bei“	▶ ab „Bei“	▶ from "At"
+▶ {0} mit {1} (bearbeiten: Szene „{2}“)	▶ {0} mit {1} (bearbeiten: Szene „{2}“)	▶ {0} with {1} (edit: scene "{2}")
+▶ Replay {0}	▶ Replay {0}	▶ Replay {0}
+● REC Replay {0}	● REC Replay {0}	● REC replay {0}
+▸Darsteller	▸Darsteller	▸Actor
+▸Kamera	▸Kamera	▸Camera
+▸Regie	▸Regie	▸Director
+Regie	Regie	Director
+Kamera	Kamera	Camera
+● Nächster Klick → Numpad {0}	● Nächster Klick → Numpad {0}	● Next click → numpad {0}
+● Replay aufnehmen	● Replay aufnehmen	● Record replay
+✂ Editor öffnen	✂ Editor öffnen	✂ Open editor
+✂ → {0}	✂ → {0}	✂ → {0}
+✎ Bearbeiten	✎ Bearbeiten	✎ Edit
+✓ Weiter	✓ Weiter	✓ Next
+✔ Fertig	✔ Fertig	✔ Done
+✔ Übernehmen	✔ Übernehmen	✔ Apply
+⟲ Set zurück	⟲ Set zurück	⟲ Reset set
+🎬 Dreh starten	🎬 Dreh starten	🎬 Start shooting
+🎬 Shot {0}/{1}: {2} · {3} s	🎬 Shot {0}/{1}: {2} · {3} s	🎬 Shot {0}/{1}: {2} · {3} s
+👁 Vorschau	👁 Vorschau	👁 Preview
+📷 Bild	📷 Bild	📷 Picture
+🔍 Suchen …	🔍 Suchen …	🔍 Search …
+✎ Eingabe ▴	✎ Eingabe ▴	✎ Input ▴
+✎ Eingabe ▾	✎ Eingabe ▾	✎ Input ▾
+Fahrt	Fahrt	Move
+Alles gestoppt	Alles gestoppt	Everything stopped
+Replays & Export	Replays & Export	Replays & export
+Tabs: alle	Tabs: alle	Tabs: all
+Tabs: kompakt	Tabs: kompakt	Tabs: compact
+Kompakt: 8 Tabs mit Unterseiten · Alle: jeder Bereich als eigener Tab links (wie früher)	Kompakt: 8 Tabs mit Unterseiten · Alle: jeder Bereich als eigener Tab links (wie früher)	Compact: 8 tabs with pages · All: every area as its own tab on the left (like before)
+Alle Bereiche als eigene Tabs	Alle Bereiche als eigene Tabs	Every area as its own tab
+Kompakt: 8 Tabs mit Unterseiten	Kompakt: 8 Tabs mit Unterseiten	Compact: 8 tabs with pages
+⟲ Set	⟲ Set	⟲ Set
+Profi	Profi	Pro
+Einsteiger	Einsteiger	Beginner
+{0} · {1} Punkte · {2} s	{0} · {1} Punkte · {2} s	{0} · {1} points · {2} s

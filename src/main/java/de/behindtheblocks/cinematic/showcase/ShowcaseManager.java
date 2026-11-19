@@ -220,6 +220,7 @@ public final class ShowcaseManager implements CinematicModule, CommandContributo
 	private void save(String id) {
 		try {
 			Files.createDirectories(directory());
+			de.behindtheblocks.cinematic.studio.Versions.before(directory().resolve(id + ".json"));
 			Files.writeString(directory().resolve(id + ".json"),
 					new GsonBuilder().setPrettyPrinting().create().toJson(definitions.get(id)), StandardCharsets.UTF_8);
 		} catch (IOException e) {

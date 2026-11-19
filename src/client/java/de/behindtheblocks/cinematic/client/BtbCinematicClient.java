@@ -34,7 +34,9 @@ public final class BtbCinematicClient implements ClientModInitializer {
 		CinematicSoundPlayer.init();
 		de.behindtheblocks.cinematic.client.sound.MusicPack.init();
 		DirectorScreen.registerCues();
+		de.behindtheblocks.cinematic.client.i18n.ClientI18n.init();
 		DirectorHotkeys.init();
+		de.behindtheblocks.cinematic.client.director.StudioClient.init();
 		de.behindtheblocks.cinematic.client.replay.ReplayEditor.init();
 		de.behindtheblocks.cinematic.client.obs.ObsBridge.init();
 

@@ -1,0 +1,190 @@
+379	E	Run
+380	=
+381	E	Lava eruption
+382	E	Lava flash
+383	E	Create an empty scene (30 s)
+384	E	Clear
+385	E	Light
+386	E	Chandelier
+387	E	Light & atmosphere (blocks)
+388	E	Light & motion
+389	E	Light + red smoke where you look
+390	E	Light shaft
+391	=
+392	E	List
+393	E	Delete
+394	E	Marker at your position
+395	E	Markers (only the crew sees them)
+396	E	Close the menu and get going.
+397	E	With saved animation
+398	E	Medium
+399	E	Music
+400	E	Music off
+401	E	Mutant Creeper
+402	E	Mutant Enderman
+403	E	Mutant Skeleton
+404	E	Mutant Zombie
+405	E	Message
+406	E	Near 3
+407	E	Name (optional)
+408	E	Type a name and click “New”
+409	E	Fog
+410	E	Fog vent in the floor
+411	=
+412	E	Nether tint
+413	E	New
+414	E	Reload
+415	E	New:
+416	E	New 
+417	E	Nothing created
+418	E	Currently recording into '
+419	E	No steps yet – add above or record live
+420	=
+421	=
+422	E	Numpad {0} now starts the scene “{1}”
+423	=
+424	E	Only switch off the shaking
+425	E	Only switch off the red light flashes
+426	E	Run only this step now
+427	E	Next scene
+428	E	Assign the next click to this key
+429	E	Next click goes to numpad 
+430	=
+431	E	OBS switched off
+432	E	OBS saved – connecting…
+433	E	Test OBS
+434	E	Asking OBS …
+435	=
+436	E	OBS: on
+437	E	OBS: off
+438	=
+439	E	Top right
+440	E	Opening scene (credits + title)
+441	E	Course {0}{1}
+442	E	Switch off particles (e.g. red beam)
+443	E	Particles off
+444	E	Password
+445	E	Password (saved)
+446	E	Pause / resume
+447	E	Perspective changes every 6 s: shoulder, side, front, crane, low angle, follow, orbit
+448	E	Port must be a number
+449	E	Portals
+450	E	Portal focus
+451	E	Portal room (blocks)
+452	E	Pulse
+453	E	Show points in chat
+454	E	In
+455	E	Out
+456	E	Director
+457	E	Clapperboard
+458	E	Replay “take” (play once, film as often as you like)
+459	E	Replay “take” as 4K video, 60 FPS
+460	E	Props
+461	=
+462	E	Role
+463	E	Add role | name | icon | link
+464	E	Calm
+465	E	Rune pillar
+466	E	Flashback
+467	E	Pull focus
+468	E	Close
+469	E	Delete step
+470	E	Shoulder
+471	E	Black
+472	E	Focus follows actor / point of view
+473	E	Soul compass
+474	E	Soul crystal lamp
+475	E	Side
+476	E	Page 
+477	E	s
+478	=
+479	=
+480	E	POV cut (actor's eyes)
+481	E	Instantly
+482	=
+483	E	Save
+484	E	Save & connect
+485	E	Players
+486	E	Strong
+487	=
+488	E	Start / restart
+489	E	Extras & gestures (nearest figure)
+490	E	Stands still
+491	E	Silence
+492	=
+493	E	Stop
+494	E	Scene
+495	E	Assign the scene to this numpad key: one press while filming, and everything plays.
+496	E	Delete the whole scene
+497	E	Scenes
+498	E	Free the key
+499	E	Keys while filming (numpad 1–9) – assign: “Click → key” at the top
+500	E	Speed {0}
+501	=
+502	E	Text from “Role” as title (end credits / end card: title | subtitle)
+503	E	Text from “Role” as heading
+504	E	Save the text in the chosen style (appears in the list below)
+505	E	Text … | new line  (name | subtitle)
+506	E	Depth of field
+507	E	Timeline like ReplayMod: scrub, camera keyframes, export (F6)
+508	E	Tip: choose “Click → scene” at the top right and click in the other tabs – 
+509	E	Title
+510	E	Set title
+511	E	Muffled sound (after an explosion)
+512	E	Sound back
+513	E	Triggers armed
+514	=
+515	E	Toggle
+516	E	Blur
+517	E	Bottom left
+518	E	Subtitle
+519	E	Hide the vanilla HUD for the recording
+520	=
+521	E	Face on from the front
+522	E	Previous scene
+523	E	Preview
+524	E	Opening credits
+525	E	Ethereal
+526	E	Away
+527	E	White
+528	E	Wave: piglins (5)
+529	E	Wave: skeletons (4)
+530	E	World events
+531	=
+532	E	Wave
+533	=
+534	=
+535	E	Show
+536	E	Show as 
+537	E	Time: {0} s
+538	E	Time field to 
+539	E	Slow motion
+540	E	Destruction
+541	E	Objective
+542	E	Aim
+543	=
+544	=
+545	E	To me
+546	E	Reset
+547	E	Spectator
+548	E	all actors, creatures, scenes and events
+549	E	everything lands at the time “At”. Or “Record live” and just direct.
+550	E	on close
+551	D	Klicks fügen hinzu statt auszuführen
+552	=
+553	=
+554	=
+555	=
+556	=
+557	=
+558	=
+559	=
+560	=
+561	=
+562	=
+563	=
+564	=
+565	=
+566	=
+567	E	harmless soul lights
+568	E	shorter

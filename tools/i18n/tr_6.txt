@@ -1,0 +1,176 @@
+948	=
+949	E	● Replay “{0}” is recording: all actors (not tag kamera), creatures, scenes and events. End: /btb replay stop
+950	=
+951	D	unbekannter Hall „{0}“ (off, room, hall, cave, arena, cathedral, nether)
+952	=
+953	=
+954	=
+955	D	Hinzugefügt bei {0} s: {1}  (/btb scene events {2})
+956	D	Befehl nicht verstanden: /
+957	D	Befehl nicht verstanden: /{0}{1}
+958	D	Kopiert nach „{0}“
+959	E	Run this step now
+960	D	Name: nur a-z, 0-9 und _
+961	D	Es läuft keine Szenen-Aufnahme
+962	D	Nur Befehls-Schritte lassen sich einzeln testen – spiel die Szene ab
+963	D	Aufnahme gestoppt. Abspielen: /btb scene restart {0}
+964	D	Entfernt: {0}
+965	D	Szene „{0}“ gibt es schon
+966	D	Szene „{0}“ angelegt. Schritte hinzufügen: /btb scene add {1} <Sekunde> <Befehl>, oder live aufnehmen: /btb scene rec {2}
+967	D	Szene „{0}“ gelöscht
+968	D	Szene „{0}“ ist jetzt {1} s lang
+969	D	Szene „{0}“ nicht gefunden
+970	D	Szene „{0}“ nicht gefunden. Neu: /btb scene create {1}
+971	D	Szene „{0}“ – {1} Schritt(e), {2} s
+972	D	Schritt {0} gibt es nicht (die Szene hat {1})
+973	D	Schritt {0} jetzt bei {1} s
+974	D	Zielname ungültig oder schon vergeben
+975	E	Change time
+976	D	für mich
+977	D	landet mit genauer Zeit in der Szene. Stopp: /btb scene rec stop
+978	=
+979	D	● Nehme ab jetzt in „{0}“ auf: jeder Klick im Regiepult und jeder /btb-Befehl landet mit genauer Zeit in der Szene. Stopp: /btb scene rec stop
+980	D	 außerhalb 0..
+981	D	“ weicht vom Dateinamen ab „
+982	D	“ muss [a-z0-9_]{1,64} entsprechen
+983	D	„events“ muss eine Liste sein
+984	D	, übersprungen
+985	D	: muss ein Objekt sein, übersprungen
+986	D	: Zeit 
+987	D	: unbekannter Ereignistyp, übersprungen
+988	D	bpm 0..400, beats_per_bar 1..32
+989	D	Dauer muss zwischen 1 und 
+990	D	Ereignis #
+991	D	ID „
+992	D	ungültiges JSON: 
+993	D	die Wurzel muss ein JSON-Objekt sein
+994	D	die Szene ist streng und hat ungültige Ereignisse
+995	D	nutzt „beat“/„bar“, aber die Szene hat kein „bpm“
+996	D	“, Datei ignoriert
+997	D	: Ereignis #
+998	D	Szene „{0}“ läuft schon (stop, reset oder restart verwenden)
+999	D	Szene „{0}“ ist nicht pausiert
+1000	D	Szene „{0}“ läuft nicht
+1001	D	Szene „{0}“ pausiert bei Tick {1}
+1002	D	Szene „{0}“ zurückgesetzt
+1003	D	Szene „{0}“ fortgesetzt bei Tick {1}
+1004	D	Szene „{0}“ gestartet ({1} Ticks, {2} Ereignisse)
+1005	D	Szene „{0}“ gestartet bei {1} s
+1006	D	Szene „{0}“ gestoppt bei Tick {1}
+1007	D	Unbekannte Szene „{0}“
+1008	D	[BTB] Szene „{0}“ Tick {1}: Ereignis #{2} ({3}) fehlgeschlagen – siehe Server-Log
+1009	D	Datei nicht lesbar: 
+1010	D	doppelte Szenen-ID „
+1011	D	über den Effekten
+1012	D	bleibt für immer
+1013	D	„background“ muss eins davon sein: {0}
+1014	D	„particles“ muss none, dust oder eine einfache Partikel-ID sein (z. B. minecraft:flame)
+1015	D	„satellites“ muss eine Liste sein
+1016	D	„scale“ muss 0..32 sein
+1017	D	ungültige „dimension“
+1018	D	Anzahl der Satelliten muss 1..16 sein
+1019	D	unbekannter „sound“
+1020	D	unbekannte Animation
+1021	D	unbekanntes Item „{0}“
+1022	D	 – läuft: 
+1023	D	Showcase „{0}“ gelöscht
+1024	D	Dimension {0} nicht gefunden
+1025	D	{0} Showcase(s) geladen
+1026	D	Läuft nicht
+1027	D	Showcase „%s“ angelegt bei %.1f %.1f %.1f
+1028	D	Showcase „{0}“ gibt es schon
+1029	D	Showcase „{0}“ ist ungültig: {1}
+1030	D	Showcase „{0}“ aktualisiert
+1031	D	Showcase läuft
+1032	D	Showcase gestoppt
+1033	D	Startet ein Showcase. {id, animation? (float|rotate|reveal|pulse|ascend|explode|showcase)}
+1034	D	{0} Showcase(s) gestoppt
+1035	D	Stoppt ein Showcase (ohne id = alle).  {id?}
+1036	D	Wechselt die Animation eines laufenden Showcase. {id, animation}
+1037	D	Unbekannte Animation „{0}“
+1038	D	Unbekanntes Showcase
+1039	D	Unbekanntes Showcase „{0}“
+1040	D	Unbekanntes Showcase „{0}“ (zuerst anlegen)
+1041	D	Showcase „{0}“ läuft nicht
+1042	=
+1043	D	unbekannte Animation „{0}“
+1044	D	{0} Showcase(s): {1}{2}
+1045	D	„mix“ muss 0..1 sein
+1046	D	„volume“ muss 0..1 sein
+1047	D	<Sound> [Lautstärke] [Tonhöhe]
+1048	D	Kino-Lautstärke gesetzt
+1049	D	Raumhall für alle neuen Sounds. {preset: off|room|hall|cave|arena|cathedral|nether, mix? 0..1, players?}
+1050	D	Blendet die Hintergrundmusik aus. {fade_out? Ticks, players?}
+1051	D	Ungültige Sound-ID
+1052	D	Gesamtlautstärke von Kino-Sounds/Musik. {volume 0..1, fade? Ticks, players?}
+1053	D	Musik blendet aus
+1054	D	Musik: {0}
+1055	D	Spiele {0}{1}
+1056	D	Spielt einen Sound. {sound, pos? [x,y,z] | at? Spieler, volume?, pitch?, fade_in?, echo? {count, delay, decay}, players?}
+1057	D	Hall: {0}
+1058	D	Sounds gestoppt
+1059	D	Startet Hintergrundmusik und blendet vom aktuellen Stück über. {sound, volume?, fade_in? Ticks, loop?, players?}
+1060	D	Stoppt Kino-Sounds. {sound? (ohne = alle), fade? Ticks, players?}
+1061	D	Unbekannter Sound „{0}“
+1062	D	Aufruf: <Sound> [Lautstärke] [Tonhöhe]
+1063	D	echo: count 1..8, delay 1..200 Ticks, decay 0..1 (ausschließlich)
+1064	D	Spieler „{0}“ ist nicht online
+1065	D	unbekannter Sound „{0}“
+1066	D	volume 0..16, pitch 0.5..2
+1067	D	„count“ muss 1..100 sein
+1068	D	Schwierigkeit ist Friedlich: {0} würde sofort verschwinden. /difficulty easy (oder höher) nutzen.
+1069	D	Ghast-Feuerball, der der Welt nie schadet. {from [x,y,z], to [x,y,z] | target Spieler, speed?}
+1070	D	Ghasts am Horizont feuern harmlose Feuerbälle auf die Spieler. {count?, pos [x,y,z], shots? pro Ghast, interval? Ticks}
+1071	D	Ghasts am Horizont – sie feuern 30 s lang (entfernen: /btb spawn clear)
+1072	D	{0} gespawnte(n) Mob(s) entfernt
+1073	D	Spawne {0} × {1} (entfernen mit /btb spawn clear)
+1074	D	Spawnt eine Gegnerwelle. {entity, count, pos [x,y,z], radius?, interval? Ticks, effect? soul|smoke|portal|none, seed?, glowing?, still? (steht still), key? (lässt den Netherschlüssel fallen), boss?}
+1075	E	[BTB] Difficulty “Peaceful”: monsters vanish immediately. /difficulty easy
+1076	=
+1077	D	braucht „to“ oder „target“
+1078	D	nichts spawnt
+1079	=
+1080	=
+1081	D	Ziel „{0}“ ist nicht online
+1082	D	unbekanntes Wesen „{0}“
+1083	D	 • {0} ({1}, {2} Aktion(en){3})
+1084	D	„type“ muss zone oder interact sein
+1085	D	, ausgelöst
+1086	D	Alle Trigger wieder scharf
+1087	D	{0} Trigger geladen
+1088	D	Trigger „{0}“ angelegt. Aktionen hinzufügen: /btb trigger action {1} <Befehl>
+1089	D	Trigger „{0}“ aktualisiert
+1090	D	Trigger gelöscht
+1091	D	Trigger ausgelöst
+1092	D	Unbekannter Trigger
+1093	D	Unbekannter Trigger „{0}“
+1094	E	Locked – you need: {0}
+1095	D	Zonen-Trigger „{0}“ angelegt (Partikelring). Er löst aus, wenn jemand HINEINGEHT: zum Testen raus- und wieder reingehen, oder /btb trigger fire {1}. Aktionen hinzufügen: /btb trigger action {2} <Befehl>
+1096	=
+1097	D	{0} Trigger:
+1098	=
+1099	E	All markers removed
+1100	E	Area too large (max. 400,000 blocks)
+1101	E	Picture-in-picture: view of {0} ({1} spectator window(s))
+1102	E	Blood moon
+1103	E	Blood moon off
+1104	=
+1105	E	Ghast crashes (in your view direction)
+1106	E	No player with tag pip. Start a second Minecraft, log in, then: /tag <name> add pip
+1107	E	No markers
+1108	E	No such marker
+1109	E	Marker removed
+1110	E	Marker “
+1111	E	Marker “{0}” set – visible to the crew, never to players with tag kamera
+1112	E	Markers hidden
+1113	E	Markers visible (not for camera players)
+1114	E	Markers: {0}
+1115	E	REHEARSAL – nothing is destroyed, no enemies
+1116	E	Rehearsal mode off – shooting
+1117	E	Rehearsal mode: no destruction, no enemies, no eruption – cameras and effects run
+1118	E	Unknown color
+1119	E	Weather: {0}
+1120	E	Wind off
+1121	E	Wind {0}°, strength {1}
+1122	E	{0} lamps dim to {1} in {2} s
+1123	E	” set – visible to the crew, never to players with tag kamera

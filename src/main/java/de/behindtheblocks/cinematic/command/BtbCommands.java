@@ -80,6 +80,8 @@ public final class BtbCommands {
 									return outcome(ctx, x -> scenes.start(x,
 											(int) Math.round(com.mojang.brigadier.arguments.DoubleArgumentType.getDouble(ctx, "seconds") * 20)));
 								})))))
+				.then(literal("play").then(argument("id", StringArgumentType.word()).suggests(allScenes)
+						.executes(ctx -> outcome(ctx, scenes::restart))))
 				.then(literal("reset").then(argument("id", StringArgumentType.word()).suggests(allScenes)
 						.executes(ctx -> outcome(ctx, scenes::reset))))
 				.then(literal("info").then(argument("id", StringArgumentType.word()).suggests(allScenes)
@@ -109,6 +111,11 @@ public final class BtbCommands {
 
 	private static int outcome(CommandContext<CommandSourceStack> ctx, Function<String, SceneManager.Outcome> op) {
 		SceneManager.Outcome o = op.apply(StringArgumentType.getString(ctx, "id"));
+		if (!o.success() && o.message().startsWith("Unknown scene")) {
+			String id = StringArgumentType.getString(ctx, "id");
+			return Feedback.fail(ctx.getSource(), o.message() + de.behindtheblocks.cinematic.studio.Suggest.hint(id,
+					de.behindtheblocks.cinematic.BtbCinematic.engine().scenes().sceneIds()));
+		}
 		return o.success() ? Feedback.ok(ctx.getSource(), o.message()) : Feedback.fail(ctx.getSource(), o.message());
 	}
 
