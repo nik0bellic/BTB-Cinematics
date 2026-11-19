@@ -16,3 +16,9 @@ docs/screenshots/*
 !docs/screenshots/parkour_follow_cam.png
 !docs/screenshots/phase5_director.png
 !docs/screenshots/portal_white_ring_any_shape.png
+
+# videos and music (your own songs stay local)
+*.mp4
+*.ogg
+*.mp3
+*.wav

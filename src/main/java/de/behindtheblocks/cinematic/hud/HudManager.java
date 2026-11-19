@@ -402,6 +402,41 @@ public final class HudManager implements CinematicModule, CommandContributor {
 									a.remove(nr - 1);
 								}))))
 						.then(literal("clear").executes(c -> creditsEdit(c, o -> o.add("entries", new JsonArray()))))
+						// edit <nr> Rolle | Name | icon | link   (or "## Überschrift")
+						.then(literal("edit").then(argument("nr", com.mojang.brigadier.arguments.IntegerArgumentType.integer(1, 500))
+								.then(argument("entry", StringArgumentType.greedyString()).executes(c -> creditsEdit(c, o -> {
+									int nr = com.mojang.brigadier.arguments.IntegerArgumentType.getInteger(c, "nr");
+									JsonArray a = entries(o);
+									if (nr > a.size()) {
+										throw new JsonParamException("Only " + a.size() + " entries");
+									}
+									a.set(nr - 1, parseEntry(StringArgumentType.getString(c, "entry")));
+								})))))
+						// move <nr> up|down
+						.then(literal("move").then(argument("nr", com.mojang.brigadier.arguments.IntegerArgumentType.integer(1, 500))
+								.then(argument("dir", StringArgumentType.word()).suggests((c, b) ->
+										net.minecraft.commands.SharedSuggestionProvider.suggest(java.util.List.of("up", "down"), b))
+										.executes(c -> creditsEdit(c, o -> {
+											int i = com.mojang.brigadier.arguments.IntegerArgumentType.getInteger(c, "nr") - 1;
+											int j = StringArgumentType.getString(c, "dir").equals("up") ? i - 1 : i + 1;
+											JsonArray a = entries(o);
+											if (i >= a.size() || j < 0 || j >= a.size()) {
+												return;
+											}
+											var tmp = a.get(i);
+											a.set(i, a.get(j));
+											a.set(j, tmp);
+										})))))
+						// tempo <x>: Abspann = scroll speed (default 0.6), Vorspann = seconds per entry (default 3.5)
+						.then(literal("tempo").then(argument("value", com.mojang.brigadier.arguments.FloatArgumentType.floatArg(0.05f, 30f))
+								.executes(c -> creditsEdit(c, o -> {
+									float v = com.mojang.brigadier.arguments.FloatArgumentType.getFloat(c, "value");
+									if ("roll".equals(o.has("style") ? o.get("style").getAsString() : "")) {
+										o.addProperty("roll_speed", Math.min(10f, v));
+									} else {
+										o.addProperty("entry_ticks", Math.max(10, Math.round(v * 20)));
+									}
+								}))))
 						.then(literal("list").executes(c -> {
 							JsonObject o = definitions.get(StringArgumentType.getString(c, "id"));
 							if (o == null) {
@@ -413,6 +448,29 @@ public final class HudManager implements CinematicModule, CommandContributor {
 							}
 							return i - 1;
 						})));
+	}
+
+	/** "Rolle | Name | icon | link" or "## Überschrift" → entry. */
+	private static JsonObject parseEntry(String text) {
+		JsonObject e = new JsonObject();
+		if (text.trim().startsWith("##")) {
+			e.addProperty("heading", text.trim().substring(2).trim());
+			return e;
+		}
+		String[] f = text.split("\\|", -1);
+		e.addProperty("role", f[0].trim());
+		e.addProperty("name", f.length > 1 ? f[1].trim() : "");
+		if (f.length > 2 && !f[2].isBlank()) {
+			String icon = f[2].trim().toLowerCase(java.util.Locale.ROOT);
+			if (!HudTextSpec.ICONS.contains(icon)) {
+				throw new JsonParamException("Unknown icon '" + icon + "'. Icons: " + String.join(", ", HudTextSpec.ICONS));
+			}
+			e.addProperty("icon", icon);
+		}
+		if (f.length > 3 && !f[3].isBlank()) {
+			e.addProperty("link", f[3].trim());
+		}
+		return e;
 	}
 
 	public static String describe(JsonObject e) {

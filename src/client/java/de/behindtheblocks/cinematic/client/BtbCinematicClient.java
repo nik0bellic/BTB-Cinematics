@@ -25,12 +25,14 @@ public final class BtbCinematicClient implements ClientModInitializer {
 		ClientSceneState.init();
 		CinematicCameraController.init();
 		ScreenEffectRenderer.init();
+		de.behindtheblocks.cinematic.client.effects.IrisDepth.init();
 		de.behindtheblocks.cinematic.client.director.CrewMarkers.init();
 		de.behindtheblocks.cinematic.client.director.PipOverlay.init();
 		de.behindtheblocks.cinematic.client.export.ExportManager.init();
 		net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientLifecycleEvents.CLIENT_STARTED.register(mc -> de.behindtheblocks.cinematic.client.effects.LutManager.init());
 		CinematicHudRenderer.init();
 		CinematicSoundPlayer.init();
+		de.behindtheblocks.cinematic.client.sound.MusicPack.init();
 		DirectorScreen.registerCues();
 		DirectorHotkeys.init();
 		de.behindtheblocks.cinematic.client.replay.ReplayEditor.init();

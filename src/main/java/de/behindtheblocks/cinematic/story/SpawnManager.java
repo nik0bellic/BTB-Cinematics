@@ -126,11 +126,8 @@ public final class SpawnManager implements CinematicModule, CommandContributor {
 				}));
 		net.fabricmc.fabric.api.entity.event.v1.ServerLivingEntityEvents.AFTER_DEATH.register((entity, source) -> {
 			if (entity.entityTags().contains(KEY_TAG) && entity.level() instanceof ServerLevel lvl) {
-				var item = new net.minecraft.world.entity.item.ItemEntity(lvl, entity.getX(), entity.getY() + 0.5, entity.getZ(),
-						new net.minecraft.world.item.ItemStack(de.behindtheblocks.cinematic.content.BtbItems.NETHER_KEY));
-				item.setGlowingTag(true);
-				item.setUnlimitedLifetime();
-				lvl.addFreshEntity(item);
+				de.behindtheblocks.cinematic.content.entity.HeartWarden.dropKeyDramatic(lvl,
+						new Vec3(entity.getX(), entity.getY() + entity.getBbHeight() * 0.6, entity.getZ()), entity.getYRot());
 				lvl.sendParticles(ParticleTypes.END_ROD, entity.getX(), entity.getY() + 1, entity.getZ(), 40, 0.4, 0.8, 0.4, 0.08);
 				lvl.sendParticles(ParticleTypes.SOUL_FIRE_FLAME, entity.getX(), entity.getY() + 0.3, entity.getZ(), 30, 0.6, 0.1, 0.6, 0.05);
 				engine.module(SoundManager.class).ifPresent(sm -> sm.play(TimelineManager.MANUAL, 0, BtbSounds.CRYSTAL_SHIMMER.location(),
@@ -198,8 +195,7 @@ public final class SpawnManager implements CinematicModule, CommandContributor {
 	}
 
 	private static boolean peacefulBlocks(ServerLevel level, EntityType<?> type) {
-		return level.getDifficulty() == net.minecraft.world.Difficulty.PEACEFUL
-				&& type.getCategory() == net.minecraft.world.entity.MobCategory.MONSTER;
+		return false; // film creatures are kept on Peaceful too (MobDespawnMixin)
 	}
 
 	private void spawnOne(String sceneId, ServerLevel level, EntityType<?> type, Vec3 p, String effect, String flags) {

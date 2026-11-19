@@ -77,6 +77,15 @@ public final class DirectorManager implements CinematicModule, CommandContributo
 		// The complete film set for the storyboard (bastion → bridges → desert → fortress/tower → portal hall → exit).
 		root.then(literal("film")
 				.then(literal("setup").executes(c -> filmBuild(c.getSource(), null)))
+				// trailer to your song (config/btb_cinematic/music/trailer.ogg|mp3): play live or export with sound
+				.then(literal("trailer").executes(c -> trailer(c.getSource(), null, 0))
+						.then(literal("export").executes(c -> trailer(c.getSource(), "4k", 60))
+								.then(argument("res", com.mojang.brigadier.arguments.StringArgumentType.word())
+										.suggests((c, b) -> net.minecraft.commands.SharedSuggestionProvider.suggest(List.of("4k", "1440p", "1080p"), b))
+										.executes(c -> trailer(c.getSource(), com.mojang.brigadier.arguments.StringArgumentType.getString(c, "res"), 60))
+										.then(argument("fps", com.mojang.brigadier.arguments.IntegerArgumentType.integer(10, 120))
+												.executes(c -> trailer(c.getSource(), com.mojang.brigadier.arguments.StringArgumentType.getString(c, "res"),
+														com.mojang.brigadier.arguments.IntegerArgumentType.getInteger(c, "fps")))))))
 				.then(literal("piece").then(argument("teil", com.mojang.brigadier.arguments.StringArgumentType.word())
 						.suggests((c, b) -> net.minecraft.commands.SharedSuggestionProvider.suggest(FilmSet.PIECES.keySet(), b))
 						.executes(c -> filmBuild(c.getSource(), com.mojang.brigadier.arguments.StringArgumentType.getString(c, "teil")))))
@@ -128,6 +137,9 @@ public final class DirectorManager implements CinematicModule, CommandContributo
 					d.getAsJsonArray("entries").forEach(e -> list.add(HudManager.describe(e.getAsJsonObject())));
 				}
 				c.add("entries", list);
+				c.add("raw", d.has("entries") ? d.getAsJsonArray("entries").deepCopy() : new JsonArray());
+				c.addProperty("tempo", style.equals("roll") ? (d.has("roll_speed") ? d.get("roll_speed").getAsFloat() : 0.6f)
+						: (d.has("entry_ticks") ? d.get("entry_ticks").getAsInt() : 70) / 20f);
 				credits.add(id, c);
 			}
 		}));
@@ -228,6 +240,32 @@ public final class DirectorManager implements CinematicModule, CommandContributo
 		music.addProperty("fade", 20);
 		engine.cues().queue(TimelineManager.MANUAL, 0, "music", music);
 		return ids.size();
+	}
+
+	private int trailer(net.minecraft.commands.CommandSourceStack src, String res, int fps) throws com.mojang.brigadier.exceptions.CommandSyntaxException {
+		if (!engine.scenes().sceneIds().contains("trailer")) {
+			return Feedback.fail(src, "Der Trailer braucht das ganze Film-Set: /btb film setup");
+		}
+		var player = src.getPlayerOrException();
+		var server = src.getServer();
+		var quiet = server.createCommandSourceStack().withSuppressedOutput();
+		server.getCommands().performPrefixedCommand(quiet, "btb resetall");
+		player.setGameMode(net.minecraft.world.level.GameType.SPECTATOR); // the viewer is invisible and flies with the shots
+		if (res == null) {
+			server.getCommands().performPrefixedCommand(quiet, "btb scene restart trailer");
+			return Feedback.ok(src, "▶ Trailer (2:05). Musik: config/btb_cinematic/music/trailer.ogg (Lautstärke: Regler „Jukebox“). Sichtweite ≥ 16!");
+		}
+		int w = res.equals("1080p") ? 1920 : res.equals("1440p") ? 2560 : 3840, h = w * 9 / 16;
+		JsonObject o = new JsonObject();
+		o.addProperty("name", "trailer");
+		o.addProperty("seconds", 125.1);
+		o.addProperty("width", w);
+		o.addProperty("height", h);
+		o.addProperty("fps", fps);
+		o.addProperty("scene", "trailer");
+		o.addProperty("music", "trailer");
+		engine.cues().queue(TimelineManager.MANUAL, 0, "export_start", o, List.of(player));
+		return Feedback.ok(src, "Trailer-Export " + w + "×" + h + " @ " + fps + " FPS startet – der Song wird am Ende ins Video gelegt");
 	}
 
 	private int filmBuild(net.minecraft.commands.CommandSourceStack src, String piece) {

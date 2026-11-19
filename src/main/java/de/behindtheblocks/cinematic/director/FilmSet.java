@@ -1629,6 +1629,18 @@ final class FilmSet {
 			sc.addProperty("light", true);
 			sc.addProperty("particles", "minecraft:flame");
 			sc.addProperty("background", "ring");
+			sc.addProperty("glow", "#FF5A00");
+			// four Nether crystals circle the heart (like on the demo tower)
+			JsonArray sats = new JsonArray();
+			JsonObject sat = new JsonObject();
+			sat.addProperty("item", "btb_cinematic:nether_crystal");
+			sat.addProperty("count", 4);
+			sat.addProperty("radius", 1.5);
+			sat.addProperty("height", 0.1);
+			sat.addProperty("speed", 1.6);
+			sat.addProperty("scale", 0.55);
+			sats.add(sat);
+			sc.add("satellites", sats);
 			engine.module(ShowcaseManager.class).orElseThrow().putDefinition("herz", sc);
 		}
 
@@ -1781,6 +1793,231 @@ final class FilmSet {
 	// ------------------------------------------------------------------ cameras
 
 	/** {x, y, z, lookX, lookY, lookZ, ticks to the next point} relative to the origin. */
+	// ------------------------------------------------------------------ trailer (2:05, cut to the song)
+
+	private static final String TR = "trailer";
+
+	/** Teleports the viewer next to the shot (so the world and the creatures there are loaded) and starts the camera. */
+	private void cut(double t, double px, double pz, String camera) {
+		step(TR, t, "tp @a " + abs(px + 0.5, 3, pz + 0.5));
+		step(TR, t, camera + " @a");
+	}
+
+	/** The hero (mannequin with the skin of {@code HERO}) at a spot, looking in a direction (yaw), optionally with a gesture. */
+	private void hero(double t, double x, double z, double yaw, String gesture) {
+		step(TR, t, "execute rotated " + (int) (yaw + 180) + " 0 run btb statist " + HERO + " " + abs(x + 0.5, 0, z + 0.5));
+		if (gesture != null) {
+			step(TR, t + 0.3, "execute positioned " + abs(x + 0.5, 0, z + 0.5) + " run btb geste @e[tag=btb_extra,limit=1,sort=nearest,distance=..3] "
+					+ gesture + " 12");
+		}
+	}
+
+	private static final String HERO = "Nik2810";
+
+	private String orbit(double cx, double cy, double cz, double radius, double height, double seconds, double degrees) {
+		return "btb camera orbit " + abs(cx, cy, cz) + " " + radius + " " + height + " " + seconds + " " + degrees;
+	}
+
+	/** A camera move from one point to another (both looking at their own target). */
+	private String move(String id, double[] from, double[] to, double seconds) {
+		path(id, new double[][] {{from[0], from[1], from[2], from[3], from[4], from[5], Math.round(seconds * 20)},
+				{to[0], to[1], to[2], to[3], to[4], to[5], 1}});
+		return "btb camera play " + id;
+	}
+
+	/**
+	 * Trailer to the song (config/btb_cinematic/music/trailer.*): 0–5.8 s intro from black, 5.8–29.1 s calm
+	 * build-up, 29.09 s drop – every cut sits on a hit of the song (161.5 BPM), 52.4 / 76.7 / 100.0 s new phrases,
+	 * 120.37 s last hit, 121.7 s silence → title. Start: /btb film trailer · export with the song: /btb film trailer export
+	 */
+	private void trailer() {
+		scene(TR, 125.2);
+		// texts: opening credits (Directed by / Feat. with Spotify icon) and the end card (Coming 2027 + socials)
+		quiet("btb hud delete trailer_vorspann");
+		cmd("btb hud credits trailer_vorspann new vorspann");
+		cmd("btb hud credits trailer_vorspann add Directed by | JeNeS & NikoBellic2810");
+		cmd("btb hud credits trailer_vorspann add Feat. | Netherite by medcalf | spotify");
+		cmd("btb hud credits trailer_vorspann tempo 2.85");
+		quiet("btb hud delete trailer_ende");
+		cmd("btb hud credits trailer_ende new endkarte THE HEART OF THE NETHER");
+		cmd("btb hud credits trailer_ende title THE HEART OF THE NETHER | Coming 2027");
+		cmd("btb hud credits trailer_ende link instagram @btb.minecraft");
+		cmd("btb hud credits trailer_ende link tiktok @btb.plus");
+		double fwd = routeYaw(); // looking along the route (towards the tower)
+		// ---- look: cinema format, grain, warm Nether grade; the song itself (played once)
+		step(TR, 0, "btb effects fade black 0");
+		step(TR, 0, "btb effects format 2.39 0.1");
+		step(TR, 0, "btb effects grain 0.4 1");
+		step(TR, 0, "btb effects lut nether 0.55 1");
+		step(TR, 0, "btb sound music musik.trailer 0 once");
+		step(TR, 0, "btb ambience on herzturm");
+		step(TR, 0, "btb portal activationscene film_tor_a none");
+
+		// ---- 0.0 – 5.8 intro: over the wasteland towards the tower, out of the dark
+		cut(0, 150, -40, move("tr_01", new double[] {118, 46, -70, TX, 70, 0}, new double[] {150, 36, -46, TX, 66, 0}, 6));
+		step(TR, 0.4, "btb effects fadeout 4.5");
+		step(TR, 1.6, "btb hud text kapitel 3.8 BEHIND THE BLOCKS | presents");
+		step(TR, 1.0, "btb effects flare " + abs(TX + 0.5, 110, 0.5) + " orange 0.7");
+
+		// ---- 5.8 – 29.1 build-up: four calm shots, one every four bars
+		step(TR, 5.8, "btb effects flash white 0.35");
+		step(TR, 5.8, "btb effects flare off");
+		cut(5.8, 13, 0, move("tr_02", new double[] {-46, 34, -36, 18, 4, 0}, new double[] {-14, 20, -16, 16, 2, 0}, 6.2));
+		step(TR, 6.2, "btb hud text titel 5.0 THE HEART OF THE NETHER");
+		step(TR, 7.0, "btb hud text untertitel 4.0 TRAILER");
+		step(TR, 17.8, "btb hud show trailer_vorspann");
+		step(TR, 23.4, "btb hud hide trailer_vorspann");
+		hero(5.0, 13, 0, fwd, null);              // in the bastion hall
+		hero(11.0, 28, 6, fwd + 90, null);        // at the lectern, reading
+		hero(23.0, 193, 5, fwd, null);            // looking at the tower on the horizon
+		hero(33.0, 41, 1, fwd, "abwehren");       // between the enemies in the courtyard
+		hero(59.0, TX, 4, fwd - 90, "abwehren");  // facing the guardian
+		hero(91.5, 361, 0, fwd, null);            // in front of the portal
+		hero(99.5, 411, 1, fwd, "zielen");        // out of the second portal, still in the Nether
+		// the book: slow push towards the lectern, the page appears, the heartbeat begins
+		cut(11.74, 28, 8, orbit(28, 1.4, 8, 3.2, 1.1, 6.2, 28));
+		step(TR, 11.74, "btb effects dof 2.5 0.6 1");
+		step(TR, 17.6, "btb effects dof off 0.5");
+		for (double t : new double[] {12.4, 14.0, 15.6, 17.2}) {
+			step(TR, t, "btb sound play heart_pulse 0.45 0.6");
+		}
+		// the corridor with the glowing lava walls, still holding
+		cut(17.68, 54, 0, move("tr_04", new double[] {44, 2, 0, 56, 2, 0}, new double[] {50, 2.2, 0, 60, 2, 0}, 6));
+		step(TR, 17.68, "btb effects haze 0.5 1");
+		// the tower on the horizon: the message
+		cut(23.62, 196, 4, move("tr_05", new double[] {188, 3, 12, TX, 60, 0}, new double[] {196, 13, 3, TX, 74, 0}, 5.6));
+		step(TR, 23.62, "btb effects haze off 1");
+		step(TR, 23.62, "btb effects flare " + abs(TX + 0.5, 110, 0.5) + " red 0.9");
+		step(TR, 28.3, "btb effects fade black 0.6");
+		step(TR, 28.3, "btb effects flare off");
+
+		// ---- 29.09 DROP: action, one cut per hit
+		step(TR, 29.09, "btb effects fadeout 0.05");
+		step(TR, 29.09, "btb effects flash orange 0.6");
+		step(TR, 29.09, "btb camera handheld 0.9 @a");
+		cut(29.09, 48, 0, move("tr_06", new double[] {47, 2.2, 1.5, 52, 2, -4}, new double[] {49.5, 2.4, 1, 52, 2, -4}, 3));
+		step(TR, 29.09, "btb destruction trigger lava_wand_1");
+		cut(32.02, 60, 0, move("tr_07", new double[] {61, 2, -1.5, 56, 2, 4}, new double[] {59, 2.3, -1, 56, 2, 4}, 1.9));
+		step(TR, 32.02, "btb destruction trigger lava_wand_2");
+		step(TR, 30.6, "btb spawn piglin_brute 3 " + abs(44, 0, -8) + " 3");
+		step(TR, 30.6, "btb spawn wither_skeleton 3 " + abs(38, 0, 8) + " 3");
+		step(TR, 30.6, "btb spawn btb_cinematic:aschekriecher 5 " + abs(46, 0, 0) + " 3");
+		cut(33.83, 41, 0, orbit(41, 2, 0, 11, 3, 2.3, 60));
+		step(TR, 34.4, "btb destruction trigger bruecke_feuer_n");
+		step(TR, 34.4, "btb destruction trigger bruecke_feuer_s");
+		cut(36.01, 86, 0, orbit(86, 0, 0, 26, 9, 1.9, 25));
+		step(TR, 37.3, "btb destruction trigger bruecke_einsturz");
+		cut(37.83, 84, -10, move("tr_10", new double[] {80, 1, -12, 86, -2, 0}, new double[] {88, 2, -13, 92, -3, 0}, 1.9));
+		step(TR, 38.4, "btb destruction trigger decke_gang");
+		cut(39.66, 31, -2, orbit(31.5, 2, -2, 5, 0.6, 2.2, -25));
+		step(TR, 38.0, "btb ghastattack 3 " + abs(150, 34, -70));
+		cut(41.82, 135, 0, orbit(135, 3, 0, 30, 5, 2.9, 30));
+		step(TR, 43.2, "execute rotated " + (int) (routeYaw() + 35) + " 0 run btb ghastcrash " + abs(138, 42, -58));
+		cut(44.74, 140, -45, "btb camera orbit entity @e[type=btb_cinematic:crash_ghast,limit=1,sort=nearest] 16 3 2.4 -30");
+		step(TR, 46.9, "btb ausbruch " + abs(166, -1, 9) + " 9 1.2");
+		cut(47.11, 166, 9, orbit(166, 3, 9, 14, 4, 2.9, 40));
+		step(TR, 49.4, "btb spawn btb_cinematic:glutling 7 " + abs(160, 4, 0) + " 5");
+		cut(50.04, 165, 0, orbit(165, 2, 0, 12, 5, 2.4, -50));
+		step(TR, 52.38, "btb camera handheld off @a");
+
+		// ---- 52.38 second phrase: the fortress and its guardian
+		step(TR, 52.38, "btb effects flash red 0.4");
+		step(TR, 52.38, "btb effects lut glut 0.6 0.5");
+		cut(52.38, TX - 60, -30, move("tr_12", new double[] {TX - 95, 34, -60, TX, 45, 0}, new double[] {TX - 75, 26, -42, TX, 42, 0}, 4.1));
+		step(TR, 52.38, "btb effects flare " + abs(TX + 0.5, 110, 0.5) + " orange 0.8");
+		step(TR, 55.6, "btb spawn btb_cinematic:herzwaechter 1 " + abs(TX, 1, -6) + " 0 still");
+		step(TR, 56.4, "btb effects flare off");
+		cut(56.4, TX, 6, "execute positioned " + abs(TX, 2.5, 8) + " run btb camera dollyzoom " + abs(TX, 2.5, -6) + " 4 12 2.9");
+		step(TR, 56.4, "btb effects anamorph 0.7 0.5");
+		step(TR, 58.2, "btb showcase play herz reveal");
+		cut(59.28, TX, 3, orbit(TX + 0.5, 2, 0.5, 6, 2.5, 2.4, 60));
+		step(TR, 59.4, "btb sound play heart_pulse 1 0.6");
+		step(TR, 61.0, "btb showcase animation herz pulse");
+		step(TR, 60.45, "btb waechter angriff schlag");
+		step(TR, 61.65, "btb camera handheld 1.1 @a");
+		cut(61.65, TX, 2, orbit(TX, 1.5, -6, 9, 1.2, 2.9, 40));
+		step(TR, 63.7, "btb waechter angriff bruellen");
+		cut(64.57, TX, 0, orbit(TX, 3.2, -6, 5, 3.4, 3.4, -30));
+		step(TR, 64.9, "btb effects shake 0.8 1.5");
+		step(TR, 66.6, "btb waechter angriff saeulen");
+		cut(68.01, TX, 6, orbit(TX, 2, -6, 15, 7, 1.8, 30));
+		step(TR, 68.4, "btb waechter angriff wurf");
+		cut(69.85, TX + 6, -6, orbit(TX, 3, -6, 10, 2, 1.8, -40));
+		// the guardian falls – the key bursts out of its heart
+		cut(71.66, TX, 4, orbit(TX, 2, -6, 8, 2.5, 5.1, 50));
+		step(TR, 71.66, "kill @e[type=btb_cinematic:herzwaechter]");
+		step(TR, 71.66, "btb effects flash white 0.5");
+		step(TR, 72.2, "btb camera handheld off @a");
+		step(TR, 75.95, "btb effects anamorph off 0.5");
+
+		// ---- 76.74 third phrase: the whole tower comes down
+		step(TR, 75.9, "btb destruction trigger turm_einsturz");
+		step(TR, 76.74, "btb effects flash orange 0.7");
+		step(TR, 76.74, "btb camera handheld 1.2 @a");
+		cut(76.74, TX - 60, 40, move("tr_17", new double[] {TX - 82, 22, 58, TX, 40, 0}, new double[] {TX - 78, 24, 52, TX, 36, 0}, 1.7));
+		cut(78.37, TX - 36, 30, move("tr_18", new double[] {TX - 42, 32, 36, TX, 30, 0}, new double[] {TX - 37, 27, 31, TX, 22, 0}, 3.1));
+		cut(81.48, TX, 0, orbit(TX, 30, 0, 22, 85, 1.9, 45));
+		cut(83.29, 205, 20, move("tr_19", new double[] {200, 8, 30, TX, 30, 0}, new double[] {204, 12, 26, TX, 20, 0}, 2.9));
+		step(TR, 86.19, "btb camera handheld off @a");
+		// the gate swings open, the way is free
+		cut(86.19, TX + 38, 0, move("tr_20", new double[] {TX + 40, 3, 4, TX + 28, 3, 0}, new double[] {TX + 34, 2.5, 1, TX + 22, 3, 0}, 2.2));
+		step(TR, 86.19, "btb destruction trigger festungstor");
+		step(TR, 87.8, "btb destruction trigger saeule_1");
+		step(TR, 88.2, "btb destruction trigger saeule_2");
+		cut(88.35, 307, 0, orbit(307, -2, 0, 16, 9, 1.7, 30));
+		step(TR, 89.2, "btb spawn btb_cinematic:glutling 8 " + abs(304, 4, 0) + " 4");
+		step(TR, 90.02, "btb camera handheld 0.8 @a");
+		cut(90.02, 302, 0, move("tr_22", new double[] {296, 2, -1, 310, 3, 0}, new double[] {302, 2.5, 1, 318, 3, 0}, 2.4));
+		step(TR, 92.39, "btb camera handheld off @a");
+		cut(92.39, 352, 0, orbit(359, 6, 0, 14, 8, 1.8, 40));
+		// the portal ignites
+		step(TR, 94.2, "btb effects anamorph 0.9 0.5");
+		cut(94.2, 359, 0, orbit(359, 2, 0, 7, 3, 2.9, 120));
+		step(TR, 94.2, "btb effects shake 0.5 2.8");
+		step(TR, 95.5, "btb sound play rumble 2 0.7");
+		step(TR, 97.11, "btb portal activate film_tor_a");
+		step(TR, 97.11, "btb effects flash white 0.9");
+		step(TR, 97.11, "btb effects shake 1.4 1.5");
+		cut(97.11, 364, 0, move("tr_25", new double[] {352, 3, 0, 367, 6, 0}, new double[] {360, 4, 0, 367, 7, 0}, 2.9));
+
+		// ---- 100.0 finale (half time): through the portal – and still in the Nether
+		step(TR, 98.8, "btb spawn piglin_brute 6 " + abs(425, 0, 0) + " 14 still");
+		step(TR, 98.8, "btb spawn wither_skeleton 6 " + abs(430, 0, -12) + " 12 still");
+		step(TR, 98.8, "btb spawn zombified_piglin 8 " + abs(423, 0, 14) + " 14 still");
+		step(TR, 98.8, "btb spawn hoglin 3 " + abs(440, 0, 6) + " 8 still");
+		step(TR, 100.01, "btb effects fade white 0 0.15");
+		step(TR, 100.2, "btb effects fadeout 0.8");
+		step(TR, 100.01, "btb effects anamorph off 1");
+		step(TR, 100.01, "btb effects lut nether 0.7 1");
+		cut(100.01, 415, 0, move("tr_26", new double[] {410, 3, -9, 405, 7, 0}, new double[] {432, 18, -32, 405, 6, 0}, 6.55));
+		step(TR, 101.5, "btb ghastattack 2 " + abs(445, 30, -40));
+		step(TR, 102.3, "btb spawn btb_cinematic:glutling 8 " + abs(430, 4, 0) + " 10");
+		// montage: one image per hit
+		cut(106.56, TX - 50, 35, move("tr_27", new double[] {TX - 60, 20, 45, TX, 5, 0}, new double[] {TX - 52, 16, 38, TX, 4, 0}, 2.2));
+		cut(108.74, 54, 0, move("tr_28", new double[] {48, 2.5, 0, 56, 1.5, 4}, new double[] {52, 2.5, 0, 60, 1.5, 4}, 1.8));
+		step(TR, 110.2, "btb ausbruch " + abs(150, -1, -9) + " 8 1.0");
+		cut(110.55, 150, -9, orbit(150, 3, -9, 12, 4, 1.8, 35));
+		cut(112.38, TX + 36, 0, move("tr_29", new double[] {TX + 38, 2.5, 3, TX + 20, 4, 0}, new double[] {TX + 33, 2.5, 1, TX + 15, 4, 0}, 1.7));
+		cut(114.03, 362, 0, orbit(367, 6, 0, 8, 2, 1.6, 30));
+		cut(115.66, 425, 0, orbit(425, 2, 0, 9, 2, 1.8, -35));
+		step(TR, 117.47, "btb effects flash orange 0.4");
+		cut(117.47, TX, 0, orbit(TX, 10, 0, 28, 30, 2.9, 25));
+		// last hit: black, the title
+		step(TR, 120.37, "btb effects fade black 0.08");
+		step(TR, 120.37, "btb camera stop @a");
+		step(TR, 120.8, "btb hud show trailer_ende");
+		step(TR, 125.0, "btb hud hide");
+		step(TR, 125.0, "btb camera handheld off @a");
+		step(TR, 125.05, "btb effects clear 0.6"); // everything the trailer switched on ends with it (also the black)
+		step(TR, 125.0, "btb statist clear");
+		step(TR, 125.0, "btb effects format off 0.1");
+		step(TR, 125.0, "btb effects grain off 0.1");
+		step(TR, 125.0, "btb effects lut off 0.1");
+		step(TR, 125.0, "btb ambience off herzturm");
+		step(TR, 125.0, "btb portal activationscene film_tor_a film_06_portal");
+		step(TR, 125.1, "tp @a " + abs(TX + 34.5, 1, 0.5));
+	}
+
 	private void path(String id, double[][] pts) {
 		List<CameraPoint> points = new ArrayList<>();
 		for (int i = 0; i < pts.length; i++) {
@@ -2004,6 +2241,7 @@ final class FilmSet {
 			step("film_vorschau", sec + 0.5, "btb hud text untertitel 9 " + t[9]);
 		}
 		step("film_vorschau", 110, "btb camera stop @a");
+		trailer();
 		step("film_vorschau", 110, "tp @a " + abs(13.5, 0, 0.5));
 		step("film_vorschau", 110, "btb effects letterbox off 1");
 		if (a.isEmpty()) {

@@ -224,7 +224,19 @@ final class FilmOverlays {
 	/** End credits roll: headings, role / name columns and link rows scrolling upwards. */
 	private static void roll(GuiGraphicsExtractor g, Font font, HudTextSpec s, float alpha, float time) {
 		int sw = g.guiWidth(), sh = g.guiHeight();
-		float y = sh + 10 - time * s.rollSpeed();
+		// whole GUI pixels for the layout, the fraction as a smooth sub-pixel shift: no 2–4 px jumps
+		float exact = sh + 10 - time * s.rollSpeed();
+		float y = (float) Math.floor(exact);
+		g.pose().pushMatrix();
+		g.pose().translate(0, exact - y);
+		try {
+			rollInner(g, font, s, alpha, sw, sh, y);
+		} finally {
+			g.pose().popMatrix();
+		}
+	}
+
+	private static void rollInner(GuiGraphicsExtractor g, Font font, HudTextSpec s, float alpha, int sw, int sh, float y) {
 		int cx = sw / 2;
 		if (!s.lines().get(0).isEmpty()) {
 			Component title = Component.literal(s.lines().get(0)).withStyle(BOLD);
@@ -268,7 +280,8 @@ final class FilmOverlays {
 	private static void endCard(GuiGraphicsExtractor g, Font font, HudTextSpec s, float alpha, float p, float time) {
 		int sw = g.guiWidth(), sh = g.guiHeight();
 		Component title = Component.literal(s.lines().get(0)).withStyle(BOLD);
-		float scale = s.scale();
+		// never wider than the picture (also in 2.39:1 and small GUI windows)
+		float scale = Math.min(s.scale(), (sw - 40f) / Math.max(1, font.width(title) * 1.04f));
 		float tw = font.width(title) * scale;
 		float spacing = (float) Math.min(1, Math.max(0, time) / 120.0) * 0.6f; // slow tracking for a final feel
 		g.pose().pushMatrix();

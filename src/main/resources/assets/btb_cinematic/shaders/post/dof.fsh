@@ -21,8 +21,9 @@ layout(location = 0) out vec4 fragColor;
 // Depth of field: the sharp plane sits at Focus, everything nearer or farther dissolves into soft
 // bokeh. Distance comes from the real depth buffer (near plane 0.05, far plane assumed large).
 float lin(float d) {
+    // Minecraft 26.3 uses reversed Z (near = 1, far = 0)
     float n = 0.05, f = 768.0;
-    return n * f / (f - d * (f - n));
+    return n * f / (n + d * (f - n));
 }
 
 float coc(vec2 uv) {

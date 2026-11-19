@@ -74,6 +74,8 @@ public final class DirectorScreen extends Screen {
 	private static String hudSaveId = "";
 	private static String creditsId = "credits_opening";
 	private static String creditRole = "";
+	/** Entry number loaded into the form for editing (0 = none). */
+	private static int creditEditNr;
 	private static String creditName = "";
 	private static String creditIcon = "";
 	private static String creditLink = "";
@@ -343,8 +345,12 @@ public final class DirectorScreen extends Screen {
 				if (cr.has(creditsId)) {
 					JsonArray en = cr.getAsJsonObject(creditsId).getAsJsonArray("entries");
 					for (int i = 0; i < en.size(); i++) {
-						rows.add(new Row((i + 1) + ". " + en.get(i).getAsString(), 0xFFFFE0C0, List.of(
-								new Action("✕", "btb hud credits " + creditsId + " remove " + (i + 1), "Eintrag löschen", true))));
+						String base = "btb hud credits " + creditsId;
+						rows.add(new Row((i + 1) + ". " + en.get(i).getAsString(), creditEditNr == i + 1 ? 0xFF80FF80 : 0xFFFFE0C0, List.of(
+								new Action("▲", base + " move " + (i + 1) + " up", "nach oben", true),
+								new Action("▼", base + " move " + (i + 1) + " down", "nach unten", true),
+								new Action("✎", "local:creditedit:" + (i + 1), "In die Felder oben laden, ändern, „Übernehmen“", true),
+								new Action("✕", base + " remove " + (i + 1), "Eintrag löschen", true))));
 					}
 				}
 				rows.add(new Row("Opening-Szene (Credits + Titel)", 0xFFFFFFFF, List.of(new Action("▶", "btb scene restart opening", null),
@@ -793,6 +799,27 @@ public final class DirectorScreen extends Screen {
 							rebuildWidgets();
 						})
 						.fill(0, 110, creditLink, v -> creditLink = v, "Link", 120);
+				if (creditEditNr > 0) {
+					f.newline().button("✔ Übernehmen (Nr. " + creditEditNr + ")", "Geänderten Eintrag speichern", () -> {
+						String entry = creditRole.trim().startsWith("##") ? creditRole.trim()
+								: creditRole.trim() + " | " + creditName.trim() + " | " + creditIcon + " | " + creditLink.trim();
+						perform("btb hud credits " + creditsId + " edit " + creditEditNr + " " + entry, null, true);
+						creditEditNr = 0;
+					}).button("Abbrechen", null, () -> {
+						creditEditNr = 0;
+						rebuildWidgets();
+					});
+				}
+				JsonObject crs = state != null && state.has("credits") ? state.getAsJsonObject("credits") : new JsonObject();
+				if (crs.has(creditsId) && crs.getAsJsonObject(creditsId).has("tempo")) {
+					float tempo = crs.getAsJsonObject(creditsId).get("tempo").getAsFloat();
+					boolean roll = "roll".equals(kind);
+					f.newline().label(roll ? "Tempo " + String.format(java.util.Locale.ROOT, "%.2f", tempo) : String.format(java.util.Locale.ROOT, "%.1f s pro Eintrag", tempo))
+							.button("−", roll ? "langsamer" : "kürzer", () -> perform("btb hud credits " + creditsId + " tempo "
+									+ String.format(java.util.Locale.ROOT, "%.2f", Math.max(0.05f, roll ? tempo - 0.1f : tempo - 0.5f)), null, true))
+							.button("+", roll ? "schneller" : "länger", () -> perform("btb hud credits " + creditsId + " tempo "
+									+ String.format(java.util.Locale.ROOT, "%.2f", roll ? tempo + 0.1f : tempo + 0.5f), null, true));
+				}
 				f.newline().button("+ Eintrag", "Rolle | Name | Icon | Link hinzufügen", () -> {
 					if (!creditRole.isBlank() || !creditName.isBlank() || !creditLink.isBlank()) {
 						perform("btb hud credits " + creditsId + " add " + creditRole.trim() + " | " + creditName.trim() + " | " + creditIcon
@@ -978,6 +1005,24 @@ public final class DirectorScreen extends Screen {
 		if (command.startsWith("obs:")) {
 			de.behindtheblocks.cinematic.client.obs.ObsBridge.command(command.substring(4));
 			status = "OBS " + command.substring(4);
+			return;
+		}
+		if (command.startsWith("local:creditedit:")) {
+			int nr = Integer.parseInt(command.substring("local:creditedit:".length()));
+			JsonObject cr = state != null && state.has("credits") ? state.getAsJsonObject("credits") : new JsonObject();
+			if (cr.has(creditsId) && cr.getAsJsonObject(creditsId).has("raw")) {
+				JsonArray raw = cr.getAsJsonObject(creditsId).getAsJsonArray("raw");
+				if (nr <= raw.size()) {
+					JsonObject e = raw.get(nr - 1).getAsJsonObject();
+					creditEditNr = nr;
+					creditRole = e.has("heading") ? "## " + e.get("heading").getAsString() : e.has("role") ? e.get("role").getAsString() : "";
+					creditName = e.has("name") ? e.get("name").getAsString() : "";
+					creditIcon = e.has("icon") ? e.get("icon").getAsString() : "";
+					creditLink = e.has("link") ? e.get("link").getAsString() : "";
+					status = "Eintrag " + nr + " geladen – ändern und „Übernehmen“ klicken";
+				}
+			}
+			rebuildWidgets();
 			return;
 		}
 		if (command.equals("local:cleanfeed")) {

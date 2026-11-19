@@ -245,6 +245,11 @@ Nummernblock * halten = Cue-Monitor mit Tastenbelegung zeigen (sonst unsichtbar;
 | Befehl | Wirkung |
 |---|---|
 | `/btb replay record <name>` · `stop` · `play <name> [from <sek>]` · `list` · `delete` | Replay-Dreh |
+| `/btb hud credits <id> edit <nr> Rolle \| Name \| icon \| link` · `move <nr> up\|down` · `tempo <x>` | Credits ändern, verschieben, Tempo (Abspann: Scrolltempo, Vorspann: Sekunden pro Eintrag) |
+| `/btb effects <grain\|haze\|vignette\|blur\|letterbox\|anamorph\|flashback> <stärke> <einblenden> [dauer]` · `tint <farbe> <alpha> <sek> [dauer]` · `lut <look> <stärke> <sek> [dauer]` · `dof <blöcke\|auto> <stärke> <sek> [dauer]` · `format <verhältnis> <sek> [dauer]` | Mit **dauer** endet der Effekt nach so vielen Sekunden von selbst (blendet so lange aus, wie er eingeblendet hat). Ohne dauer bleibt er bis `… off` / Szenenende |
+| `/btb film trailer` · `film trailer export [4k\|1440p\|1080p] [fps]` | Trailer (2:05) zum Song `config/btb_cinematic/music/trailer.*` ansehen / mit Ton exportieren |
+| `/btb sound music musik.<name> <sek> once` | eigene Musik aus `config/btb_cinematic/music` (einmal abspielen) |
+| `/btb waechter angriff schlag\|bruellen\|saeulen\|wurf` | Herzwächter greift auf Kommando an |
 | `/btb replay editor [name]` · `edit <name>` · `pause` · `seek <sek>` · `speed <0.1–4>` | Replay-Editor (Timeline, Keyframes, Export; Taste F6) |
 | `/btb export <name> <sek> [4k\|1440p\|1080p] [fps] [replay]` · `export stop` | bildgenauer Film-Export (PNG + MP4 mit ffmpeg) |
 | `/btb double record <name>` · `double <name> <spieler>` · `double stop` | Doubles |

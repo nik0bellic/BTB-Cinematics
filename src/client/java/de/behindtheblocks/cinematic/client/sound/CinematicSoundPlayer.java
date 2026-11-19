@@ -131,7 +131,11 @@ public final class CinematicSoundPlayer {
 			return;
 		}
 		Minecraft.getInstance().getMusicManager().stopPlaying(); // keep vanilla music out of the shot
-		music = new CinematicSoundInstance(id, sceneId, SoundSource.MUSIC, p.getFloat("volume", 1f), 1f, null,
+		if ("btb_music".equals(id.getNamespace()) && de.behindtheblocks.cinematic.client.export.ExportManager.active()) {
+			return; // exporting: the song is laid under the video by ffmpeg, frame-exact
+		}
+		// own songs use the jukebox slider (the music slider is often at 0)
+		music = new CinematicSoundInstance(id, sceneId, "btb_music".equals(id.getNamespace()) ? SoundSource.RECORDS : SoundSource.MUSIC, p.getFloat("volume", 1f), 1f, null,
 				p.getBoolean("loop", true), fade);
 		start(music);
 	}

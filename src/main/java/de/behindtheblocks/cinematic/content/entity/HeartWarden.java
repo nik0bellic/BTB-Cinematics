@@ -69,7 +69,8 @@ public class HeartWarden extends Monster implements GeoEntity {
 	@Override
 	protected void defineSynchedData(net.minecraft.network.syncher.SynchedEntityData.Builder builder) {
 		super.defineSynchedData(builder);
-		builder.define(EMERGING, false);
+		// true from the very first frame: the client never sees it standing before it breaks out of the ground
+		builder.define(EMERGING, true);
 	}
 
 	public boolean isEmerging() {
@@ -79,6 +80,9 @@ public class HeartWarden extends Monster implements GeoEntity {
 	@Override
 	public void tick() {
 		if (level() instanceof ServerLevel sl) {
+			if (entityTags().contains(EMERGED_TAG) && emergeTicks == 0 && isEmerging()) {
+				entityData.set(EMERGING, false); // loaded from the world: already standing
+			}
 			if (tickCount == 1 && !entityTags().contains(EMERGED_TAG)) {
 				// first appearance: it breaks out of the ground instead of just standing there
 				addTag(EMERGED_TAG);
@@ -332,6 +336,13 @@ public class HeartWarden extends Monster implements GeoEntity {
 				double a = random.nextDouble() * Math.PI * 2;
 				marks.add(p.position().add(Math.cos(a) * 3, 0, Math.sin(a) * 3));
 			}
+			if (marks.isEmpty()) {
+				// nobody to aim at (trailer, empty set): the ground around the guardian breaks open
+				for (int i = 0; i < 6; i++) {
+					double a = i * Math.PI / 3 + random.nextDouble() * 0.5, d = 4 + random.nextDouble() * 4;
+					marks.add(position().add(Math.cos(a) * d, 0, Math.sin(a) * d));
+				}
+			}
 			sl.playSound(null, blockPosition(), SoundEvents.LAVA_AMBIENT, net.minecraft.sounds.SoundSource.HOSTILE, 3f, 0.5f);
 		}
 		if (attackT < 28) {
@@ -515,24 +526,39 @@ public class HeartWarden extends Monster implements GeoEntity {
 	@Override
 	protected void dropCustomDeathLoot(ServerLevel level, DamageSource source, boolean killedByPlayer) {
 		super.dropCustomDeathLoot(level, source, killedByPlayer);
-		var key = spawnAtLocation(level, new ItemStack(BtbItems.NETHER_KEY));
-		if (key != null) {
-			key.setGlowingTag(true);
-			key.setUnlimitedLifetime();
-			// the key does not just drop: it rises slowly and hovers, glowing, until someone takes it
-			key.setNoGravity(true);
-			key.setDeltaMovement(0, 0.02, 0);
-			FLOATING.add(new Object[] {key, getY() + 1.8, new int[1]});
-		}
+		dropKeyDramatic(level, new net.minecraft.world.phys.Vec3(getX(), getY() + getBbHeight() * 0.62, getZ()), getYRot());
 		level.sendParticles(ParticleTypes.END_ROD, getX(), getY() + 1.5, getZ(), 60, 0.6, 1.2, 0.6, 0.1);
 		level.sendParticles(ParticleTypes.EXPLOSION_EMITTER, getX(), getY() + 1, getZ(), 1, 0, 0, 0, 0);
 	}
 
-	private static final java.util.List<Object[]> FLOATING = new java.util.ArrayList<>();
+	/** One key in flight: {item, ticks, landedAt (-1 = still flying)}. */
+	private static final java.util.List<Object[]> KEYS = new java.util.ArrayList<>();
+	private static final int LIE_TICKS = 60; // lies on the ground, glowing, before anyone can take it
 
-	/** Called every server tick (registered in BtbEntities): lifts and hovers dropped keys. */
+	/**
+	 * The key bursts out of the heart, flies in an arc with a trail of fire and light, slams into the
+	 * ground (ring of embers, sparks, a short tremor), then lies there glowing for a moment.
+	 */
+	public static void dropKeyDramatic(ServerLevel level, net.minecraft.world.phys.Vec3 from, float facingYaw) {
+		var key = new net.minecraft.world.entity.item.ItemEntity(level, from.x, from.y, from.z, new ItemStack(BtbItems.NETHER_KEY));
+		key.setGlowingTag(true);
+		key.setUnlimitedLifetime();
+		key.setPickUpDelay(32767); // released after it has landed and lain for a moment
+		// forward (where the guardian looked) and high up
+		double yaw = Math.toRadians(facingYaw);
+		key.setDeltaMovement(-Math.sin(yaw) * 0.16, 0.62, Math.cos(yaw) * 0.16);
+		level.addFreshEntity(key);
+		KEYS.add(new Object[] {key, new int[1], new int[] {-1}});
+		level.sendParticles(net.minecraft.core.particles.ColorParticleOption.create(ParticleTypes.FLASH, 0xFFFFD080), from.x, from.y, from.z, 1, 0, 0, 0, 0);
+		level.sendParticles(ParticleTypes.LAVA, from.x, from.y, from.z, 14, 0.3, 0.3, 0.3, 0);
+		level.playSound(null, key.blockPosition(), SoundEvents.TRIDENT_RIPTIDE_3.value(), net.minecraft.sounds.SoundSource.NEUTRAL, 1.4f, 0.7f);
+		level.playSound(null, key.blockPosition(), de.behindtheblocks.cinematic.sound.BtbSounds.CRYSTAL_SHIMMER,
+				net.minecraft.sounds.SoundSource.NEUTRAL, 1.2f, 0.8f);
+	}
+
+	/** Called every server tick (registered in BtbEntities): flight trail, impact, lying, release. */
 	public static void tickFloatingKeys() {
-		java.util.Iterator<Object[]> it = FLOATING.iterator();
+		java.util.Iterator<Object[]> it = KEYS.iterator();
 		while (it.hasNext()) {
 			Object[] f = it.next();
 			var key = (net.minecraft.world.entity.item.ItemEntity) f[0];
@@ -540,23 +566,60 @@ public class HeartWarden extends Monster implements GeoEntity {
 				it.remove();
 				continue;
 			}
-			int t = ++((int[]) f[2])[0];
-			double target = (double) f[1];
-			if (key.getY() < target) {
-				key.setDeltaMovement(0, 0.025, 0);
-			} else {
-				key.setDeltaMovement(0, Math.sin(t * 0.08) * 0.004, 0);
+			int t = ++((int[]) f[1])[0];
+			int[] landed = (int[]) f[2];
+			double x = key.getX(), y = key.getY() + 0.2, z = key.getZ();
+			if (landed[0] < 0) {
+				// in flight: trail of fire and light
+				sl.sendParticles(ParticleTypes.FLAME, x, y, z, 2, 0.04, 0.04, 0.04, 0.005);
+				sl.sendParticles(ParticleTypes.END_ROD, x, y, z, 1, 0.02, 0.02, 0.02, 0);
+				sl.sendParticles(new net.minecraft.core.particles.DustParticleOptions(0xFFB030, 1.4f), x, y, z, 2, 0.05, 0.05, 0.05, 0);
+				if (t % 6 == 0) {
+					sl.playSound(null, key.blockPosition(), SoundEvents.BLAZE_SHOOT, net.minecraft.sounds.SoundSource.NEUTRAL, 0.25f, 1.8f);
+				}
+				if ((key.onGround() && t > 4) || t > 200) {
+					landed[0] = t;
+					key.setDeltaMovement(0, 0, 0);
+					// impact: ring of embers, sparks, dust, a short tremor
+					for (int i = 0; i < 36; i++) {
+						double a = i * Math.PI * 2 / 36;
+						sl.sendParticles(ParticleTypes.FLAME, x + Math.cos(a) * 0.4, key.getY() + 0.05, z + Math.sin(a) * 0.4, 0,
+								Math.cos(a), 0.02, Math.sin(a), 0.18);
+						sl.sendParticles(ParticleTypes.SOUL_FIRE_FLAME, x + Math.cos(a) * 0.3, key.getY() + 0.05, z + Math.sin(a) * 0.3, 0,
+								Math.cos(a), 0.05, Math.sin(a), 0.1);
+					}
+					sl.sendParticles(ParticleTypes.LAVA, x, key.getY() + 0.1, z, 20, 0.3, 0.1, 0.3, 0);
+					sl.sendParticles(ParticleTypes.CAMPFIRE_COSY_SMOKE, x, key.getY() + 0.1, z, 10, 0.5, 0.05, 0.5, 0.02);
+					sl.sendParticles(net.minecraft.core.particles.ColorParticleOption.create(ParticleTypes.FLASH, 0xFFFFD080), x, y, z, 1, 0, 0, 0, 0);
+					sl.playSound(null, key.blockPosition(), SoundEvents.ANVIL_LAND, net.minecraft.sounds.SoundSource.NEUTRAL, 0.9f, 0.55f);
+					sl.playSound(null, key.blockPosition(), SoundEvents.GENERIC_EXPLODE.value(), net.minecraft.sounds.SoundSource.NEUTRAL, 0.6f, 1.6f);
+					var server = sl.getServer();
+					server.getCommands().performPrefixedCommand(server.createCommandSourceStack().withSuppressedOutput().withLevel(sl)
+							.withPosition(key.position()), "btb effects shake 0.45 0.7 @a[distance=..30]");
+				}
+				continue;
 			}
-			if (t % 3 == 0) {
-				sl.sendParticles(ParticleTypes.END_ROD, key.getX(), key.getY() + 0.3, key.getZ(), 1, 0.15, 0.15, 0.15, 0.005);
+			int lying = t - landed[0];
+			// lies there glowing: a slim column of light and a soft pulse
+			if (t % 4 == 0) {
+				for (int h = 0; h < 6; h++) {
+					sl.sendParticles(ParticleTypes.END_ROD, x, key.getY() + 0.3 + h * 0.5, z, 1, 0.02, 0.05, 0.02, 0);
+				}
 			}
 			if (t % 5 == 0) {
-				sl.sendParticles(new net.minecraft.core.particles.DustParticleOptions(0xFFC040, 0.8f), key.getX(), key.getY() + 0.2, key.getZ(),
-						2, 0.25, 0.25, 0.25, 0);
+				sl.sendParticles(new net.minecraft.core.particles.DustParticleOptions(0xFFC040, 0.9f), x, y, z, 2, 0.25, 0.1, 0.25, 0);
 			}
-			if (t % 40 == 0) {
+			if (t % 20 == 0) {
+				sl.sendParticles(ParticleTypes.FLAME, x, key.getY() + 0.05, z, 6, 0.35, 0, 0.35, 0.01);
+			}
+			if (lying == LIE_TICKS) {
+				key.setPickUpDelay(0); // now it can be taken
 				sl.playSound(null, key.blockPosition(), de.behindtheblocks.cinematic.sound.BtbSounds.CRYSTAL_SHIMMER,
-						net.minecraft.sounds.SoundSource.NEUTRAL, 0.5f, 1.3f);
+						net.minecraft.sounds.SoundSource.NEUTRAL, 0.8f, 1.4f);
+			}
+			if (lying % 40 == 0) {
+				sl.playSound(null, key.blockPosition(), de.behindtheblocks.cinematic.sound.BtbSounds.CRYSTAL_SHIMMER,
+						net.minecraft.sounds.SoundSource.NEUTRAL, 0.4f, 1.3f);
 			}
 		}
 	}
@@ -584,7 +647,12 @@ public class HeartWarden extends Monster implements GeoEntity {
 	@Override
 	public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
 		controllers.add(new AnimationController<HeartWarden>("main", 4,
-				test -> test.setAndContinue(isEmerging() ? EMERGE : test.isMoving() ? WALK : IDLE))
+				test -> {
+					boolean walking = !isEmerging() && test.isMoving();
+					// stride speed follows the real walking speed: no sliding feet
+					test.setControllerSpeed(walking ? Math.max(0.7f, Math.min(2f, 0.5f + test.animatable().walkAnimation.speed() * 2.2f)) : 1f);
+					return test.setAndContinue(isEmerging() ? EMERGE : walking ? WALK : IDLE);
+				})
 				.triggerableAnim("attack", ATTACK).triggerableAnim("slam", SLAM).triggerableAnim("throw", THROW)
 				.triggerableAnim("roar", ROAR));
 	}

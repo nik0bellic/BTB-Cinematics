@@ -476,7 +476,14 @@ public final class ReplayEditorScreen extends Screen {
 		}
 		// help line above the panel
 		String help = "Leertaste Play/Pause · ←/→ 1 s · K Keyframe · J Kamera · I/P In/Out · Mausrad: Zoom · Rechtsklick: In/Out bzw. Keyframe löschen";
-		g.text(font, font.plainSubstrByWidth(help, width - 16), 8, y0 - 11, 0xFFCCCCCC, true);
+		String st = ReplayEditor.currentStatus();
+		if (st != null) {
+			g.fill(0, y0 - 14, width, y0, ReplayEditor.statusError ? 0xC0400000 : 0xA0003000);
+			g.text(font, font.plainSubstrByWidth((ReplayEditor.statusError ? "⚠ " : "✔ ") + st, width - 16), 8, y0 - 11,
+					ReplayEditor.statusError ? 0xFFFFB0B0 : 0xFFB0FFB0, true);
+		} else {
+			g.text(font, font.plainSubstrByWidth(help, width - 16), 8, y0 - 11, 0xFFCCCCCC, true);
+		}
 		super.extractRenderState(g, mouseX, mouseY, a);
 	}
 

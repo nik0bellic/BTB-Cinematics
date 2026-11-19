@@ -109,6 +109,8 @@ public final class DestructionManager implements CinematicModule, CommandContrib
 	private final Set<UUID> ownedDebris = new HashSet<>();
 	/** Raised gates stay up (as displays) until the area is restored. */
 	private final Map<String, List<Display.BlockDisplay>> raisedGates = new HashMap<>();
+	/** Last run per area (also after it finished): restore cancels its scheduled after-effects. */
+	private final Map<String, Run> recentRuns = new HashMap<>();
 	private final Set<String> pausedScenes = new HashSet<>();
 	/** Areas whose proximity trigger already fired in this take (cleared on restore). */
 	private final Set<String> proximityFired = new HashSet<>();
@@ -133,6 +135,19 @@ public final class DestructionManager implements CinematicModule, CommandContrib
 		/** Collapse: how many blocks came down per column, and what they were made of (for the rubble heap). */
 		final Map<Long, Integer> fallen = new HashMap<>();
 		final List<BlockState> palette = new ArrayList<>();
+		/** Set by restore: late work of this run (aftershocks, smouldering, settling debris) is dropped. */
+		volatile boolean cancelled;
+		/** Blocks that belong to the structure (lazy) and rubble blocks placed by landed debris. */
+		Set<Long> structure;
+		final Set<Long> rubble = new HashSet<>();
+
+		boolean isStructure(BlockPos p) {
+			if (structure == null) {
+				structure = new HashSet<>();
+				order.forEach(b -> structure.add(b.asLong()));
+			}
+			return structure.contains(p.asLong());
+		}
 
 		Run(DestructionDefinition def, DestructionDefinition.Effect effect, ServerLevel level, String sceneId, List<BlockPos> order, Vec3 center) {
 			this.def = def;
@@ -157,6 +172,11 @@ public final class DestructionManager implements CinematicModule, CommandContrib
 		BlockPos rubbleMin, rubbleMax;
 		/** > 1 for big chunks in large collapses. */
 		float size = 1f;
+		Run run;
+		boolean landed;
+		int landedAt;
+		BlockPos restCell;
+		boolean inFluid;
 
 		Debris(String areaId, Display.BlockDisplay entity, Vector3f velocity, Vector3f spin, int life, BlockState state) {
 			this.areaId = areaId;
@@ -398,6 +418,10 @@ public final class DestructionManager implements CinematicModule, CommandContrib
 		if (effect == DestructionDefinition.Effect.WALL_BURST) {
 			run.outward = outward(def, level, center);
 		}
+		Run previous = recentRuns.put(id, run);
+		if (previous != null) {
+			previous.cancelled = true;
+		}
 		runs.put(id, run);
 		triggeredBy.put(id, sceneId);
 		if (def.warn() > 0) {
@@ -509,14 +533,33 @@ public final class DestructionManager implements CinematicModule, CommandContrib
 			}
 			case FIRE -> sound().play(run.sceneId, 0, BtbSounds.WHOOSH.location(), run.center, 2f, 0.8f);
 			case GATE -> {
-				// All blocks become displays that slide up together; the passage is free right away.
-				sound().play(run.sceneId, 0, BtbSounds.RUMBLE.location(), run.center, 2.5f, 0.6f);
-				sound().play(run.sceneId, 0, net.minecraft.sounds.SoundEvents.CHAIN_PLACE.location(), run.center, 2f, 0.5f);
-				cam(run).ifPresent(c -> c.shake(run.sceneId, 0, 0.35f, run.def.duration(), 0.6f, near));
-				int rise = run.def.max().getY() - run.def.min().getY() + 2;
+				// A double gate: two wings swing open on their hinges, away from whoever opens it. Nothing
+				// floats, nothing disappears – the open wings stay standing until restore closes the gate.
+				BlockPos lo = run.def.min(), hi = run.def.max();
+				boolean thinX = hi.getX() - lo.getX() <= hi.getZ() - lo.getZ(); // the gate stands across x (wings along z)
+				int latMin = thinX ? lo.getZ() : lo.getX(), latMax = thinX ? hi.getZ() : hi.getX();
+				double face = thinX ? lo.getX() : lo.getZ(); // front of the gate plane
+				// open away from the nearest player (they push it open)
+				ServerPlayer opener = run.level.getNearestPlayer(run.center.x, run.center.y, run.center.z, 64, false) instanceof ServerPlayer sp ? sp : null;
+				int dir = opener == null ? 1 : ((thinX ? opener.getX() : opener.getZ()) > face + 0.5 ? -1 : 1);
+				double hingePlane = dir > 0 ? face + 1 : face; // hinges on the side it opens to
+				int width = latMax - latMin + 1, splitAt = latMin + (width + 1) / 2; // left wing: [latMin, splitAt)
 				List<Display.BlockDisplay> parts = new ArrayList<>();
+				List<Vec3> hinges = new ArrayList<>();
+				List<Float> angles = new ArrayList<>();
 				for (BlockPos p : run.order) {
 					BlockState st = run.level.getBlockState(p);
+					if (st.isAir()) {
+						continue;
+					}
+					int lat = thinX ? p.getZ() : p.getX();
+					boolean left = lat < splitAt;
+					double hingeLat = left ? latMin : latMax + 1;
+					Vec3 hinge = thinX ? new Vec3(hingePlane, p.getY(), hingeLat) : new Vec3(hingeLat, p.getY(), hingePlane);
+					// wing direction (hinge → wing) must turn into the opening direction
+					Vector3f wing = thinX ? new Vector3f(0, 0, left ? 1 : -1) : new Vector3f(left ? 1 : -1, 0, 0);
+					Vector3f open = thinX ? new Vector3f(dir, 0, 0) : new Vector3f(0, 0, dir);
+					float angle = new Quaternionf().rotationY((float) Math.toRadians(90)).transform(new Vector3f(wing)).distance(open) < 0.01f ? 90f : -90f;
 					Display.BlockDisplay d = new Display.BlockDisplay(EntityTypes.BLOCK_DISPLAY, run.level);
 					d.setPos(p.getX(), p.getY(), p.getZ());
 					d.setBlockState(st);
@@ -525,9 +568,10 @@ public final class DestructionManager implements CinematicModule, CommandContrib
 					ownedDebris.add(d.getUUID());
 					run.level.addFreshEntity(d);
 					parts.add(d);
+					hinges.add(hinge);
+					angles.add(angle);
 					run.level.setBlock(p, Blocks.AIR.defaultBlockState(), 2 | 16 | 32);
 				}
-				int dur = Math.max(10, run.def.duration());
 				List<Display.BlockDisplay> old = raisedGates.put(run.def.id(), parts);
 				if (old != null) {
 					old.forEach(d -> {
@@ -535,17 +579,41 @@ public final class DestructionManager implements CinematicModule, CommandContrib
 						d.discard();
 					});
 				}
-				// A few ticks later (the clients must know the displays first, otherwise they jump instead of
-				// gliding): start the client-side interpolation upwards (smooth, no per-tick packets).
-				engine.timeline().schedule(run.sceneId, "gate rise", 4, () -> parts.forEach(d -> {
-					d.setTransformationInterpolationDuration(dur);
-					d.setTransformationInterpolationDelay(0);
-					d.setTransformation(new com.mojang.math.Transformation(new org.joml.Vector3f(0, rise, 0), null, null, null));
-				}));
-				engine.timeline().schedule(run.sceneId, "gate dust", 2, () -> run.level.sendParticles(ParticleTypes.LARGE_SMOKE,
-						run.center.x, run.def.min().getY() + 0.2, run.center.z, 30, Math.max(1, (run.def.max().getX() - run.def.min().getX()) / 2.0), 0.2,
-						Math.max(1, (run.def.max().getZ() - run.def.min().getZ()) / 2.0), 0.02));
-				// the gate stays up in its slot; restore lowers it again (removes the displays, puts the blocks back)
+				run.level.playSound(null, BlockPos.containing(run.center), net.minecraft.sounds.SoundEvents.IRON_DOOR_OPEN,
+						net.minecraft.sounds.SoundSource.BLOCKS, 1.5f, 0.5f);
+				int dur = Math.max(20, run.def.duration());
+				int steps = 12;
+				int every = Math.max(1, dur / steps);
+				for (int step = 1; step <= steps; step++) {
+					int k = step;
+					// small steps on the arc (one big interpolation would cut the corner), easing out at the end
+					double ease = 1 - Math.pow(1 - k / (double) steps, 2);
+					engine.timeline().schedule(run.sceneId, "gate swing", 4 + (step - 1) * every, () -> {
+						for (int i = 0; i < parts.size(); i++) {
+							Display.BlockDisplay d = parts.get(i);
+							if (d.isRemoved()) {
+								continue;
+							}
+							Quaternionf q = new Quaternionf().rotationY((float) Math.toRadians(angles.get(i) * ease));
+							// rotate about the hinge: T = (H - P) - R(H - P)
+							Vector3f hp = new Vector3f((float) (hinges.get(i).x - d.getX()), 0, (float) (hinges.get(i).z - d.getZ()));
+							Vector3f t = new Vector3f(hp).sub(q.transform(new Vector3f(hp)));
+							d.setTransformationInterpolationDuration(every + 1);
+							d.setTransformationInterpolationDelay(0);
+							d.setTransformation(new Transformation(t, q, null, null));
+						}
+						if (k % 4 == 1) {
+							run.level.playSound(null, BlockPos.containing(run.center), net.minecraft.sounds.SoundEvents.CHAIN_STEP,
+									net.minecraft.sounds.SoundSource.BLOCKS, 1.2f, 0.5f);
+						}
+					});
+				}
+				engine.timeline().schedule(run.sceneId, "gate stop", 4 + steps * every, () -> {
+					run.level.playSound(null, BlockPos.containing(run.center), net.minecraft.sounds.SoundEvents.ANVIL_LAND,
+							net.minecraft.sounds.SoundSource.BLOCKS, 0.5f, 0.5f);
+					run.level.sendParticles(ParticleTypes.LARGE_SMOKE, run.center.x, lo.getY() + 0.2, run.center.z, 10, width / 2.0, 0.1, width / 2.0, 0.01);
+				});
+				// restore closes the gate again (removes the displays, puts the blocks back)
 			}
 			case WALL_BURST -> {
 				sound().play(run.sceneId, 0, BtbSounds.RUMBLE.location(), run.center, 2.5f, 1.1f);
@@ -579,8 +647,8 @@ public final class DestructionManager implements CinematicModule, CommandContrib
 				if (run.t >= run.def.duration() && run.cursor >= run.order.size()) {
 					it.remove();
 					if (run.effect == DestructionDefinition.Effect.COLLAPSE) {
-						buildRubble(run);
-						aftershocks(run);
+						aftershocks(run); // the rubble is what the debris left where it landed
+
 						smolder(run);
 					}
 					if (run.effect == DestructionDefinition.Effect.EXPLODE || run.effect == DestructionDefinition.Effect.LAVA) {
@@ -681,7 +749,7 @@ public final class DestructionManager implements CinematicModule, CommandContrib
 		}
 		// Thin out debris on big areas so the visible amount stays roughly constant.
 		int budget = run.effect == DestructionDefinition.Effect.COLLAPSE
-				? Math.max(run.def.debris(), Math.min(1500, run.order.size() / 20)) : run.def.debris();
+				? Math.max(run.def.debris(), Math.min(1500, run.order.size() / 10)) : run.def.debris();
 		double chance = Math.min(1.0, budget / (double) Math.max(1, run.order.size()) * 1.5);
 		if (run.debrisSpawned >= budget || r.nextDouble() > chance) {
 			if (run.effect == DestructionDefinition.Effect.EXPLODE && r.nextInt(12) == 0) {
@@ -712,15 +780,22 @@ public final class DestructionManager implements CinematicModule, CommandContrib
 				life = 30 + r.nextInt(20);
 			}
 			default -> {
-				v = new Vector3f((r.nextFloat() - 0.5f) * 0.06f, 0, (r.nextFloat() - 0.5f) * 0.06f);
+				// a collapsing building crumbles outwards: the stone drifts away from the centre while it falls,
+				// so it piles up around the foot instead of vanishing inside the walls
+				double ox = p.getX() + 0.5 - run.center.x, oz = p.getZ() + 0.5 - run.center.z, ol = Math.max(0.5, Math.sqrt(ox * ox + oz * oz));
+				float out = run.effect == DestructionDefinition.Effect.COLLAPSE ? 0.03f + r.nextFloat() * 0.06f : 0;
+				v = new Vector3f((float) (ox / ol) * out + (r.nextFloat() - 0.5f) * 0.05f, 0, (float) (oz / ol) * out + (r.nextFloat() - 0.5f) * 0.05f);
 				int drop = Math.max(1, p.getY() - run.def.min().getY());
 				life = (int) Math.ceil(Math.sqrt(2.0 * drop / GRAVITY)) + 1;
 			}
 		}
 		boolean glowing = fling && (run.effect == DestructionDefinition.Effect.LAVA
 				|| run.effect == DestructionDefinition.Effect.WALL_BURST && r.nextBoolean());
-		spawnDebris(run, p, glowing ? Blocks.MAGMA_BLOCK.defaultBlockState() : state, v,
-				new Vector3f((r.nextFloat() - 0.5f) * 14, (r.nextFloat() - 0.5f) * 14, (r.nextFloat() - 0.5f) * 14), life);
+		// falling stone tumbles slowly about one axis; flung debris spins faster
+		Vector3f spin = run.effect == DestructionDefinition.Effect.COLLAPSE
+				? new Vector3f((r.nextFloat() - 0.5f) * 7, 0, (r.nextFloat() - 0.5f) * 7)
+				: new Vector3f((r.nextFloat() - 0.5f) * 12, (r.nextFloat() - 0.5f) * 12, (r.nextFloat() - 0.5f) * 12);
+		spawnDebris(run, p, glowing ? Blocks.MAGMA_BLOCK.defaultBlockState() : state, v, spin, life);
 	}
 
 	private void spawnDebris(Run run, BlockPos p, BlockState state, Vector3f v, Vector3f spin, int life) {
@@ -733,7 +808,9 @@ public final class DestructionManager implements CinematicModule, CommandContrib
 		d.addTag(DEBRIS_TAG);
 		ownedDebris.add(d.getUUID());
 		run.level.addFreshEntity(d);
-		Debris deb = new Debris(run.def.id(), d, v, spin, life, state);
+		// life is only the longest possible flight now: debris ends when it hits the real ground
+		Debris deb = new Debris(run.def.id(), d, v, spin, Math.max(life * 3, 160), state);
+		deb.run = run;
 		if (run.effect == DestructionDefinition.Effect.COLLAPSE && run.order.size() > 3000 && run.rnd.nextInt(4) == 0) {
 			deb.size = 1.6f + run.rnd.nextFloat() * 0.8f; // big chunks among the debris
 		}
@@ -810,6 +887,18 @@ public final class DestructionManager implements CinematicModule, CommandContrib
 				it.remove();
 				continue;
 			}
+			if (d.landed) {
+				if (d.age - d.landedAt >= (d.inFluid ? 12 : d.run != null && d.run.effect == DestructionDefinition.Effect.COLLAPSE ? 24 : 60)
+						&& !waitsForSpace(d)) {
+					settle(d);
+					ownedDebris.remove(d.entity.getUUID());
+					it.remove();
+				}
+				continue;
+			}
+			if (d.age > 1 && landed(d)) {
+				continue;
+			}
 			if (d.age % UPDATE_INTERVAL == 0) {
 				Vec3 tr = translation(d);
 				float s = (1f - Math.max(0, d.age - d.life + 6) / 6f * 0.4f) * d.size;
@@ -824,6 +913,95 @@ public final class DestructionManager implements CinematicModule, CommandContrib
 				d.entity.setTransformationInterpolationDelay(0);
 			}
 		}
+	}
+
+	/** Checks the path of this tick for real ground (or lava); on contact the piece lies down flat on it. */
+	private boolean landed(Debris d) {
+		double vy = d.velocity.y - GRAVITY * d.age;
+		if (vy >= 0) {
+			return false;
+		}
+		ServerLevel level = (ServerLevel) d.entity.level();
+		Vec3 base = d.entity.position();
+		Vec3 now = translation(d);
+		d.age--;
+		Vec3 before = translation(d);
+		d.age++;
+		double cx = base.x + now.x + 0.5, cz = base.z + now.z + 0.5;
+		double from = base.y + before.y, to = base.y + now.y;
+		for (double y = from; y >= to - 1e-6; y -= 0.45) {
+			BlockPos cell = BlockPos.containing(cx, y, cz);
+			BlockState st = level.getBlockState(cell);
+			boolean fluid = !st.getFluidState().isEmpty();
+			boolean solid = !st.getCollisionShape(level, cell).isEmpty();
+			if (!(solid || fluid) || passThrough(d, cell)) {
+				continue;
+			}
+			d.landed = true;
+			d.landedAt = d.age;
+			d.inFluid = fluid && !solid;
+			d.restCell = cell.above();
+			float s = d.size;
+			double restY = d.inFluid ? cell.getY() + 0.55 - s : cell.getY() + 1;
+			// flat on the ground, snapped to the block grid (where it will become a real block)
+			Vector3f t = new Vector3f((float) (d.restCell.getX() - base.x + 0.5 - 0.5 * s), (float) (restY - base.y),
+					(float) (d.restCell.getZ() - base.z + 0.5 - 0.5 * s));
+			d.entity.setTransformationInterpolationDuration(2);
+			d.entity.setTransformation(new Transformation(t, new Quaternionf(), new Vector3f(s), null));
+			d.entity.setTransformationInterpolationDelay(0);
+			level.sendParticles(new BlockParticleOption(ParticleTypes.BLOCK, d.state), cx, cell.getY() + 1.1, cz, 8, 0.4, 0.05, 0.4, 0.08);
+			if (d.inFluid) {
+				level.sendParticles(ParticleTypes.LAVA, cx, cell.getY() + 1, cz, 3, 0.3, 0.1, 0.3, 0);
+			} else if (d.run != null && d.run.rnd.nextInt(6) == 0) {
+				level.playSound(null, d.restCell, d.state.getSoundType().getBreakSound(), net.minecraft.sounds.SoundSource.BLOCKS, 0.8f, 0.6f);
+			}
+			return true;
+		}
+		return false;
+	}
+
+	/** Collapse: the structure below is coming down too – falling stone passes it instead of resting on it. */
+	private static boolean passThrough(Debris d, BlockPos cell) {
+		Run run = d.run;
+		return run != null && run.effect == DestructionDefinition.Effect.COLLAPSE
+				&& run.isStructure(cell) && !run.rubble.contains(cell.asLong());
+	}
+
+	/**
+	 * A landed piece: in a collapse it becomes a real block where it lies (inside the area, on solid
+	 * ground that stays) – the rubble grows where the debris actually falls. Otherwise it crumbles away.
+	 */
+	private void settle(Debris d) {
+		ServerLevel level = (ServerLevel) d.entity.level();
+		Run run = d.run;
+		BlockPos c = d.restCell;
+		boolean keep = !d.inFluid && run != null && !run.cancelled && run.effect == DestructionDefinition.Effect.COLLAPSE && c != null
+				&& inside(run.def, c) && level.getBlockState(c).isAir()
+				&& (!run.isStructure(c.below()) || run.rubble.contains(c.below().asLong()))
+				&& !d.state.hasBlockEntity() && d.state.getFluidState().isEmpty();
+		if (keep) {
+			level.setBlock(c, d.state.getBlock().defaultBlockState(), BlockSnapshot.SILENT);
+			run.rubble.add(c.asLong());
+		} else if (c != null) {
+			level.sendParticles(new BlockParticleOption(ParticleTypes.BLOCK, d.state), c.getX() + 0.5, c.getY() + 0.3, c.getZ() + 0.5, 10, 0.3, 0.1, 0.3, 0.05);
+		}
+		d.entity.discard();
+	}
+
+	/** The spot is still taken by the lowest part of the structure, which comes down later: keep lying there until it is free. */
+	private boolean waitsForSpace(Debris d) {
+		Run run = d.run;
+		if (run == null || run.effect != DestructionDefinition.Effect.COLLAPSE || d.restCell == null || d.age - d.landedAt > 600) {
+			return false;
+		}
+		ServerLevel level = (ServerLevel) d.entity.level();
+		return !level.getBlockState(d.restCell).isAir() && run.isStructure(d.restCell) && !run.rubble.contains(d.restCell.asLong());
+	}
+
+	private static boolean inside(DestructionDefinition def, BlockPos p) {
+		BlockPos a = def.min(), b = def.max();
+		return p.getX() >= a.getX() && p.getX() <= b.getX() && p.getY() >= a.getY() && p.getY() <= b.getY()
+				&& p.getZ() >= a.getZ() && p.getZ() <= b.getZ();
 	}
 
 	/** Big collapse: explosions along the breaking edge, dust clouds, sparks, rumbling – scaled to the area size. */
@@ -871,6 +1049,9 @@ public final class DestructionManager implements CinematicModule, CommandContrib
 			int at = i * 13 + run.rnd.nextInt(8);
 			boolean big = i == 4;
 			engine.timeline().schedule(run.sceneId, "aftershock", at, () -> {
+				if (run.cancelled) {
+					return; // the area was restored meanwhile
+				}
 				java.util.Random r = new java.util.Random(run.rnd.nextLong());
 				for (int k = 0; k < perBurst; k++) {
 					int x = lo.getX() + r.nextInt(hi.getX() - lo.getX() + 1), z = lo.getZ() + r.nextInt(hi.getZ() - lo.getZ() + 1);
@@ -1000,6 +1181,10 @@ public final class DestructionManager implements CinematicModule, CommandContrib
 			});
 		}
 		runs.remove(id);
+		Run last = recentRuns.remove(id);
+		if (last != null) {
+			last.cancelled = true;
+		}
 		proximityFired.remove(id);
 		triggeredBy.remove(id);
 		debris.removeIf(d -> {
@@ -1098,6 +1283,13 @@ public final class DestructionManager implements CinematicModule, CommandContrib
 					}
 					definitions.put(id, json);
 					backups.remove(id);
+					// a backup of an older area with the same name (e.g. the film set built somewhere else before)
+					// must not be restored here: it is taken fresh before the next trigger
+					try {
+						Files.deleteIfExists(backupFile(id));
+					} catch (IOException e) {
+						LOG.warn("Could not delete old backup of {}", id, e);
+					}
 					save(id);
 					return Feedback.ok(c.getSource(), "Area '" + id + "' created. Backup is taken automatically before the first trigger.");
 				})))));

@@ -114,6 +114,35 @@ Kameramathe (Easing, Pfade, Orbit), HUD-/Effekt-Spec-Validierung.
 - Behoben: Szenen und Replays liefen beim Export im eingefrorenen Spiel in Echtzeit weiter (jetzt nur noch Bild für Bild)
 - Nicht geprüft: Spulen mit laufenden Szenen/Einstürzen im echten Set, „Fahrt+Blick“, Mausrad-Zoom, Replay-Wechsel ◀ ▶
 
+## Runde 13: Fehlerbehebungen (im Spiel geprüft)
+- Herzwächter: Film-Kreaturen bleiben jetzt auch auf „Friedlich“ (vorher von Minecraft sofort gelöscht → „spawnt nicht“)
+- Herzwächter steigt sofort aus dem Boden (kein kurzes Stehen mehr), kräftigere Laufanimation, Schritttempo passt zur Geschwindigkeit
+- Schlüssel: schießt aus dem Herz, fliegt im Bogen mit Feuer-/Lichtspur, schlägt mit Glutring und Beben auf, liegt 3 s leuchtend (Lichtsäule), dann aufhebbar
+- Einsturz: Trümmer landen auf dem echten Boden, fallen nach außen, drehen ruhiger und werden dort, wo sie liegen, zum Schutthaufen (kein Schweben, kein plötzlicher Haufen)
+- Tor: zweiflügeliges Tor, die Flügel schwingen an ihren Angeln auf (vom Spieler weg) und bleiben offen stehen – nichts schwebt, nichts verschwindet; kurzer Sound. Zurücksetzen schließt es wieder
+- Abspann ruckelt nicht mehr (stufenlose Bewegung); Credits: Einträge ändern, verschieben, Tempo (Regiepult ✎ ▲ ▼, Befehle edit/move/tempo)
+- Export: Fortschritt im Fenstertitel, Esc bricht ab (kein Menü mehr im Video), kein Pausieren bei Fokusverlust, Seitenverhältnis bleibt erhalten (Zuschnitt statt Verzerrung)
+- Replay-Editor zeigt Fehler und Meldungen (rot/grün) über dem Panel und in der Flug-Leiste
+
+## Runde 14: Trailer (im Spiel geprüft)
+- Song analysiert (Lautstärke, Tempo 161,5 BPM, Schläge, Phrasen bei 29,1 / 52,4 / 76,7 / 100,0 s, Stille ab 121,7 s), Szene `trailer` mit ~45 Schnitten auf die Schläge
+- Eigene Musik: config/btb_cinematic/music → automatisches Ressourcenpaket, `musik.<name>`; Export legt den Song per ffmpeg unter das Video
+- Trailer live durchgespielt und als 1080p/24-Vorschau mit Ton exportiert (Software-Rendering ohne Shader)
+- Nicht geprüft: Export in 4K/60 und mit Shaderpack, Wiedergabe mit echter Soundkarte (hier stumm)
+
+## Runde 15: Trailer-Texte, Effekt-Dauer
+- Trailer: „BEHIND THE BLOCKS presents“, Titel „THE HEART OF THE NETHER“ + „Trailer“, Directed by / Feat. (Spotify-Icon), Endkarte „Coming 2027“ mit Instagram/TikTok, Held mit Skin Nik2810 (Skin lädt nur online), keine Buch-/Story-Texte
+- Endkarten-Titel passt sich an die Bildbreite an
+- Effekte mit optionaler Dauer: enden von selbst; der Trailer räumt am Ende alle Effekte weg
+
+## Runde 16: Tiefenschärfe, Flare, Zurücksetzen (im Spiel geprüft)
+- Tiefenschärfe war seit 26.3 kaputt (umgekehrte Tiefe „Reversed-Z“ → alles gleich unscharf). Jetzt echt nach Entfernung: ohne Shader und mit Shaderpack (MakeUp, Tiefe direkt aus Iris)
+- Flare: neun Sichtstrahlen, nur feste Blöcke verdecken, weiches Aus-/Einblenden am Bildrand, kein Springen in die Ecke, stabil auf große Entfernung
+- Bereiche mit gleichem Namen neu angelegt (z. B. Set woanders gebaut): alte Sicherung wird gelöscht – Turm und Tor kommen beim Zurücksetzen wirklich zurück; Nachbeben nach dem Zurücksetzen fallen weg
+- Netherkristalle kreisen wieder um das Herz; Effekt-Dauer geprüft (Tönung endet nach der angegebenen Zeit)
+- Trailer: Ghast-Absturz-Einstellung folgt dem Ghast, Einsturz-Totale über der Mauer
+- Nicht geprüft: Tiefenschärfe mit Complementary und anderen Shaderpacks
+
 ## Nicht getestet
 - **Echte GPU / Performance-Messung**: Software-Rendering sagt nichts über FPS aus. Bitte auf euren Rechnern prüfen.
 - **Mehrere echte Clients gleichzeitig** (Director + Kamera + Darsteller). Logik ist dafür gebaut, aber nur mit einem Client getestet.

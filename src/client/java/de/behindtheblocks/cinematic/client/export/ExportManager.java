@@ -13,6 +13,8 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -34,6 +36,10 @@ public final class ExportManager {
 	private static boolean hideGuiBefore;
 	private static final AtomicInteger pendingWrites = new AtomicInteger();
 	private static String name;
+	/** Music laid under the video by ffmpeg (null = none). */
+	private static Path audio;
+	private static boolean pauseOnLostFocusBefore;
+	private static long startedAt;
 
 	private ExportManager() {
 	}
@@ -50,12 +56,15 @@ public final class ExportManager {
 	public static void init() {
 		ClientCueDispatcher.register("export_start", (scene, tick, data) -> start(data.get("name").getAsString(), data.get("seconds").getAsDouble(),
 				data.get("width").getAsInt(), data.get("height").getAsInt(), data.get("fps").getAsInt(),
-				data.has("replay") ? data.get("replay").getAsString() : null, data.has("from") ? data.get("from").getAsDouble() : 0));
+				data.has("replay") ? data.get("replay").getAsString() : null, data.has("from") ? data.get("from").getAsDouble() : 0,
+				data.has("scene") ? data.get("scene").getAsString() : null, data.has("music") ? data.get("music").getAsString() : null));
 		ClientCueDispatcher.register("export_stop", (scene, tick, data) -> finish("abgebrochen"));
 	}
 
 	private static void say(String text) {
 		Minecraft mc = Minecraft.getInstance();
+		boolean bad = text.contains("Gestoppt") || text.contains("Fehler") || text.contains("nicht") || text.contains("fehlgeschlagen");
+		de.behindtheblocks.cinematic.client.replay.ReplayEditor.note("Export: " + text, bad);
 		if (mc.player != null) {
 			mc.player.sendSystemMessage(Component.literal("[BTB Export] " + text));
 		}
@@ -63,6 +72,15 @@ public final class ExportManager {
 
 	/** Starts an export; with {@code replay} the take is played from {@code from} seconds in sync with the first frame. */
 	public static void start(String exportName, double seconds, int w, int h, int framesPerSecond, String replay, double from) {
+		start(exportName, seconds, w, h, framesPerSecond, replay, from, null, null);
+	}
+
+	/**
+	 * With {@code scene}: the scene starts in the same server step as frame 0. With {@code music}: the track
+	 * {@code config/btb_cinematic/music/<music>.*} is laid under the video, starting at frame 0.
+	 */
+	public static void start(String exportName, double seconds, int w, int h, int framesPerSecond, String replay, double from,
+			String scene, String music) {
 		Minecraft mc = Minecraft.getInstance();
 		IntegratedServer server = mc.getSingleplayerServer();
 		if (server == null) {
@@ -95,6 +113,15 @@ public final class ExportManager {
 			return;
 		}
 		frame = 0;
+		startedAt = System.currentTimeMillis();
+		audio = music == null ? null : de.behindtheblocks.cinematic.client.sound.MusicPack.source(music);
+		if (music != null && audio == null) {
+			say("Musik „" + music + "“ nicht in config/btb_cinematic/music gefunden – Video ohne Ton");
+		}
+		// no menu may ever end up in the film: close what is open and do not pause when the window loses focus
+		mc.gui.setScreen(null);
+		pauseOnLostFocusBefore = mc.options.pauseOnLostFocus;
+		mc.options.pauseOnLostFocus = false;
 		hideGuiBefore = mc.gui.hud.isHidden();
 		if (!hideGuiBefore) {
 			mc.gui.hud.toggle(); // no hotbar/hand in the film; the cinematic overlays still draw
@@ -105,10 +132,14 @@ public final class ExportManager {
 				server.getCommands().performPrefixedCommand(server.createCommandSourceStack().withSuppressedOutput(),
 						String.format(java.util.Locale.ROOT, "btb replay play %s from %.2f", replay, from));
 			}
+			if (scene != null) {
+				server.getCommands().performPrefixedCommand(server.createCommandSourceStack().withSuppressedOutput(),
+						"btb scene restart " + scene);
+			}
 			server.tickRateManager().setFrozen(true);
 		});
 		active = true;
-		say(String.format(java.util.Locale.ROOT, "Exportiere %d Bilder (%.1f s, %d FPS) in %d×%d → %s. Bitte nichts anfassen.",
+		say(String.format(java.util.Locale.ROOT, "Exportiere %d Bilder (%.1f s, %d FPS) in %d×%d → %s. Fortschritt im Fenstertitel, Esc bricht ab.",
 				totalFrames, seconds, fps, ww * scale, wh * scale, dir));
 		LOG.info("Export {} started: {} frames, render {}x{}, target {}x{} @ {} fps", exportName, totalFrames, ww * scale, wh * scale, w, h, fps);
 	}
@@ -140,6 +171,11 @@ public final class ExportManager {
 			return;
 		}
 		Minecraft mc = Minecraft.getInstance();
+		if (mc.gui.screen() != null || mc.isPaused()) {
+			// Esc / a menu opened: this frame would show the menu (at export size) – stop instead
+			finish("Menü geöffnet – Esc bricht den Export ab");
+			return;
+		}
 		int index = frame;
 		pendingWrites.incrementAndGet();
 		Screenshot.takeScreenshot(mc.gameRenderer.mainRenderTarget(), (NativeImage img) -> {
@@ -155,6 +191,13 @@ public final class ExportManager {
 			});
 		});
 		frame++;
+		if (frame % 10 == 0 || frame == 1) {
+			// progress in the window title: visible to you, never in the picture
+			long el = System.currentTimeMillis() - startedAt;
+			long left = frame > 0 ? el * (totalFrames - frame) / frame / 1000 : 0;
+			mc.getWindow().setTitle(String.format(java.util.Locale.ROOT, "BTB Export %s: %d%% (%d/%d Bilder, noch ca. %d:%02d)",
+					name, frame * 100 / Math.max(1, totalFrames), frame, totalFrames, left / 60, left % 60));
+		}
 		if (frame >= totalFrames) {
 			finish(null);
 			return;
@@ -184,6 +227,8 @@ public final class ExportManager {
 		}
 		active = false;
 		Minecraft mc = Minecraft.getInstance();
+		mc.options.pauseOnLostFocus = pauseOnLostFocusBefore;
+		mc.updateTitle();
 		if (mc.gui.hud.isHidden() != hideGuiBefore) {
 			mc.gui.hud.toggle();
 		}
@@ -194,6 +239,9 @@ public final class ExportManager {
 		int frames = frame;
 		Path folder = dir;
 		say((reason == null ? "Fertig: " : "Gestoppt (" + reason + "): ") + frames + " Bilder in " + folder);
+		if (frames == 0) {
+			return;
+		}
 		Thread t = new Thread(() -> encode(folder, frames), "btb-export-encode");
 		t.setDaemon(true);
 		t.start();
@@ -208,16 +256,22 @@ public final class ExportManager {
 				return;
 			}
 		}
-		String ffmpeg = findFfmpeg();
+		String ffmpeg = ffmpeg();
 		if (ffmpeg == null) {
 			Minecraft.getInstance().execute(() -> say("ffmpeg nicht gefunden – die Einzelbilder liegen in " + folder
-					+ ". Mit ffmpeg: ffmpeg -framerate " + fps + " -i frame_%06d.png -vf scale=" + targetW + ":" + targetH + " -c:v libx264 -crf 14 -pix_fmt yuv420p film.mp4"));
+					+ ". Mit ffmpeg: ffmpeg -framerate " + fps + " -i frame_%06d.png -vf scale=" + targetW + ":" + targetH + ":force_original_aspect_ratio=increase,crop=" + targetW + ":" + targetH + " -c:v libx264 -crf 14 -pix_fmt yuv420p film.mp4"));
 			return;
 		}
 		File out = folder.resolve(name + ".mp4").toFile();
-		ProcessBuilder pb = new ProcessBuilder(ffmpeg, "-y", "-framerate", String.valueOf(fps), "-i", folder.resolve("frame_%06d.png").toString(),
-				"-vf", "scale=" + targetW + ":" + targetH + ":flags=lanczos", "-c:v", "libx264", "-preset", "slow", "-crf", "14", "-pix_fmt", "yuv420p",
-				out.getAbsolutePath());
+		Minecraft.getInstance().execute(() -> say("MP4 wird erstellt (" + frames + " Bilder) …"));
+		Path track = audio;
+		List<String> args = new ArrayList<>(List.of(ffmpeg, "-y", "-framerate", String.valueOf(fps), "-i", folder.resolve("frame_%06d.png").toString()));
+		if (track != null) {
+			args.addAll(List.of("-i", track.toString(), "-map", "0:v", "-map", "1:a", "-c:a", "aac", "-b:a", "320k", "-shortest"));
+		}
+		args.addAll(List.of("-vf", "scale=" + targetW + ":" + targetH + ":force_original_aspect_ratio=increase:flags=lanczos,crop=" + targetW + ":" + targetH, "-c:v", "libx264", "-preset", "slow", "-crf", "14", "-pix_fmt", "yuv420p",
+				out.getAbsolutePath()));
+		ProcessBuilder pb = new ProcessBuilder(args);
 		pb.redirectErrorStream(true);
 		pb.redirectOutput(folder.resolve("ffmpeg.log").toFile());
 		try {
@@ -226,6 +280,18 @@ public final class ExportManager {
 		} catch (IOException | InterruptedException e) {
 			Minecraft.getInstance().execute(() -> say("ffmpeg konnte nicht starten: " + e.getMessage()));
 		}
+	}
+
+	private static String ffmpegPath;
+	private static boolean ffmpegSearched;
+
+	/** Path of ffmpeg, or null if it is not installed (searched once). */
+	public static synchronized String ffmpeg() {
+		if (!ffmpegSearched) {
+			ffmpegPath = findFfmpeg();
+			ffmpegSearched = true;
+		}
+		return ffmpegPath;
 	}
 
 	private static String findFfmpeg() {

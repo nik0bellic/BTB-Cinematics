@@ -221,8 +221,12 @@ public final class ScreenEffectRenderer {
 				}
 			}
 			int strength = dofLevel < 0.55f ? 1 : 2;
-			if (de.behindtheblocks.cinematic.client.model.ShaderCompat.shaderPackInUse()) {
-				// shader packs keep the depth buffer to themselves: sharp area around the subject instead
+			boolean shaders = de.behindtheblocks.cinematic.client.model.ShaderCompat.shaderPackInUse();
+			if (shaders && IrisDepth.refresh()) {
+				// shader pack: real depth from Iris' own depth texture
+				out.add(Identifier.fromNamespaceAndPath(BtbCinematic.MOD_ID, "dofi_" + strength + "_" + best));
+			} else if (shaders) {
+				// no depth reachable: sharp area around the subject instead
 				float[] c = focusScreenPoint();
 				int xi = Math.round((Math.max(0.2f, Math.min(0.8f, c[0])) - 0.2f) / 0.15f);
 				int yi = Math.round((Math.max(0.3f, Math.min(0.7f, c[1])) - 0.3f) / 0.2f);
@@ -422,6 +426,8 @@ public final class ScreenEffectRenderer {
 	private static final Identifier FLARE_RING = Identifier.fromNamespaceAndPath(BtbCinematic.MOD_ID, "textures/gui/flare_ring.png");
 	/** Smoothed visibility of the flare source (occlusion fades instead of popping). */
 	private static float flareVisibility;
+	private static long flareLastMs;
+	private static float flareSx, flareSy;
 
 	/**
 	 * Projects the world point onto the screen and draws a glow, an anamorphic streak and a chain of
@@ -440,20 +446,41 @@ public final class ScreenEffectRenderer {
 		org.joml.Vector3fc fw = cam.forwardVector(), up = cam.upVector(), left = cam.leftVector();
 		double z = d.x * fw.x() + d.y * fw.y() + d.z * fw.z();
 		float target = 0;
-		float sx = 0, sy = 0;
+		float sx = flareSx, sy = flareSy; // behind the camera: fade out where it was last seen, not in a corner
 		if (z > 0.5) {
 			double x = -(d.x * left.x() + d.y * left.y() + d.z * left.z()) / z;
 			double y = (d.x * up.x() + d.y * up.y() + d.z * up.z()) / z;
 			double focal = (h / 2.0) / Math.tan(Math.toRadians(cam.getFov()) / 2);
 			sx = (float) (w / 2.0 + x * focal);
 			sy = (float) (h / 2.0 - y * focal);
-			boolean onScreen = sx > -w * 0.2 && sx < w * 1.2 && sy > -h * 0.2 && sy < h * 1.2;
-			var hit = mc.level.clip(new net.minecraft.world.level.ClipContext(cp, pos, net.minecraft.world.level.ClipContext.Block.VISUAL,
-					net.minecraft.world.level.ClipContext.Fluid.NONE, net.minecraft.world.phys.shapes.CollisionContext.empty()));
-			boolean occluded = hit.getType() != net.minecraft.world.phys.HitResult.Type.MISS && hit.getLocation().distanceTo(cp) < d.length() - 3.0; // blocks right at the light (lamp, tower tip) do not hide it
-			target = onScreen && !occluded ? 1 : 0;
+			// soft edge: fades out over the last fifth outside the picture instead of popping
+			float ex = (float) Math.max(0, Math.max(-sx, sx - w) / (w * 0.25));
+			float ey = (float) Math.max(0, Math.max(-sy, sy - h) / (h * 0.25));
+			float edge = Math.max(0, 1 - Math.max(ex, ey));
+			// occlusion: nine rays around the light – thin bars, chains or spikes only dim it a little,
+			// a wall hides it; blocks right at the light (lamp, tower tip) never count
+			int open = 0;
+			// far away the rays spread wider (a few blocks at 200 m), so single spikes or bars never switch it off
+			double rr = Math.min(4.0, 0.02 * d.length() + 0.4);
+			for (int i = 0; i < 9; i++) {
+				net.minecraft.world.phys.Vec3 t = i == 0 ? pos : pos.add(left.x() * rr * Math.cos(i * 0.785) + up.x() * rr * Math.sin(i * 0.785),
+						left.y() * rr * Math.cos(i * 0.785) + up.y() * rr * Math.sin(i * 0.785),
+						left.z() * rr * Math.cos(i * 0.785) + up.z() * rr * Math.sin(i * 0.785));
+				// only solid blocks hide the light (glass, bars, chains, leaves and plants do not)
+				var hit = mc.level.clip(new net.minecraft.world.level.ClipContext(cp, t, net.minecraft.world.level.ClipContext.Block.COLLIDER,
+						net.minecraft.world.level.ClipContext.Fluid.NONE, net.minecraft.world.phys.shapes.CollisionContext.empty()));
+				if (hit.getType() == net.minecraft.world.phys.HitResult.Type.MISS || hit.getLocation().distanceTo(cp) >= t.distanceTo(cp) - 3.0) {
+					open++;
+				}
+			}
+			target = edge * open / 9f;
+			flareSx = sx;
+			flareSy = sy;
 		}
-		flareVisibility += (target - flareVisibility) * 0.15f;
+		// frame-rate independent smoothing (≈ 0.12 s)
+		float dt = Math.min(0.1f, (de.behindtheblocks.cinematic.client.export.ExportClock.nowMs() - flareLastMs) / 1000f);
+		flareLastMs = de.behindtheblocks.cinematic.client.export.ExportClock.nowMs();
+		flareVisibility += (target - flareVisibility) * Math.min(1f, dt * 8f);
 		float alpha = flareVisibility * a.spec.intensity() * a.env.value(partial);
 		if (alpha < 0.01f) {
 			return;

@@ -688,6 +688,24 @@ Ein aufgenommenes Replay lässt sich wie in einem Schnittprogramm bearbeiten –
 Keyframes und Export-Einstellungen werden neben dem Replay gespeichert: `config/btb_cinematic/replays/<name>.cam.json`.
 Der Editor läuft nur im Einzelspieler bzw. als Host einer LAN-Welt.
 
+## 11i. Trailer zu eurem Song (2:05)
+
+Der Trailer ist eine fertige Szene im kompletten Film-Set. Jeder Schnitt liegt auf einem Schlag des Songs „HoN-Trailer“ (161,5 BPM):
+0–5,8 s Intro aus dem Schwarz · 5,8–29 s Aufbau (Bastion, Buch, Gang, Turm am Horizont) · 29,09 s Drop: Lavawände, Gegner,
+brennende Brücke, Ghasts, Ausbruch · 52,4 s Festung und Herzwächter (Aufsteigen, Herz, Schlag, Brüllen, Lavasäulen, Felswurf,
+Schlüssel) · 76,7 s der Turm stürzt ein, das Tor schwingt auf, Schlucht, Portal zündet · 100 s durch das Portal, Montage,
+120,4 s letzter Schlag → Schwarz → „BEHIND THE BLOCKS – Demnächst“.
+
+1. Song in den Ordner `.minecraft/config/btb_cinematic/music/` legen und **trailer.ogg** (oder trailer.mp3, dann braucht es ffmpeg) nennen.
+   Die Mod baut daraus beim Start ein Ressourcenpaket „btb_musik“ und schaltet es ein. Lautstärke: Regler **Jukebox**.
+2. Ganzes Set bauen (`/btb film setup`), **Sichtweite mindestens 16**.
+3. Live ansehen: `/btb film trailer` (setzt alles zurück, du wirst Zuschauer und fliegst mit den Einstellungen mit).
+4. Als Video: `/btb film trailer export` (4K/60) oder `/btb film trailer export 1080p 30`.
+   Bild für Bild gerendert, der Song wird am Ende von ffmpeg exakt ab Bild 0 darunter gelegt → `.minecraft/btb_export/trailer/trailer.mp4`.
+
+Eigene Musik allgemein: jede Datei in `config/btb_cinematic/music/` heißt im Spiel `musik.<name>`, z. B. `/btb sound music musik.trailer 0 once`.
+Wächter-Angriffe auf Kommando (für eigene Trailer): `/btb waechter angriff schlag|bruellen|saeulen|wurf`.
+
 ## 12. Probleme?
 
 | Problem | Lösung |

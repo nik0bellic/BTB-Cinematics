@@ -111,6 +111,10 @@ public final class SoundManager implements CinematicModule, CommandContributor {
 	}
 
 	private static Identifier checkSound(String raw) {
+		// your own music (config/btb_cinematic/music, client-side resource pack): musik.<name>
+		if (raw.startsWith("musik.") && raw.length() > 6) {
+			return Identifier.fromNamespaceAndPath("btb_music", raw.substring(6).toLowerCase(java.util.Locale.ROOT));
+		}
 		Identifier id = BtbSounds.resolve(raw);
 		if (id == null || !BuiltInRegistries.SOUND_EVENT.containsKey(id)) {
 			throw new JsonParamException("unknown sound '" + raw + "'");
@@ -229,7 +233,9 @@ public final class SoundManager implements CinematicModule, CommandContributor {
 						.then(argument("sound", StringArgumentType.word()).suggests(sounds)
 								.executes(c -> musicCmd(c, 2))
 								.then(argument("seconds", DoubleArgumentType.doubleArg(0, 120))
-										.executes(c -> musicCmd(c, DoubleArgumentType.getDouble(c, "seconds"))))))
+										.executes(c -> musicCmd(c, DoubleArgumentType.getDouble(c, "seconds")))
+										// once: plays the track a single time (trailers, songs) instead of looping
+										.then(literal("once").executes(c -> musicCmd(c, DoubleArgumentType.getDouble(c, "seconds"), false))))))
 				.then(literal("reverb").then(argument("preset", StringArgumentType.word())
 						.suggests((c, b) -> SharedSuggestionProvider.suggest(Stream.of(ReverbPreset.values()).map(ReverbPreset::id), b))
 						.executes(c -> reverbCmd(c, 0.6f))
@@ -284,8 +290,12 @@ public final class SoundManager implements CinematicModule, CommandContributor {
 	}
 
 	private int musicCmd(CommandContext<CommandSourceStack> c, double seconds) {
+		return musicCmd(c, seconds, true);
+	}
+
+	private int musicCmd(CommandContext<CommandSourceStack> c, double seconds, boolean loop) {
 		try {
-			JsonObject cue = music(StringArgumentType.getString(c, "sound"), 1f, (int) Math.round(seconds * 20), true);
+			JsonObject cue = music(StringArgumentType.getString(c, "sound"), 1f, (int) Math.round(seconds * 20), loop);
 			engine.cues().queue("", 0, "music", cue);
 			return Feedback.ok(c.getSource(), "Music: " + cue.get("sound").getAsString());
 		} catch (JsonParamException e) {

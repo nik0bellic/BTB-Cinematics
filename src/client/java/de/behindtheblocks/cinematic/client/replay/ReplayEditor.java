@@ -81,6 +81,22 @@ public final class ReplayEditor {
 	static int res = 2, fps = 2;
 	private static boolean exporting;
 
+	// last message for the editor (errors in red), shown in the panel and the flight HUD
+	static String status;
+	static boolean statusError;
+	static long statusAt;
+
+	/** Shows a message in the editor (also used by the export). */
+	public static void note(String text, boolean error) {
+		status = text;
+		statusError = error;
+		statusAt = System.currentTimeMillis();
+	}
+
+	static String currentStatus() {
+		return status != null && System.currentTimeMillis() - statusAt < (statusError ? 12_000 : 6_000) ? status : null;
+	}
+
 	private static KeyMapping openKey, keyframeKey, playKey, backKey, fwdKey, camKey;
 
 	private ReplayEditor() {
@@ -94,6 +110,16 @@ public final class ReplayEditor {
 		backKey = KeyMappingHelper.registerKeyMapping(new KeyMapping("key.btb_cinematic.replay_back", InputConstants.KEY_LEFT, cat));
 		fwdKey = KeyMappingHelper.registerKeyMapping(new KeyMapping("key.btb_cinematic.replay_forward", InputConstants.KEY_RIGHT, cat));
 		camKey = KeyMappingHelper.registerKeyMapping(new KeyMapping("key.btb_cinematic.replay_camera", InputConstants.KEY_J, cat));
+		// replay/export feedback from the server (e.g. "Replay nicht gefunden") also shows in the editor
+		net.fabricmc.fabric.api.client.message.v1.ClientReceiveMessageEvents.GAME.register((message, overlay) -> {
+			String t = message.getString();
+			if (!overlay && active() && t.startsWith("[BTB")) {
+				net.minecraft.network.chat.TextColor red = net.minecraft.network.chat.TextColor.fromLegacyFormat(net.minecraft.ChatFormatting.RED);
+				boolean err = message.visit((style, txt) -> red.equals(style.getColor()) && !txt.isBlank()
+						? java.util.Optional.of(Boolean.TRUE) : java.util.Optional.empty(), net.minecraft.network.chat.Style.EMPTY).isPresent();
+				note(t.replaceFirst("^\\[BTB[^\\]]*\\]\\s*", ""), err);
+			}
+		});
 		ClientCueDispatcher.register("replay_editor", (scene, tick, data) ->
 				open(data.has("name") ? data.get("name").getAsString() : null));
 	}
@@ -159,6 +185,9 @@ public final class ReplayEditor {
 	private static void load(String take) {
 		name = take;
 		header = ReplayManager.header(take);
+		if (header == null) {
+			note("Replay „" + take + "“ ist beschädigt oder nicht lesbar (config/btb_cinematic/replays/" + take + ".replay)", true);
+		}
 		KEYS.clear();
 		selected = -1;
 		in = 0;
@@ -534,7 +563,12 @@ public final class ReplayEditor {
 		String state = !name.equals(ReplayManager.current()) ? "■" : ReplayManager.isPaused() ? "⏸" : "▶";
 		g.text(font, state + " " + name + "  " + clock(t) + " / " + clock(len) + "  " + (cameraOn ? "◆ Keyframes" : "✈ frei"), x0, y - 12, 0xFFFFE0C0, true);
 		String help = "K Keyframe · ↑ Play/Pause · ←/→ 1 s · J Kamera · F6 Editor";
-		g.text(font, font.plainSubstrByWidth(help, x1 - x0), x0, y - 23, 0xFFAAAAAA, false);
+		String st = currentStatus();
+		if (st != null) {
+			g.text(font, font.plainSubstrByWidth(st, x1 - x0), x0, y - 23, statusError ? 0xFFFF5050 : 0xFFAAFFAA, true);
+		} else {
+			g.text(font, font.plainSubstrByWidth(help, x1 - x0), x0, y - 23, 0xFFAAAAAA, false);
+		}
 	}
 
 	static String clock(double s) {
@@ -543,6 +577,7 @@ public final class ReplayEditor {
 	}
 
 	static void say(String text) {
+		note(text, true);
 		Minecraft mc = Minecraft.getInstance();
 		if (mc.player != null) {
 			mc.player.sendSystemMessage(Component.literal("[BTB Replay] " + text));

@@ -791,6 +791,31 @@ public final class ReplayManager implements CinematicModule, CommandContributor 
 						.then(argument("seconds", DoubleArgumentType.doubleArg(0.1, 600))
 								.executes(c -> gesture(c.getSource(), net.minecraft.commands.arguments.EntityArgument.getEntities(c, "targets"),
 										StringArgumentType.getString(c, "geste"), DoubleArgumentType.getDouble(c, "seconds")))))));
+		// the guardian performs an attack on cue (trailer / exact timing): schlag, bruellen, saeulen, wurf
+		root.then(literal("waechter").then(literal("angriff").then(argument("art", StringArgumentType.word())
+				.suggests((c, b) -> SharedSuggestionProvider.suggest(List.of("schlag", "bruellen", "saeulen", "wurf"), b))
+				.executes(c -> {
+					String art = switch (StringArgumentType.getString(c, "art")) {
+						case "schlag" -> "SLAM";
+						case "bruellen" -> "ROAR";
+						case "saeulen" -> "PILLARS";
+						case "wurf" -> "THROW";
+						default -> null;
+					};
+					if (art == null) {
+						return Feedback.fail(c.getSource(), "Angriffe: schlag, bruellen, saeulen, wurf");
+					}
+					int n = 0;
+					for (ServerLevel l : c.getSource().getServer().getAllLevels()) {
+						for (Entity e : l.getAllEntities()) {
+							if (e instanceof de.behindtheblocks.cinematic.content.entity.HeartWarden w && w.isAlive()) {
+								w.playAttack(art);
+								n++;
+							}
+						}
+					}
+					return n > 0 ? Feedback.ok(c.getSource(), "Wächter: " + StringArgumentType.getString(c, "art")) : Feedback.fail(c.getSource(), "Kein Herzwächter da");
+				}))));
 		root.then(literal("statist")
 				.then(literal("clear").executes(c -> {
 					int n = 0;

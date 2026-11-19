@@ -123,7 +123,10 @@ public final class EffectManager implements CinematicModule, CommandContributor 
 								.executes(c -> simple(c, EffectSpec.Kind.TINT, color(c), FloatArgumentType.getFloat(c, "alpha"), 20, -1, 0))
 								.then(argument("seconds", DoubleArgumentType.doubleArg(0, 3600)).executes(c ->
 										simple(c, EffectSpec.Kind.TINT, color(c), FloatArgumentType.getFloat(c, "alpha"),
-												CommandUtil.ticks(DoubleArgumentType.getDouble(c, "seconds")), -1, 0))))));
+												CommandUtil.ticks(DoubleArgumentType.getDouble(c, "seconds")), -1, 0))
+										.then(argument("dauer", DoubleArgumentType.doubleArg(0, 3600)).executes(c ->
+												simple(c, EffectSpec.Kind.TINT, color(c), FloatArgumentType.getFloat(c, "alpha"),
+														CommandUtil.ticks(DoubleArgumentType.getDouble(c, "seconds")), -1, 0)))))));
 		fx.then(literal("transition").then(argument("style", StringArgumentType.word())
 				.suggests((c, b) -> SharedSuggestionProvider.suggest(EffectSpec.TRANSITIONS, b))
 				.then(argument("color", StringArgumentType.word()).suggests(colors)
@@ -156,7 +159,9 @@ public final class EffectManager implements CinematicModule, CommandContributor 
 						.executes(c -> lut(c, 0.8f, 1))
 						.then(argument("strength", FloatArgumentType.floatArg(0, 1)).executes(c -> lut(c, FloatArgumentType.getFloat(c, "strength"), 1))
 								.then(argument("seconds", DoubleArgumentType.doubleArg(0, 600)).executes(c -> lut(c,
-										FloatArgumentType.getFloat(c, "strength"), DoubleArgumentType.getDouble(c, "seconds")))))));
+										FloatArgumentType.getFloat(c, "strength"), DoubleArgumentType.getDouble(c, "seconds")))
+										.then(argument("dauer", DoubleArgumentType.doubleArg(0, 3600)).executes(c -> lut(c,
+												FloatArgumentType.getFloat(c, "strength"), DoubleArgumentType.getDouble(c, "seconds"))))))));
 		fx.then(slot("anamorph", EffectSpec.Kind.ANAMORPH, 0, 1, "black", colors));
 		fx.then(slot("flashback", EffectSpec.Kind.FLASHBACK, 0, 1, "black", colors));
 		// depth of field: dof auto [strength] [seconds] · dof <blocks> [strength] [seconds] · dof off
@@ -166,21 +171,27 @@ public final class EffectManager implements CinematicModule, CommandContributor 
 				.then(literal("auto").executes(c -> dof(c, "auto", 0.6f, 1))
 						.then(argument("strength", FloatArgumentType.floatArg(0, 1)).executes(c -> dof(c, "auto", FloatArgumentType.getFloat(c, "strength"), 1))
 								.then(argument("seconds", DoubleArgumentType.doubleArg(0, 600)).executes(c -> dof(c, "auto",
-										FloatArgumentType.getFloat(c, "strength"), DoubleArgumentType.getDouble(c, "seconds"))))))
+										FloatArgumentType.getFloat(c, "strength"), DoubleArgumentType.getDouble(c, "seconds")))
+										.then(argument("dauer", DoubleArgumentType.doubleArg(0, 3600)).executes(c -> dof(c, "auto",
+												FloatArgumentType.getFloat(c, "strength"), DoubleArgumentType.getDouble(c, "seconds")))))))
 				.then(argument("blocks", DoubleArgumentType.doubleArg(1, 80))
 						.executes(c -> dof(c, String.valueOf(DoubleArgumentType.getDouble(c, "blocks")), 0.6f, 1))
 						.then(argument("strength", FloatArgumentType.floatArg(0, 1)).executes(c -> dof(c,
 								String.valueOf(DoubleArgumentType.getDouble(c, "blocks")), FloatArgumentType.getFloat(c, "strength"), 1))
 								.then(argument("seconds", DoubleArgumentType.doubleArg(0, 600)).executes(c -> dof(c,
 										String.valueOf(DoubleArgumentType.getDouble(c, "blocks")), FloatArgumentType.getFloat(c, "strength"),
-										DoubleArgumentType.getDouble(c, "seconds")))))));
+										DoubleArgumentType.getDouble(c, "seconds")))
+										.then(argument("dauer", DoubleArgumentType.doubleArg(0, 3600)).executes(c -> dof(c,
+												String.valueOf(DoubleArgumentType.getDouble(c, "blocks")), FloatArgumentType.getFloat(c, "strength"),
+												DoubleArgumentType.getDouble(c, "seconds"))))))));
 		// cinema formats: format 2.39 | 2 | 1.85 | 4x3 | 1x1 | off [seconds]
 		fx.then(literal("format")
 				.then(literal("off").executes(c -> clear(c, "letterbox", 1)))
 				.then(argument("ratio", StringArgumentType.word())
 						.suggests((c, b) -> SharedSuggestionProvider.suggest(List.of("2.39", "2", "1.85", "4x3", "1x1"), b))
 						.executes(c -> format(c, 1))
-						.then(argument("seconds", DoubleArgumentType.doubleArg(0, 60)).executes(c -> format(c, DoubleArgumentType.getDouble(c, "seconds"))))));
+						.then(argument("seconds", DoubleArgumentType.doubleArg(0, 60)).executes(c -> format(c, DoubleArgumentType.getDouble(c, "seconds")))
+								.then(argument("dauer", DoubleArgumentType.doubleArg(0, 3600)).executes(c -> format(c, DoubleArgumentType.getDouble(c, "seconds")))))));
 		fx.then(literal("focus")
 				.then(argument("seconds", DoubleArgumentType.doubleArg(0.1, 60))
 						.executes(c -> focus(c, 6f, false))
@@ -209,7 +220,11 @@ public final class EffectManager implements CinematicModule, CommandContributor 
 						.executes(c -> simple(c, kind, color, FloatArgumentType.getFloat(c, "intensity"), 20, -1, 0))
 						.then(argument("seconds", DoubleArgumentType.doubleArg(0, 3600))
 								.executes(c -> simple(c, kind, color, FloatArgumentType.getFloat(c, "intensity"),
-										CommandUtil.ticks(DoubleArgumentType.getDouble(c, "seconds")), -1, 0))));
+										CommandUtil.ticks(DoubleArgumentType.getDouble(c, "seconds")), -1, 0))
+								// optional duration: the effect fades out again on its own after <dauer> seconds
+								.then(argument("dauer", DoubleArgumentType.doubleArg(0, 3600))
+										.executes(c -> simple(c, kind, color, FloatArgumentType.getFloat(c, "intensity"),
+												CommandUtil.ticks(DoubleArgumentType.getDouble(c, "seconds")), -1, 0)))));
 	}
 
 	private static String color(CommandContext<CommandSourceStack> c) {
@@ -227,7 +242,26 @@ public final class EffectManager implements CinematicModule, CommandContributor 
 		return simple(c, EffectSpec.Kind.FADE, color(c), 1f, in, hold, out);
 	}
 
+	/** Optional "dauer" (duration) in ticks, or -1 (the effect stays until switched off). */
+	private static int duration(CommandContext<CommandSourceStack> c) {
+		try {
+			return CommandUtil.ticks(DoubleArgumentType.getDouble(c, "dauer"));
+		} catch (IllegalArgumentException e) {
+			return -1;
+		}
+	}
+
+	/** EffectSpec with the optional duration applied: hold for "dauer", then fade out as long as it faded in. */
+	private static EffectSpec timed(CommandContext<CommandSourceStack> c, EffectSpec.Kind kind, int argb, float intensity, int in, String style) {
+		int d = duration(c);
+		return new EffectSpec(kind, argb, argb, intensity, in, d, d >= 0 ? Math.max(10, in) : 0, style);
+	}
+
 	private int simple(CommandContext<CommandSourceStack> c, EffectSpec.Kind kind, String color, float intensity, int in, int hold, int out) {
+		if (hold < 0 && duration(c) >= 0) {
+			hold = duration(c);
+			out = Math.max(10, in);
+		}
 		int argb;
 		try {
 			argb = Colors.parse(color);
@@ -264,12 +298,12 @@ public final class EffectManager implements CinematicModule, CommandContributor 
 
 	private int lut(CommandContext<CommandSourceStack> c, float strength, double seconds) {
 		String look = StringArgumentType.getString(c, "look");
-		send("", 0, new EffectSpec(EffectSpec.Kind.LUT, 0xFF000000, 0xFF000000, strength, CommandUtil.ticks(seconds), -1, 0, look), null);
+		send("", 0, timed(c, EffectSpec.Kind.LUT, 0xFF000000, strength, CommandUtil.ticks(seconds), look), null);
 		return Feedback.ok(c.getSource(), "Farbkorrektur „" + look + "“ (eigene .cube-Dateien: config/btb_cinematic/luts/)");
 	}
 
 	private int dof(CommandContext<CommandSourceStack> c, String focus, float strength, double seconds) {
-		send("", 0, new EffectSpec(EffectSpec.Kind.DOF, 0xFF000000, 0xFF000000, strength, CommandUtil.ticks(seconds), -1, 0, focus), null);
+		send("", 0, timed(c, EffectSpec.Kind.DOF, 0xFF000000, strength, CommandUtil.ticks(seconds), focus), null);
 		return Feedback.ok(c.getSource(), "Tiefenschärfe " + (focus.equals("auto") ? "folgt dem Blick" : "auf " + focus + " Blöcke"));
 	}
 
@@ -284,8 +318,7 @@ public final class EffectManager implements CinematicModule, CommandContributor 
 		if (ratio < 0.5 || ratio > 3.5) {
 			return Feedback.fail(c.getSource(), "Format zwischen 1:2 und 3.5:1");
 		}
-		send("", 0, new EffectSpec(EffectSpec.Kind.LETTERBOX, 0xFF000000, 0xFF000000, 0.4f, CommandUtil.ticks(seconds), -1, 0,
-				"ratio:" + ratio), null);
+		send("", 0, timed(c, EffectSpec.Kind.LETTERBOX, 0xFF000000, 0.4f, CommandUtil.ticks(seconds), "ratio:" + ratio), null);
 		return Feedback.ok(c.getSource(), "Bildformat " + r);
 	}
 
