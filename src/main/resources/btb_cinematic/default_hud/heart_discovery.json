@@ -1,0 +1,17 @@
+// Shown with: /btb hud show heart_discovery
+{
+  "lines": ["IF YOU WANT TO LEAVE THIS PLACE,", "FIND THE HEART OF THE NETHER."],
+  "font": "cinematic",
+  "scale": 2.0,
+  "color": "#FFE6C8",
+  "glow": "#FF5A00",
+  "letter_spacing": 1.0,
+  "line_spacing": 6,
+  "anchor": "center",
+  "animation_in": "letters",
+  "animation_out": "tracking",
+  "char_ticks": 1.2,
+  "in": 40,
+  "hold": 80,
+  "out": 40
+}

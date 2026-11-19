@@ -1,0 +1,173 @@
+{
+ "parent": "minecraft:block/block",
+ "textures": {
+  "shaft": "btb_cinematic:block/light_shaft",
+  "particle": "btb_cinematic:block/light_shaft"
+ },
+ "elements": [
+  {
+   "from": [
+    2,
+    0,
+    8
+   ],
+   "to": [
+    14,
+    16,
+    8
+   ],
+   "shade": false,
+   "light_emission": 15,
+   "rotation": {
+    "angle": 0,
+    "axis": "y",
+    "origin": [
+     8,
+     8,
+     8
+    ]
+   },
+   "faces": {
+    "north": {
+     "uv": [
+      0,
+      0,
+      16,
+      16
+     ],
+     "texture": "#shaft"
+    },
+    "south": {
+     "uv": [
+      0,
+      0,
+      16,
+      16
+     ],
+     "texture": "#shaft"
+    }
+   }
+  },
+  {
+   "from": [
+    2,
+    0,
+    8
+   ],
+   "to": [
+    14,
+    16,
+    8
+   ],
+   "shade": false,
+   "light_emission": 15,
+   "rotation": {
+    "angle": 45,
+    "axis": "y",
+    "origin": [
+     8,
+     8,
+     8
+    ]
+   },
+   "faces": {
+    "north": {
+     "uv": [
+      0,
+      0,
+      16,
+      16
+     ],
+     "texture": "#shaft"
+    },
+    "south": {
+     "uv": [
+      0,
+      0,
+      16,
+      16
+     ],
+     "texture": "#shaft"
+    }
+   }
+  },
+  {
+   "from": [
+    2,
+    0,
+    8
+   ],
+   "to": [
+    14,
+    16,
+    8
+   ],
+   "shade": false,
+   "light_emission": 15,
+   "rotation": {
+    "angle": -45,
+    "axis": "y",
+    "origin": [
+     8,
+     8,
+     8
+    ]
+   },
+   "faces": {
+    "north": {
+     "uv": [
+      0,
+      0,
+      16,
+      16
+     ],
+     "texture": "#shaft"
+    },
+    "south": {
+     "uv": [
+      0,
+      0,
+      16,
+      16
+     ],
+     "texture": "#shaft"
+    }
+   }
+  },
+  {
+   "from": [
+    8,
+    0,
+    2
+   ],
+   "to": [
+    8,
+    16,
+    14
+   ],
+   "shade": false,
+   "light_emission": 15,
+   "faces": {
+    "east": {
+     "uv": [
+      0,
+      0,
+      16,
+      16
+     ],
+     "texture": "#shaft"
+    },
+    "west": {
+     "uv": [
+      0,
+      0,
+      16,
+      16
+     ],
+     "texture": "#shaft"
+    }
+   }
+  }
+ ],
+ "ambientocclusion": false
+}

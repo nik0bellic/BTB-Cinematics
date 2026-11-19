@@ -1,0 +1,9 @@
+// Ending: fade to black, end card with links, then the credits roll.
+{ "id": "ending", "duration": 1500, "events": [
+  { "time": 0,    "type": "screen_fade", "color": "black", "duration": 60, "hold": -1 },
+  { "time": 0,    "type": "music_play", "sound": "btb_cinematic:nether_drone", "fade_in": 60 },
+  { "time": 70,   "type": "hud_show", "id": "end_card" },
+  { "time": 300,  "type": "hud_hide", "id": "end_card", "out": 30 },
+  { "time": 340,  "type": "hud_show", "id": "credits_roll" },
+  { "time": 1400, "type": "music_stop", "fade_out": 100 }
+] }

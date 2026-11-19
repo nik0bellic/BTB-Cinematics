@@ -1,0 +1,2 @@
+// Boss introduction card.
+{ "style": "boss_intro", "lines": ["DER WÄCHTER", "Hüter des Herzens"], "scale": 3.0, "accent": "#FF2A10", "in": 30, "hold": 70, "out": 20 }

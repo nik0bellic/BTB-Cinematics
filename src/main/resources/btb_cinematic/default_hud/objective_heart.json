@@ -1,0 +1,3 @@
+// Quest objective pop-up (top right). /btb hud show objective_heart
+{ "style": "objective", "header": "NEUES ZIEL", "font": "default", "lines": ["Finde das Herz des Nethers"],
+  "accent": "#FFC23A", "in": 18, "hold": 100, "out": 18 }

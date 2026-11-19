@@ -1,0 +1,18 @@
+.gradle/
+build/
+out/
+run/
+*.iml
+.idea/
+.vscode/
+dist/
+*.zip
+*.log
+.DS_Store
+# screenshots: only the ones used in the docs are committed (see docs/screenshots/.keep list below)
+docs/screenshots/*
+!docs/screenshots/runde*.png
+!docs/screenshots/demo_heart_tower.png
+!docs/screenshots/parkour_follow_cam.png
+!docs/screenshots/phase5_director.png
+!docs/screenshots/portal_white_ring_any_shape.png

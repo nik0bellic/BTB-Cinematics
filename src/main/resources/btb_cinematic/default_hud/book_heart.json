@@ -1,0 +1,4 @@
+// The book on the pedestal: the page opens, the text appears like ink.
+{ "style": "book", "header": "Das letzte Kapitel", "font": "default", "animation_in": "typewriter", "char_ticks": 1.4,
+  "lines": ["Wanderer, du bist nicht der Erste, der sich hierher verirrt hat.", "If you want to leave this place,", "find the Heart of the Nether."],
+  "in": 20, "hold": 120, "out": 25 }

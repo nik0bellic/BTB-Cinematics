@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "btb_cinematic:block/portal_frame"
+    },
+    "lit=true": {
+      "model": "btb_cinematic:block/portal_frame_lit"
+    }
+  }
+}

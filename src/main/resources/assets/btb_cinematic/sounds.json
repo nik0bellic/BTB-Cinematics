@@ -1,0 +1,147 @@
+{
+  "portal_charge": {
+    "subtitle": "subtitles.btb_cinematic.portal_charge",
+    "sounds": [
+      {
+        "name": "btb_cinematic:portal_charge"
+      }
+    ]
+  },
+  "portal_open": {
+    "subtitle": "subtitles.btb_cinematic.portal_open",
+    "sounds": [
+      {
+        "name": "btb_cinematic:portal_open"
+      }
+    ]
+  },
+  "portal_enter": {
+    "subtitle": "subtitles.btb_cinematic.portal_enter",
+    "sounds": [
+      {
+        "name": "btb_cinematic:portal_enter"
+      }
+    ]
+  },
+  "heart_pulse": {
+    "subtitle": "subtitles.btb_cinematic.heart_pulse",
+    "sounds": [
+      {
+        "name": "btb_cinematic:heart_pulse"
+      }
+    ]
+  },
+  "heart_reveal": {
+    "subtitle": "subtitles.btb_cinematic.heart_reveal",
+    "sounds": [
+      {
+        "name": "btb_cinematic:heart_reveal"
+      }
+    ]
+  },
+  "impact": {
+    "subtitle": "subtitles.btb_cinematic.impact",
+    "sounds": [
+      {
+        "name": "btb_cinematic:impact"
+      }
+    ]
+  },
+  "rumble": {
+    "subtitle": "subtitles.btb_cinematic.rumble",
+    "sounds": [
+      {
+        "name": "btb_cinematic:rumble"
+      }
+    ]
+  },
+  "whoosh": {
+    "subtitle": "subtitles.btb_cinematic.whoosh",
+    "sounds": [
+      {
+        "name": "btb_cinematic:whoosh"
+      }
+    ]
+  },
+  "key_insert": {
+    "subtitle": "subtitles.btb_cinematic.key_insert",
+    "sounds": [
+      {
+        "name": "btb_cinematic:key_insert"
+      }
+    ]
+  },
+  "crystal_shimmer": {
+    "subtitle": "subtitles.btb_cinematic.crystal_shimmer",
+    "sounds": [
+      {
+        "name": "btb_cinematic:crystal_shimmer"
+      }
+    ]
+  },
+  "collapse": {
+    "subtitle": "subtitles.btb_cinematic.collapse",
+    "sounds": [
+      {
+        "name": "btb_cinematic:collapse"
+      }
+    ]
+  },
+  "title_hit": {
+    "subtitle": "subtitles.btb_cinematic.title_hit",
+    "sounds": [
+      {
+        "name": "btb_cinematic:title_hit"
+      }
+    ]
+  },
+  "nether_drone": {
+    "subtitle": "subtitles.btb_cinematic.nether_drone",
+    "sounds": [
+      {
+        "name": "btb_cinematic:nether_drone",
+        "stream": true
+      }
+    ]
+  },
+  "portal": {
+    "subtitle": "subtitles.btb_cinematic.portal_open",
+    "sounds": [
+      {
+        "name": "btb_cinematic:portal_open"
+      }
+    ]
+  },
+  "ear_ring": {
+    "subtitle": "subtitles.btb_cinematic.ear_ring",
+    "sounds": [
+      {
+        "name": "btb_cinematic:ear_ring"
+      }
+    ]
+  },
+  "white_tone": {
+    "subtitle": "subtitles.btb_cinematic.white_tone",
+    "sounds": [
+      {
+        "name": "btb_cinematic:white_tone"
+      }
+    ]
+  },
+  "clap": {
+    "subtitle": "subtitles.btb_cinematic.clap",
+    "sounds": [
+      {
+        "name": "btb_cinematic:clap"
+      }
+    ]
+  },
+  "flare_ignite": {
+    "subtitle": "subtitles.btb_cinematic.flare_ignite",
+    "sounds": [
+      {
+        "name": "btb_cinematic:flare_ignite"
+      }
+    ]
+  }
+}

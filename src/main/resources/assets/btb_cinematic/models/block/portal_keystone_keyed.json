@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "btb_cinematic:block/portal_frame",
+    "side": "btb_cinematic:block/portal_keystone_keyed"
+  }
+}

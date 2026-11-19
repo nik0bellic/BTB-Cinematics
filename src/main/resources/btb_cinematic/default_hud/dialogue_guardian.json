@@ -1,0 +1,4 @@
+// Dialogue box with speaker tab and typewriter text. /btb hud show dialogue_guardian
+{ "style": "dialogue", "header": "WÄCHTER", "font": "default", "animation_in": "typewriter", "char_ticks": 1.0,
+  "lines": ["Wer das Herz des Nethers sucht, muss zuerst den Schlüssel finden.", "Doch der Schlüssel wird gut bewacht..."],
+  "accent": "#FF7A1A", "in": 10, "hold": 80, "out": 15 }

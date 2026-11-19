@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "stage=idle": {
+      "model": "btb_cinematic:block/portal_keystone_idle"
+    },
+    "stage=keyed": {
+      "model": "btb_cinematic:block/portal_keystone_keyed"
+    },
+    "stage=charging": {
+      "model": "btb_cinematic:block/portal_keystone_charging"
+    },
+    "stage=active": {
+      "model": "btb_cinematic:block/portal_keystone_active"
+    }
+  }
+}

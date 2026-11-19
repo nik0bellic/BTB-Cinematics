@@ -1,0 +1,22 @@
+{
+  "variants": {
+    "axis=x,style=nether": {
+      "model": "btb_cinematic:block/rift_portal_nether_x"
+    },
+    "axis=y,style=nether": {
+      "model": "btb_cinematic:block/rift_portal_nether_y"
+    },
+    "axis=z,style=nether": {
+      "model": "btb_cinematic:block/rift_portal_nether_z"
+    },
+    "axis=x,style=white": {
+      "model": "btb_cinematic:block/rift_portal_white_x"
+    },
+    "axis=y,style=white": {
+      "model": "btb_cinematic:block/rift_portal_white_y"
+    },
+    "axis=z,style=white": {
+      "model": "btb_cinematic:block/rift_portal_white_z"
+    }
+  }
+}

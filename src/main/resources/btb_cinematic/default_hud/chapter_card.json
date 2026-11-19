@@ -1,0 +1,14 @@
+// Chapter card: small caption above a large title, typewriter reveal.
+{
+  "lines": ["CHAPTER I", "THE BURNING DEPTHS"],
+  "font": "cinematic",
+  "scale": 2.4,
+  "color": "white",
+  "letter_spacing": 1.5,
+  "line_spacing": 8,
+  "anchor": "center",
+  "animation_in": "typewriter",
+  "char_ticks": 2.0,
+  "animation_out": "fade",
+  "in": 20, "hold": 70, "out": 30
+}

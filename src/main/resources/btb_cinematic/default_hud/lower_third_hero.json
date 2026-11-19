@@ -1,0 +1,3 @@
+// Character introduction (lower third). /btb hud show lower_third_hero
+{ "style": "lower_third", "lines": ["ALEX", "Der Wanderer"], "scale": 1.8, "accent": "#FF7A1A",
+  "in": 30, "hold": 90, "out": 20 }

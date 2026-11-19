@@ -1,0 +1,6 @@
+{
+  "providers": [
+    { "type": "ttf", "file": "btb_cinematic:cinzel_regular.ttf", "size": 11.0, "oversample": 4.0, "shift": [0.0, 1.0], "skip": [] },
+    { "type": "reference", "id": "minecraft:default" }
+  ]
+}

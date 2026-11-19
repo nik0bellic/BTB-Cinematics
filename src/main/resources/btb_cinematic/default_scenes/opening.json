@@ -1,0 +1,12 @@
+// Opening: black, music, opening credits over the first shot, title card.
+// Point "camera_play" at your own preset (e.g. the bastion fly-in) and adjust the credits in hud/credits_opening.json.
+{ "id": "opening", "duration": 520, "events": [
+  { "time": 0,   "type": "screen_fade", "color": "black", "duration": 1, "hold": -1 },
+  { "time": 0,   "type": "letterbox", "intensity": 0.12, "in": 1 },
+  { "time": 0,   "type": "music_play", "sound": "btb_cinematic:nether_drone", "fade_in": 80, "volume": 0.9 },
+  { "time": 10,  "type": "effects_clear", "style": "fade", "duration": 80 },
+  { "time": 20,  "type": "hud_show", "id": "credits_opening" },
+  { "time": 330, "type": "sound", "sound": "btb_cinematic:title_hit", "volume": 1.2 },
+  { "time": 330, "type": "hud_show", "lines": ["BEHIND THE BLOCKS"], "font": "cinematic_bold", "scale": 4, "animation_in": "tracking",
+    "glow": "#FF5A00", "in": 40, "hold": 110, "out": 30 }
+] }

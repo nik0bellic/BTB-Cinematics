@@ -1,0 +1,4 @@
+// The mysterious message from the beginning, appearing again — wavering and ghostly.
+{ "lines": ["IF YOU WANT TO LEAVE THIS PLACE,", "FIND THE HEART OF THE NETHER."], "font": "cinematic", "scale": 2.0,
+  "color": "#E8D8FF", "glow": "#7A40FF", "effect": "ethereal", "animation_in": "blur", "animation_out": "fade",
+  "letter_spacing": 1.2, "line_spacing": 6, "in": 50, "hold": 100, "out": 50 }

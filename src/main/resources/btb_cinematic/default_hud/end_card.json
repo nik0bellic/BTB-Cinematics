@@ -1,0 +1,4 @@
+// Final card. Stays until hidden.
+{ "style": "end_card", "lines": ["TO BE CONTINUED", "Das Portal hat uns nicht nach Hause gebracht..."], "scale": 3.2,
+  "accent": "#FF7A1A", "in": 60, "hold": -1, "out": 30,
+  "entries": [ { "icon": "youtube", "link": "@behindtheblocks" }, { "icon": "spotify", "link": "Soundtrack" }, { "icon": "instagram", "link": "@behindtheblocks" } ] }

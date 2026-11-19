@@ -1,0 +1,18 @@
+{
+  "required": true,
+  "package": "de.behindtheblocks.cinematic.client.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "client": [
+    "CameraMixin",
+    "ChannelMixin",
+    "GameRendererMixin",
+    "HudMixin",
+    "LevelLoadingScreenMixin",
+    "MusicManagerMixin",
+    "ParticleWindMixin",
+    "DeltaTimerMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

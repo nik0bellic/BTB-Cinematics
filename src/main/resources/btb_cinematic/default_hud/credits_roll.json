@@ -1,0 +1,9 @@
+// End credits roll (scrolls upwards; duration follows from the number of entries and roll_speed).
+{ "style": "roll", "title": "BEHIND THE BLOCKS", "accent": "#FF7A1A", "roll_speed": 0.7, "in": 1, "out": 10,
+  "entries": [
+    { "heading": "Regie" }, { "role": "Regie & Kamera", "name": "Alex", "icon": "youtube", "link": "youtube.com/@behindtheblocks" },
+    { "heading": "Darsteller" }, { "role": "Held", "name": "Spieler Eins" }, { "role": "Heldin", "name": "Spieler Zwei" },
+    { "heading": "Musik" }, { "role": "Soundtrack", "name": "Euer Artist", "icon": "spotify", "link": "open.spotify.com/artist/…" },
+    { "heading": "Technik" }, { "role": "Cinematic Engine", "name": "btb_cinematic", "icon": "github", "link": "github.com/…" },
+    { "heading": "Danke fürs Zuschauen!" }, { "role": "Folgt uns", "name": "", "icon": "instagram", "link": "@behindtheblocks" }
+  ] }

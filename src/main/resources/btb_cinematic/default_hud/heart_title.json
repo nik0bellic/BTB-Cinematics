@@ -1,0 +1,17 @@
+// Title card for the artifact reveal.
+{
+  "lines": ["HEART OF THE NETHER"],
+  "font": "cinematic_bold",
+  "scale": 3.2,
+  "color": "#FFD9A0",
+  "glow": "#FF3A00",
+  "letter_spacing": 2.0,
+  "anchor": "bottom",
+  "offset": [0, -36],
+  "animation_in": "tracking",
+  "animation_out": "fade",
+  "effect": "pulse",
+  "in": 40,
+  "hold": 100,
+  "out": 30
+}

@@ -1,0 +1,2 @@
+// Found-footage camcorder frame; stays until hidden. /btb hud show camcorder  —  /btb hud hide camcorder
+{ "style": "camcorder", "lines": ["CAM 2"], "in": 10, "hold": -1, "out": 10 }

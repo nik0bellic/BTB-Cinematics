@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "btb_cinematic:block/radiant_frame"
+    },
+    "lit=true": {
+      "model": "btb_cinematic:block/radiant_frame_lit"
+    }
+  }
+}

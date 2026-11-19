@@ -1,0 +1,18 @@
+// The Heart of the Nether reveal. Position matches the demo altar; move it with
+// /btb showcase pos heart <x y z>   and start it with   /btb showcase play heart
+{
+  "item": "btb_cinematic:heart_of_the_nether",
+  "pos": [0.5, -54.6, 0.5],
+  "dimension": "minecraft:overworld",
+  "scale": 1.8,
+  "animation": "showcase",
+  "glow": "#FF5A00",
+  "light": true,
+  "particles": "minecraft:flame",
+  "background": "ring",
+  "satellites": [
+    { "item": "btb_cinematic:nether_crystal", "count": 4, "radius": 1.5, "height": 0.1, "speed": 1.6, "scale": 0.55 }
+  ],
+  "camera": { "radius": 4.5, "radius_end": 3.2, "height": 1.2, "height_end": 0.4, "degrees": 300, "seconds": 14, "players": "all" },
+  "name_card": "heart_title"
+}

@@ -1,0 +1,8 @@
+// Opening credits: one entry after another. Icons: youtube, spotify, twitch, instagram, tiktok, discord, x, soundcloud, patreon, github, web, mail
+{ "style": "credits", "anchor": "bottom_left", "scale": 2.2, "accent": "#FF7A1A", "entry_ticks": 70, "in": 10, "out": 20,
+  "entries": [
+    { "heading": "BEHIND THE BLOCKS PRESENTS" },
+    { "role": "Regie & Kamera", "name": "Alex", "icon": "youtube", "link": "youtube.com/@behindtheblocks" },
+    { "role": "Musik", "name": "Euer Artist", "icon": "spotify", "link": "open.spotify.com/artist/…" },
+    { "role": "Darsteller", "name": "Spieler Eins · Spieler Zwei" }
+  ] }

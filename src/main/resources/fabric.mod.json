@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "id": "btb_cinematic",
+  "version": "${version}",
+  "name": "Behind The Blocks – Cinematic Engine",
+  "description": "Cinematic and film-production toolkit for the Minecraft film project \"Behind The Blocks\": scene timelines, camera paths, screen effects, showcases, portals and more.",
+  "authors": [
+    "Behind The Blocks"
+  ],
+  "license": "MIT",
+  "contact": {
+    "sources": "https://github.com/nik0bellic/btb-cinematics",
+    "issues": "https://github.com/nik0bellic/btb-cinematics/issues"
+  },
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "de.behindtheblocks.cinematic.BtbCinematic"
+    ],
+    "client": [
+      "de.behindtheblocks.cinematic.client.BtbCinematicClient"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.20.1",
+    "minecraft": "~26.3",
+    "java": ">=25",
+    "fabric-api": ">=0.166.2",
+    "geckolib": ">=5.5.7"
+  },
+  "mixins": [
+    "btb_cinematic.mixins.json",
+    {
+      "config": "btb_cinematic.client.mixins.json",
+      "environment": "client"
+    }
+  ]
+}

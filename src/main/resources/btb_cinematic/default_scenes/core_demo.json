@@ -1,0 +1,18 @@
+// Phase-1 demo: uses only the core event types (command, message, log, teleport, scene_stop).
+// Start with: /btb scene start core_demo
+{
+  "id": "core_demo",
+  "description": "Core timeline demo (chat, commands, timing)",
+  "duration": 200,
+  "on_error": "continue",
+  "events": [
+    { "time": 0,   "type": "log",     "message": "core_demo started" },
+    { "time": 0,   "type": "message", "text": "Behind The Blocks — core demo", "actionbar": true },
+    { "time": 20,  "type": "command", "command": "time set night" },
+    { "time": 40,  "type": "message", "text": "IF YOU WANT TO LEAVE THIS PLACE," },
+    { "time": 80,  "type": "message", "text": "FIND THE HEART OF THE NETHER." },
+    { "time": 120, "type": "command", "command": "weather thunder 600" },
+    { "time": 180, "type": "command", "command": "weather clear" },
+    { "time": 200, "type": "log",     "message": "core_demo finished" }
+  ]
+}
