@@ -79,7 +79,7 @@ With [BTB Skin Studio](https://github.com/nik0bellic/BTB-Skin-Studio) installed,
 
 ## 🔗 Links
 - Source code & guides (German): https://github.com/nik0bellic/btb-cinematics
-- Developed by **Nik2810** · License: **MIT** (font Cinzel: SIL OFL 1.1)
+- Developed by **Nik2810** · License: **LGPL-3.0-only** (font Cinzel: SIL OFL 1.1)
 
 *Not an official Minecraft product. Not approved by or associated with Mojang or Microsoft.*
 ```
@@ -136,3 +136,10 @@ With [BTB Skin Studio](https://github.com/nik0bellic/BTB-Skin-Studio) installed,
 | `runde14_turm_einsturz.png` | Tower collapse | Reproducible destruction with real rubble |
 | `runde14_trailer.png` | Trailer | From the 2-minute trailer scene |
 | `runde14_info_credits.png` | Info & credits | Developed by Nik2810 |
+
+---
+
+## Lizenz bei Modrinth (Settings → License)
+
+- **License:** `GNU Lesser General Public License v3.0 only` (SPDX `LGPL-3.0-only`)
+- **License URL:** `https://github.com/nik0bellic/btb-cinematics/blob/main/LICENSE`

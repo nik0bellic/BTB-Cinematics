@@ -1736,7 +1736,7 @@ public final class DirectorScreen extends Screen {
 				rows.add(new Row("Behind The Blocks", 0xFFDDDDDD, List.of(
 						new Action("Instagram", "local:url:https://www.instagram.com/btb.minecraft", "@btb.minecraft", true),
 						new Action("TikTok", "local:url:https://www.tiktok.com/@btb.plus", "@btb.plus", true))));
-				rows.add(new Row("Lizenz: MIT · Schrift Cinzel: SIL Open Font License 1.1", 0xFF999999, List.of()));
+				rows.add(new Row("Lizenz: LGPL-3.0-only · Schrift Cinzel: SIL Open Font License 1.1", 0xFF999999, List.of()));
 				rows.add(new Row("Danke fürs Benutzen – viel Spaß beim Drehen! 🎬", 0xFF9CE0FF, List.of()));
 			}
 			case TEMPLATES -> {

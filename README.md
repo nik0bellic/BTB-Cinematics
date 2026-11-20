@@ -16,7 +16,7 @@
 | GeckoLib | 5.5.7 für Fabric 26.3 (Pflicht) |
 | Java | 25 |
 | Mod-ID | `btb_cinematic` |
-| Lizenz | MIT |
+| Lizenz | LGPL-3.0-only |
 
 ## Was die Mod kann
 
