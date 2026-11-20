@@ -24,6 +24,15 @@
 
 
 
+### 🧹 Aufgeräumt
+- Regiepult: **kein Ein-/Ausklappen der Eingabe** mehr – Eingabefelder stehen immer kompakt oben, darunter
+  (durch eine Linie getrennt) die Liste. Seitenknöpfe „◀ 1/11 ▶“ sitzen unten in der Leiste, nichts überlappt mehr.
+- **Kein Flackern** der Hovertexte mehr (Einstellungen → OBS & Tasten, laufende Szenen): das Menü baut sich nur
+  noch neu auf, wenn sich wirklich etwas ändert; der OBS-Status aktualisiert sich live.
+- „Export abbrechen“ erscheint nur, während ein Export läuft; keine abgeschnittene Statuszeile unten mehr.
+- Replay-Editor: Kameras A–D und Schnitte haben eine **eigene Zeile** (überdecken FOV−/FOV+ nicht mehr),
+  die Zeitanzeige oben schiebt sich nicht mehr unter „◀ take ▶“.
+
 ### 🌍 Komplett Deutsch oder komplett Englisch
 - Die ganze Mod gibt es jetzt in **Deutsch und Englisch**: Regiepult (alle 13 Tabs), Replay-Editor,
   Export, Chat-Meldungen, Tooltips, Hover-Texte, Fehler.

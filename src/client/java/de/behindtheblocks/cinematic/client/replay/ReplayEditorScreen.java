@@ -22,7 +22,7 @@ import java.util.Locale;
  * keyframe settings and the export bar. The upper part of the screen stays free – the shot is visible.
  */
 public final class ReplayEditorScreen extends Screen {
-	private static final int PANEL_H = 112;
+	private static final int PANEL_H = 134;
 	private static final float[] SPEEDS = {0.25f, 0.5f, 1f, 2f, 4f};
 
 	private int y0, tlX, tlY, tlW, tlH;
@@ -112,25 +112,6 @@ public final class ReplayEditorScreen extends Screen {
 			});
 			x = add("✕", 16, x, y, "Keyframe löschen (Entf)", this::deleteSelected);
 		}
-		// multicam: edit camera A–D, cut to it at the play head
-		int mx = width - 8;
-		mx = addLeft("Schnitte ✕", 58, mx, y, "Alle Schnitte löschen (dann zeigt der Film die Kamera, die du gerade bearbeitest)", () -> {
-			ReplayEditor.CUTS.clear();
-			ReplayEditor.save();
-			rebuildWidgets();
-		});
-		mx = addLeft("✂ → " + ReplayEditor.CAM_NAMES[ReplayEditor.activeCam], 44, mx - 2, y,
-				"Schnitt: ab der Abspielposition zeigt der Film Kamera " + ReplayEditor.CAM_NAMES[ReplayEditor.activeCam], () -> {
-					ReplayEditor.cutHere(ReplayEditor.time(0));
-					rebuildWidgets();
-				});
-		multicamLeft = mx - 2 - 56;
-		addLeft("Kamera " + ReplayEditor.CAM_NAMES[ReplayEditor.activeCam] + " ▸", 56, mx - 2, y,
-				"Mehrere Kameras: jede hat eigene Keyframes. Klicken = nächste Kamera bearbeiten (A–D)", () -> {
-					ReplayEditor.switchCam((ReplayEditor.activeCam + 1) % ReplayEditor.CAM_NAMES.length);
-					rebuildWidgets();
-				});
-
 		// row 4: export
 		x = 8;
 		y = y0 + 90;
@@ -155,9 +136,29 @@ public final class ReplayEditorScreen extends Screen {
 		x = add("Out ]", 32, x, y, "Export-Ende = Abspielposition (Taste P)", () -> setOut(ReplayEditor.time(0)));
 		x = add("● Exportieren", 72, x + 4, y, "Rendert den Bereich In→Out bildgenau mit der Keyframe-Kamera (Spiel friert dabei ein)", ReplayEditor::export);
 		exportInfoX = x + 6;
+
+		// row 5: multicam – edit camera A–D, cut to it at the play head (own row, nothing overlaps)
+		x = 8;
+		y = y0 + 112;
+		x = add("Kamera " + ReplayEditor.CAM_NAMES[ReplayEditor.activeCam] + " ▸", 64, x, y,
+				"Mehrere Kameras: jede hat eigene Keyframes. Klicken = nächste Kamera bearbeiten (A–D)", () -> {
+					ReplayEditor.switchCam((ReplayEditor.activeCam + 1) % ReplayEditor.CAM_NAMES.length);
+					rebuildWidgets();
+				});
+		x = add("✂ Schnitt → " + ReplayEditor.CAM_NAMES[ReplayEditor.activeCam], 78, x, y,
+				"Schnitt: ab der Abspielposition zeigt der Film Kamera " + ReplayEditor.CAM_NAMES[ReplayEditor.activeCam], () -> {
+					ReplayEditor.cutHere(ReplayEditor.time(0));
+					rebuildWidgets();
+				});
+		x = add("Schnitte ✕", 58, x, y, "Alle Schnitte löschen (dann zeigt der Film die Kamera, die du gerade bearbeitest)", () -> {
+			ReplayEditor.CUTS.clear();
+			ReplayEditor.save();
+			rebuildWidgets();
+		});
+		multicamInfoX = x + 6;
 	}
 
-	private int takeLabelRight, exportInfoX, multicamLeft;
+	private int takeLabelRight, exportInfoX, multicamLeft, multicamInfoX;
 
 	private boolean playing() {
 		return ReplayEditor.name.equals(ReplayManager.current()) && !ReplayManager.isPaused();
@@ -398,7 +399,22 @@ public final class ReplayEditorScreen extends Screen {
 		int nameW = Math.min(90, font.width(de.behindtheblocks.cinematic.client.i18n.ClientI18n.t(take)));
 		g.text(font, de.behindtheblocks.cinematic.client.i18n.ClientI18n.t(font.plainSubstrByWidth(de.behindtheblocks.cinematic.client.i18n.ClientI18n.t(take), nameW)), takeLabelRight - nameW, y0 + 10, 0xFFFFE0C0, false);
 		String clock = ReplayEditor.clock(now) + " / " + ReplayEditor.clock(len);
-		g.text(font, de.behindtheblocks.cinematic.client.i18n.ClientI18n.t(clock), 8 + 18 + 20 + 22 + 20 + 18 + 10 + 4 + 52 + 8, y0 + 10, 0xFFFFFFFF, false);
+		int clockX = 8 + 18 + 20 + 22 + 20 + 18 + 10 + 4 + 52 + 8;
+		int clockRoom = takeLabelRight - nameW - 14 - 6 - clockX; // left of "◀ take ▶"
+		if (font.width(clock) > clockRoom) {
+			clock = ReplayEditor.clock(now);
+		}
+		if (font.width(clock) <= clockRoom) {
+			g.text(font, clock, clockX, y0 + 10, 0xFFFFFFFF, false);
+		}
+		// which camera the film shows right now (multicam)
+		String cam = ReplayEditor.CUTS.isEmpty() ? "Film zeigt die bearbeitete Kamera " + ReplayEditor.CAM_NAMES[ReplayEditor.activeCam]
+				: "Film zeigt jetzt Kamera " + ReplayEditor.CAM_NAMES[ReplayEditor.camAt(now)] + " · " + ReplayEditor.CUTS.size() + " Schnitt(e)";
+		String camT = de.behindtheblocks.cinematic.client.i18n.ClientI18n.t(cam);
+		int camRoom = width - multicamInfoX - 8;
+		if (camRoom > 30) {
+			g.text(font, font.width(camT) > camRoom ? font.plainSubstrByWidth(camT, camRoom - font.width("…")) + "…" : camT, multicamInfoX, y0 + 116, 0xFF9CE0FF, false);
+		}
 
 		// timeline
 		g.fill(tlX, tlY, tlX + tlW, tlY + tlH, 0xFF1C1C22);

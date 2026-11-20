@@ -147,10 +147,18 @@ public final class DirectorScreen extends Screen {
 		ClientCueDispatcher.register("director_open", (scene, tick, data) -> Minecraft.getInstance().gui.setScreen(new DirectorScreen(data)));
 		ClientCueDispatcher.register("director_state", (scene, tick, data) -> {
 			if (open != null) {
+				boolean same = open.state != null && withoutTicks(open.state).equals(withoutTicks(data));
 				open.state = data;
-				open.rebuildWidgets();
+				if (!same) {
+					open.rebuildWidgets(); // otherwise no rebuild: hover texts stay put (no flicker)
+				}
 			}
 		});
+	}
+
+	/** The state without running counters (scene ticks, recording seconds) – for "did anything really change?". */
+	private static String withoutTicks(JsonObject st) {
+		return st.toString().replaceAll("\"(tick|recording_seconds)\":[-0-9.Ee]+", "");
 	}
 
 	@Override
@@ -303,7 +311,7 @@ public final class DirectorScreen extends Screen {
 		int undo = studio.has("undo") ? studio.get("undo").getAsInt() : 0;
 		String next = studio.has("undo_next") ? studio.get("undo_next").getAsString() : "";
 		bx += bottomButton(narrow ? "↶" : "↶ Rückgängig", undo == 0 ? "Nichts zum Rückgängigmachen" : "Letzte Änderung zurücknehmen (Strg+Z): " + next, bx, by, () -> perform("btb undo", "↶", true));
-		bx += bottomButton(StudioClient.allTabs() ? "Tabs: alle" : "Tabs: kompakt",
+		bx += bottomButton(narrow ? (StudioClient.allTabs() ? "Tabs: alle" : "Tabs: 8") : StudioClient.allTabs() ? "Tabs: alle" : "Tabs: kompakt",
 				"Kompakt: 8 Tabs mit Unterseiten · Alle: jeder Bereich als eigener Tab links (wie früher)", bx, by, () -> {
 					StudioClient.setAllTabs(!StudioClient.allTabs());
 					status = StudioClient.allTabs() ? "Alle Bereiche als eigene Tabs" : "Kompakt: 8 Tabs mit Unterseiten";
@@ -316,6 +324,7 @@ public final class DirectorScreen extends Screen {
 					rebuildWidgets();
 				});
 		statusX = bx + 6;
+		addPager(bx + 2, panelX + panelW - 88);
 		addRenderableWidget(Button.builder(ClientI18n.c("Schließen"), b -> onClose())
 				.bounds(panelX + panelW - 88, by, 80, 18).build());
 	}
@@ -407,12 +416,11 @@ public final class DirectorScreen extends Screen {
 		List<Section> secs = StudioClient.allTabs() ? List.of(section) : Section.of(currentTab);
 		int sx = x;
 		boolean form = hasForm(section) && search.isBlank();
-		int formBtnW = form ? font.width(ClientI18n.t(showForm && !formAuto ? "✎ Eingabe ▴" : "✎ Eingabe ▾")) + 12 : 0;
 		if (secs.size() > 1 && search.isBlank()) {
 			for (Section s : secs) {
 				String l = (s == section ? "§n" : "") + s.label;
 				int bw = font.width(ClientI18n.t(s.label)) + 12;
-				if (sx > x && sx + bw > x + w - formBtnW - 4) {
+				if (sx > x && sx + bw > x + w) {
 					sx = x;
 					top += 16;
 				}
@@ -424,22 +432,6 @@ public final class DirectorScreen extends Screen {
 				}).bounds(sx, top, bw, 14).build());
 				sx += bw + 3;
 			}
-		}
-		if (form) {
-			addRenderableWidget(Button.builder(ClientI18n.c(showForm && !formAuto ? "✎ Eingabe ▴" : "✎ Eingabe ▾"), b -> {
-				if (formAuto) {
-					formAuto = false;
-					formPinned = true;
-					showForm = true;
-				} else {
-					showForm = !showForm;
-					formPinned = showForm;
-				}
-				rebuildWidgets();
-			}).tooltip(Tooltip.create(ClientI18n.c(formAuto ? "Eingabefelder wurden für mehr Platz eingeklappt – klicken zum Ausklappen"
-					: "Eingabefelder ein-/ausblenden (mehr Platz für die Liste)"))).bounds(x + w - formBtnW, top, formBtnW, 14).build());
-		}
-		if ((secs.size() > 1 && search.isBlank()) || form) {
 			top += 18;
 		}
 		if (!search.isBlank()) {
@@ -448,24 +440,13 @@ public final class DirectorScreen extends Screen {
 			top += 14;
 		}
 		collect(rows, header);
-		formAuto = false;
-		if (form && showForm) {
-			int before = children().size(), labels = fieldLabels.size();
+		// input fields always sit on top, compact; the list below pages through when space is short
+		formLine = -1;
+		if (form) {
 			int newTop = buildForm(x, top, w);
-			int listRows = (bottom - newTop - 22) / ROW_H;
-			if (!formPinned && listRows < 3 && rows.size() > listRows && newTop > top) {
-				// not enough room for the list: fold the form away (one click brings it back)
-				List<net.minecraft.client.gui.components.events.GuiEventListener> added = new ArrayList<>(children().subList(before, children().size()));
-				added.forEach(this::removeWidget);
-				while (fieldLabels.size() > labels) {
-					fieldLabels.remove(fieldLabels.size() - 1);
-					fieldLabelTexts.remove(fieldLabelTexts.size() - 1);
-				}
-				formAuto = true;
-				// relabel the toggle (it was built before we knew)
-				rebuildSoon = true;
-			} else {
-				top = newTop;
+			if (newTop > top) {
+				formLine = newTop - 3;
+				top = newTop + 2;
 			}
 		}
 		top = extraTop(x, top, w);
@@ -869,7 +850,7 @@ public final class DirectorScreen extends Screen {
 			fitted.add(new Row(first ? r.label : "", r.color, List.copyOf(line)));
 		}
 		rows = fitted;
-		int perPage = Math.max(1, (bottom - listTop - 22) / ROW_H);
+		int perPage = Math.max(1, (bottom - listTop) / ROW_H);
 		int pages = Math.max(1, (rows.size() + perPage - 1) / perPage);
 		page = Math.min(page, pages - 1);
 		this.rows = new ArrayList<>();
@@ -887,20 +868,10 @@ public final class DirectorScreen extends Screen {
 			this.rows.add(new PlacedRow(r, x, y, bx - x - 8));
 			y += ROW_H;
 		}
-		if (pages > 1) {
-			addRenderableWidget(Button.builder(de.behindtheblocks.cinematic.client.i18n.ClientI18n.c("◀"), b -> {
-				page = Math.max(0, page - 1);
-				rebuildWidgets();
-			}).bounds(x, bottom - 20, 20, 18).build());
-			addRenderableWidget(Button.builder(de.behindtheblocks.cinematic.client.i18n.ClientI18n.c("▶"), b -> {
-				page = Math.min(pages - 1, page + 1);
-				rebuildWidgets();
-			}).bounds(x + 24, bottom - 20, 20, 18).build());
-			pageLabel = "Seite " + (page + 1) + "/" + pages;
-			pageLabelPos = new int[] {x + 50, bottom - 15};
-		} else {
-			pageLabel = null;
-		}
+		// page buttons go into the bottom bar (placed in init, once the bar's buttons are known)
+		pagesTotal = pages;
+		pagerY = bottom + 6;
+		pageLabel = null;
 		if (rows.isEmpty()) {
 			emptyHint = new int[] {x, listTop + 4};
 		} else {
@@ -1279,6 +1250,30 @@ public final class DirectorScreen extends Screen {
 		}
 	}
 
+	private int pagesTotal = 1, pagerY;
+
+	/** "◀ 2/11 ▶" in the bottom bar, left of "Schließen" – never over the list or the other buttons. */
+	private void addPager(int leftLimit, int closeX) {
+		if (pagesTotal <= 1) {
+			pageLabel = null;
+			return;
+		}
+		int pages = pagesTotal;
+		pageLabel = (page + 1) + "/" + pages;
+		int lw = font.width(pages + "/" + pages);
+		int pw = 18 + 4 + lw + 4 + 18;
+		int px = Math.max(leftLimit, closeX - 6 - pw);
+		addRenderableWidget(Button.builder(ClientI18n.c("◀"), b -> {
+			page = Math.max(0, page - 1);
+			rebuildWidgets();
+		}).tooltip(Tooltip.create(ClientI18n.c("Vorherige Seite"))).bounds(px, pagerY, 18, 18).build());
+		addRenderableWidget(Button.builder(ClientI18n.c("▶"), b -> {
+			page = Math.min(pages - 1, page + 1);
+			rebuildWidgets();
+		}).tooltip(Tooltip.create(ClientI18n.c("Nächste Seite"))).bounds(px + 22 + lw + 4, pagerY, 18, 18).build());
+		pageLabelPos = new int[] {px + 22 + (lw - font.width(pageLabel)) / 2, pagerY + 5};
+	}
+
 	private record PlacedRow(Row row, int x, int y, int labelW) {
 	}
 
@@ -1601,6 +1596,7 @@ public final class DirectorScreen extends Screen {
 	private static String search = "";
 	private static boolean searchFocus;
 	private static boolean formAuto, formPinned;
+	private int formLine = -1;
 	private boolean rebuildSoon;
 	private int titleRoom = 400, statusX = 300;
 	private final java.util.Map<Button, String> buttonCommands = new java.util.IdentityHashMap<>();
@@ -1858,7 +1854,9 @@ public final class DirectorScreen extends Screen {
 				JsonObject rp = state != null && state.has("replays") ? state.getAsJsonObject("replays") : new JsonObject();
 				String recording = rp.has("recording") ? rp.get("recording").getAsString() : "";
 				String playing = rp.has("playing") ? rp.get("playing").getAsString() : "";
-				header.add(new Action("Export abbrechen", "btb export stop", null, true));
+				if (de.behindtheblocks.cinematic.client.export.ExportManager.active()) {
+					header.add(new Action("Export abbrechen", "btb export stop", null, true));
+				}
 				if (!recording.isEmpty()) {
 					rows.add(new Row("● Replay „" + recording + "“ nimmt auf", 0xFFFF6060, List.of(
 							new Action("■ Stopp & speichern", "btb replay stop", null, true))));
@@ -1937,8 +1935,7 @@ public final class DirectorScreen extends Screen {
 							}
 							perform("btb replay record " + n, "● Replay " + n, true);
 						})
-						.button("■ Stopp", "Aufnahme beenden und speichern / Replay stoppen", () -> perform("btb replay stop", "■ Replay", true))
-						.button("✂ Editor", "Replay-Editor öffnen (F6)", () -> perform("btb replay editor", "✂ Editor", true));
+						.button("■ Stopp", "Aufnahme beenden und speichern / Replay stoppen", () -> perform("btb replay stop", "■ Replay", true));
 				return f.end();
 			}
 			case STORYBOARD -> {
@@ -2434,13 +2431,25 @@ public final class DirectorScreen extends Screen {
 			if (font.width(de.behindtheblocks.cinematic.client.i18n.ClientI18n.t(l)) > r.labelW) { // never under the buttons
 				l = font.plainSubstrByWidth(de.behindtheblocks.cinematic.client.i18n.ClientI18n.t(l), Math.max(10, r.labelW - font.width(de.behindtheblocks.cinematic.client.i18n.ClientI18n.t("…")))) + "…";
 			}
-			g.text(font, de.behindtheblocks.cinematic.client.i18n.ClientI18n.t(l), r.x + 4, r.y + 6, r.row.color, false);
+			int col = r.row.color;
+			if (r.row.label.startsWith("OBS: ")) { // live OBS status
+				String obsNow = de.behindtheblocks.cinematic.client.obs.ObsBridge.status();
+				l = "OBS: " + obsNow;
+				col = obsNow.startsWith("verbunden") ? 0xFF7CFF7C : 0xFFBBBBBB;
+				if (font.width(ClientI18n.t(l)) > r.labelW) {
+					l = font.plainSubstrByWidth(ClientI18n.t(l), Math.max(10, r.labelW - font.width("…"))) + "…";
+				}
+			}
+			g.text(font, de.behindtheblocks.cinematic.client.i18n.ClientI18n.t(l), r.x + 4, r.y + 6, col, false);
 		}
 		if (pageLabel != null) {
 			g.text(font, de.behindtheblocks.cinematic.client.i18n.ClientI18n.t(pageLabel), pageLabelPos[0], pageLabelPos[1], 0xFFAAAAAA, false);
 		}
 		if (emptyHint != null) {
 			g.text(font, de.behindtheblocks.cinematic.client.i18n.ClientI18n.t(section == Section.BUILDER ? "Noch keine Schritte – oben hinzufügen oder live aufnehmen" : "Nichts angelegt"), emptyHint[0], emptyHint[1], 0xFF888888, false);
+		}
+		if (formLine > 0) { // thin line between input fields and list
+			g.fill(panelX + tabW + 10, formLine, panelX + panelW - 10, formLine + 1, 0x30FFFFFF);
 		}
 		renderTimeline(g, mouseX, mouseY);
 		renderPathView(g);
@@ -2454,7 +2463,7 @@ public final class DirectorScreen extends Screen {
 				}
 			}
 		}
-		int room = panelX + panelW - 96 - statusX;
+		int room = (pageLabel != null ? pageLabelPos[0] - 22 - 8 : panelX + panelW - 96) - statusX; // left of the page buttons
 		if (shiftCmd != null && room > 30) {
 			String s = font.width(shiftCmd) > room ? font.plainSubstrByWidth(shiftCmd, room - 6) + "…" : shiftCmd;
 			g.text(font, s, statusX, panelY + panelH - 21, 0xFF9CE0FF, false);
@@ -2478,7 +2487,7 @@ public final class DirectorScreen extends Screen {
 				g.fill(tx - 6, ty - 4, tx - 4, ty + 12, (alpha << 24) | (statusError ? 0xFF5050 : 0x60E060));
 				g.text(font, s, tx, ty, (alpha << 24) | (statusError ? 0xFF9090 : 0xD0FFD0), false);
 			}
-			if (room > 30) {
+			if (room >= 150) { // too little room: only the note in the middle (no cut-off "Replay ….")
 				String s = font.width(ClientI18n.t(status)) > room ? font.plainSubstrByWidth(ClientI18n.t(status), room - font.width("…")) + "…" : ClientI18n.t(status);
 				g.text(font, s, statusX, panelY + panelH - 21, statusError ? 0xFFCC7070 : 0xFF888888, false);
 			}
@@ -2554,9 +2563,7 @@ public final class DirectorScreen extends Screen {
 			refreshSoon();
 		}
 		String now = de.behindtheblocks.cinematic.client.obs.ObsBridge.status();
-		if (section == Section.RECORDING && shownObsStatus != null && !now.equals(shownObsStatus)) {
-			rebuildWidgets();
-		}
+		// the OBS line reads its status live while drawing – no rebuild, so hover texts don't flicker
 		shownObsStatus = now;
 	}
 
