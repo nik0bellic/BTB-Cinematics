@@ -50,7 +50,7 @@ public final class DirectorScreen extends Screen {
 
 	/** The pages inside a tab (small buttons under the title). */
 	private enum Section {
-		START(Tab.START, "Übersicht"), WIZARD(Tab.START, "Assistenten"), TEMPLATES(Tab.START, "Vorlagen"),
+		START(Tab.START, "Übersicht"), WIZARD(Tab.START, "Assistenten"), TEMPLATES(Tab.START, "Vorlagen"), INFO(Tab.START, "Info"),
 		SCENES(Tab.SCENES, "Szenen"), BUILDER(Tab.SCENES, "Baukasten"), STORYBOARD(Tab.SCENES, "Storyboard"), DIALOG(Tab.SCENES, "Dialog"),
 		CAMERA(Tab.CAMERA, "Kamera"), PATHS(Tab.CAMERA, "Kamerapfade"),
 		EFFECTS(Tab.PICTURE, "Effekte"), HUD(Tab.PICTURE, "Texte"), SOUND(Tab.PICTURE, "Ton"),
@@ -247,6 +247,14 @@ public final class DirectorScreen extends Screen {
 				rebuildWidgets();
 			}).tooltip(Tooltip.create(ClientI18n.c("Auf welche Taste der nächste Klick gelegt wird"))).bounds(rx, panelY + 6, 48, 16).build());
 		}
+		rx -= 20;
+		addRenderableWidget(Button.builder(ClientI18n.c("ⓘ"), b -> {
+			section = Section.INFO;
+			currentTab = Tab.START;
+			search = "";
+			page = 0;
+			rebuildWidgets();
+		}).tooltip(Tooltip.create(ClientI18n.c("Info & Credits"))).bounds(rx, panelY + 6, 16, 16).build());
 		int stopW = font.width(ClientI18n.t("■ Alles stoppen")) + 14;
 		rx -= stopW + 4;
 		addRenderableWidget(Button.builder(ClientI18n.c("■ Alles stoppen"), b -> perform("btb stop", "■ Alles stoppen", true))
@@ -1437,6 +1445,15 @@ public final class DirectorScreen extends Screen {
 			search = "";
 			return true;
 		}
+		if (c.startsWith("url:")) {
+			try {
+				net.minecraft.client.gui.screens.ConfirmLinkScreen.confirmLinkNow(this, java.net.URI.create(c.substring(4)));
+			} catch (IllegalArgumentException e) {
+				status = "Link ungültig";
+				statusError = true;
+			}
+			return true;
+		}
 		if (c.equals("searchclear")) {
 			search = "";
 			return true;
@@ -1708,6 +1725,20 @@ public final class DirectorScreen extends Screen {
 						new Action("⟲ Set zurücksetzen", "btb resetall", "Szenen, Portale, Zerstörung, Effekte: alles auf Anfang", true))));
 			}
 			case WIZARD -> wizardRows(rows);
+			case INFO -> {
+				String version = net.fabricmc.loader.api.FabricLoader.getInstance().getModContainer(BtbCinematic.MOD_ID)
+						.map(m -> m.getMetadata().getVersion().getFriendlyString()).orElse("?");
+				rows.add(new Row("§lBTB Cinematics§r · v" + version, 0xFFFFE0C0, List.of()));
+				rows.add(new Row("Entwickelt von §6Nik2810", 0xFFFFFFFF, List.of()));
+				rows.add(new Row("Für die Minecraft-Filmproduktion „Behind The Blocks“", 0xFFDDDDDD, List.of()));
+				rows.add(new Row("Quellcode, Anleitung und Fehler melden", 0xFFDDDDDD, List.of(
+						new Action("GitHub", "local:url:https://github.com/nik0bellic/btb-cinematics", "github.com/nik0bellic/btb-cinematics", true))));
+				rows.add(new Row("Behind The Blocks", 0xFFDDDDDD, List.of(
+						new Action("Instagram", "local:url:https://www.instagram.com/btb.minecraft", "@btb.minecraft", true),
+						new Action("TikTok", "local:url:https://www.tiktok.com/@btb.plus", "@btb.plus", true))));
+				rows.add(new Row("Lizenz: MIT · Schrift Cinzel: SIL Open Font License 1.1", 0xFF999999, List.of()));
+				rows.add(new Row("Danke fürs Benutzen – viel Spaß beim Drehen! 🎬", 0xFF9CE0FF, List.of()));
+			}
 			case TEMPLATES -> {
 				JsonArray tp = studio.has("template_info") ? studio.getAsJsonArray("template_info") : new JsonArray();
 				for (var el : tp) {
