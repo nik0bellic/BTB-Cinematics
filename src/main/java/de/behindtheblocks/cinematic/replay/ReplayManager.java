@@ -294,7 +294,17 @@ public final class ReplayManager implements CinematicModule, CommandContributor 
 		Files.createDirectories(folder());
 		try (Writer w = new OutputStreamWriter(new GZIPOutputStream(Files.newOutputStream(folder().resolve(name + ".replay"))), StandardCharsets.UTF_8)) {
 			GSON.toJson(data, w);
+		}		// small info file next to the take: lets the replay list (also in the main menu) show length and world
+		// without unpacking the take, and open the right world for editing
+		JsonObject info = new JsonObject();
+		info.addProperty("length", data.has("length") ? data.get("length").getAsInt() : 0);
+		info.addProperty("recorded", System.currentTimeMillis());
+		if (server != null) {
+			java.nio.file.Path root = server.getWorldPath(net.minecraft.world.level.storage.LevelResource.ROOT).toAbsolutePath().normalize();
+			info.addProperty("world", root.getFileName() == null ? "" : root.getFileName().toString());
+			info.addProperty("world_name", server.getWorldData().getLevelName());
 		}
+		Files.writeString(folder().resolve(name + ".info.json"), info.toString(), StandardCharsets.UTF_8);
 	}
 
 	private JsonObject load(String name) throws IOException {
@@ -400,6 +410,17 @@ public final class ReplayManager implements CinematicModule, CommandContributor 
 			case "scene_stop" -> server.getCommands().performPrefixedCommand(src, "btb scene stop " + arg);
 			case "destruction" -> server.getCommands().performPrefixedCommand(src, "btb destruction trigger " + arg);
 			case "command" -> server.getCommands().performPrefixedCommand(src, arg);
+			case "emote" -> {
+				// BTB Skin Studio emote of an actor → the actor's puppet plays it
+				String[] p = arg.split(":", 2);
+				Puppet pp = puppets.get(p[0]);
+				if (pp != null && p.length == 2) {
+					JsonObject o = new JsonObject();
+					o.addProperty("entity", pp.entity.getUUID().toString());
+					o.addProperty("emote", p[1]);
+					engine.cues().queue(TimelineManager.MANUAL, 0, "btb_puppet_emote", o);
+				}
+			}
 			case "entity" -> {
 				String[] p = arg.split(":", 2);
 				Puppet pp = puppets.get(p[0]);
@@ -799,6 +820,8 @@ public final class ReplayManager implements CinematicModule, CommandContributor 
 					LENGTHS.remove(StringArgumentType.getString(c, "name"));
 					try {
 						Files.deleteIfExists(folder().resolve(StringArgumentType.getString(c, "name") + ".replay"));
+						Files.deleteIfExists(folder().resolve(StringArgumentType.getString(c, "name") + ".info.json"));
+						Files.deleteIfExists(folder().resolve(StringArgumentType.getString(c, "name") + ".cam.json"));
 					} catch (IOException e) {
 						return Feedback.fail(c.getSource(), e.getMessage());
 					}

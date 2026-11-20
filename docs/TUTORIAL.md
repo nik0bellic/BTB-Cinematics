@@ -677,7 +677,7 @@ Ein aufgenommenes Replay lässt sich wie in einem Schnittprogramm bearbeiten –
    Beim Spulen wird das Set zurückgesetzt, laufende Szenen springen an die richtige Stelle, schon passierte Einstürze werden ausgelöst.
 4. **Kamera**: „✈ Fliegen“ (oder Esc) schließt das Panel – du fliegst frei, eine kleine Timeline bleibt unten sichtbar.
    Guten Blickwinkel suchen → **K** setzt einen Keyframe an der aktuellen Zeit. Mit ←/→ (1 s) weiterspulen, nächster Blickwinkel, K …
-   **J** schaltet zwischen „frei“ und „◆ Keyframes“ (Kamera fährt die Keyframes ab), **↑** = Play/Pause.
+   **H** schaltet zwischen „frei“ und „◆ Keyframes“ (Kamera fährt die Keyframes ab), **↑** = Play/Pause.
 5. **Keyframe bearbeiten** (im Panel anklicken): ziehen = Zeit verschieben, Rechtsklick = löschen, Doppelklick = hinspringen.
    - Modus pro Abschnitt: **Fahrt** (weiche Kurve), **Schnitt** (harter Cut zum nächsten Keyframe), **Fahrt+Blick** (Kamera schaut automatisch auf den nächsten Darsteller), **Frei** (keine Steuerung)
    - FOV−/FOV+ (Brennweite), ↺/↻ (Kamera neigen), „Sicht“ (aktuelle Sicht übernehmen), „Hin“ (hinspringen und dorthin stellen)

@@ -284,3 +284,13 @@ Nummernblock * halten = Cue-Monitor mit Tastenbelegung zeigen (sonst unsichtbar;
 Tippfehler: Die Mod sagt jetzt, was fehlt oder falsch ist, und schlägt das nächstliegende Wort vor („meintest du …?“).
 
 Replay-Editor: **Kamera A–D** (jede mit eigenen Keyframes) und **✂ → A** (Schnitt an der Abspielposition). Die Schnitte erscheinen als farbiges Band über der Zeitleiste.
+
+## BTB Skin Studio (optional)
+| Befehl | Wirkung |
+|---|---|
+| `/btb emote <wer> <emote>` · `/btb emote <wer> stop` | Statisten, Doubles oder Puppen spielen ein Skin-Studio-Emote (wave, cheer, dance …), auch als Szenen-Schritt |
+
+Mit Skin Studio tragen Replay-Puppen, Doubles und Statisten automatisch den Skin-Studio-Look des Darstellers, und Emotes aus dem Emote-Rad (B) werden in Replays mit aufgenommen. Die Kamera-Taste im Replay-Editor ist **H** (J öffnet die Skin-Studio-Garderobe).
+
+## Replays im Hauptmenü
+Knopf **„🎬 BTB Replays“** oben links im Haupt- und Pausemenü: Liste aller Replays (Länge, Welt, Datum), **✂ Bearbeiten** lädt die Welt des Replays und öffnet den Editor, dazu Umbenennen, Kopie, Löschen und (in der Welt) Abspielen.

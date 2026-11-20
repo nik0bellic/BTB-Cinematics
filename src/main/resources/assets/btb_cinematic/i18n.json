@@ -7873,5 +7873,185 @@
 "§lBTB Cinematics§r · v{0}",
 "§lBTB Cinematics§r · v{0}",
 "§lBTB Cinematics§r · v{0}"
+],
+[
+"🎬 BTB Replays",
+"🎬 BTB Replays",
+"🎬 BTB Replays"
+],
+[
+"BTB Replays",
+"BTB Replays",
+"BTB Replays"
+],
+[
+"Gespeicherte Replays ansehen, bearbeiten, umbenennen, löschen",
+"Gespeicherte Replays ansehen, bearbeiten, umbenennen, löschen",
+"View, edit, rename and delete saved replays"
+],
+[
+"„{0}“ gibt es schon",
+"„{0}“ gibt es schon",
+"\"{0}\" already exists"
+],
+[
+"„{0}“ ist gerade offen – erst im Editor schließen",
+"„{0}“ ist gerade offen – erst im Editor schließen",
+"\"{0}\" is open right now – close it in the editor first"
+],
+[
+"Umbenannt: {0} → {1}",
+"Umbenannt: {0} → {1}",
+"Renamed: {0} → {1}"
+],
+[
+"Umbenennen fehlgeschlagen: {0}",
+"Umbenennen fehlgeschlagen: {0}",
+"Renaming failed: {0}"
+],
+[
+"Kopie gespeichert: {0}",
+"Kopie gespeichert: {0}",
+"Copy saved: {0}"
+],
+[
+"Kopieren fehlgeschlagen: {0}",
+"Kopieren fehlgeschlagen: {0}",
+"Copying failed: {0}"
+],
+[
+"Gelöscht: {0}",
+"Gelöscht: {0}",
+"Deleted: {0}"
+],
+[
+"Löschen fehlgeschlagen: {0}",
+"Löschen fehlgeschlagen: {0}",
+"Deleting failed: {0}"
+],
+[
+"Der Replay-Editor geht nur im Einzelspieler bzw. als Host einer LAN-Welt",
+"Der Replay-Editor geht nur im Einzelspieler bzw. als Host einer LAN-Welt",
+"The replay editor only works in singleplayer or as host of a LAN world"
+],
+[
+"Lade Welt „{0}“ …",
+"Lade Welt „{0}“ …",
+"Loading world \"{0}\" …"
+],
+[
+"Neuen Namen übernehmen",
+"Neuen Namen übernehmen",
+"Apply new name"
+],
+[
+"Replay löschen",
+"Replay löschen",
+"Delete replay"
+],
+[
+"Kopie speichern (z. B. um verschiedene Kamera-Fassungen zu behalten)",
+"Kopie speichern (z. B. um verschiedene Kamera-Fassungen zu behalten)",
+"Save a copy (e.g. to keep different camera versions)"
+],
+[
+"Umbenennen",
+"Umbenennen",
+"Rename"
+],
+[
+"Abspielen",
+"Abspielen",
+"Play"
+],
+[
+"✂ Bearbeiten",
+"✂ Bearbeiten",
+"✂ Edit"
+],
+[
+"Im Replay-Editor öffnen",
+"Im Replay-Editor öffnen",
+"Open in the replay editor"
+],
+[
+"Welt auswählen, danach öffnet sich der Replay-Editor",
+"Welt auswählen, danach öffnet sich der Replay-Editor",
+"Choose the world, then the replay editor opens"
+],
+[
+"Lädt die Welt „{0}“ und öffnet den Replay-Editor",
+"Lädt die Welt „{0}“ und öffnet den Replay-Editor",
+"Loads the world \"{0}\" and opens the replay editor"
+],
+[
+"Liste neu einlesen",
+"Liste neu einlesen",
+"Reload the list"
+],
+[
+"Fertig",
+"Fertig",
+"Done"
+],
+[
+"Seite {0}/{1}",
+"Seite {0}/{1}",
+"Page {0}/{1}"
+],
+[
+"{0} Replay(s) · gespeichert in config/btb_cinematic/replays",
+"{0} Replay(s) · gespeichert in config/btb_cinematic/replays",
+"{0} replay(s) · saved in config/btb_cinematic/replays"
+],
+[
+"Welt unbekannt",
+"Welt unbekannt",
+"World unknown"
+],
+[
+"Welt: {0}",
+"Welt: {0}",
+"World: {0}"
+],
+[
+"Noch keine Replays. In einer Welt: Regiepult (F7) → Replay → „● Aufnehmen“.",
+"Noch keine Replays. In einer Welt: Regiepult (F7) → Replay → „● Aufnehmen“.",
+"No replays yet. In a world: director (F7) → Replay → \"● Record\"."
+],
+[
+"Kamera {0} ▸",
+"Kamera {0} ▸",
+"Camera {0} ▸"
+],
+[
+"K Keyframe · ↑ Play/Pause · ←/→ 1 s · H Kamera · F6 Editor",
+"K Keyframe · ↑ Play/Pause · ←/→ 1 s · H Kamera · F6 Editor",
+"K keyframe · ↑ play/pause · ←/→ 1 s · H camera · F6 editor"
+],
+[
+"Keyframes: die Kamera fährt den Pfad ab. Frei: du fliegst selbst (Taste H)",
+"Keyframes: die Kamera fährt den Pfad ab. Frei: du fliegst selbst (Taste H)",
+"Keyframes: the camera follows the path. Free: you fly yourself (key H)"
+],
+[
+"Leertaste Play/Pause · ←/→ 1 s · K Keyframe · H Kamera · I/P In/Out · Mausrad: Zoom · Rechtsklick: In/Out bzw. Keyframe löschen",
+"Leertaste Play/Pause · ←/→ 1 s · K Keyframe · H Kamera · I/P In/Out · Mausrad: Zoom · Rechtsklick: In/Out bzw. Keyframe löschen",
+"Space play/pause · ←/→ 1 s · K keyframe · H camera · I/P in/out · mouse wheel: zoom · right-click: in/out or delete keyframe"
+],
+[
+"Emotes kommen von BTB Skin Studio – die Mod ist nicht installiert",
+"Emotes kommen von BTB Skin Studio – die Mod ist nicht installiert",
+"Emotes come from BTB Skin Studio – that mod is not installed"
+],
+[
+"Unbekanntes Emote „{0}“{1}",
+"Unbekanntes Emote „{0}“{1}",
+"Unknown emote \"{0}\"{1}"
+],
+[
+"Emote „{0}“ für {1}",
+"Emote „{0}“ für {1}",
+"Emote \"{0}\" for {1}"
 ]
 ]

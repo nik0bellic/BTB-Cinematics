@@ -311,6 +311,28 @@ public final class StudioManager implements CinematicModule, CommandContributor 
 					}
 					return Feedback.ok(c.getSource(), n + " Spieler: Rolle " + r);
 				}))));
+		// BTB Skin Studio emotes for statists, doubles and puppets (and players, seen by everyone)
+		SuggestionProvider<CommandSourceStack> emoteIds = (c, b) -> SharedSuggestionProvider.suggest(skinStudioEmotes(), b);
+		root.then(literal("emote").then(argument("wer", EntityArgument.entities())
+				.then(argument("emote", StringArgumentType.word()).suggests(emoteIds).executes(c -> {
+					String id = StringArgumentType.getString(c, "emote");
+					List<String> known = skinStudioEmotes();
+					if (known.isEmpty()) {
+						return Feedback.fail(c.getSource(), "Emotes kommen von BTB Skin Studio – die Mod ist nicht installiert");
+					}
+					if (!id.equals("stop") && !known.contains(id)) {
+						return Feedback.fail(c.getSource(), "Unbekanntes Emote „" + id + "“" + Suggest.hint(id, known));
+					}
+					int n = 0;
+					for (Entity e : EntityArgument.getEntities(c, "wer")) {
+						JsonObject o = new JsonObject();
+						o.addProperty("entity", e.getUUID().toString());
+						o.addProperty("emote", id.equals("stop") ? "" : id);
+						engine.cues().queue(TimelineManager.MANUAL, 0, "btb_puppet_emote", o);
+						n++;
+					}
+					return Feedback.ok(c.getSource(), "Emote „" + id + "“ für " + n);
+				}))));
 		root.then(literal("hinweis").then(argument("an", EntityArgument.players())
 				.then(argument("vorlauf", DoubleArgumentType.doubleArg(0, 30))
 						.then(argument("text", StringArgumentType.greedyString()).executes(c -> prompt(c, true)))))
@@ -1026,6 +1048,22 @@ public final class StudioManager implements CinematicModule, CommandContributor 
 		o.addProperty("seconds", DoubleArgumentType.getDouble(c, "vorlauf"));
 		engine.cues().queue(TimelineManager.MANUAL, 0, "btb_prompt", o, to);
 		return Feedback.ok(c.getSource(), "Hinweis an " + to.size() + " Darsteller");
+	}
+
+	/** Emote ids of BTB Skin Studio (empty without it). */
+	public static List<String> skinStudioEmotes() {
+		try {
+			Class<?> c = Class.forName("de.behindtheblocks.skinstudio.emote.Emotes");
+			List<?> all = (List<?>) c.getMethod("all").invoke(null);
+			List<String> out = new ArrayList<>();
+			for (Object e : all) {
+				out.add((String) e.getClass().getMethod("id").invoke(e));
+			}
+			out.add("stop");
+			return out;
+		} catch (ReflectiveOperationException | RuntimeException e) {
+			return List.of();
+		}
 	}
 
 	// ------------------------------------------------------------------ tick

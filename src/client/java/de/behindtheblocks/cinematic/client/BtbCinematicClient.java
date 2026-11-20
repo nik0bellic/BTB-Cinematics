@@ -36,8 +36,10 @@ public final class BtbCinematicClient implements ClientModInitializer {
 		DirectorScreen.registerCues();
 		de.behindtheblocks.cinematic.client.i18n.ClientI18n.init();
 		DirectorHotkeys.init();
+		de.behindtheblocks.cinematic.client.compat.SkinStudioCompat.init();
 		de.behindtheblocks.cinematic.client.director.StudioClient.init();
 		de.behindtheblocks.cinematic.client.replay.ReplayEditor.init();
+		de.behindtheblocks.cinematic.client.replay.ReplayLibraryScreen.register();
 		de.behindtheblocks.cinematic.client.obs.ObsBridge.init();
 
 		ClientTickEvents.END_CLIENT_TICK.register(mc -> {

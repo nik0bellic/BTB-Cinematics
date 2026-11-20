@@ -10,7 +10,8 @@
     "LevelLoadingScreenMixin",
     "MusicManagerMixin",
     "ParticleWindMixin",
-    "DeltaTimerMixin"
+    "DeltaTimerMixin",
+    "MannequinLookMixin"
   ],
   "injectors": {
     "defaultRequire": 1

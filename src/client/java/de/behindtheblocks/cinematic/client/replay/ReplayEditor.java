@@ -119,7 +119,8 @@ public final class ReplayEditor {
 		playKey = KeyMappingHelper.registerKeyMapping(new KeyMapping("key.btb_cinematic.replay_play", InputConstants.KEY_UP, cat));
 		backKey = KeyMappingHelper.registerKeyMapping(new KeyMapping("key.btb_cinematic.replay_back", InputConstants.KEY_LEFT, cat));
 		fwdKey = KeyMappingHelper.registerKeyMapping(new KeyMapping("key.btb_cinematic.replay_forward", InputConstants.KEY_RIGHT, cat));
-		camKey = KeyMappingHelper.registerKeyMapping(new KeyMapping("key.btb_cinematic.replay_camera", InputConstants.KEY_J, cat));
+		// BTB Skin Studio opens its wardrobe with J – then the camera key is H, so both work
+		camKey = KeyMappingHelper.registerKeyMapping(new KeyMapping("key.btb_cinematic.replay_camera", InputConstants.KEY_H, cat));
 		// replay/export feedback from the server (e.g. "Replay nicht gefunden") also shows in the editor
 		net.fabricmc.fabric.api.client.message.v1.ClientReceiveMessageEvents.GAME.register((message, overlay) -> {
 			String t = message.getString();
@@ -128,6 +129,14 @@ public final class ReplayEditor {
 				boolean err = message.visit((style, txt) -> red.equals(style.getColor()) && !txt.isBlank()
 						? java.util.Optional.of(Boolean.TRUE) : java.util.Optional.empty(), net.minecraft.network.chat.Style.EMPTY).isPresent();
 				note(t.replaceFirst("^\\[BTB[^\\]]*\\]\\s*", ""), err);
+			}
+		});
+		// players who had J saved for the camera key: with BTB Skin Studio (J = wardrobe) move it to H once
+		net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientLifecycleEvents.CLIENT_STARTED.register(mc -> {
+			if (de.behindtheblocks.cinematic.client.compat.SkinStudioCompat.wantsKeyJ() && camKey.saveString().equals("key.keyboard.j")) {
+				camKey.setKey(InputConstants.getKey("key.keyboard.h"));
+				KeyMapping.resetMapping();
+				mc.options.save();
 			}
 		});
 		ClientCueDispatcher.register("replay_editor", (scene, tick, data) ->
@@ -668,7 +677,7 @@ public final class ReplayEditor {
 		g.fill(px, y - 4, px + 1, y + 8, 0xFFFFFFFF);
 		String state = !name.equals(ReplayManager.current()) ? "■" : ReplayManager.isPaused() ? "⏸" : "▶";
 		g.text(font, de.behindtheblocks.cinematic.client.i18n.ClientI18n.t(state + " " + name + "  " + clock(t) + " / " + clock(len) + "  " + (cameraOn ? "◆ Keyframes" : "✈ frei")), x0, y - 12, 0xFFFFE0C0, true);
-		String help = "K Keyframe · ↑ Play/Pause · ←/→ 1 s · J Kamera · F6 Editor";
+		String help = "K Keyframe · ↑ Play/Pause · ←/→ 1 s · H Kamera · F6 Editor";
 		String st = currentStatus();
 		if (st != null) {
 			g.text(font, de.behindtheblocks.cinematic.client.i18n.ClientI18n.t(font.plainSubstrByWidth(de.behindtheblocks.cinematic.client.i18n.ClientI18n.t(st), x1 - x0)), x0, y - 23, statusError ? 0xFFFF5050 : 0xFFAAFFAA, true);

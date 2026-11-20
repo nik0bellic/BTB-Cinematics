@@ -86,7 +86,7 @@ public final class ReplayEditorScreen extends Screen {
 			rebuildWidgets();
 		});
 		x = add(ReplayEditor.cameraOn ? "◆ Keyframes" : "✈ Frei", 66, x, y,
-				"Keyframes: die Kamera fährt den Pfad ab. Frei: du fliegst selbst (Taste J)", () -> {
+				"Keyframes: die Kamera fährt den Pfad ab. Frei: du fliegst selbst (Taste H)", () -> {
 					ReplayEditor.cameraOn = !ReplayEditor.cameraOn;
 					rebuildWidgets();
 				});
@@ -124,6 +124,7 @@ public final class ReplayEditorScreen extends Screen {
 					ReplayEditor.cutHere(ReplayEditor.time(0));
 					rebuildWidgets();
 				});
+		multicamLeft = mx - 2 - 56;
 		addLeft("Kamera " + ReplayEditor.CAM_NAMES[ReplayEditor.activeCam] + " ▸", 56, mx - 2, y,
 				"Mehrere Kameras: jede hat eigene Keyframes. Klicken = nächste Kamera bearbeiten (A–D)", () -> {
 					ReplayEditor.switchCam((ReplayEditor.activeCam + 1) % ReplayEditor.CAM_NAMES.length);
@@ -156,7 +157,7 @@ public final class ReplayEditorScreen extends Screen {
 		exportInfoX = x + 6;
 	}
 
-	private int takeLabelRight, exportInfoX;
+	private int takeLabelRight, exportInfoX, multicamLeft;
 
 	private boolean playing() {
 		return ReplayEditor.name.equals(ReplayManager.current()) && !ReplayManager.isPaused();
@@ -498,9 +499,15 @@ public final class ReplayEditorScreen extends Screen {
 		Keyframe sel = selected();
 		String info = sel == null ? (ReplayEditor.KEYS.isEmpty() ? "Keine Keyframes – fliegen (✈), Blickwinkel suchen, K drücken" : ReplayEditor.KEYS.size() + " Keyframes · klicken zum Auswählen, ziehen zum Verschieben, Rechtsklick löscht")
 				: String.format(Locale.ROOT, "◆ %d/%d · %s · FOV %.0f · Roll %.0f°", ReplayEditor.selected + 1, ReplayEditor.KEYS.size(), ReplayEditor.clock(sel.t), sel.fov, sel.roll);
-		int infoX = sel == null ? 8 + 62 + 2 + 66 + 8 : width - 8 - font.width(de.behindtheblocks.cinematic.client.i18n.ClientI18n.t(info));
+		// never under the camera A–D buttons on the right
+		int infoRight = multicamLeft > 0 ? multicamLeft - 6 : width - 8;
+		int infoX = sel == null ? 8 + 62 + 2 + 66 + 8 : infoRight - font.width(de.behindtheblocks.cinematic.client.i18n.ClientI18n.t(info));
 		if (sel == null || infoX > 8 + 64 + 68 + 6 + 58 + 30 + 30 + 18 + 18 + 36 + 28 + 18) {
-			g.text(font, de.behindtheblocks.cinematic.client.i18n.ClientI18n.t(font.plainSubstrByWidth(de.behindtheblocks.cinematic.client.i18n.ClientI18n.t(info), width - infoX - 8)), infoX, y0 + 72, 0xFFBBBBBB, false);
+			String it = de.behindtheblocks.cinematic.client.i18n.ClientI18n.t(info);
+			int room = infoRight - infoX;
+			if (room > 20) {
+				g.text(font, font.width(it) > room ? font.plainSubstrByWidth(it, room - font.width("…")) + "…" : it, infoX, y0 + 72, 0xFFBBBBBB, false);
+			}
 		}
 		// export info
 		double dur = ReplayEditor.outPoint() - ReplayEditor.in;
@@ -510,7 +517,7 @@ public final class ReplayEditorScreen extends Screen {
 			g.text(font, de.behindtheblocks.cinematic.client.i18n.ClientI18n.t(font.plainSubstrByWidth(de.behindtheblocks.cinematic.client.i18n.ClientI18n.t(ex), width - exportInfoX - 8)), exportInfoX, y0 + 94, 0xFF8AA8FF, false);
 		}
 		// help line above the panel
-		String help = "Leertaste Play/Pause · ←/→ 1 s · K Keyframe · J Kamera · I/P In/Out · Mausrad: Zoom · Rechtsklick: In/Out bzw. Keyframe löschen";
+		String help = "Leertaste Play/Pause · ←/→ 1 s · K Keyframe · H Kamera · I/P In/Out · Mausrad: Zoom · Rechtsklick: In/Out bzw. Keyframe löschen";
 		String st = ReplayEditor.currentStatus();
 		if (st != null) {
 			g.fill(0, y0 - 14, width, y0, ReplayEditor.statusError ? 0xC0400000 : 0xA0003000);

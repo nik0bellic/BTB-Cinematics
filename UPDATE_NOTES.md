@@ -1,6 +1,25 @@
 # BTB Cinematics – Update Notes
 
-## 1.0.0 – Sprache & Performance
+## 1.1.0 – Neues Regiepult, Studio-Werkzeuge, Skin Studio
+
+### 🎞 Replays aus dem Haupt- und Pausemenü
+- Neuer Knopf **„🎬 BTB Replays“** im Hauptmenü und im Pausemenü: alle gespeicherten Replays mit Länge,
+  Welt, Datum und Größe.
+- **✂ Bearbeiten** direkt aus dem Hauptmenü: Die Welt des Replays wird geladen und der Replay-Editor
+  öffnet sich von selbst (ältere Replays ohne Welt-Angabe: Welt auswählen, dann öffnet sich der Editor).
+- **Umbenennen**, **Kopie speichern** (z. B. für verschiedene Kamera-Fassungen), **Löschen** (zweimal klicken),
+  im Spiel auch **▶ Abspielen**. Replays merken sich ab jetzt, in welcher Welt sie aufgenommen wurden.
+
+### 👕 Zusammenarbeit mit BTB Skin Studio
+- Ist [BTB Skin Studio](https://github.com/nik0bellic/BTB-Skin-Studio) installiert, tragen **Replay-Puppen,
+  Doubles und Statisten** den Skin-Studio-Look des Darstellers: Skin, Cosmetics, Körperproportionen.
+- **Emotes** aus dem Emote-Rad werden im Replay **mit aufgenommen** und von der Puppe nachgespielt.
+- Neuer Befehl `/btb emote <wer> <emote>` – Statisten und Puppen spielen Skin-Studio-Emotes (auch als Szenen-Schritt).
+- Kein Tastenkonflikt mehr: Skin Studio öffnet die Garderobe mit **J**, die Kamera-Taste im Replay-Editor ist jetzt **H**
+  (wer J gespeichert hatte, wird mit Skin Studio einmalig auf H umgestellt).
+- Ohne Skin Studio ändert sich nichts.
+
+
 
 ### 🌍 Komplett Deutsch oder komplett Englisch
 - Die ganze Mod gibt es jetzt in **Deutsch und Englisch**: Regiepult (alle 13 Tabs), Replay-Editor,

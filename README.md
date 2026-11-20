@@ -40,8 +40,12 @@
 - **Replay:** einen Take einmal spielen und danach beliebig oft aus jedem Winkel filmen. Puppen mit den Skins der Darsteller, Kreaturen, Szenen und Einstürze werden mit aufgezeichnet
 - **Replay-Editor (F6)** im Stil von ReplayMod: Timeline zum Spulen, Play/Pause, Tempo ¼×–4×, Kamera-Keyframes (Fahrt, Schnitt, Fahrt+Blick, Frei), FOV und Neigung pro Keyframe, In/Out-Bereich, **Kameras A–D mit Schnitten (Multicam)**
 - Replays komplett im Menü: aufnehmen, abspielen, Editor, Export der ganzen Länge in 1080p/4K
+- **„🎬 BTB Replays“ im Hauptmenü und Pausemenü**: alle Replays mit Länge, Welt und Datum – bearbeiten (lädt die richtige Welt), umbenennen, kopieren, löschen
 - **Bildgenauer Export:** Das Spiel friert ein und rendert Bild für Bild in 1080p, 1440p oder 4K mit 24, 30 oder 60 FPS. Am Ende baut ffmpeg die MP4, ohne Ruckler und unabhängig davon, wie schnell der PC ist
 - Doubles, Statisten mit Gesten, Probe-Modus, Countdown für Darsteller
+
+**Zusammen mit BTB Skin Studio**
+- Mit [BTB Skin Studio](https://github.com/nik0bellic/BTB-Skin-Studio) tragen Replay-Puppen, Doubles und Statisten den Skin-Studio-Look des Darstellers (Skin, Cosmetics, Proportionen); **Emotes** werden im Replay mit aufgenommen und nachgespielt, `/btb emote` lässt Statisten Emotes spielen
 
 **Bild und Ton**
 - Shader-Effekte, die auch mit Iris-Shaderpacks laufen (getestet mit MakeUp und Complementary): Filmkorn, Hitzeflimmern, Tiefenschärfe, anamorphe Lichtstreifen, Rückblende, LUT-Farbkorrektur (eigene `.cube`-Dateien), Kinoformate 2.39:1/4:3, Lens Flare, Vignette, Zeitlupe
@@ -57,6 +61,7 @@
 
 | | |
 |---|---|
+| ![Replays im Hauptmenü](docs/screenshots/runde14_replays_fenster.png) | ![Mit BTB Skin Studio](docs/screenshots/runde14_skinstudio_statisten_emote.png) |
 | ![Regiepult kompakt](docs/screenshots/runde13_regiepult_kompakt.png) | ![Director in English](docs/screenshots/runde13_director_english_kamerapfade.png) |
 | ![Wächter](docs/screenshots/runde10_01_waechter_phase1_schlag_risse.png) | ![LUT-Looks](docs/screenshots/runde10_03_lut_looks.png) |
 | ![Tiefenschärfe](docs/screenshots/runde8_01_tiefenschaerfe_mit_shader.png) | ![Herz-Enthüllung](docs/screenshots/runde5_07_herz_enthuellung_waechter_steigt_auf.png) |
@@ -69,7 +74,7 @@
    - **Fabric API** für 26.3 (https://modrinth.com/mod/fabric-api)
    - **GeckoLib** für Fabric 26.3, Version 5.5.7 (https://modrinth.com/mod/geckolib)
    - `btb_cinematic-<version>.jar` (unter [Releases](../../releases) oder selbst bauen)
-   - optional: Iris + Sodium für Shaderpacks, ffmpeg im PATH für MP4-Export
+   - optional: [BTB Skin Studio](https://github.com/nik0bellic/BTB-Skin-Studio) (Skins, Cosmetics und Emotes auch auf Replay-Puppen), Iris + Sodium für Shaderpacks, ffmpeg im PATH für MP4-Export
 3. Die Mod gehört **auf den Server und auf alle Clients**. Clients ohne Mod können beitreten, sehen aber keine Kamera-, Bild- oder HUD-Effekte.
 4. Befehle brauchen Operator-Level 2. Für Testwelten: Cheats an.
 
@@ -86,13 +91,14 @@
 /btb resetall                        alles zurücksetzen
 ```
 
-Replay-Editor in Kurzform: Panel mit **Esc** schließen und frei fliegen, **K** setzt einen Kamera-Keyframe, **←/→** spult, **↑** = Play/Pause, **J** lässt die Kamera die Keyframes abfahren, **F6** öffnet das Panel wieder. Dort stellst du In/Out, Auflösung und FPS ein und klickst auf „● Exportieren“.
+Replay-Editor in Kurzform: Panel mit **Esc** schließen und frei fliegen, **K** setzt einen Kamera-Keyframe, **←/→** spult, **↑** = Play/Pause, **H** lässt die Kamera die Keyframes abfahren, **F6** öffnet das Panel wieder. Dort stellst du In/Out, Auflösung und FPS ein und klickst auf „● Exportieren“.
 
 > Die Film-Sets und `/btb demo setup` überschreiben Gelände. Es wird vorher gesichert, trotzdem am besten in einer Testwelt ausprobieren.
 
 ## Dokumentation
 
 - [UPDATE_NOTES.md](UPDATE_NOTES.md) – was neu ist
+- [docs/MODRINTH.md](docs/MODRINTH.md) – Texte, Changelog und Bilder für die Modrinth-Seite
 - [docs/TUTORIAL.md](docs/TUTORIAL.md) – Schritt-für-Schritt-Anleitung (Kapitel 11h: Replay-Editor)
 - [docs/STORY.md](docs/STORY.md) – Storyboard → welches Werkzeug für welchen Moment
 - [docs/COMMANDS.md](docs/COMMANDS.md) – alle Befehle

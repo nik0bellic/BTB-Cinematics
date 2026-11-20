@@ -21,6 +21,9 @@
       "de.behindtheblocks.cinematic.client.BtbCinematicClient"
     ]
   },
+  "suggests": {
+    "btb_skinstudio": "*"
+  },
   "depends": {
     "fabricloader": ">=0.20.1",
     "minecraft": "~26.3",
