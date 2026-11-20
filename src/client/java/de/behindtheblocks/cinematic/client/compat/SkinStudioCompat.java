@@ -35,6 +35,8 @@ public final class SkinStudioCompat {
 	private static Method setData;
 	private static Map<UUID, Object> playing;
 	private static Constructor<?> playingCtor;
+	/** Puppets that wear the look stored in their take (keyed by the puppet itself, not by the actor). */
+	private static final java.util.Set<UUID> STORED_LOOK = java.util.concurrent.ConcurrentHashMap.newKeySet();
 
 	private SkinStudioCompat() {
 	}
@@ -49,6 +51,8 @@ public final class SkinStudioCompat {
 				startEmote(UUID.fromString(data.get("entity").getAsString()), data.get("emote").getAsString());
 			}
 		});
+		ClientCueDispatcher.register("btb_puppet_look", (scene, tick, data) -> STORED_LOOK.add(UUID.fromString(data.get("entity").getAsString())));
+		net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents.DISCONNECT.register((h, mc) -> STORED_LOOK.clear());
 		if (!FabricLoader.getInstance().isModLoaded("btb_skinstudio")) {
 			return;
 		}
@@ -117,7 +121,8 @@ public final class SkinStudioCompat {
 		if (!ready) {
 			return;
 		}
-		UUID actor = actorOf(m);
+		// the look of the moment of recording (stored in the take) – otherwise the actor's current look
+		UUID actor = STORED_LOOK.contains(m.getUUID()) ? m.getUUID() : actorOf(m);
 		try {
 			if (actor != null) {
 				PlayerSkin skin = (PlayerSkin) override.invoke(null, actor, state.skin);

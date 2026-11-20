@@ -290,7 +290,7 @@ Replay-Editor: **Kamera A–D** (jede mit eigenen Keyframes) und **✂ → A** (
 |---|---|
 | `/btb emote <wer> <emote>` · `/btb emote <wer> stop` | Statisten, Doubles oder Puppen spielen ein Skin-Studio-Emote (wave, cheer, dance …), auch als Szenen-Schritt |
 
-Mit Skin Studio tragen Replay-Puppen, Doubles und Statisten automatisch den Skin-Studio-Look des Darstellers, und Emotes aus dem Emote-Rad (B) werden in Replays mit aufgenommen. Die Kamera-Taste im Replay-Editor ist **H** (J öffnet die Skin-Studio-Garderobe).
+Mit Skin Studio tragen Replay-Puppen automatisch den Skin-Studio-Look des Darstellers vom Moment der Aufnahme (im Replay gespeichert, auch für offline Darsteller), Statisten und Doubles den aktuellen Look, und Emotes aus dem Emote-Rad (B) werden in Replays mit aufgenommen. Die Kamera-Taste im Replay-Editor ist **H** (J öffnet die Skin-Studio-Garderobe).
 
 ## Replays im Hauptmenü
 Knopf **„🎬 BTB Replays“** oben links im Haupt- und Pausemenü: Liste aller Replays (Länge, Welt, Datum), **✂ Bearbeiten** lädt die Welt des Replays und öffnet den Editor, dazu Umbenennen, Kopie, Löschen und (in der Welt) Abspielen.

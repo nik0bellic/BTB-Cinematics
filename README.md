@@ -45,7 +45,7 @@
 - Doubles, Statisten mit Gesten, Probe-Modus, Countdown für Darsteller
 
 **Zusammen mit BTB Skin Studio**
-- Mit [BTB Skin Studio](https://github.com/nik0bellic/BTB-Skin-Studio) tragen Replay-Puppen, Doubles und Statisten den Skin-Studio-Look des Darstellers (Skin, Cosmetics, Proportionen); **Emotes** werden im Replay mit aufgenommen und nachgespielt, `/btb emote` lässt Statisten Emotes spielen
+- Mit [BTB Skin Studio](https://github.com/nik0bellic/BTB-Skin-Studio) tragen Replay-Puppen den Skin-Studio-Look des Darstellers **vom Moment der Aufnahme** (Skin, Cosmetics, Proportionen – im Replay gespeichert, auch wenn der Darsteller später offline ist), Statisten und Doubles den aktuellen Look; **Emotes** werden im Replay mit aufgenommen und nachgespielt, `/btb emote` lässt Statisten Emotes spielen
 
 **Bild und Ton**
 - Shader-Effekte, die auch mit Iris-Shaderpacks laufen (getestet mit MakeUp und Complementary): Filmkorn, Hitzeflimmern, Tiefenschärfe, anamorphe Lichtstreifen, Rückblende, LUT-Farbkorrektur (eigene `.cube`-Dateien), Kinoformate 2.39:1/4:3, Lens Flare, Vignette, Zeitlupe

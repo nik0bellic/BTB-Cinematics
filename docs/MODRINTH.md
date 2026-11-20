@@ -48,7 +48,7 @@ Plan scenes, fly cameras, add cinematic effects, record takes once and film them
 ![Replays from the main menu](https://raw.githubusercontent.com/nik0bellic/btb-cinematics/main/docs/screenshots/runde14_replays_fenster.png)
 
 ## 👕 Works with BTB Skin Studio
-With [BTB Skin Studio](https://github.com/nik0bellic/BTB-Skin-Studio) installed, **replay puppets, doubles and extras wear the actor's Skin Studio look** (skin, cosmetics, body proportions) and **emotes are recorded and played back** in replays. `/btb emote` lets extras perform Skin Studio emotes.
+With [BTB Skin Studio](https://github.com/nik0bellic/BTB-Skin-Studio) installed, **replay puppets wear the actor's Skin Studio look from the moment of recording** (skin, cosmetics, body proportions) – stored in the replay, so it stays even when the actor changes clothes or is offline. **Emotes are recorded and played back**, extras wear Skin Studio looks too, and `/btb emote` lets them perform emotes.
 
 ![Extras with Skin Studio cosmetics cheering](https://raw.githubusercontent.com/nik0bellic/btb-cinematics/main/docs/screenshots/runde14_skinstudio_statisten_emote.png)
 
@@ -113,7 +113,8 @@ With [BTB Skin Studio](https://github.com/nik0bellic/BTB-Skin-Studio) installed,
 - Replays and camera fully usable from the menu, whole-take export in 1080p/4K
 
 **BTB Skin Studio**
-- Puppets, doubles and extras wear the actor's Skin Studio look; emotes are recorded and replayed; `/btb emote`
+- Replay puppets wear the actor's Skin Studio look from the moment of recording – stored in the replay, also when the actor is offline later
+- Extras and doubles wear Skin Studio looks; emotes are recorded and replayed; `/btb emote`
 - Replay camera key moved from J to H (J opens the Skin Studio wardrobe)
 
 **Performance**

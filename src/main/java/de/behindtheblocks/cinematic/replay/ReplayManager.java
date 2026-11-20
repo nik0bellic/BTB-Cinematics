@@ -223,6 +223,11 @@ public final class ReplayManager implements CinematicModule, CommandContributor 
 		t.addProperty("kind", "player");
 		t.addProperty("name", p.getGameProfile().name());
 		t.addProperty("uuid", p.getUUID().toString());
+		// BTB Skin Studio: the look of this moment goes into the take (stays even if the actor changes or is offline)
+		JsonObject look = SkinStudioBridge.snapshot(p);
+		if (look != null) {
+			t.add("skinstudio", look);
+		}
 		JsonArray props = new JsonArray();
 		p.getGameProfile().properties().get("textures").forEach(pr -> {
 			JsonObject o = new JsonObject();
@@ -483,6 +488,12 @@ public final class ReplayManager implements CinematicModule, CommandContributor 
 		e.addTag("btb_invulnerable");
 		e.snapTo(f.get(0).getAsDouble(), f.get(1).getAsDouble(), f.get(2).getAsDouble(), f.get(3).getAsFloat(), f.get(4).getAsFloat());
 		level.addFreshEntity(e);
+		if (player && t.has("skinstudio") && SkinStudioBridge.apply(e.getUUID(), t.getAsJsonObject("skinstudio"), server)) {
+			// clients: this mannequin wears its own stored look, not the actor's current one
+			JsonObject o = new JsonObject();
+			o.addProperty("entity", e.getUUID().toString());
+			engine.cues().queue(TimelineManager.MANUAL, 0, "btb_puppet_look", o);
+		}
 		Puppet pp = new Puppet();
 		pp.entity = e;
 		pp.player = player;
@@ -541,7 +552,12 @@ public final class ReplayManager implements CinematicModule, CommandContributor 
 	}
 
 	private void stopPlayback() {
-		puppets.values().forEach(p -> p.entity.discard());
+		puppets.values().forEach(p -> {
+			if (p.player) {
+				SkinStudioBridge.remove(p.entity.getUUID(), server);
+			}
+			p.entity.discard();
+		});
 		puppets.clear();
 		if (server != null) {
 			for (var en : hiddenActors.entrySet()) {
@@ -742,6 +758,11 @@ public final class ReplayManager implements CinematicModule, CommandContributor 
 				})))
 				.then(literal("stop").executes(c -> {
 					if (recName != null) {
+						for (JsonObject tr : recTracks.values()) {
+							if (tr.has("skinstudio")) {
+								SkinStudioBridge.storeFiles(tr.getAsJsonObject("skinstudio"));
+							}
+						}
 						JsonObject data = new JsonObject();
 						data.addProperty("length", recTick);
 						JsonArray tracks = new JsonArray();
