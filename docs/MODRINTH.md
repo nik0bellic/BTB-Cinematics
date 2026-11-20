@@ -79,7 +79,7 @@ With [BTB Skin Studio](https://github.com/nik0bellic/BTB-Skin-Studio) installed,
 
 ## 🔗 Links
 - Source code & guides (German): https://github.com/nik0bellic/btb-cinematics
-- Developed by **Nik2810** · License: **LGPL-3.0-only** (font Cinzel: SIL OFL 1.1)
+- Developed by **Nik2810** · Studio: **Bellić Development** · YouTube & Instagram: @btb.minecraft · TikTok: @btb.plus · License: **LGPL-3.0-only** (font Cinzel: SIL OFL 1.1)
 
 *Not an official Minecraft product. Not approved by or associated with Mojang or Microsoft.*
 ```

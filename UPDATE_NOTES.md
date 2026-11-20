@@ -48,7 +48,7 @@
 - **Leere Bereiche erklären den nächsten Schritt**, mit passendem Knopf.
 - **Eingabefelder klappen sich automatisch ein**, wenn sonst kaum Platz für die Liste bleibt.
 - **Assistenten**: „Ersten Film drehen“, „Replay & Export“, „Kamerafahrt bauen“ – Schritt für Schritt.
-- **Info-Seite** (ⓘ oben bzw. Start → Info): Version, Credits (entwickelt von Nik2810), Links zu GitHub, Instagram und TikTok.
+- **Info-Seite** (ⓘ oben bzw. Start → Info): Version, Credits (entwickelt von Nik2810, Studio: Bellić Development), Links zu GitHub, YouTube, Instagram und TikTok.
 - Tab-Namen werden nie mehr abgeschnitten (die Spalte passt sich an), die untere Leiste wird bei kleinen Fenstern kürzer.
 
 ### ✨ Verbessert

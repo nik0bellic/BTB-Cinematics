@@ -1730,10 +1730,12 @@ public final class DirectorScreen extends Screen {
 						.map(m -> m.getMetadata().getVersion().getFriendlyString()).orElse("?");
 				rows.add(new Row("§lBTB Cinematics§r · v" + version, 0xFFFFE0C0, List.of()));
 				rows.add(new Row("Entwickelt von §6Nik2810", 0xFFFFFFFF, List.of()));
+				rows.add(new Row("Studio: §6Bellić Development", 0xFFFFFFFF, List.of()));
 				rows.add(new Row("Für die Minecraft-Filmproduktion „Behind The Blocks“", 0xFFDDDDDD, List.of()));
 				rows.add(new Row("Quellcode, Anleitung und Fehler melden", 0xFFDDDDDD, List.of(
 						new Action("GitHub", "local:url:https://github.com/nik0bellic/btb-cinematics", "github.com/nik0bellic/btb-cinematics", true))));
 				rows.add(new Row("Behind The Blocks", 0xFFDDDDDD, List.of(
+						new Action("YouTube", "local:url:https://www.youtube.com/@btb.minecraft", "@btb.minecraft", true),
 						new Action("Instagram", "local:url:https://www.instagram.com/btb.minecraft", "@btb.minecraft", true),
 						new Action("TikTok", "local:url:https://www.tiktok.com/@btb.plus", "@btb.plus", true))));
 				rows.add(new Row("Lizenz: LGPL-3.0-only · Schrift Cinzel: SIL Open Font License 1.1", 0xFF999999, List.of()));
